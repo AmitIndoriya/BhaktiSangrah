@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#800000</color>
+    <color name="colorPrimaryDark">#800000</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="black_trans">#66000000</color>
+    <color name="light_gray">#E8E8E8</color>
+    <color name="red">#ff0000</color>
+    <color name="light_red">#ffe8e7</color>
+    <color name="light_sky_blue">#dbf0fd</color>
+    <color name="light_purple">#CBC3E3</color>
+    <color name="light_orange">#fff6e5</color>
+    <color name="light_green">#90EE90</color>
+    <color name="antique_white">#FAEBD7</color>
+    <color name="aqua_marine">#7FFFD4</color>
+    <color name="light_red1">#ffcccb</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="DarkGrayColor">#A9A9A9</color>
+    <color name="night_sky_color">#063970</color>
+
+    <color name="skyblue">#87ebd6</color>
+    <color name="purple">#BA55D3</color>
+    <color name="peach_yellow">#FFDAB9</color>
+    <color name="light_pink">#FFB6C1</color>
+    <color name="dark_gray">#A9A9A9</color>
+    <color name="panchanag_bg_color">#fff6e7</color>
+    <color name="date_picker_btn_color">#f9e9d2</color>
+    <color name="today_panchang_bg">#f2c85b</color>
+    <color name="panchang_card_bg">#fffcf9</color>
+    <color name="heading_text_color">#616161</color>
+    <color name="divider_color">#cfccc9</color>
+
+    <color name="light_sky_blue_p">#bbd7ff</color>
+    <color name="light_purple_p">#dedbff</color>
+    <color name="light_orange_p">#fde5ce</color>
+    <color name="light_yellow">#FFDAB9</color>
+    <color name="date_picker_bg">#fcbc90</color>
+    <color name="date_picker_text_color">#80461a</color>
+    <color name="shubh_muhurat_bg_color">#bbffb9</color>
+    <color name="ashubh_muhurat_bg_color1">#FCEEFE</color>
+
+
+    <color name="calendar_color">#FF9999</color>
+    <color name="sunday_color">#FFCCCC</color>
+
+    <color name="greyed_out">#c7c7c7</color>
+
+    <color name="light_pink_color">#FFF2FD</color>
+    <color name="light_yellow_color">#FFFFA7</color>
+    <color name="light_blue_color">#dbf0fe</color>
+    <color name="light_green_color">#ccff90</color>
+
+    <color name="dark_pink_color">#EBA2AD</color>
+
+
+
+
+
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="@color/aqua_marine" />
+            <stroke android:width="1dp" android:color="@color/aqua_marine" />
+            <corners android:topLeftRadius="5dp" android:topRightRadius="5dp" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <gradient android:angle="270" android:endColor="@color/aqua_marine" android:startColor="@color/aqua_marine" />
+            <stroke android:width="1dp" android:color="@color/aqua_marine" />
+            <corners android:topLeftRadius="5dp" android:topRightRadius="5dp" />
+        </shape>
+    </item>
+</selector>

@@ -1,0 +1,234 @@
+[
+  {
+    "id": 1,
+    "city": "Ajmer",
+    "state": "Rajasthan",
+    "latitude": 26.4691,
+    "longitude": 74.639
+  },
+  {
+    "id": 2,
+    "city": "Alwar",
+    "state": "Rajasthan",
+    "latitude": 27.5,
+    "longitude": 76.5
+  },
+  {
+    "id": 3,
+    "city": "Banswara",
+    "state": "Rajasthan",
+    "latitude": 23.4929453,
+    "longitude": 74.3498364
+  },
+  {
+    "id": 4,
+    "city": "Baran",
+    "state": "Rajasthan",
+    "latitude": 24.9176572,
+    "longitude": 76.6962766
+  },
+  {
+    "id": 5,
+    "city": "Barmer",
+    "state": "Rajasthan",
+    "latitude": 25.5819034,
+    "longitude": 71.6196624
+  },
+  {
+    "id": 6,
+    "city": "Bharatpur",
+    "state": "Rajasthan",
+    "latitude": 27.2652124,
+    "longitude": 77.3691255
+  },
+  {
+    "id": 7,
+    "city": "Bhilwara",
+    "state": "Rajasthan",
+    "latitude": 25.4887735,
+    "longitude": 74.6996128
+  },
+  {
+    "id": 8,
+    "city": "Bikaner",
+    "state": "Rajasthan",
+    "latitude": 28.0159286,
+    "longitude": 73.3171367
+  },
+  {
+    "id": 9,
+    "city": "Bundi",
+    "state": "Rajasthan",
+    "latitude": 25.5,
+    "longitude": 75.833333
+  },
+  {
+    "id": 10,
+    "city": "Chittorgarh",
+    "state": "Rajasthan",
+    "latitude": 24.717797,
+    "longitude": 74.4721031
+  },
+  {
+    "id": 11,
+    "city": "Churu",
+    "state": "Rajasthan",
+    "latitude": 28.2061443,
+    "longitude": 74.6919073
+  },
+  {
+    "id": 12,
+    "city": "Dausa",
+    "state": "Rajasthan",
+    "latitude": 26.8048658,
+    "longitude": 76.4437457
+  },
+  {
+    "id": 13,
+    "city": "Dholpur",
+    "state": "Rajasthan",
+    "latitude": 23.3812393,
+    "longitude": 76.816535
+  },
+  {
+    "id": 14,
+    "city": " Dungarpur",
+    "state": "Rajasthan",
+    "latitude": 23.666667,
+    "longitude": 73.75
+  },
+  {
+    "id": 15,
+    "city": "Hanumangarh",
+    "state": "Rajasthan",
+    "latitude": 29.5760254,
+    "longitude": 74.3342203
+  },
+  {
+    "id": 16,
+    "city": "Jaipur",
+    "state": "Rajasthan",
+    "latitude": 26.9154576,
+    "longitude": 75.8189817
+  },
+  {
+    "id": 17,
+    "city": "Jaisalmer",
+    "state": "Rajasthan",
+    "latitude": 27.0280161,
+    "longitude": 70.7785056
+  },
+  {
+    "id": 18,
+    "city": "Jalore",
+    "state": "Rajasthan",
+    "latitude": 25.3476006,
+    "longitude": 72.6260916
+  },
+  {
+    "id": 19,
+    "city": "Jhalawar",
+    "state": "Rajasthan",
+    "latitude": 24.3125558,
+    "longitude": 76.5227996
+  },
+  {
+    "id": 20,
+    "city": "Jhunjhunu",
+    "state": "Rajasthan",
+    "latitude": 28.1287995,
+    "longitude": 75.3992581
+  },
+  {
+    "id": 21,
+    "city": "Jodhpur",
+    "state": "Rajasthan",
+    "latitude": 26.2967719,
+    "longitude": 73.0351433
+  },
+  {
+    "id": 22,
+    "city": "Karauli",
+    "state": "Rajasthan",
+    "latitude": 26.516681,
+    "longitude": 77.0577298
+  },
+  {
+    "id": 23,
+    "city": "Kota",
+    "state": "Rajasthan",
+    "latitude": 25.1737019,
+    "longitude": 75.8574194
+  },
+  {
+    "id": 24,
+    "city": "Nagaur",
+    "state": "Rajasthan",
+    "latitude": 27.0607859,
+    "longitude": 74.1766754
+  },
+  {
+    "id": 25,
+    "city": "Pali",
+    "state": "Rajasthan",
+    "latitude": 27.0607859,
+    "longitude": 74.1766754
+  },
+  {
+    "id": 26,
+    "city": "Pratapgarh",
+    "state": "Rajasthan",
+    "latitude": 25.75,
+    "longitude": 81.75
+  },
+  {
+    "id": 27,
+    "city": "Rajsamand",
+    "state": "Rajasthan",
+    "latitude": 25.2913162,
+    "longitude": 73.8244925
+  },
+  {
+    "id": 28,
+    "city": "Sawai Madhopur",
+    "state": "Rajasthan",
+    "latitude": 26.2291412,
+    "longitude": 76.3045328
+  },
+  {
+    "id": 29,
+    "city": "Sikar",
+    "state": "Rajasthan",
+    "latitude": 27.662826,
+    "longitude": 75.0279263
+  },
+  {
+    "id": 30,
+    "city": "Sirohi",
+    "state": "Rajasthan",
+    "latitude": 24.8114047,
+    "longitude": 72.8300257
+  },
+  {
+    "id": 31,
+    "city": "Sri Ganganagar",
+    "state": "Rajasthan",
+    "latitude": 29.9270556,
+    "longitude": 73.8761519
+  },
+  {
+    "id": 32,
+    "city": "Tonk",
+    "state": "Rajasthan",
+    "latitude": 26.1221473,
+    "longitude": 75.6637537
+  },
+  {
+    "id": 33,
+    "city": "Udaipur",
+    "state": "Rajasthan",
+    "latitude": 24.578721,
+    "longitude": 73.6862571
+  }
+]
+

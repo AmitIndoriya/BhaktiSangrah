@@ -1,0 +1,15 @@
+<resources>
+
+    <dimen name="heading_text_size">20sp</dimen>
+    <dimen name="sub_heading_text_size">18sp</dimen>
+    <dimen name="content_text_size">16sp</dimen>
+    <dimen name="title_text_size">20sp</dimen>
+    <dimen name="text_size36">36sp</dimen>
+    <dimen name="list_item_text_size">16sp</dimen>
+
+    <dimen name="panchang_label_size">15sp</dimen>
+    <dimen name="panchang_val_size">16sp</dimen>
+    <dimen name="panchang_time_size">15sp</dimen>
+
+
+</resources>

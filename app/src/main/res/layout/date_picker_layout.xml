@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:orientation="horizontal">
+
+
+    <LinearLayout
+        android:id="@+id/date_picker_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/rectangle"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp">
+
+        <Button
+            android:id="@+id/previous_date_btn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:alpha=".9"
+            android:background="@drawable/arrow_left_black" />
+
+        <TextView
+            android:id="@+id/date_picker_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:singleLine="false"
+            android:text="14 May,2020"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            tools:ignore="HardcodedText,NestedWeights" />
+
+        <Button
+            android:id="@+id/next_date_btn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:alpha=".9"
+            android:background="@drawable/arrow_right_black" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/current_date_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/rectangle"
+        android:gravity="center"
+        android:paddingLeft="16dp"
+        android:paddingTop="10dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="10dp"
+        android:text="@string/today"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+</LinearLayout>
+

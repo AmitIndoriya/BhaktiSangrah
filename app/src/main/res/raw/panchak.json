@@ -1,0 +1,118 @@
+[
+  {
+    "month": "जुलाई ",
+    "year": "2022",
+    "panchak_List": [
+      {
+        "monthStart": "जुलाई",
+        "monthEnd": "जुलाई",
+        "startDate": "16",
+        "endDate": "20",
+        "startDay": "शनिवार",
+        "endDay": "बुधवार",
+        "startTime": "04:17 AM",
+        "endTime": "12:51 PM"
+      }
+    ]
+  },
+  {
+    "month": "अगस्त",
+    "year": "2022",
+    "panchak_List": [
+      {
+        "monthStart": "अगस्त",
+        "monthEnd": "अगस्त",
+        "startDate": "12",
+        "endDate": "16",
+        "startDay": "शुक्रवार",
+        "endDay": "मंगलवार",
+        "startTime": "02:49 PM",
+        "endTime": "09:07 PM"
+      }
+    ]
+  },
+  {
+    "month": "सितम्बर",
+    "year": "2022",
+    "panchak_List": [
+      {
+        "monthStart": "सितम्बर",
+        "monthEnd": "सितम्बर",
+        "startDate": "9",
+        "endDate": "13",
+        "startDay": "शुक्रवार",
+        "endDay": "मंगलवार",
+        "startTime": "00:39 AM",
+        "endTime": "06:36 AM"
+      }
+    ]
+  },
+  {
+    "month": "अक्टूबर",
+    "year": "2022",
+    "panchak_List": [
+      {
+        "monthStart": "अक्टूबर",
+        "monthEnd": "अक्टूबर",
+        "startDate": "6",
+        "endDate": "10",
+        "startDay": "गुरुवार",
+        "endDay": "सोमवार",
+        "startTime": "08:28 AM",
+        "endTime": "04:02 PM"
+      }
+    ]
+  },
+  {
+    "month": "नवंबर",
+    "year": "2022",
+    "panchak_List": [
+      {
+        "monthStart": "नवंबर",
+        "monthEnd": "नवंबर",
+        "startDate": "2",
+        "endDate": "7",
+        "startDay": "बुधवार",
+        "endDay": "सोमवार",
+        "startTime": "02:17 PM",
+        "endTime": "00:04 AM"
+      },
+      {
+        "monthStart": "नवंबर",
+        "monthEnd": "दिसंबर",
+        "startDate": "29",
+        "endDate": "4",
+        "startDay": "मंगलवार",
+        "endDay": "रविवार",
+        "startTime": "07:51 PM",
+        "endTime": "06:17 AM"
+      }
+    ]
+  },
+  {
+    "month": "दिसंबर",
+    "year": "2022",
+    "panchak_List": [
+      {
+        "monthStart": "नवंबर",
+        "monthEnd": "दिसंबर",
+        "startDate": "29",
+        "endDate": "4",
+        "startDay": "मंगलवार",
+        "endDay": "रविवार",
+        "startTime": "07:51 PM",
+        "endTime": "06:17 AM"
+      },
+      {
+        "monthStart": "दिसंबर",
+        "monthEnd": "दिसंबर",
+        "startDate": "27",
+        "endDate": "31",
+        "startDay": "मंगलवार",
+        "endDay": "शनिवार",
+        "startTime": "03:31 AM",
+        "endTime": "11:47 AM"
+      }
+    ]
+  }
+]

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../../layout/custom_preview.xml" value="0.11574539363484088" />
+        <entry key="app/src/main/res/drawable/image2vector_2_.xml" value="0.1835" />
+        <entry key="app/src/main/res/drawable/panchang1.xml" value="0.1835" />
+        <entry key="app/src/main/res/drawable/rect_gray_border.xml" value="0.1835" />
+        <entry key="app/src/main/res/drawable/rect_light_blue.xml" value="0.1835" />
+        <entry key="app/src/main/res/drawable/rect_light_green.xml" value="0.1835" />
+        <entry key="app/src/main/res/drawable/rect_light_pink.xml" value="0.1835" />
+        <entry key="app/src/main/res/drawable/rect_light_yellow.xml" value="0.1835" />
+        <entry key="app/src/main/res/layout/aarti_desc_activity.xml" value="0.3260416666666667" />
+        <entry key="app/src/main/res/layout/act_birthdetail_input_layout.xml" value="0.3260416666666667" />
+        <entry key="app/src/main/res/layout/act_dashboard_layout.xml" value="0.3260416666666667" />
+        <entry key="app/src/main/res/layout/home_grid_item_layout.xml" value="0.3260416666666667" />
+        <entry key="app/src/main/res/layout/panchak_list_item.xml" value="0.3260416666666667" />
+        <entry key="app/src/main/res/layout/simple_spinner_item.xml" value="0.37710843373493974" />
+        <entry key="app/src/main/res/menu/dashboard_drawer.xml" value="0.3260416666666667" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

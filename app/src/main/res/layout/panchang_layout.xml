@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?><!--<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:lht="http://schemas.android.com/apk/res-auto">-->
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/panchanag_bg_color">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:descendantFocusability="blocksDescendants"
+        android:orientation="vertical">
+
+        <!--  <FrameLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+              <com.bhakti_sangrahalay.customcomponent.MyTextView
+                  android:id="@+id/date_picker_tv"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="left"
+                  android:background="@drawable/panchang_date_picker_bg"
+                  android:drawableRight="@drawable/arrow_down_black"
+                  android:padding="8dp"
+                  android:text="२६ जून २०२२"
+                  app:drawableTint="@color/colorPrimary" />
+
+              <com.bhakti_sangrahalay.customcomponent.MyTextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="left"
+                  android:background="@drawable/panchang_date_picker_bg"
+                  android:drawableRight="@drawable/arrow_down_black"
+                  android:padding="8dp"
+                  android:text="२६ जून २०२२"
+                  app:drawableTint="@color/colorPrimary" />
+          </FrameLayout>-->
+
+        <include
+            android:id="@+id/today_panchang_layout"
+            layout="@layout/today_panchang_layout" />
+
+        <include
+            android:id="@+id/date_picker"
+            layout="@layout/date_picker_layout"
+            android:visibility="visible" />
+
+        <include
+            android:id="@+id/sun_moon_layout"
+            layout="@layout/sun_moon_calculation_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/panchang"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <include
+            android:id="@+id/sampurn_panchang_layout"
+            layout="@layout/sampurn_panchang_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView><!--</layout>-->

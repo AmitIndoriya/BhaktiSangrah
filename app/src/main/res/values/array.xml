@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="god_name_list">
+        <item>@string/ganesh_ji</item>
+        <item>@string/hanuman_ji</item>
+        <item>@string/durga_ji</item>
+        <item>@string/shiv_ji</item>
+        <item>@string/shyam_ji</item>
+        <item>@string/santoshi_mata</item>
+        <item>@string/lakshmi_mata</item>
+        <item>@string/vishnu_ji</item>
+        <item>@string/shani_dev</item>
+    </string-array>
+    <string-array name="god_icon_list">
+        <item>@drawable/ganeshji_aarti_image</item>
+        <item>@drawable/hanumaanji_aarti_image</item>
+        <item>@drawable/durgaji_aarti_image</item>
+        <item>@drawable/shivji_aarti_image</item>
+        <item>@drawable/shyamji_aarti_image</item>
+        <item>@drawable/santoshi_maa_aarti_image</item>
+        <item>@drawable/lakshmi_ma_aarti_image</item>
+        <item>@drawable/vishnu_ji_aarti_image</item>
+        <item>@drawable/shani_dev_image</item>
+    </string-array>
+    <string-array name="aarti_row_file_list">
+        <item>@raw/ganeshji_ki_aarti</item>
+        <item>@raw/hanumanji_ki_aarti</item>
+        <item>@raw/durgaji_ki_aarti</item>
+        <item>@raw/shivji_ki_aarti</item>
+        <item>@raw/shyamji_ki_aarti</item>
+        <item>@raw/santoshi_ma_ki_aarti</item>
+        <item>@raw/lakshmi_ji_ki_aarti</item>
+        <item>@raw/vishnu_ji_ki_aarti</item>
+        <item>@raw/shani_dev_aarti</item>
+    </string-array>
+    <string-array name="chalish_title_list">
+        <item>@string/ganesh_cahlisa</item>
+        <item>@string/hanuman_cahlisa</item>
+        <item>@string/durga_cahlisa</item>
+        <item>@string/shiv_cahlisa</item>
+        <item>@string/lakshmi_cahlisa</item>
+    </string-array>
+    <string-array name="chalish_icon_list">
+        <item>@drawable/ganeshji_chalisha</item>
+        <item>@drawable/hanuman_chalisha</item>
+        <item>@drawable/durga_chalisha</item>
+        <item>@drawable/shiv_chalisha</item>
+        <item>@drawable/lakshmi_chalisha_image</item>
+    </string-array>
+    <string-array name="chalish_raw_file_list">
+        <item>@raw/ganesh_chalisha</item>
+        <item>@raw/hanuman_chalisha</item>
+        <item>@raw/durga_chalisha</item>
+        <item>@raw/shiv_chalisha</item>
+        <item>@raw/lakshmi_chalisha</item>
+    </string-array>
+
+    <string-array name="vrat_katha_list">
+        <item>@string/gangaur_vart_katha</item>
+        <item>@string/santoshi_mata_vart_katha</item>
+        <item>@string/devuthani_vart_katha</item>
+        <item>@string/purnmashi_vart_katha</item>
+        <item>@string/solah_somvar_vart_katha</item>
+        <item>@string/vat_savitri_vart_katha</item>
+        <item>@string/chath_puja_vart_katha</item>
+    </string-array>
+    <string-array name="vart_katha_row_file_list">
+        <item>@raw/gangaur_katha</item>
+        <item>@raw/santoshi_mata_vart_katha</item>
+        <item>@raw/dev_uthani_ekadashi_vart_katha</item>
+        <item>@raw/puranmashi_vart_katha</item>
+        <item>@raw/solah_somvar_vart_katha</item>
+        <item>@raw/vat_savitri_katha</item>
+        <item>@raw/chath_puja_vart_katha</item>
+    </string-array>
+    <string-array name="adyatamik_kathaye_list">
+        <item>@string/hanumanji_ki_katha</item>
+        <item>@string/navratri_katha</item>
+        <item>@string/kuru_ka_janm_katha</item>
+        <item>@string/shri_krishan_katha</item>
+        <item>@string/kunti_ka_tyag_katha</item>
+        <item>@string/janesh_ji_thag_katha</item>
+    </string-array>
+    <string-array name="saptahik_vrat_katha_list">
+        <item>@string/sunday_vart_katha</item>>
+        <item>@string/monday_vart_katha</item>>
+        <item>@string/tuesday_vart_katha</item>>
+        <item>@string/wednesday_vart_katha</item>>
+        <item>@string/thrusday_vart_katha</item>>
+        <item>@string/friday_vart_katha</item>
+        <item>@string/saturday_vart_katha</item>>
+    </string-array>
+    <string-array name="vishisht_vrat_katha_list">
+        <item>@string/ahhoi_vart_katha</item>
+        <item>@string/bhai_dooj_vart_katha</item>
+        <item>@string/gangaur_vart_katha</item>
+        <item>@string/goverdhan_vart_katha</item>
+        <item>@string/hartalika_teez_vart_katha</item>
+        <item>@string/holika_vart_katha</item>
+        <item>@string/karvachauth_vart_katha</item>
+        <item>@string/mahalakshmi_vart_katha</item>
+        <item>@string/mangla_gauri_vart_katha</item>
+        <item>@string/narsingh_jayanti_vart_katha</item>
+        <item>@string/pradosh_vart_katha</item>
+        <item>@string/sankat_chturthi_vart_katha</item>
+        <item>@string/santoshi_mata_vart_katha</item>
+        <item>@string/satya_narayan_vart_katha</item>
+        <item>@string/sravan_somvar_vart_katha</item>
+        <item>@string/sarad_purnima_vart_katha</item>
+        <item>@string/shiv_ratri_vart_katha</item>
+        <item>@string/vat_savitri_vart_katha</item>
+    </string-array>
+
+    <string-array name="pauranik_katha_name_list">
+        <item>@string/pauranik_katha</item>
+        <item>@string/aadhyatmik_katha</item>
+        <item>@string/vishnu_puran</item>
+        <item>@string/shiv_puran</item>
+    </string-array>
+    <string-array name="pauranik_katha_icon_list">
+        <item>@drawable/pauranik_katha_image</item>
+        <item>@drawable/aadhyatmik_image</item>
+        <item>@drawable/vishnu_puran_image</item>
+        <item>@drawable/shivpuran_image</item>
+    </string-array>
+    <string-array name="pauranik_katha_row_file_list">
+        <item>@raw/pauranik_katha_list</item>
+        <item>@raw/aadhytmik_katha_list</item>
+        <item>@raw/vishnu_puran_list</item>
+        <item>@raw/shiv_puran_list</item>
+    </string-array>
+    <integer-array name="aarti_ids">
+        <item>101</item>
+        <item>102</item>
+        <item>103</item>
+        <item>104</item>
+        <item>105</item>
+        <item>106</item>
+        <item>107</item>
+        <item>108</item>
+        <item>109</item>
+    </integer-array>
+    <integer-array name="chalisha_ids">
+        <item>201</item>
+        <item>202</item>
+        <item>203</item>
+        <item>204</item>
+        <item>205</item>
+    </integer-array>
+    <string-array name="panchang_tab">
+        <item>@string/daily_panchang</item>
+        <item>@string/hora</item>
+        <item>@string/Chogdia</item>
+        <item>@string/do_ghati</item>
+        <item>@string/rahu_kaal</item>
+        <item>@string/panchak</item>
+        <item>@string/bhadra</item>
+    </string-array>
+    <string-array name="ashub_muhurats">
+        <item>@string/dushta_muhurtas</item>
+        <item>@string/kantaka</item>
+        <item>@string/yamaghanta</item>
+        <item>@string/rahu_kaal</item>
+        <item>@string/kulika</item>
+        <item>@string/kalavela</item>
+        <item>@string/yamaganda</item>
+        <item>@string/gulika_kaal</item>
+    </string-array>
+    <string-array name="muhurat_card_color">
+        <item>@color/light_sky_blue</item>
+        <item>@color/light_red</item>
+        <item>@color/light_orange</item>
+        <item>@color/ashubh_muhurat_bg_color1</item>
+        <item>@color/light_red</item>
+        <item>@color/light_sky_blue</item>
+        <item>@color/ashubh_muhurat_bg_color1</item>
+        <item>@color/light_orange</item>
+    </string-array>
+
+    <string-array name="hora_planets">
+        <item>@string/sun</item>
+        <item>@string/moon</item>
+        <item>@string/mars</item>
+        <item>@string/mercury</item>
+        <item>@string/jupiter</item>
+        <item>@string/venus</item>
+        <item>@string/saturn</item>
+    </string-array>
+    <string-array name="hora_planets_meaning">
+        <item>@string/hora_meaning1</item>
+        <item>@string/hora_meaning2</item>
+        <item>@string/hora_meaning3</item>
+        <item>@string/hora_meaning4 </item>
+        <item>@string/hora_meaning5</item>
+        <item>@string/hora_meaning6</item>
+        <item>@string/hora_meaning7</item>
+    </string-array>
+    <string-array name="pla_mean">
+        <item>@string/pla_mean1</item>
+        <item>@string/pla_mean2</item>
+        <item>@string/pla_mean3</item>
+        <item>@string/pla_mean4</item>
+        <item>@string/pla_mean5</item>
+        <item>@string/pla_mean6</item>
+        <item>@string/pla_mean7</item>
+    </string-array>
+
+    <string-array name="chogadiya_day_names_list">
+        <item>@string/udveg</item>
+        <item>@string/chal</item>
+        <item>@string/laabh</item>
+        <item>@string/amrut</item>
+        <item>@string/kaal</item>
+        <item>@string/shubh</item>
+        <item>@string/rog</item>
+    </string-array>
+    <string-array name="chogadiya_day_names_list_meaning">
+        <item>@string/inauspicious</item>
+        <item>@string/good</item>
+        <item>@string/auspicious</item>
+        <item>@string/auspicious</item>
+        <item>@string/inauspicious</item>
+        <item>@string/auspicious</item>
+        <item>@string/inauspicious</item>
+    </string-array>
+    <string-array name="chogadiya_night_names_list">
+        <item>@string/shubh</item>
+        <item>@string/amrut</item>
+        <item>@string/chal</item>
+        <item>@string/rog</item>
+        <item>@string/kaal</item>
+        <item>@string/laabh</item>
+        <item>@string/udveg</item>
+    </string-array>
+    <string-array name="chogadiya_night_names_list_meaning">
+        <item>@string/auspicious</item>
+        <item>@string/auspicious</item>
+        <item>Good</item>
+        <item>@string/inauspicious</item>
+        <item>@string/inauspicious</item>
+        <item>@string/auspicious</item>
+        <item>@string/inauspicious</item>
+    </string-array>
+    <string-array name="do_ghati_name_list">
+        <item>@string/pratah</item>
+        <item>@string/sangav</item>
+        <item>@string/madhyahna</item>
+        <item>@string/aparahna</item>
+        <item>@string/sayan</item>
+        <item>@string/pradosh</item>
+        <item>@string/ratri</item>
+        <item>@string/nishita</item>
+        <item>@string/ratri</item>
+        <item>@string/arunodaya</item>
+    </string-array>
+    <string-array name="do_ghati_name_list_meaning">
+        <item>@string/rudra</item>
+        <item>@string/ahi</item>
+        <item>@string/mitra</item>
+        <item>@string/pitru</item>
+        <item>@string/vasu</item>
+        <item>@string/vara</item>
+        <item>@string/visvadeva</item>
+        <item>@string/vidhi</item>
+        <item>@string/satamukhi</item>
+        <item>@string/puruhuta</item>
+        <item>@string/vahini</item>
+        <item>@string/naktancara</item>
+        <item>@string/varuna</item>
+        <item>@string/aryama</item>
+        <item>@string/bhaga</item>
+        <item>@string/girisha</item>
+        <item>@string/ajapad</item>
+        <item>@string/ahirbudhnya</item>
+        <item>@string/pusa</item>
+        <item>@string/aswini</item>
+        <item>@string/yama</item>
+        <item>@string/agni</item>
+        <item>@string/vidhatr</item>
+        <item>@string/kanda</item>
+        <item>@string/aditi</item>
+        <item>@string/jiva</item>
+        <item>@string/visnu</item>
+        <item>@string/yumigadyuti</item>
+        <item>@string/brahma</item>
+        <item>@string/samudram</item>
+    </string-array>
+    <string-array name="do_ghati_name_list_Muhurat">
+        <item>@string/raudra </item>
+        <item>@string/sit </item>
+        <item>@string/maitra </item>
+        <item>@string/chaarmath </item>
+        <item>@string/savitra   </item>
+        <item>@string/vairaj  </item>
+        <item>@string/gandharvas </item>
+        <item>@string/abhijit </item>
+        <item>@string/rohini </item>
+        <item>@string/bala </item>
+        <item>@string/vijay </item>
+        <item>@string/nairrit </item>
+        <item>@string/indra </item>
+        <item>@string/varuna </item>
+        <item>@string/bhaga </item>
+        <item>@string/raudra </item>
+        <item>@string/gandharvas </item>
+        <item>@string/paksha </item>
+        <item>@string/chaaran </item>
+        <item>@string/vayu </item>
+        <item>@string/agni </item>
+        <item>@string/rakshasas </item>
+        <item>@string/brahma </item>
+        <item>@string/saumya </item>
+        <item>@string/kamalaj </item>
+        <item>@string/guru </item>
+        <item>@string/paushna </item>
+        <item>@string/vaikuntha </item>
+        <item>@string/sameer </item>
+        <item>@string/nirriti </item>
+    </string-array>
+    <string-array name="do_ghati_muhurut_meaning">
+        <item>@string/Ardra</item>
+        <item>@string/Ashlesha</item>
+        <item>@string/Anuradha </item>
+        <item>@string/Magha </item>
+        <item>@string/Dhanishta</item>
+        <item>@string/Poorvashadha </item>
+        <item>@string/Uttarashadha </item>
+        <item>@string/Abhijit </item>
+        <item>@string/Rohini </item>
+        <item>@string/Jyeshtha</item>
+        <item>@string/Vishakha </item>
+        <item>@string/Moola </item>
+        <item>@string/Shatabhisha</item>
+        <item>@string/Uttara_Phalguni </item>
+        <item>@string/Purva_Phalgun </item>
+        <item>@string/Ardra</item>
+        <item>@string/Poorva_Bhadrapada </item>
+        <item>@string/Uttara_Bhadrapada </item>
+        <item>@string/Revati  </item>
+        <item>@string/Ashwini </item>
+        <item>@string/Bharani </item>
+        <item>@string/Kritika  </item>
+        <item>@string/Rohini </item>
+        <item>@string/Mrigashira </item>
+        <item>@string/Punarvasu </item>
+        <item>@string/Pushya </item>
+        <item>@string/Shravana </item>
+        <item>@string/Hasta </item>
+        <item>@string/Chitra </item>
+        <item>@string/Swati</item>
+    </string-array>
+    <string-array name="do_ghati_name_list_meaning_second">
+        <item> @string/Shiva 	</item>
+        <item>@string/Sarpa </item>
+        <item>@string/Mitra </item>
+        <item>@string/Pitar </item>
+        <item>@string/Vasu </item>
+        <item>@string/Jala </item>
+        <item>@string/Vishwadeva </item>
+        <item>@string/Brahma </item>
+        <item>@string/Surya </item>
+        <item>@string/Indra </item>
+        <item>@string/Agni </item>
+        <item>@string/Rakshasas </item>
+        <item>@string/Varuna </item>
+        <item>@string/Aryama </item>
+        <item>@string/Bhaga </item>
+        <item>@string/Shiva	</item>
+        <item>@string/Ajapad </item>
+        <item>@string/Ahirbudhnya </item>
+        <item>@string/Pusa </item>
+        <item>@string/Ashwini_Kumar </item>
+        <item>@string/Yama </item>
+        <item>@string/Agni </item>
+        <item>@string/Brahma </item>
+        <item>@string/Chandra </item>
+        <item>@string/Aditi </item>
+        <item>@string/Bṛhaspati </item>
+        <item>@string/Visnu </item>
+        <item>@string/Surya </item>
+        <item>@string/Twashtra  </item>
+        <item>@string/Vayu </item>
+    </string-array>
+    <string-array name="do_ghati_huhurat">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>@string/Abhijit_Muhurat</item>
+        <item></item>
+        <item></item>
+        <item>@string/Vijay_Muhurat</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>@string/Sayan_Sandhya</item>
+        <item>@string/Sayan_Sandhya_half</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>@string/Mahanishita_Muhurat</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>@string/Pratah_Sandhya_half</item>
+        <item>@string/Pratah_Sandhya</item>
+    </string-array>
+
+    <string-array name="month_name">
+        <item>जनवरी</item>
+        <item>फरवरी</item>
+        <item>मार्च</item>
+        <item>अप्रैल</item>
+        <item>मई</item>
+        <item>जून</item>
+        <item>जुलाई</item>
+        <item>अगस्त</item>
+        <item>सितम्बर</item>
+        <item>अक्टूबर</item>
+        <item>नवम्बर</item>
+        <item>दिसम्बर</item>
+    </string-array>
+    <integer-array name="moon_phase_images">
+        <item>@drawable/moon_light_1</item>
+        <item>@drawable/moon_light_2</item>
+        <item>@drawable/moon_light_3</item>
+        <item>@drawable/moon_light_4</item>
+        <item>@drawable/moon_light_5</item>
+        <item>@drawable/moon_light_6</item>
+        <item>@drawable/moon_light_7</item>
+        <item>@drawable/moon_light_8</item>
+        <item>@drawable/moon_light_9</item>
+        <item>@drawable/moon_light_10</item>
+        <item>@drawable/moon_light_11</item>
+        <item>@drawable/moon_light_12</item>
+        <item>@drawable/moon_light_13</item>
+        <item>@drawable/moon_light_14</item>
+        <item>@drawable/ic_moon_light</item>
+        <item>@drawable/moon_light_dark_1</item>
+        <item>@drawable/moon_light_dark_2</item>
+        <item>@drawable/moon_light_dark_3</item>
+        <item>@drawable/moon_light_dark_4</item>
+        <item>@drawable/moon_light_dark_5</item>
+        <item>@drawable/moon_light_dark_6</item>
+        <item>@drawable/moon_light_dark_7</item>
+        <item>@drawable/moon_light_dark_8</item>
+        <item>@drawable/moon_light_dark_9</item>
+        <item>@drawable/moon_light_dark_10</item>
+        <item>@drawable/moon_light_dark_11</item>
+        <item>@drawable/moon_light_dark_12</item>
+        <item>@drawable/moon_light_dark_13</item>
+        <item>@drawable/moon_light_dark_14</item>
+        <item>@drawable/ic_moon_dark</item>
+    </integer-array>
+    <string-array name="planet_name">
+        <item>@string/Su</item>
+        <item>@string/Mo</item>
+        <item>@string/Ma</item>
+        <item>@string/Me</item>
+        <item>@string/Ju</item>
+        <item>@string/Ve</item>
+        <item>@string/Sa</item>
+        <item>@string/Ra</item>
+        <item>@string/Ke</item>
+        <item>@string/Ur</item>
+        <item>@string/Ne</item>
+        <item>@string/Pl</item>
+        <item>@string/La</item>
+        <item>@string/Asc</item>
+    </string-array>
+    <string-array name="kundli_module_list">
+        <item>@string/Lagna</item>
+        <item>@string/Navamsha </item>
+        <item>@string/moon </item>
+        <item>@string/chalit</item>
+        <item>@string/Planets</item>
+        <item>@string/Planets_sub</item>
+        <item>@string/chalit_table</item>
+        <item>@string/birth_detail</item>
+        <item>@string/panchang</item>
+        <item>@string/ashtakvarga</item>
+        <item>@string/Karakamsha</item>
+        <item>@string/Swamsa</item>
+        <item>@string/transit</item>
+        <item>@string/shad_bala</item>
+        <item>@string/prastharashtakvarga</item>
+        <item>@string/bhav_madhya</item>
+        <item>@string/friendship</item>
+        <item>@string/person_detail</item>
+        <item>@string/avkahada_chakra</item>
+        <item>@string/ghatak_favourable</item>
+    </string-array>
+</resources>
