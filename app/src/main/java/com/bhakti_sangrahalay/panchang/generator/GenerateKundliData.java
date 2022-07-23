@@ -2,6 +2,7 @@ package com.bhakti_sangrahalay.panchang.generator;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.util.Log;
 
 import com.indoriya.horolib.dhoro.DesktopHoro;
 import com.indoriya.horolib.util.Constants;
@@ -103,138 +104,138 @@ public class GenerateKundliData {
             int[] kpPlanetSignificationArray7 = args1.getKPPlanetSignification(7);
             int[] kpPlanetSignificationArray8 = args1.getKPPlanetSignification(8);
             args1.getTotalAshtakVargaValue();
-            String lagnaPlanetArray = "";
-            String navmanshPlanetArray = "";
-            String drekkanaStr = "";
-            String chaturthamanshStr = "";
-            String saptamamshaStr = "";
-            String dashamamshaStr = "";
-            String dwadashamamshaStr = "";
-            String shodashamshaStr = "";
-            String vimshamshaStr = "";
-            String saptavimshamshaStr = "";
-            String chaturvimshamshaStr = "";
-            String trimshamshaStr = "";
-            String khavedamshaStr = "";
-            String akshvedamshaStr = "";
-            String shashtiamshaStr = "";
-            String planetDegreeStr = "";
-            String kpCuspDegreeStr = "";
-            String kpPlanetSignificationStr1 = "";
-            String kpPlanetSignificationStr2 = "";
-            String kpPlanetSignificationStr3 = "";
-            String kpPlanetSignificationStr4 = "";
-            String kpPlanetSignificationStr5 = "";
-            String kpPlanetSignificationStr6 = "";
-            String kpPlanetSignificationStr7 = "";
-            String kpPlanetSignificationStr8 = "";
+            StringBuilder lagnaPlanetArray = new StringBuilder();
+            StringBuilder navmanshPlanetArray = new StringBuilder();
+            StringBuilder drekkanaStr = new StringBuilder();
+            StringBuilder chaturthamanshStr = new StringBuilder();
+            StringBuilder saptamamshaStr = new StringBuilder();
+            StringBuilder dashamamshaStr = new StringBuilder();
+            StringBuilder dwadashamamshaStr = new StringBuilder();
+            StringBuilder shodashamshaStr = new StringBuilder();
+            StringBuilder vimshamshaStr = new StringBuilder();
+            StringBuilder saptavimshamshaStr = new StringBuilder();
+            StringBuilder chaturvimshamshaStr = new StringBuilder();
+            StringBuilder trimshamshaStr = new StringBuilder();
+            StringBuilder khavedamshaStr = new StringBuilder();
+            StringBuilder akshvedamshaStr = new StringBuilder();
+            StringBuilder shashtiamshaStr = new StringBuilder();
+            StringBuilder planetDegreeStr = new StringBuilder();
+            StringBuilder kpCuspDegreeStr = new StringBuilder();
+            StringBuilder kpPlanetSignificationStr1 = new StringBuilder();
+            StringBuilder kpPlanetSignificationStr2 = new StringBuilder();
+            StringBuilder kpPlanetSignificationStr3 = new StringBuilder();
+            StringBuilder kpPlanetSignificationStr4 = new StringBuilder();
+            StringBuilder kpPlanetSignificationStr5 = new StringBuilder();
+            StringBuilder kpPlanetSignificationStr6 = new StringBuilder();
+            StringBuilder kpPlanetSignificationStr7 = new StringBuilder();
+            StringBuilder kpPlanetSignificationStr8 = new StringBuilder();
             String[] ashtakvargaRashi = new String[12];
 
             for (int i = 0; i < planetArray.length; i++) {
                 if (i == planetArray.length - 1) {
-                    lagnaPlanetArray = lagnaPlanetArray + planetArray[i];
-                    navmanshPlanetArray = navmanshPlanetArray + navmanshArray[i];
-                    drekkanaStr = drekkanaStr + drekkanaArray[i];
-                    chaturthamanshStr = chaturthamanshStr + chaturthamanshArray[i];
-                    saptamamshaStr = saptamamshaStr + saptamamshaArray[i];
-                    dashamamshaStr = dashamamshaStr + dashamamshaArray[i];
+                    lagnaPlanetArray.append(planetArray[i]);
+                    navmanshPlanetArray.append(navmanshArray[i]);
+                    drekkanaStr.append(drekkanaArray[i]);
+                    chaturthamanshStr.append(chaturthamanshArray[i]);
+                    saptamamshaStr.append(saptamamshaArray[i]);
+                    dashamamshaStr.append(dashamamshaArray[i]);
 
-                    dwadashamamshaStr = dwadashamamshaStr + dwadashamamshaArray[i];
-                    shodashamshaStr = shodashamshaStr + shodashamshaArray[i];
-                    vimshamshaStr = vimshamshaStr + vimshamshaArray[i];
-                    saptavimshamshaStr = saptavimshamshaStr + saptavimshamshaArray[i];
-                    chaturvimshamshaStr = chaturvimshamshaStr + chaturvimshamshaArray[i];
-                    trimshamshaStr = trimshamshaStr + trimshamshaArray[i];
-                    khavedamshaStr = khavedamshaStr + khavedamshaArray[i];
-                    akshvedamshaStr = akshvedamshaStr + akshvedamshaArray[i];
-                    shashtiamshaStr = shashtiamshaStr + shashtiamshaArray[i];
-                    planetDegreeStr = planetDegreeStr + planetDegreeArray[i];
+                    dwadashamamshaStr.append(dwadashamamshaArray[i]);
+                    shodashamshaStr.append(shodashamshaArray[i]);
+                    vimshamshaStr.append(vimshamshaArray[i]);
+                    saptavimshamshaStr.append(saptavimshamshaArray[i]);
+                    chaturvimshamshaStr.append(chaturvimshamshaArray[i]);
+                    trimshamshaStr.append(trimshamshaArray[i]);
+                    khavedamshaStr.append(khavedamshaArray[i]);
+                    akshvedamshaStr.append(akshvedamshaArray[i]);
+                    shashtiamshaStr.append(shashtiamshaArray[i]);
+                    planetDegreeStr.append(planetDegreeArray[i]);
 
                 } else {
-                    lagnaPlanetArray = lagnaPlanetArray + planetArray[i] + ",";
-                    navmanshPlanetArray = navmanshPlanetArray + navmanshArray[i] + ",";
-                    drekkanaStr = drekkanaStr + drekkanaArray[i] + ",";
-                    chaturthamanshStr = chaturthamanshStr + chaturthamanshArray[i] + ",";
-                    saptamamshaStr = saptamamshaStr + saptamamshaArray[i] + ",";
-                    dashamamshaStr = dashamamshaStr + dashamamshaArray[i] + ",";
-                    dwadashamamshaStr = dwadashamamshaStr + dwadashamamshaArray[i] + ",";
-                    shodashamshaStr = shodashamshaStr + shodashamshaArray[i] + ",";
-                    vimshamshaStr = vimshamshaStr + vimshamshaArray[i] + ",";
-                    saptavimshamshaStr = saptavimshamshaStr + saptavimshamshaArray[i] + ",";
-                    chaturvimshamshaStr = chaturvimshamshaStr + chaturvimshamshaArray[i] + ",";
-                    trimshamshaStr = trimshamshaStr + trimshamshaArray[i] + ",";
-                    khavedamshaStr = khavedamshaStr + khavedamshaArray[i] + ",";
-                    akshvedamshaStr = akshvedamshaStr + akshvedamshaArray[i] + ",";
-                    shashtiamshaStr = shashtiamshaStr + shashtiamshaArray[i] + ",";
-                    planetDegreeStr = planetDegreeStr + planetDegreeArray[i] + ",";
+                    lagnaPlanetArray.append(planetArray[i]).append(",");
+                    navmanshPlanetArray.append(navmanshArray[i]).append(",");
+                    drekkanaStr.append(drekkanaArray[i]).append(",");
+                    chaturthamanshStr.append(chaturthamanshArray[i]).append(",");
+                    saptamamshaStr.append(saptamamshaArray[i]).append(",");
+                    dashamamshaStr.append(dashamamshaArray[i]).append(",");
+                    dwadashamamshaStr.append(dwadashamamshaArray[i]).append(",");
+                    shodashamshaStr.append(shodashamshaArray[i]).append(",");
+                    vimshamshaStr.append(vimshamshaArray[i]).append(",");
+                    saptavimshamshaStr.append(saptavimshamshaArray[i]).append(",");
+                    chaturvimshamshaStr.append(chaturvimshamshaArray[i]).append(",");
+                    trimshamshaStr.append(trimshamshaArray[i]).append(",");
+                    khavedamshaStr.append(khavedamshaArray[i]).append(",");
+                    akshvedamshaStr.append(akshvedamshaArray[i]).append(",");
+                    shashtiamshaStr.append(shashtiamshaArray[i]).append(",");
+                    planetDegreeStr.append(planetDegreeArray[i]).append(",");
                 }
             }
             for (int i = 0; i < kpCuspDegreeArray.length; i++) {
                 if (i == kpCuspDegreeArray.length - 1) {
-                    kpCuspDegreeStr = kpCuspDegreeStr + kpCuspDegreeArray[i];
+                    kpCuspDegreeStr.append(kpCuspDegreeArray[i]);
                 } else {
-                    kpCuspDegreeStr = kpCuspDegreeStr + kpCuspDegreeArray[i] + ",";
+                    kpCuspDegreeStr.append(kpCuspDegreeArray[i]).append(",");
                 }
             }
             for (int i = 0; i < kpPlanetSignificationArray1.length; i++) {
                 if (i == kpPlanetSignificationArray1.length - 1) {
-                    kpPlanetSignificationStr1 = kpPlanetSignificationStr1 + kpPlanetSignificationArray1[i];
-                    kpPlanetSignificationStr2 = kpPlanetSignificationStr2 + kpPlanetSignificationArray2[i];
-                    kpPlanetSignificationStr3 = kpPlanetSignificationStr3 + kpPlanetSignificationArray3[i];
-                    kpPlanetSignificationStr4 = kpPlanetSignificationStr4 + kpPlanetSignificationArray4[i];
-                    kpPlanetSignificationStr5 = kpPlanetSignificationStr5 + kpPlanetSignificationArray5[i];
-                    kpPlanetSignificationStr6 = kpPlanetSignificationStr6 + kpPlanetSignificationArray6[i];
-                    kpPlanetSignificationStr7 = kpPlanetSignificationStr7 + kpPlanetSignificationArray7[i];
-                    kpPlanetSignificationStr8 = kpPlanetSignificationStr8 + kpPlanetSignificationArray8[i];
+                    kpPlanetSignificationStr1.append(kpPlanetSignificationArray1[i]);
+                    kpPlanetSignificationStr2.append(kpPlanetSignificationArray2[i]);
+                    kpPlanetSignificationStr3.append(kpPlanetSignificationArray3[i]);
+                    kpPlanetSignificationStr4.append(kpPlanetSignificationArray4[i]);
+                    kpPlanetSignificationStr5.append(kpPlanetSignificationArray5[i]);
+                    kpPlanetSignificationStr6.append(kpPlanetSignificationArray6[i]);
+                    kpPlanetSignificationStr7.append(kpPlanetSignificationArray7[i]);
+                    kpPlanetSignificationStr8.append(kpPlanetSignificationArray8[i]);
                 } else {
-                    kpPlanetSignificationStr1 = kpPlanetSignificationStr1 + kpPlanetSignificationArray1[i] + ",";
-                    kpPlanetSignificationStr2 = kpPlanetSignificationStr2 + kpPlanetSignificationArray2[i] + ",";
-                    kpPlanetSignificationStr3 = kpPlanetSignificationStr3 + kpPlanetSignificationArray3[i] + ",";
-                    kpPlanetSignificationStr4 = kpPlanetSignificationStr4 + kpPlanetSignificationArray4[i] + ",";
-                    kpPlanetSignificationStr5 = kpPlanetSignificationStr5 + kpPlanetSignificationArray5[i] + ",";
-                    kpPlanetSignificationStr6 = kpPlanetSignificationStr6 + kpPlanetSignificationArray6[i] + ",";
-                    kpPlanetSignificationStr7 = kpPlanetSignificationStr7 + kpPlanetSignificationArray7[i] + ",";
-                    kpPlanetSignificationStr8 = kpPlanetSignificationStr8 + kpPlanetSignificationArray8[i] + ",";
+                    kpPlanetSignificationStr1.append(kpPlanetSignificationArray1[i]).append(",");
+                    kpPlanetSignificationStr2.append(kpPlanetSignificationArray2[i]).append(",");
+                    kpPlanetSignificationStr3.append(kpPlanetSignificationArray3[i]).append(",");
+                    kpPlanetSignificationStr4.append(kpPlanetSignificationArray4[i]).append(",");
+                    kpPlanetSignificationStr5.append(kpPlanetSignificationArray5[i]).append(",");
+                    kpPlanetSignificationStr6.append(kpPlanetSignificationArray6[i]).append(",");
+                    kpPlanetSignificationStr7.append(kpPlanetSignificationArray7[i]).append(",");
+                    kpPlanetSignificationStr8.append(kpPlanetSignificationArray8[i]).append(",");
 
                 }
             }
             for (int i = 0; i < 12; i++) {
-                String ashatakVarga = "";
+                StringBuilder ashatakVarga = new StringBuilder();
                 for (int j = 0; j < 7; j++) {
-                    ashatakVarga = ashatakVarga + args1.getAshtakvargaBinduForSignAndPlanet(j, i)+",";
+                    ashatakVarga.append(args1.getAshtakvargaBinduForSignAndPlanet(j, i)).append(",");
                 }
-                ashtakvargaRashi[i] = ashatakVarga;
+                ashtakvargaRashi[i] = ashatakVarga.toString();
             }
 
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("lagna", lagnaPlanetArray);
-            jsonObject.put("navmansh", navmanshPlanetArray);
-            jsonObject.put("drekkana", drekkanaStr);
-            jsonObject.put("chaturthamansh", chaturthamanshStr);
-            jsonObject.put("saptamamsha", saptamamshaStr);
-            jsonObject.put("dashamamsha", dashamamshaStr);
-            jsonObject.put("dwadashamamsha", dwadashamamshaStr);
-            jsonObject.put("shodashamsha", shodashamshaStr);
-            jsonObject.put("vimshamsha", vimshamshaStr);
-            jsonObject.put("saptavimshamsha", saptavimshamshaStr);
-            jsonObject.put("chaturvimshamsha", chaturvimshamshaStr);
-            jsonObject.put("trimshamsha", trimshamshaStr);
-            jsonObject.put("khavedamsha", khavedamshaStr);
-            jsonObject.put("akshvedamsha", akshvedamshaStr);
-            jsonObject.put("shashtiamsha", shashtiamshaStr);
-            jsonObject.put("planetDegree", planetDegreeStr);
-            jsonObject.put("kpCusp", kpCuspDegreeStr);
+            jsonObject.put("lagna", lagnaPlanetArray.toString());
+            jsonObject.put("navmansh", navmanshPlanetArray.toString());
+            jsonObject.put("drekkana", drekkanaStr.toString());
+            jsonObject.put("chaturthamansh", chaturthamanshStr.toString());
+            jsonObject.put("saptamamsha", saptamamshaStr.toString());
+            jsonObject.put("dashamamsha", dashamamshaStr.toString());
+            jsonObject.put("dwadashamamsha", dwadashamamshaStr.toString());
+            jsonObject.put("shodashamsha", shodashamshaStr.toString());
+            jsonObject.put("vimshamsha", vimshamshaStr.toString());
+            jsonObject.put("saptavimshamsha", saptavimshamshaStr.toString());
+            jsonObject.put("chaturvimshamsha", chaturvimshamshaStr.toString());
+            jsonObject.put("trimshamsha", trimshamshaStr.toString());
+            jsonObject.put("khavedamsha", khavedamshaStr.toString());
+            jsonObject.put("akshvedamsha", akshvedamshaStr.toString());
+            jsonObject.put("shashtiamsha", shashtiamshaStr.toString());
+            jsonObject.put("planetDegree", planetDegreeStr.toString());
+            jsonObject.put("kpCusp", kpCuspDegreeStr.toString());
             jsonObject.put("kpayan", args1.getKPAyanamsaLongitude());
             jsonObject.put("fortuna", args1.getKPFortunaLongitude());
             jsonObject.put("RPDayLord", args1.getKPDayLordName());
-            jsonObject.put("planetsignification1", kpPlanetSignificationStr1);
-            jsonObject.put("planetsignification2", kpPlanetSignificationStr2);
-            jsonObject.put("planetsignification3", kpPlanetSignificationStr3);
-            jsonObject.put("planetsignification4", kpPlanetSignificationStr4);
-            jsonObject.put("planetsignification5", kpPlanetSignificationStr5);
-            jsonObject.put("planetsignification6", kpPlanetSignificationStr6);
-            jsonObject.put("planetsignification7", kpPlanetSignificationStr7);
-            jsonObject.put("planetsignification8", kpPlanetSignificationStr8);
+            jsonObject.put("planetsignification1", kpPlanetSignificationStr1.toString());
+            jsonObject.put("planetsignification2", kpPlanetSignificationStr2.toString());
+            jsonObject.put("planetsignification3", kpPlanetSignificationStr3.toString());
+            jsonObject.put("planetsignification4", kpPlanetSignificationStr4.toString());
+            jsonObject.put("planetsignification5", kpPlanetSignificationStr5.toString());
+            jsonObject.put("planetsignification6", kpPlanetSignificationStr6.toString());
+            jsonObject.put("planetsignification7", kpPlanetSignificationStr7.toString());
+            jsonObject.put("planetsignification8", kpPlanetSignificationStr8.toString());
             jsonObject.put("ashtakvargar1", ashtakvargaRashi[0]);
             jsonObject.put("ashtakvargar2", ashtakvargaRashi[1]);
             jsonObject.put("ashtakvargar3", ashtakvargaRashi[2]);
@@ -259,7 +260,21 @@ public class GenerateKundliData {
             jsonObject.put("karan", args1.getKaranName());
             jsonObject.put("sunRiseTime", args1.getSunRiseTime());
             jsonObject.put("sunSetTime", args1.getSunSetTime());
-
+            JSONArray prastharashtakvargaJsonArray = new JSONArray();
+            String[] bindu = {"SU", "MO", "MA", "ME", "JU", "VE", "SA", "AS"};
+            String[] plaNo = {"SUN", "MOON", "MARS", "MERCURY", "JUPITER", "VENUS", "SATURN", "RAHU"};
+            for (int i = 1; i <= 8; i++) {
+                JSONObject jsonObject1 = new JSONObject();
+                for (int j = 1; j <= bindu.length; j++) {
+                    StringBuilder str = new StringBuilder();
+                    for (int k = 1; k < 13; k++) {
+                        str.append(args1.getPrastharashtakvargaTables(i, j, k)).append(",");
+                    }
+                    jsonObject1.put(bindu[j - 1], str);
+                }
+                prastharashtakvargaJsonArray.put(jsonObject1);
+            }
+            jsonObject.put("prastharashtakvarga", prastharashtakvargaJsonArray);
 
             jsonArray.put(jsonObject);
 

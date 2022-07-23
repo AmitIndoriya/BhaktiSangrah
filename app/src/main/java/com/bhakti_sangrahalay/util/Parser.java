@@ -145,11 +145,7 @@ public class Parser {
                 aartiBean.setLocalSaveUrl(GlobalVariables.storagePath + "/" + jsonArray.getJSONObject(i).getString("audiofilename"));
                 aartiBean.setDownLoading(false);
                 aartiBean.setProgressStatus(0);
-                if (Utility.isFileExist(aartiBean.getAudiofilename(), Long.parseLong(aartiBean.getAudiofilesize()))) {
-                    aartiBean.setDownLoaded(true);
-                } else {
-                    aartiBean.setDownLoaded(false);
-                }
+                aartiBean.setDownLoaded(Utility.isFileExist(aartiBean.getAudiofilename(), Long.parseLong(aartiBean.getAudiofilesize())));
                 arrayList.add(aartiBean);
             }
 
@@ -345,6 +341,7 @@ public class Parser {
         }
         return arrayList;
     }
+
     public ArrayList<KundliBean> parseKundliData(String response) {
         ArrayList<KundliBean> arrayList = new ArrayList<>();
         try {

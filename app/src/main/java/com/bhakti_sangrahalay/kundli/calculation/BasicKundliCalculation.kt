@@ -25,7 +25,7 @@ object BasicKundliCalculation {
     }
 
     private fun getPlanetDegreeArray(): DoubleArray {
-        val planetDegree: Array<String> = arrayList[0].getPlanetDegree().split(",").toTypedArray()
+        val planetDegree: Array<String> = arrayList[0].planetDegree.split(",").toTypedArray()
         val degree = DoubleArray(13)
         for (i in planetDegree.indices) {
             degree[i] = planetDegree[i].toDouble()
@@ -33,12 +33,11 @@ object BasicKundliCalculation {
         return degree
     }
 
-    fun getCuspsDegreeArray(): DoubleArray {
-        val cuspDegree: DoubleArray
+    private fun getCuspsDegreeArray(): DoubleArray {
         val tempDegree = DoubleArray(12)
         var diff2: Double
         var temp1: Double
-        cuspDegree = getCuspsMidDegreeArrayForChalit()
+        val cuspDegree: DoubleArray = getCuspsMidDegreeArrayForChalit()
 
         // CLACULATE CUSP DEGREE
         for (i in 0..11) {
@@ -46,13 +45,13 @@ object BasicKundliCalculation {
                 diff2 = cuspDegree[0] - cuspDegree[11]
                 if (diff2 < 0) {
                     diff2 = 360.0 - cuspDegree[11]
-                    diff2 = diff2 + cuspDegree[0]
+                    diff2 += cuspDegree[0]
                 }
             } else {
                 diff2 = cuspDegree[i] - cuspDegree[i - 1]
                 if (diff2 < 0) {
                     diff2 = 360.0 - cuspDegree[i - 1]
-                    diff2 = diff2 + cuspDegree[i]
+                    diff2 += cuspDegree[i]
                 }
             }
             diff2 /= 2.0
@@ -63,18 +62,17 @@ object BasicKundliCalculation {
         return tempDegree
     }
 
-    fun getCuspsMidDegreeArrayForChalit(): DoubleArray {
+    private fun getCuspsMidDegreeArrayForChalit(): DoubleArray {
         val cuspDegree = DoubleArray(12)
-        val ayaDiff: Double
-        ayaDiff = arrayList[0].kpayan.toDouble() - arrayList[0].ayan.toDouble()
+        val ayaDiff: Double = arrayList[0].kpayan.toDouble() - arrayList[0].ayan.toDouble()
 
 
         //CUSP -1
-        cuspDegree[0] = getKpDegreeArray().get(0) + ayaDiff
+        cuspDegree[0] = getKpDegreeArray()[0] + ayaDiff
         cuspDegree[0] = checkDegree(cuspDegree[0])
 
         //CUSP -10
-        cuspDegree[9] = getKpDegreeArray().get(9) + ayaDiff
+        cuspDegree[9] = getKpDegreeArray()[9] + ayaDiff
         cuspDegree[9] = checkDegree(cuspDegree[9])
 
 
@@ -133,7 +131,7 @@ object BasicKundliCalculation {
         return (plaDeg / 30.00).toInt() + 1
     }
 
-    fun FormatDMSInStringWithSign(
+    private fun FormatDMSInStringWithSign(
         _fDeg: Double,
         DegSign: String,
         MinSign: String,
@@ -155,7 +153,7 @@ object BasicKundliCalculation {
         }
 
         // strFormattedDeg=strFormattedDeg+getDegreeSign();
-        strFormattedDeg = strFormattedDeg + DegSign
+        strFormattedDeg += DegSign
         var temp: Double = _fDeg - _fDeg.toInt().toDouble()
         _min = (temp * 60).toInt()
         sMin = _min.toString()
@@ -168,9 +166,9 @@ object BasicKundliCalculation {
 
         // strFormattedDeg=strFormattedDeg+"'";
         // strFormattedDeg=strFormattedDeg+CGlobalVariables.MINUTE_SIGN;
-        strFormattedDeg = strFormattedDeg + MinSign
-        temp = temp * 60
-        temp = temp - temp.toInt().toDouble()
+        strFormattedDeg += MinSign
+        temp *= 60
+        temp -= temp.toInt().toDouble()
         _sec = (temp * 60).toInt()
         // fDeg=fDeg-(int)fDeg;
         // fDeg *=60.00;
@@ -180,83 +178,76 @@ object BasicKundliCalculation {
 
         // strFormattedDeg=strFormattedDeg+"''";
         // strFormattedDeg=strFormattedDeg+CGlobalVariables.SECOND_SIGN;
-        strFormattedDeg = strFormattedDeg + SecSign
+        strFormattedDeg += SecSign
         return strFormattedDeg.trim { it <= ' ' }
     }
 
-    fun getNakshatraNumber(_deg: Double): Int {
+    private fun getNakshatraNumber(_deg: Double): Int {
         return (_deg * 0.075).toInt()
     }
 
-    fun getRasiNumber(_deg: Double): Int {
+    private fun getRasiNumber(_deg: Double): Int {
         return (_deg / 30).toInt()
     }
 
-    fun getPlntCharan(pl: Double): Int {
-        val aa: Double
+    private fun getPlntCharan(pl: Double): Int {
         //val a: Double
         //val b: Double
-        val charan: Int
-        aa = pl
+        val aa: Double = pl
         //a = aa / 30
         //b = aa * 3 / 40
-        charan = (4 * fract(aa * 3.0 / 40)).toInt() + 1
-        return charan
+        return (4 * fract(aa * 3.0 / 40)).toInt() + 1
     }
 
-    fun fract(x: Double): Double {
-        val i: Long
+    private fun fract(x: Double): Double {
         val y: Double
-        i = x.toLong()
+        val i: Long = x.toLong()
         y = x - i
         return y
     }
 
-    fun getRasiNakSubSub(
+    private fun getRasiNakSubSub(
         d: Double, RasiLord: Array<String>,
         NakLord: Array<String>
     ): String {
         val y1 = IntArray(12)
-        y1.set(0, 7)
-        y1.set(1, 20)
-        y1.set(2, 6)
-        y1.set(3, 10)
-        y1.set(4, 7)
-        y1.set(5, 18)
-        y1.set(6, 16)
-        y1.set(7, 19)
-        y1.set(8, 17)
+        y1[0] = 7
+        y1[1] = 20
+        y1[2] = 6
+        y1[3] = 10
+        y1[4] = 7
+        y1[5] = 18
+        y1[6] = 16
+        y1[7] = 19
+        y1[8] = 17
 
         var d = d
         val sb = StringBuilder()
-        var a: Int
-        var b: Int
-        var c: Int
-        val f: Int
         var i = 0
         /*
          * if(d<0) d *=-1;
-         */f = (d / 30.0).toInt()
-        a = (d / 120.0).toInt()
+         */
+        val f: Int = (d / 30.0).toInt()
+        var a: Int = (d / 120.0).toInt()
         d -= a * 120.0
         a = (d * 3.0 / 40.0).toInt()
         d -= a * 40.0 / 3.0
         d *= 9.0
-        b = 0
+        var b = 0
         while (b < 9) {
             i = a + b
             if (i >= 9) i -= 9
-            d -= if (y1.get(i) <= d) y1.get(i) else break
+            d -= if (y1[i] <= d) y1.get(i) else break
             b++
         }
         b = i
-        d = d / y1.get(b) * (40.0 / 3.0)
+        d = d / y1[b] * (40.0 / 3.0)
         d *= 9.0
-        c = 0
+        var c = 0
         while (c < 9) {
             i = b + c
             if (i >= 9) i -= 9
-            d -= if (y1.get(i) <= d) y1.get(i) else break
+            d -= if (y1[i] <= d) y1[i] else break
             c++
         }
         c = i
@@ -331,8 +322,7 @@ object BasicKundliCalculation {
         val lagnaDegree = planetDegreeArray[0]
         var lagnaVal = cuspsDegreeArray[0] + 1.00
         if (lagnaVal > 360.00) lagnaVal -= 360.00
-        var count: Int
-        count = 0
+        var count = 0
         while (count < planetDegreeArray.size - 1) {
             planetDegreeArray[count] = planetDegreeArray[count + 1]
             count++
@@ -364,12 +354,12 @@ object BasicKundliCalculation {
 
     fun getPlanetsData(context: Context): ArrayList<BasicKundliPlanetData> {
         val plaDeg = getPlanetDegreeArray()
-        val degSign = context.getResources().getString(R.string.degree_sign)
-        val minSign = context.getResources().getString(R.string.minute_sign)
-        val secSign = context.getResources().getString(R.string.second_sign)
-        val plaName = context.getResources().getStringArray(R.array.planet_and_lagna_name_list)
-        val sign = context.getResources().getStringArray(R.array.rasi_short_name_list)
-        val naksh = context.getResources().getStringArray(R.array.nakshatra_short_name_list)
+        val degSign = context.resources.getString(R.string.degree_sign)
+        val minSign = context.resources.getString(R.string.minute_sign)
+        val secSign = context.resources.getString(R.string.second_sign)
+        val plaName = context.resources.getStringArray(R.array.planet_and_lagna_name_list)
+        val sign = context.resources.getStringArray(R.array.rasi_short_name_list)
+        val naksh = context.resources.getStringArray(R.array.nakshatra_short_name_list)
         val arrayList = ArrayList<BasicKundliPlanetData>()
         for (i in 0..12) {
             arrayList.add(
@@ -396,12 +386,12 @@ object BasicKundliCalculation {
 
     fun getPlanetsSubData(context: Context): ArrayList<BasicKundliPlanetSubData> {
         val plaDeg = getPlanetDegreeArray()
-        val degSign = context.getResources().getString(R.string.degree_sign)
-        val minSign = context.getResources().getString(R.string.minute_sign)
-        val secSign = context.getResources().getString(R.string.second_sign)
-        val plaName = context.getResources().getStringArray(R.array.planet_and_lagna_name_list)
-        val rashiLord = context.getResources().getStringArray(R.array.rasi_lord_short_name_list)
-        val nakshLord = context.getResources().getStringArray(R.array.nak_lord_short_name_list)
+        val degSign = context.resources.getString(R.string.degree_sign)
+        val minSign = context.resources.getString(R.string.minute_sign)
+        val secSign = context.resources.getString(R.string.second_sign)
+        val plaName = context.resources.getStringArray(R.array.planet_and_lagna_name_list)
+        val rashiLord = context.resources.getStringArray(R.array.rasi_lord_short_name_list)
+        val nakshLord = context.resources.getStringArray(R.array.nak_lord_short_name_list)
 
         val arrayList = ArrayList<BasicKundliPlanetSubData>()
         for (i in 0..12) {
