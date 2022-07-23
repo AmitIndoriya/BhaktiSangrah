@@ -34,10 +34,10 @@ object BasicKundliCalculation {
     }
 
     fun getCuspsDegreeArray(): DoubleArray {
-        var cuspDegree = DoubleArray(12)
+        val cuspDegree: DoubleArray
         val tempDegree = DoubleArray(12)
-        var diff2 = 0.0
-        var temp1 = 0.0
+        var diff2: Double
+        var temp1: Double
         cuspDegree = getCuspsMidDegreeArrayForChalit()
 
         // CLACULATE CUSP DEGREE
@@ -65,8 +65,7 @@ object BasicKundliCalculation {
 
     fun getCuspsMidDegreeArrayForChalit(): DoubleArray {
         val cuspDegree = DoubleArray(12)
-        var ayaDiff = 0.0
-        var diff = 0.0
+        val ayaDiff: Double
         ayaDiff = arrayList[0].kpayan.toDouble() - arrayList[0].ayan.toDouble()
 
 
@@ -88,7 +87,7 @@ object BasicKundliCalculation {
         cuspDegree[3] = checkDegree(cuspDegree[3])
 
         //CUSP -2,3
-        diff = cuspDegree[3] - cuspDegree[0]
+        var diff: Double = cuspDegree[3] - cuspDegree[0]
         if (diff < 0) diff += 360.0
         cuspDegree[1] = cuspDegree[0] + diff / 3
         cuspDegree[1] = checkDegree(cuspDegree[1])
@@ -131,7 +130,7 @@ object BasicKundliCalculation {
     }
 
     fun getPlanetRashi(plaDeg: Double): Int {
-        return (plaDeg / 30.00) as Int + 1
+        return (plaDeg / 30.00).toInt() + 1
     }
 
     fun FormatDMSInStringWithSign(
@@ -140,13 +139,12 @@ object BasicKundliCalculation {
         MinSign: String,
         SecSign: String
     ): String {
-        var strFormattedDeg: String? = null
-        var sDeg: String? = null
-        var sMin: String? = null
-        var sSec: String? = null
-        var _min = 0
-        var _sec = 0
-        var temp = 0.0
+        var strFormattedDeg: String?
+        val sDeg: String?
+        val sMin: String?
+        val sSec: String?
+        val _min: Int
+        val _sec: Int
         // fDeg =(float) (fDeg%30.00);
         sDeg = _fDeg.toInt().toString()
         strFormattedDeg = when (sDeg.trim { it <= ' ' }.length) {
@@ -158,7 +156,7 @@ object BasicKundliCalculation {
 
         // strFormattedDeg=strFormattedDeg+getDegreeSign();
         strFormattedDeg = strFormattedDeg + DegSign
-        temp = _fDeg - _fDeg.toInt().toDouble()
+        var temp: Double = _fDeg - _fDeg.toInt().toDouble()
         _min = (temp * 60).toInt()
         sMin = _min.toString()
 
@@ -276,7 +274,6 @@ object BasicKundliCalculation {
 
     private fun hasInHouse(cusp2: Double, cusp1: Double, plntDegree: Double): Boolean {
         var temp2 = cusp2
-        val s = ""
         if (temp2 - cusp1 < 0) temp2 += 360.00
         if (cusp1 < plntDegree + 360.0 && plntDegree + 360.0 < temp2) {
             return true
@@ -293,6 +290,25 @@ object BasicKundliCalculation {
         }
         intArray[rashiInpla.size - 1] = lagna
         return intArray
+    }
+
+    fun getKarakanshLagna(): Int {
+        val karkanshLagna: Int = calculateHigestDegree(getPlanetDegreeArray())
+        return getNavmanshKundliArray()[karkanshLagna]
+    }
+
+    private fun calculateHigestDegree(planetsDegree: DoubleArray): Int {
+        var higestDegreeNumber: Double
+        var higestValue = 0.0
+        var position = 0
+        for (i in 1..7) {
+            higestDegreeNumber = planetsDegree[i] % 30
+            if (higestDegreeNumber > higestValue) {
+                position = i - 1
+                higestValue = higestDegreeNumber
+            }
+        }
+        return position
     }
 
     fun getLaganKundliArray(): IntArray {
@@ -373,9 +389,9 @@ object BasicKundliCalculation {
                     minSign,
                     secSign
                 ) + "-" + naksh[getNakshatraNumber(plaDeg[i])] + "(" + getPlntCharan(plaDeg[i]) + ")"
-            );
+            )
         }
-        return arrayList;
+        return arrayList
     }
 
     fun getPlanetsSubData(context: Context): ArrayList<BasicKundliPlanetSubData> {
@@ -416,7 +432,7 @@ object BasicKundliCalculation {
                 ) + "-" + getRasiNakSubSub(plaDeg[i], rashiLord, nakshLord)
             )
         }
-        return arrayList;
+        return arrayList
     }
 
     fun getPanchangData(): BasicKundliPanchangBean {
@@ -450,7 +466,5 @@ object BasicKundliCalculation {
         return arrayList
     }
 
-    fun getKarakamshaKundliArray() {
 
-    }
 }

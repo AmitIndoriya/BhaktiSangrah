@@ -94,7 +94,20 @@ class KundliOutputActivity : BaseActivity() {
         fragList.add(KundliPlanetSubFragment.getInstance(viewModel.getPlanetsSubData(this)))
         fragList.add(KundliPanchangFragment.getInstance(viewModel.getPanchangData()))
         fragList.add(KundliAshtakvargaFragment.getInstance(viewModel.getAshtakvargaData()))
-
+        fragList.add(
+            ChartFragment.getInstance(
+                viewModel.getLagnaKundliPlanetRashiArray(),
+                viewModel.getKarakanshLagna(),
+                null
+            )
+        )
+        fragList.add(
+            ChartFragment.getInstance(
+                viewModel.getNavmanshKundliPlanetRashiArray(),
+                viewModel.getKarakanshLagna(),
+                null
+            )
+        )
         return fragList
     }
 }

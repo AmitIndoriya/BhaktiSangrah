@@ -61,4 +61,8 @@ class KundliOutputActivityViewModel : BaseViewModel() {
     fun getAshtakvargaData(): ArrayList<String> {
         return BasicKundliCalculation.getAshtakVargaData()
     }
+
+    fun getKarakanshLagna(): Int {
+        return BasicKundliCalculation.getKarakanshLagna()
+    }
 }
