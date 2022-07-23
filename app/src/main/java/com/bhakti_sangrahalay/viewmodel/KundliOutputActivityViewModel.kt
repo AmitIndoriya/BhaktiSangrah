@@ -6,6 +6,7 @@ import com.bhakti_sangrahalay.kundli.calculation.BasicKundliCalculation
 import com.bhakti_sangrahalay.kundli.model.BasicKundliPanchangBean
 import com.bhakti_sangrahalay.kundli.model.BasicKundliPlanetData
 import com.bhakti_sangrahalay.kundli.model.BasicKundliPlanetSubData
+import com.bhakti_sangrahalay.kundli.model.PrastharashtakvargaBean
 import com.bhakti_sangrahalay.panchang.generator.GenerateKundliData
 import com.bhakti_sangrahalay.util.Parser
 
@@ -64,5 +65,9 @@ class KundliOutputActivityViewModel : BaseViewModel() {
 
     fun getKarakanshLagna(): Int {
         return BasicKundliCalculation.getKarakanshLagna()
+    }
+
+    fun getPrastharashtakvargaData(): ArrayList<PrastharashtakvargaBean> {
+        return BasicKundliCalculation.getPrastharashtakvargaData()
     }
 }

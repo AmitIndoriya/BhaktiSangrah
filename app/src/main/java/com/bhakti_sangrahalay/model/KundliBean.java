@@ -1,6 +1,9 @@
 package com.bhakti_sangrahalay.model;
 
+import com.bhakti_sangrahalay.kundli.model.PrastharashtakvargaBean;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
 
 public class KundliBean {
     @SerializedName("lagna")
@@ -91,7 +94,7 @@ public class KundliBean {
     @SerializedName("sunSetTime")
     String sunSetTime;
     @SerializedName("prastharashtakvarga")
-    Prastharashtakvarga[] prastharashtakvarga;
+    ArrayList<PrastharashtakvargaBean> prastharashtakvarga;
 
     public String getLagna() {
         return lagna;
@@ -450,86 +453,13 @@ public class KundliBean {
         this.tithi = tithi;
     }
 
-    class Prastharashtakvarga {
-        @SerializedName("SU")
-        String su;
-        @SerializedName("MO")
-        String mo;
-        @SerializedName("MA")
-        String ma;
-        @SerializedName("ME")
-        String me;
-        @SerializedName("JU")
-        String ju;
-        @SerializedName("VE")
-        String ve;
-        @SerializedName("SA")
-        String sa;
-        @SerializedName("AS")
-        String as;
-
-        public String getSu() {
-            return su;
-        }
-
-        public void setSu(String su) {
-            this.su = su;
-        }
-
-        public String getMo() {
-            return mo;
-        }
-
-        public void setMo(String mo) {
-            this.mo = mo;
-        }
-
-        public String getMa() {
-            return ma;
-        }
-
-        public void setMa(String ma) {
-            this.ma = ma;
-        }
-
-        public String getMe() {
-            return me;
-        }
-
-        public void setMe(String me) {
-            this.me = me;
-        }
-
-        public String getJu() {
-            return ju;
-        }
-
-        public void setJu(String ju) {
-            this.ju = ju;
-        }
-
-        public String getVe() {
-            return ve;
-        }
-
-        public void setVe(String ve) {
-            this.ve = ve;
-        }
-
-        public String getSa() {
-            return sa;
-        }
-
-        public void setSa(String sa) {
-            this.sa = sa;
-        }
-
-        public String getAs() {
-            return as;
-        }
-
-        public void setAs(String as) {
-            this.as = as;
-        }
+    public ArrayList<PrastharashtakvargaBean> getPrastharashtakvarga() {
+        return prastharashtakvarga;
     }
+
+    public void setPrastharashtakvarga(ArrayList<PrastharashtakvargaBean> prastharashtakvarga) {
+        this.prastharashtakvarga = prastharashtakvarga;
+    }
+
+
 }

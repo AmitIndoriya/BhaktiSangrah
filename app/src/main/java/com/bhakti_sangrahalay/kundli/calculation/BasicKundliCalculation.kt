@@ -6,6 +6,7 @@ import com.bhakti_sangrahalay.R
 import com.bhakti_sangrahalay.kundli.model.BasicKundliPanchangBean
 import com.bhakti_sangrahalay.kundli.model.BasicKundliPlanetData
 import com.bhakti_sangrahalay.kundli.model.BasicKundliPlanetSubData
+import com.bhakti_sangrahalay.kundli.model.PrastharashtakvargaBean
 import com.bhakti_sangrahalay.model.KundliBean
 
 object BasicKundliCalculation {
@@ -440,21 +441,23 @@ object BasicKundliCalculation {
     }
 
     fun getAshtakVargaData(): ArrayList<String> {
-        val arrayList = ArrayList<String>()
-        arrayList.add(BasicKundliCalculation.arrayList[0].ashtakvargar1)
-        arrayList.add(BasicKundliCalculation.arrayList[0].ashtakvargar2)
-        arrayList.add(BasicKundliCalculation.arrayList[0].ashtakvargar3)
-        arrayList.add(BasicKundliCalculation.arrayList[0].ashtakvargar4)
-        arrayList.add(BasicKundliCalculation.arrayList[0].ashtakvargar5)
-        arrayList.add(BasicKundliCalculation.arrayList[0].ashtakvargar6)
-        arrayList.add(BasicKundliCalculation.arrayList[0].ashtakvargar7)
-        arrayList.add(BasicKundliCalculation.arrayList[0].ashtakvargar8)
-        arrayList.add(BasicKundliCalculation.arrayList[0].ashtakvargar9)
-        arrayList.add(BasicKundliCalculation.arrayList[0].ashtakvargar10)
-        arrayList.add(BasicKundliCalculation.arrayList[0].ashtakvargar11)
-        arrayList.add(BasicKundliCalculation.arrayList[0].ashtakvargar12)
-        return arrayList
+        val list = ArrayList<String>()
+        list.add(arrayList[0].ashtakvargar1)
+        list.add(arrayList[0].ashtakvargar2)
+        list.add(arrayList[0].ashtakvargar3)
+        list.add(arrayList[0].ashtakvargar4)
+        list.add(arrayList[0].ashtakvargar5)
+        list.add(arrayList[0].ashtakvargar6)
+        list.add(arrayList[0].ashtakvargar7)
+        list.add(arrayList[0].ashtakvargar8)
+        list.add(arrayList[0].ashtakvargar9)
+        list.add(arrayList[0].ashtakvargar10)
+        list.add(arrayList[0].ashtakvargar11)
+        list.add(arrayList[0].ashtakvargar12)
+        return list
     }
 
-
+    fun getPrastharashtakvargaData(): ArrayList<PrastharashtakvargaBean> {
+        return arrayList[0].prastharashtakvarga
+    }
 }
