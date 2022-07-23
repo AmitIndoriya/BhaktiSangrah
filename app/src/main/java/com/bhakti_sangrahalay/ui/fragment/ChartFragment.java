@@ -13,13 +13,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.bhakti_sangrahalay.R;
-import com.bhakti_sangrahalay.ui.activity.KundliHomeActivity;
+import com.bhakti_sangrahalay.ui.activity.KundliOutputActivity;
 import com.bhakti_sangrahalay.ui.customcomponent.ChartView;
 import com.bhakti_sangrahalay.util.Constants;
 import com.bhakti_sangrahalay.util.Utility;
 
 public class ChartFragment extends Fragment {
-    private KundliHomeActivity activity;
+    private KundliOutputActivity activity;
    // private Utility Utility;
     private Resources resources;
     int lagna;
@@ -39,7 +39,7 @@ public class ChartFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        activity = (KundliHomeActivity) context;
+        activity = (KundliOutputActivity) context;
         resources = getResources();
        /* if (Utility == null) {
             Utility = new Utility(activity);

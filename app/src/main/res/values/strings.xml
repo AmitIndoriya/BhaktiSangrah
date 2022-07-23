@@ -489,6 +489,13 @@
     <string name="setting">Setting</string>
     <string name="other_cal_options">Other Calc. Options</string>
     <string name="calculate_kundli">Calculate Kundli</string>
-
+    <string name="pla">Pla</string>
+    <string name="sign">Sign</string>
+    <string name="degree">Degree</string>
+    <string name="naks">Naks</string>
+    <string name="rel">Rel</string>
+    <string name="hindu_day">Hindu Day</string>
+    <string name="english_day">English Day</string>
+    <string name="rn">RN</string>
 
 </resources>

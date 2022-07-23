@@ -77,7 +77,7 @@ public class ChartView extends View {
     }
 
     private void drawNorthKundliDiagram(Canvas canvas) {
-        canvas.drawColor(Color.GREEN);
+        //canvas.drawColor(Color.GREEN);
         X1 = Utility.convertDpToPx(resources, 6);
         X2 = rectWidth;
         midX = (rectWidth) / 2;

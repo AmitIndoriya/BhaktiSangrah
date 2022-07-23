@@ -483,8 +483,8 @@
         <item>@string/chalit</item>
         <item>@string/Planets</item>
         <item>@string/Planets_sub</item>
-        <item>@string/chalit_table</item>
-        <item>@string/birth_detail</item>
+       <!-- <item>@string/chalit_table</item>
+        <item>@string/birth_detail</item>-->
         <item>@string/panchang</item>
         <item>@string/ashtakvarga</item>
         <item>@string/Karakamsha</item>
@@ -497,5 +497,108 @@
         <item>@string/person_detail</item>
         <item>@string/avkahada_chakra</item>
         <item>@string/ghatak_favourable</item>
+    </string-array>
+    <string-array name="planet_and_lagna_name_list">
+        <item>Lag</item>
+        <item>Sun</item>
+        <item>Mon</item>
+        <item>Mar</item>
+        <item>Mer</item>
+        <item>Jup</item>
+        <item>Ven</item>
+        <item>Sat</item>
+        <item>Rah</item>
+        <item>Ket</item>
+        <item>Ura</item>
+        <item>Nep</item>
+        <item>Plu</item>
+        <item>Asc</item>
+    </string-array>
+    <string-array name="rasi_short_name_list">
+        <item>Ari</item>
+        <item>Tau</item>
+        <item>Gem</item>
+        <item>Can</item>
+        <item>Leo</item>
+        <item>Vir</item>
+        <item>Lib</item>
+        <item>Sco</item>
+        <item>Sag</item>
+        <item>Cap</item>
+        <item>Aqu</item>
+        <item>Pis</item>
+    </string-array>
+    <string-array name="nakshatra_short_name_list">
+        <item>Ashwi</item>
+        <item>Bharni</item>
+        <item>Kritt</item>
+        <item>Rohin</item>
+        <item>Mriga</item>
+        <item>Ardra</item>
+        <item>PunVa</item>
+        <item>Pushy</item>
+        <item>Ashle</item>
+        <item>Magha</item>
+        <item>PuPha</item>
+        <item>UtPha</item>
+        <item>Hasta</item>
+        <item>Chitr</item>
+        <item>Swati</item>
+        <item>Visha</item>
+        <item>Anura</item>
+        <item>Jyesh</item>
+        <item>Moola</item>
+        <item>PoSha</item>
+        <item>UtSha</item>
+        <item>Sravan</item>
+        <item>Danis</item>
+        <item>Shabh</item>
+        <item>PoBha</item>
+        <item>UtBha</item>
+        <item>Revat</item>
+    </string-array>
+
+    <string-array name="rasi_lord_short_name_list">
+        <item>Ma</item>
+        <item>Ve</item>
+        <item>Me</item>
+        <item>Mo</item>
+        <item>Su</item>
+        <item>Me</item>
+        <item>Ve</item>
+        <item>Ma</item>
+        <item>Ju</item>
+        <item>Sa</item>
+        <item>Sa</item>
+        <item>Ju</item>
+    </string-array>
+    <string-array name="nak_lord_short_name_list">
+        <item>Ke</item>
+        <item>Ve</item>
+        <item>Su</item>
+        <item>Mo</item>
+        <item>Ma</item>
+        <item>Ra</item>
+        <item>Ju</item>
+        <item>Sa</item>
+        <item>Me</item>
+        <item>Ke</item>
+        <item>Ve</item>
+        <item>Su</item>
+        <item>Mo</item>
+        <item>Ma</item>
+        <item>Ra</item>
+        <item>Ju</item>
+        <item>Sa</item>
+        <item>Me</item>
+        <item>Ke</item>
+        <item>Ve</item>
+        <item>Su</item>
+        <item>Mo</item>
+        <item>Ma</item>
+        <item>Ra</item>
+        <item>Ju</item>
+        <item>Sa</item>
+        <item>Me</item>
     </string-array>
 </resources>

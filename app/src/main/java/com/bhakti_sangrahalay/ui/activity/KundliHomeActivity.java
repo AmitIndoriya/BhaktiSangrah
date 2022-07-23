@@ -130,7 +130,7 @@ public class KundliHomeActivity extends BaseActivity {
     void setUpViewpager() {
         //if (response != null) {
         Parser parser = new Parser();
-        arrayList = parser.parseKundliData(GenerateKundliData.getPlanets(this));
+       // arrayList = parser.parseKundliData(GenerateKundliData.getPlanets(this));
         kundliCalculation = new KundliCalculation(arrayList);
         fragList = getKundliFragmentList();
         setUpViewPagerAdapter();

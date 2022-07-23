@@ -1,5 +1,6 @@
 package com.bhakti_sangrahalay.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -60,7 +61,12 @@ class BirthDetaiInputActivity : BaseActivity(), AdapterView.OnItemSelectedListen
     override fun onNothingSelected(p0: AdapterView<*>?) {
     }
 
-    override fun onClick(p0: View?) {
+    override fun onClick(v: View) {
+        when (v.id) {
+            R.id.calculate_btn -> {
+                startActivity(Intent(this, KundliOutputActivity::class.java))
+            }
+        }
     }
 
 }

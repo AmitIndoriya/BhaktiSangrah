@@ -14,7 +14,14 @@
         <entry key="app/src/main/res/layout/aarti_desc_activity.xml" value="0.3260416666666667" />
         <entry key="app/src/main/res/layout/act_birthdetail_input_layout.xml" value="0.3260416666666667" />
         <entry key="app/src/main/res/layout/act_dashboard_layout.xml" value="0.3260416666666667" />
+        <entry key="app/src/main/res/layout/act_kundli_output_layout.xml" value="0.325" />
+        <entry key="app/src/main/res/layout/activity_panchang_home.xml" value="0.3260416666666667" />
+        <entry key="app/src/main/res/layout/frag_kundli_ashtakvarga_layout.xml" value="0.3260416666666667" />
+        <entry key="app/src/main/res/layout/frag_kundli_panchang_layout.xml" value="0.325" />
         <entry key="app/src/main/res/layout/home_grid_item_layout.xml" value="0.3260416666666667" />
+        <entry key="app/src/main/res/layout/kundli_ashtakvarga_list_item.xml" value="0.325" />
+        <entry key="app/src/main/res/layout/kundli_ashtakvarga_list_item_layout.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/kundli_panchang_list_item.xml" value="0.3260416666666667" />
         <entry key="app/src/main/res/layout/panchak_list_item.xml" value="0.3260416666666667" />
         <entry key="app/src/main/res/layout/simple_spinner_item.xml" value="0.37710843373493974" />
         <entry key="app/src/main/res/menu/dashboard_drawer.xml" value="0.3260416666666667" />

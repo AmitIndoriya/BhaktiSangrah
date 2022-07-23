@@ -6,6 +6,7 @@ import com.astrologerchat.di.factory.ViewModelFactory
 import com.astrologerchat.di.keys.ViewModelKey
 import com.bhakti_sangrahalay.viewmodel.BirthDetaiInputActivityViewModel
 import com.bhakti_sangrahalay.viewmodel.DashBoardViewModel
+import com.bhakti_sangrahalay.viewmodel.KundliOutputActivityViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -35,4 +36,9 @@ internal abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(BirthDetaiInputActivityViewModel::class)
     protected abstract fun birthDetaiInputActivityViewModel(birthDetaiInputActivityViewModel: BirthDetaiInputActivityViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(KundliOutputActivityViewModel::class)
+    protected abstract fun kundliOutputActivityViewModel(kundliOutputActivityViewModel: KundliOutputActivityViewModel): ViewModel
 }

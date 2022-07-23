@@ -12,10 +12,10 @@ import org.json.JSONObject;
 import java.io.InputStream;
 
 public class GenerateKundliData {
-    public static String getPlanets(Context context) {
+    public static String getPlanets(AssetManager assetManager) {
         JSONArray jsonArray = new JSONArray();
         try {
-            AssetManager assetManager = context.getAssets();
+            // AssetManager assetManager = context.getAssets();
             InputStream inputStream = assetManager.open("Properties/ConstantsEnglish.properties");
             Constants ObjConst = new Constants();
             ObjConst.setInputStream(inputStream);
@@ -128,6 +128,7 @@ public class GenerateKundliData {
             String kpPlanetSignificationStr6 = "";
             String kpPlanetSignificationStr7 = "";
             String kpPlanetSignificationStr8 = "";
+            String[] ashtakvargaRashi = new String[12];
 
             for (int i = 0; i < planetArray.length; i++) {
                 if (i == planetArray.length - 1) {
@@ -197,6 +198,13 @@ public class GenerateKundliData {
 
                 }
             }
+            for (int i = 0; i < 12; i++) {
+                String ashatakVarga = "";
+                for (int j = 0; j < 7; j++) {
+                    ashatakVarga = ashatakVarga + args1.getAshtakvargaBinduForSignAndPlanet(j, i)+",";
+                }
+                ashtakvargaRashi[i] = ashatakVarga;
+            }
 
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("lagna", lagnaPlanetArray);
@@ -227,7 +235,30 @@ public class GenerateKundliData {
             jsonObject.put("planetsignification6", kpPlanetSignificationStr6);
             jsonObject.put("planetsignification7", kpPlanetSignificationStr7);
             jsonObject.put("planetsignification8", kpPlanetSignificationStr8);
+            jsonObject.put("ashtakvargar1", ashtakvargaRashi[0]);
+            jsonObject.put("ashtakvargar2", ashtakvargaRashi[1]);
+            jsonObject.put("ashtakvargar3", ashtakvargaRashi[2]);
+            jsonObject.put("ashtakvargar4", ashtakvargaRashi[3]);
+            jsonObject.put("ashtakvargar5", ashtakvargaRashi[4]);
+            jsonObject.put("ashtakvargar6", ashtakvargaRashi[5]);
+            jsonObject.put("ashtakvargar7", ashtakvargaRashi[6]);
+            jsonObject.put("ashtakvargar8", ashtakvargaRashi[7]);
+            jsonObject.put("ashtakvargar9", ashtakvargaRashi[8]);
+            jsonObject.put("ashtakvargar10", ashtakvargaRashi[9]);
+            jsonObject.put("ashtakvargar11", ashtakvargaRashi[10]);
+            jsonObject.put("ashtakvargar12", ashtakvargaRashi[11]);
             jsonObject.put("ayan", args1.getAyanamsa());
+
+
+            jsonObject.put("paksha", args1.getPakshaName());
+            jsonObject.put("tithi", args1.getTithiName());
+            jsonObject.put("nakshatra", args1.getNakshatraName());
+            jsonObject.put("hinduWeekDay", args1.getHinduWeekdayName());
+            jsonObject.put("englishWeekDay", args1.getHinduWeekdayName());
+            jsonObject.put("yoga", args1.getYoganame());
+            jsonObject.put("karan", args1.getKaranName());
+            jsonObject.put("sunRiseTime", args1.getSunRiseTime());
+            jsonObject.put("sunSetTime", args1.getSunSetTime());
 
 
             jsonArray.put(jsonObject);

@@ -37,8 +37,7 @@
         <activity android:name=".activity.PlaceActivity" />
         <activity android:name=".ui.activity.KundliHomeActivity" />
         <activity android:name=".ui.activity.BirthDetaiInputActivity" />
-
-
+        <activity android:name=".ui.activity.KundliOutputActivity" />
         <service android:name=".service.DownLoadFileServiceNew" />
     </application>
 
