@@ -19,7 +19,9 @@ public class PrastharashtakvargaBean {
     String sa;
     @SerializedName("AS")
     String asc;
-
+   /* @SerializedName("TO")
+    String tot;
+*/
     public String getSu() {
         return su;
     }
@@ -83,4 +85,12 @@ public class PrastharashtakvargaBean {
     public void setAsc(String as) {
         this.asc = as;
     }
+
+   /* public String getTot() {
+        return tot;
+    }
+
+    public void setTot(String tot) {
+        this.tot = tot;
+    }*/
 }

@@ -45,7 +45,7 @@ class KundliPrastharashtakvargaAdapter(
         recyclerView: RecyclerView,
         prastharashtakvargaBean: PrastharashtakvargaBean
     ) {
-        val labelArray = arrayOf("SU", "MO", "MA", "ME", "JU", "VE", "SA", "AS")
+        val labelArray = arrayOf("SU", "MO", "MA", "ME", "JU", "VE", "SA", "AS", "TO")
         val valueArray = arrayOf(
             prastharashtakvargaBean.su,
             prastharashtakvargaBean.mo,
@@ -54,7 +54,8 @@ class KundliPrastharashtakvargaAdapter(
             prastharashtakvargaBean.ju,
             prastharashtakvargaBean.ve,
             prastharashtakvargaBean.sa,
-            prastharashtakvargaBean.asc
+            prastharashtakvargaBean.asc,
+            getTotalStr(prastharashtakvargaBean),
         )
 
         recyclerView.isNestedScrollingEnabled = false
@@ -64,5 +65,26 @@ class KundliPrastharashtakvargaAdapter(
         recyclerView.layoutManager = mLayoutManager
         recyclerView.itemAnimator = DefaultItemAnimator()
         recyclerView.adapter = horaListAdapter
+    }
+
+    fun getTotalStr(prastharashtakvargaBean: PrastharashtakvargaBean): String {
+        val suArr = prastharashtakvargaBean.su.split(",")
+        val moArr = prastharashtakvargaBean.mo.split(",")
+        val maArr = prastharashtakvargaBean.ma.split(",")
+        val meArr = prastharashtakvargaBean.me.split(",")
+        val juArr = prastharashtakvargaBean.ju.split(",")
+        val veArr = prastharashtakvargaBean.ve.split(",")
+        val saArr = prastharashtakvargaBean.sa.split(",")
+        val ascArr = prastharashtakvargaBean.asc.split(",")
+
+        var totStr = ""
+        for (i in 0..11) {
+            val tot = suArr[i].toInt() + moArr[i].toInt() + maArr[i].toInt() +
+                    meArr[i].toInt() + juArr[i].toInt() + veArr[i].toInt() +
+                    saArr[i].toInt() + ascArr[i].toInt()
+            totStr += tot.toString() + ","
+        }
+        totStr += ""
+        return totStr
     }
 }

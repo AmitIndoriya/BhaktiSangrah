@@ -489,12 +489,12 @@
         <item>@string/ashtakvarga</item>
         <item>@string/Karakamsha</item>
         <item>@string/Swamsa</item>
-        <item>@string/transit</item>
-        <item>@string/shad_bala</item>
+       <!-- <item>@string/transit</item>
+        <item>@string/shad_bala</item>-->
         <item>@string/prastharashtakvarga</item>
-        <item>@string/bhav_madhya</item>
+       <!-- <item>@string/bhav_madhya</item>
         <item>@string/friendship</item>
-        <item>@string/person_detail</item>
+        <item>@string/person_detail</item>-->
         <item>@string/avkahada_chakra</item>
         <item>@string/ghatak_favourable</item>
     </string-array>
