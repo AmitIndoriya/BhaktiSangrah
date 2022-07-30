@@ -498,6 +498,25 @@
         <item>@string/avkahada_chakra</item>
         <item>@string/ghatak_favourable</item>
     </string-array>
+    <string-array name="shosahvarga_module_list">
+        <item>@string/Lagna</item>
+      <!--  <item>@string/hora </item>-->
+        <item>@string/drekkana </item>
+        <item>@string/Chaturthamsha</item>
+        <item>@string/Saptamamsha</item>
+        <item>@string/Navamsha</item>
+        <item>@string/Dashamamsha</item>
+        <item>@string/Dwadashamamsha</item>
+        <item>@string/Shodashamsha</item>
+        <item>@string/Vimshamsha</item>
+        <item>@string/Saptavimshamsha</item>
+        <item>@string/Chaturvimshamsha</item>
+        <item>@string/Trimshamsha</item>
+        <item>@string/Khavedamsha</item>
+        <item>@string/Akshvedamsha</item>
+        <item>@string/Shashtiamsha</item>
+        <item>@string/Shodashvarga</item>
+    </string-array>
     <string-array name="planet_and_lagna_name_list">
         <item>Lag</item>
         <item>Sun</item>
@@ -629,4 +648,5 @@
         <item> Nov</item>
         <item>Dec</item>
     </string-array>
+
 </resources>
