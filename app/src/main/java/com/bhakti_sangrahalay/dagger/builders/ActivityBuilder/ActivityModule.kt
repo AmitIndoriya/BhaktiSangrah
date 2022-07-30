@@ -1,6 +1,6 @@
 package com.astrologerchat.di.builders.ActivityBuilder
 
-import com.bhakti_sangrahalay.ui.activity.BirthDetaiInputActivity
+import com.bhakti_sangrahalay.ui.activity.BirthDetailInputActivity
 import com.bhakti_sangrahalay.ui.activity.DashBoardActivity
 import com.bhakti_sangrahalay.ui.activity.KundliOutputActivity
 import dagger.Module
@@ -13,7 +13,7 @@ abstract class ActivityModule {
     abstract fun contributeDashboardActivity(): DashBoardActivity
 
     @ContributesAndroidInjector()
-    abstract fun contributeBirthDetaiInputActivity(): BirthDetaiInputActivity
+    abstract fun contributeBirthDetaiInputActivity(): BirthDetailInputActivity
 
     @ContributesAndroidInjector()
     abstract fun contributeKundliOutputActivity(): KundliOutputActivity

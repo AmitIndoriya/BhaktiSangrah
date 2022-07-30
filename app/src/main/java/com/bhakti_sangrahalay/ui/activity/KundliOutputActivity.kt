@@ -10,12 +10,14 @@ import androidx.lifecycle.ViewModelProvider
 import com.bhakti_sangrahalay.R
 import com.bhakti_sangrahalay.adapter.FragmentViewPagerAdapter
 import com.bhakti_sangrahalay.databinding.ActKundliOutputLayoutBinding
+import com.bhakti_sangrahalay.kundli.model.BirthDetailBean
 import com.bhakti_sangrahalay.ui.fragment.*
 import com.bhakti_sangrahalay.viewmodel.KundliOutputActivityViewModel
 import com.google.android.material.tabs.TabLayout
 
 class KundliOutputActivity : BaseActivity() {
     lateinit var viewModel: KundliOutputActivityViewModel
+    lateinit var birthDetailBean: BirthDetailBean
     private lateinit var binding: ActKundliOutputLayoutBinding
     override fun attachViewModel() {
         val viewModelProvider =
@@ -33,19 +35,33 @@ class KundliOutputActivity : BaseActivity() {
         binding = ActKundliOutputLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setTitle(resources.getString(R.string.kundli))
+        getDataFromIntent()
         setUpViewPager()
+    }
+
+    private fun getDataFromIntent() {
+        birthDetailBean = intent.extras?.get("BirthDetail") as BirthDetailBean
+        viewModel.getKundliDataList(assets, birthDetailBean)
     }
 
     private fun setUpViewPager() {
         supportActionBar?.elevation = 0F
-        val adapter = FragmentViewPagerAdapter(supportFragmentManager, getKundliFragmentList())
+        //val kundliModuleList = resources.getStringArray(R.array.kundli_module_list)
+        //setViewPagerAdapter(kundliModuleList, getKundliFragmentList())
+        val shodavargaModuleList = resources.getStringArray(R.array.shosahvarga_module_list)
+        setViewPagerAdapter(shodavargaModuleList, getShodashvargaFragmentList())
+
+    }
+
+    private fun setViewPagerAdapter(tabTextArr: Array<String>, fragList: ArrayList<Fragment>) {
+        val adapter = FragmentViewPagerAdapter(supportFragmentManager, fragList)
         binding.viewPager.adapter = adapter
         binding.tabLayout.tabMode = TabLayout.MODE_SCROLLABLE
         binding.tabLayout.setupWithViewPager(binding.viewPager)
         binding.tabLayout.setSelectedTabIndicatorColor(resources.getColor(R.color.aqua_marine))
-        val tabTexts = resources.getStringArray(R.array.kundli_module_list)
+
         for (i in 0..binding.tabLayout.tabCount) {
-            binding.tabLayout.getTabAt(i)?.customView = getTabView(tabTexts[i])
+            binding.tabLayout.getTabAt(i)?.customView = getTabView(tabTextArr[i])
         }
     }
 
@@ -59,7 +75,7 @@ class KundliOutputActivity : BaseActivity() {
     }
 
     private fun getKundliFragmentList(): ArrayList<Fragment> {
-        viewModel.getKundliDataList(assets)
+
         val fragList = ArrayList<Fragment>()
         fragList.add(
             ChartFragment.getInstance(
@@ -111,6 +127,19 @@ class KundliOutputActivity : BaseActivity() {
         fragList.add(KundliPrastharashtakvargaFragment.getInstance(viewModel.getPrastharashtakvargaData()))
         fragList.add(KundliAvkahadaChakraFragment.getInstance(viewModel.getAvkahadaChakraData()))
 
+        return fragList
+    }
+
+    private fun getShodashvargaFragmentList(): ArrayList<Fragment> {
+        val fragList = ArrayList<Fragment>()
+        fragList.add(
+            ChartFragment.getInstance(
+                viewModel.getLagnaKundliPlanetRashiArray(),
+                viewModel.getLagnaKundliPlanetRashiArray()[12],
+                null
+            )
+        )
+        fragList.add(ChartFragment.getInstance(viewModel.getDrekkanaArray(),0,null));
         return fragList
     }
 }

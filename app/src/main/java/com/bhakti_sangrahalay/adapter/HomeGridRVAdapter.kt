@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bhakti_sangrahalay.MainActivity
 import com.bhakti_sangrahalay.R
-import com.bhakti_sangrahalay.ui.activity.BirthDetaiInputActivity
+import com.bhakti_sangrahalay.ui.activity.BirthDetailInputActivity
 import com.bhakti_sangrahalay.ui.activity.PanchangActivity
 
 class HomeGridRVAdapter(
@@ -36,7 +36,7 @@ class HomeGridRVAdapter(
                     context.startActivity(Intent(context, PanchangActivity::class.java))
                 }
                 1 -> {
-                    context.startActivity(Intent(context, BirthDetaiInputActivity::class.java))
+                    context.startActivity(Intent(context, BirthDetailInputActivity::class.java))
                 }
                 2 -> {
                     context.startActivity(Intent(context, MainActivity::class.java))

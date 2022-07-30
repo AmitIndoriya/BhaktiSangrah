@@ -5,8 +5,8 @@ import java.io.Serializable
 data class BirthDetailBean(
     var name: String,
     var sex: String,
-    val dateTimeBean: DateTimeBean,
-    val placeBean: PlaceBean,
+    var dateTimeBean: DateTimeBean,
+    var placeBean: PlaceBean,
     var dst: String,
     var ayanamsa: String,
     var charting: String,

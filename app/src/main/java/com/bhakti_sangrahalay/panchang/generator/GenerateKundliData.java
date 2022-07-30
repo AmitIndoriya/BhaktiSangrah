@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.util.Log;
 
+import com.bhakti_sangrahalay.kundli.model.BirthDetailBean;
 import com.indoriya.horolib.dhoro.DesktopHoro;
 import com.indoriya.horolib.util.Constants;
 
@@ -13,7 +14,7 @@ import org.json.JSONObject;
 import java.io.InputStream;
 
 public class GenerateKundliData {
-    public static String getPlanets(AssetManager assetManager) {
+    public static String getPlanets(AssetManager assetManager, BirthDetailBean birthDetailBean) {
         JSONArray jsonArray = new JSONArray();
         try {
             // AssetManager assetManager = context.getAssets();
@@ -21,28 +22,28 @@ public class GenerateKundliData {
             Constants ObjConst = new Constants();
             ObjConst.setInputStream(inputStream);
 
-            String name = "Amit";
-            String sex = "M";
-            String day = "23";
-            String month = "11";
-            String year = "2020";
-            String hrs = "18";
-            String min = "30";
-            String sec = "0";
-            String dst = "0";
-            String place = "Agra";
-            String LongDeg = "078";
-            String LongMin = "00";
-            String LongEW = "E";
-            String LatDeg = "027";
-            String LatMin = "09";
-            String LatNS = "N";
-            String timeZone = "5.5";
-            String ayanamsa = "0";
-            String charting = "0";
-            String kphn = "0";
-            String button1 = "Get+Kundali";
-            String languageCode = "0";
+            String name = birthDetailBean.getName();
+            String sex = birthDetailBean.getSex();
+            String day = birthDetailBean.getDateTimeBean().getDay();
+            String month = birthDetailBean.getDateTimeBean().getMonth();
+            String year = birthDetailBean.getDateTimeBean().getYear();
+            String hrs = birthDetailBean.getDateTimeBean().getHrs();
+            String min = birthDetailBean.getDateTimeBean().getMin();
+            String sec = birthDetailBean.getDateTimeBean().getSec();
+            String dst = birthDetailBean.getDst();
+            String place = birthDetailBean.getPlaceBean().getPlace();
+            String LongDeg = birthDetailBean.getPlaceBean().getLongDeg();
+            String LongMin = birthDetailBean.getPlaceBean().getLongMin();
+            String LongEW = birthDetailBean.getPlaceBean().getLongEW();
+            String LatDeg = birthDetailBean.getPlaceBean().getLatDeg();
+            String LatMin = birthDetailBean.getPlaceBean().getLatMin();
+            String LatNS = birthDetailBean.getPlaceBean().getLatNS();
+            String timeZone = birthDetailBean.getPlaceBean().getTimeZone();
+            String ayanamsa = birthDetailBean.getAyanamsa();
+            String charting = birthDetailBean.getCharting();
+            String kphn = birthDetailBean.getKphn();
+            String button1 = birthDetailBean.getButton1();
+            String languageCode = birthDetailBean.getLanguageCode();
 
 
             DesktopHoro args1 = new DesktopHoro();

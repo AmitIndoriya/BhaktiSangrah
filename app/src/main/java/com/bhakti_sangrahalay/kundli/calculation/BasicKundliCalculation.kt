@@ -239,7 +239,7 @@ object BasicKundliCalculation {
         while (b < 9) {
             i = a + b
             if (i >= 9) i -= 9
-            d -= if (y1[i] <= d) y1.get(i) else break
+            d -= if (y1[i] <= d) y1[i] else break
             b++
         }
         b = i
@@ -485,5 +485,58 @@ object BasicKundliCalculation {
             obliquity = arrayList[0].obliquity,
             sideralTime = arrayList[0].sideralTime
         )
+    }
+
+    //Shodasvarga calculation
+    fun getDrekkanaArray(): IntArray {
+        return getIntArrayFromString(arrayList[0].drekkana, 0)
+    }
+
+    fun getChaturthamanshArray(): IntArray {
+        return getIntArrayFromString(arrayList.get(0).getChaturthamansh(), 0)
+    }
+
+    fun getSaptamamshaArray(): IntArray {
+        return getIntArrayFromString(arrayList.get(0).getSaptamamsha(), 0)
+    }
+
+    fun getShashtiamshaArray(): IntArray {
+        return getIntArrayFromString(arrayList.get(0).getShashtiamsha(), 0)
+    }
+
+    fun getNavmanshArray(): IntArray {
+        return getIntArrayFromString(arrayList.get(0).getNavmansh(), 0)
+    }
+
+    fun getDashamamshaArray(): IntArray {
+        return getIntArrayFromString(arrayList.get(0).getDashamamsha(), 0)
+    }
+
+    fun getShodashamshaArray(): IntArray {
+        return getIntArrayFromString(arrayList.get(0).getShodashamsha(), 0)
+    }
+
+    fun getVimshamshaArray(): IntArray {
+        return getIntArrayFromString(arrayList.get(0).getVimshamsha(), 0)
+    }
+
+    fun getSaptavimshamshaArray(): IntArray {
+        return getIntArrayFromString(arrayList.get(0).getSaptavimshamsha(), 0)
+    }
+
+    fun getChaturvimshamshaArray(): IntArray {
+        return getIntArrayFromString(arrayList.get(0).getChaturvimshamsha(), 0)
+    }
+
+    fun getTrimshamshaArray(): IntArray {
+        return getIntArrayFromString(arrayList.get(0).getTrimshamsha(), 0)
+    }
+
+    fun getKhavedamshaArray(): IntArray {
+        return getIntArrayFromString(arrayList.get(0).getKhavedamsha(), 0)
+    }
+
+    fun getAkshvedamshaArray(): IntArray {
+        return getIntArrayFromString(arrayList.get(0).getAkshvedamsha(), 0)
     }
 }

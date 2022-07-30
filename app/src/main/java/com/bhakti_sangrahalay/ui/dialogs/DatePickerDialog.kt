@@ -7,22 +7,21 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.widget.DatePicker
 import com.bhakti_sangrahalay.R
-import com.bhakti_sangrahalay.ui.activity.BirthDetaiInputActivity
-import java.util.*
+import com.bhakti_sangrahalay.ui.activity.BirthDetailInputActivity
 
 object DatePickerDialog {
     @SuppressLint("StaticFieldLeak")
     lateinit var context: Context
-    fun showDatePicker(context: Context) {
+    fun showDatePicker(context: Context, day: Int, month: Int, year: Int) {
         this.context = context
-        val calendar = Calendar.getInstance()
         val datePicker = DatePickerDialog(
             context,
             R.style.date_picker_style,
             DateSetListener(),
-            calendar[Calendar.YEAR],
-            calendar[Calendar.MONTH],
-            calendar[Calendar.DATE]
+            year,
+            month,
+            day
+
         )
         datePicker.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         datePicker.setCancelable(false)
@@ -32,7 +31,7 @@ object DatePickerDialog {
 
     class DateSetListener : DatePickerDialog.OnDateSetListener {
         override fun onDateSet(p0: DatePicker?, year: Int, month: Int, date: Int) {
-            (context as BirthDetaiInputActivity).setDate(date, month, year)
+            (context as BirthDetailInputActivity).setDate(date, month, year)
 
         }
 

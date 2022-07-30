@@ -13,12 +13,12 @@ class KundliOutputActivityViewModel : BaseViewModel() {
     // arrayList = parser.parseKundliData(GenerateKundliData.getPlanets(this));
 
 
-    fun getKundliDataList(assetManager: AssetManager) {
+    fun getKundliDataList(assetManager: AssetManager, birthDetailBean: BirthDetailBean) {
         val parser = Parser()
         BasicKundliCalculation.setData(
             parser.parseKundliData(
                 GenerateKundliData.getPlanets(
-                    assetManager
+                    assetManager, birthDetailBean
                 )
             )
         )
@@ -70,5 +70,57 @@ class KundliOutputActivityViewModel : BaseViewModel() {
 
     fun getAvkahadaChakraData(): BasicAvkahadaChakraBean {
         return BasicKundliCalculation.getAvkahadaChakraData()
+    }
+
+    fun getDrekkanaArray(): IntArray {
+        return BasicKundliCalculation.getDrekkanaArray()
+    }
+
+    fun getChaturthamanshArray(): IntArray {
+        return BasicKundliCalculation.getChaturthamanshArray()
+    }
+
+    fun getSaptamamshaArray(): IntArray {
+        return BasicKundliCalculation.getSaptamamshaArray()
+    }
+
+    fun getShashtiamshaArray(): IntArray {
+        return BasicKundliCalculation.getShashtiamshaArray()
+    }
+
+    fun getNavmanshArray(): IntArray {
+        return BasicKundliCalculation.getNavmanshArray()
+    }
+
+    fun getDashamamshaArray(): IntArray {
+        return BasicKundliCalculation.getDashamamshaArray()
+    }
+
+    fun getShodashamshaArray(): IntArray {
+        return BasicKundliCalculation.getShodashamshaArray()
+    }
+
+    fun getVimshamshaArray(): IntArray {
+        return BasicKundliCalculation.getVimshamshaArray()
+    }
+
+    fun getSaptavimshamshaArray(): IntArray {
+        return BasicKundliCalculation.getSaptavimshamshaArray()
+    }
+
+    fun getChaturvimshamshaArray(): IntArray {
+        return BasicKundliCalculation.getChaturvimshamshaArray()
+    }
+
+    fun getTrimshamshaArray(): IntArray {
+        return BasicKundliCalculation.getTrimshamshaArray()
+    }
+
+    fun getKhavedamshaArray(): IntArray {
+        return BasicKundliCalculation.getKhavedamshaArray()
+    }
+
+    fun getAkshvedamshaArray(): IntArray {
+        return BasicKundliCalculation.getAkshvedamshaArray()
     }
 }

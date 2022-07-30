@@ -4,11 +4,11 @@ import java.io.Serializable
 
 data class PlaceBean(
     val place: String,
-    val LongDeg: String,
-    val LongMin: String,
-    val LongEW: String,
-    val LatDeg: String,
-    val LatMin: String,
-    val LatNS: String,
+    val longDeg: String,
+    val longMin: String,
+    val longEW: String,
+    val latDeg: String,
+    val latMin: String,
+    val latNS: String,
     val timeZone: String
-):Serializable
+) : Serializable
