@@ -95,6 +95,46 @@ public class KundliBean {
     String sunSetTime;
     @SerializedName("prastharashtakvarga")
     ArrayList<PrastharashtakvargaBean> prastharashtakvarga;
+    @SerializedName("paya")
+    String paya;
+    @SerializedName("varna")
+    String varna;
+    @SerializedName("yoni")
+    String yoni;
+    @SerializedName("gana")
+    String gana;
+    @SerializedName("vasya")
+    String vasya;
+    @SerializedName("nadi")
+    String nadi;
+    @SerializedName("balanceOfDasha")
+    String balanceOfDasha;
+    @SerializedName("lagnaA")
+    String lagnaA;
+    @SerializedName("lagnaLord")
+    String lagnaLord;
+    @SerializedName("rasi")
+    String rasi;
+    @SerializedName("rasiLord")
+    String rasiLord;
+    @SerializedName("nakshatraPada")
+    String nakshatraPada;
+    @SerializedName("nakshatraLord")
+    String nakshatraLord;
+    @SerializedName("julianDay")
+    String julianDay;
+    @SerializedName("sunSignIndian")
+    String sunSignIndian;
+    @SerializedName("sunSignWestern")
+    String sunSignWestern;
+    @SerializedName("ayanamsa")
+    String ayanamsa;
+    @SerializedName("ayanamsaName")
+    String ayanamsaName;
+    @SerializedName("obliquity")
+    String obliquity;
+    @SerializedName("sideralTime")
+    String sideralTime;
 
     public String getLagna() {
         return lagna;
@@ -461,5 +501,164 @@ public class KundliBean {
         this.prastharashtakvarga = prastharashtakvarga;
     }
 
+    public String getPaya() {
+        return paya;
+    }
+
+    public void setPaya(String paya) {
+        this.paya = paya;
+    }
+
+    public String getVarna() {
+        return varna;
+    }
+
+    public void setVarna(String varna) {
+        this.varna = varna;
+    }
+
+    public String getYoni() {
+        return yoni;
+    }
+
+    public void setYoni(String yoni) {
+        this.yoni = yoni;
+    }
+
+    public String getGana() {
+        return gana;
+    }
+
+    public void setGana(String gana) {
+        this.gana = gana;
+    }
+
+    public String getVasya() {
+        return vasya;
+    }
+
+    public void setVasya(String vasya) {
+        this.vasya = vasya;
+    }
+
+    public String getNadi() {
+        return nadi;
+    }
+
+    public void setNadi(String nadi) {
+        this.nadi = nadi;
+    }
+
+    public String getBalanceOfDasha() {
+        return balanceOfDasha;
+    }
+
+    public void setBalanceOfDasha(String balanceOfDasha) {
+        this.balanceOfDasha = balanceOfDasha;
+    }
+
+    public String getLagnaA() {
+        return lagnaA;
+    }
+
+    public void setLagnaA(String lagnaA) {
+        this.lagnaA = lagnaA;
+    }
+
+    public String getLagnaLord() {
+        return lagnaLord;
+    }
+
+    public void setLagnaLord(String lagnaLord) {
+        this.lagnaLord = lagnaLord;
+    }
+
+    public String getRasi() {
+        return rasi;
+    }
+
+    public void setRasi(String rasi) {
+        this.rasi = rasi;
+    }
+
+    public String getRasiLord() {
+        return rasiLord;
+    }
+
+    public void setRasiLord(String rasiLord) {
+        this.rasiLord = rasiLord;
+    }
+
+    public String getNakshatraPada() {
+        return nakshatraPada;
+    }
+
+    public void setNakshatraPada(String nakshatraPada) {
+        this.nakshatraPada = nakshatraPada;
+    }
+
+    public String getNakshatraLord() {
+        return nakshatraLord;
+    }
+
+    public void setNakshatraLord(String nakshatraLord) {
+        this.nakshatraLord = nakshatraLord;
+    }
+
+    public String getJulianDay() {
+        return julianDay;
+    }
+
+    public void setJulianDay(String julianDay) {
+        this.julianDay = julianDay;
+    }
+
+    public String getSunSignIndian() {
+        return sunSignIndian;
+    }
+
+    public void setSunSignIndian(String sunSignIndian) {
+        this.sunSignIndian = sunSignIndian;
+    }
+
+    public String getSunSignWestern() {
+        return sunSignWestern;
+    }
+
+    public void setSunSignWestern(String sunSignWestern) {
+        this.sunSignWestern = sunSignWestern;
+    }
+
+    public String getAyanamsa() {
+        return ayanamsa;
+    }
+
+    public void setAyanamsa(String ayanamsa) {
+        this.ayanamsa = ayanamsa;
+    }
+
+    public String getAyanamsaName() {
+        return ayanamsaName;
+    }
+
+    public void setAyanamsaName(String ayanamsaName) {
+        this.ayanamsaName = ayanamsaName;
+    }
+
+    public String getObliquity() {
+        return obliquity;
+    }
+
+    public void setObliquity(String obliquity) {
+        this.obliquity = obliquity;
+    }
+
+    public String getSideralTime() {
+        return sideralTime;
+    }
+
+    public void setSideralTime(String sideralTime) {
+        this.sideralTime = sideralTime;
+    }
 
 }

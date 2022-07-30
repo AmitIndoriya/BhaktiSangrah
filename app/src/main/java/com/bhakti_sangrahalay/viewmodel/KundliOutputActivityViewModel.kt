@@ -3,10 +3,7 @@ package com.bhakti_sangrahalay.viewmodel
 import android.content.Context
 import android.content.res.AssetManager
 import com.bhakti_sangrahalay.kundli.calculation.BasicKundliCalculation
-import com.bhakti_sangrahalay.kundli.model.BasicKundliPanchangBean
-import com.bhakti_sangrahalay.kundli.model.BasicKundliPlanetData
-import com.bhakti_sangrahalay.kundli.model.BasicKundliPlanetSubData
-import com.bhakti_sangrahalay.kundli.model.PrastharashtakvargaBean
+import com.bhakti_sangrahalay.kundli.model.*
 import com.bhakti_sangrahalay.panchang.generator.GenerateKundliData
 import com.bhakti_sangrahalay.util.Parser
 
@@ -69,5 +66,9 @@ class KundliOutputActivityViewModel : BaseViewModel() {
 
     fun getPrastharashtakvargaData(): ArrayList<PrastharashtakvargaBean> {
         return BasicKundliCalculation.getPrastharashtakvargaData()
+    }
+
+    fun getAvkahadaChakraData(): BasicAvkahadaChakraBean {
+        return BasicKundliCalculation.getAvkahadaChakraData()
     }
 }

@@ -307,8 +307,25 @@ public class Utility {
         String json = sharedPreferences.getString("place", null);
         return gson.fromJson(json, PlaceModel.class);
     }
+
     public static int convertDpToPx(Resources resources, int dip) {
         float px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip, resources.getDisplayMetrics());
         return (int) px;
+    }
+
+    public static String getFormattedTime(int hour, int minute, int am_pm) {
+        String hourStr = String.valueOf(hour);
+        String minuteStr = String.valueOf(minute);
+        String am_pmStr = am_pm == 0 ? "AM" : "PM";
+        if (hour > 12) {
+            hour = hour - 12;
+        }
+        if (hour < 10) {
+            hourStr = "0" + hour;
+        }
+        if (minute < 10) {
+            minuteStr = "0" + minute;
+        }
+        return hourStr + ":" + minuteStr + " " + am_pmStr;
     }
 }

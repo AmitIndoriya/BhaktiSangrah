@@ -276,6 +276,29 @@ public class GenerateKundliData {
             }
             jsonObject.put("prastharashtakvarga", prastharashtakvargaJsonArray);
 
+            jsonObject.put("paya", args1.getPayaName());
+            jsonObject.put("varna", args1.getVarnaName());
+            jsonObject.put("yoni", args1.getYoniName());
+            jsonObject.put("gana", args1.getGanaName() + args1.getGana());
+            jsonObject.put("vasya", args1.getVasyaName());
+            jsonObject.put("nadi", args1.getNadiName());
+            jsonObject.put("balanceOfDasha", args1.getBalanceOfDasaString());
+            jsonObject.put("lagnaA", args1.getLagnaSign());
+            jsonObject.put("lagnaLord", args1.getLagnaLordName());
+            jsonObject.put("rasi", args1.getRasiName());
+            jsonObject.put("rasiLord", args1.getRasiLordName());
+            jsonObject.put("nakshatraPada", args1.getNakshatraName());
+            jsonObject.put("nakshatraLord", args1.getNakshatraLordName());
+            jsonObject.put("julianDay", args1.getJulianDayValue());
+            jsonObject.put("sunSignIndian", args1.getIndianSunSignName());
+            jsonObject.put("sunSignWestern", args1.getSunSignName());
+            jsonObject.put("ayanamsa", args1.getAyanamsaDms());
+            jsonObject.put("ayanamsaName", args1.getAyanamsaType());
+            jsonObject.put("obliquity", args1.getObliquityDms());
+            jsonObject.put("sideralTime", args1.getSiderealTimeHms());
+            Log.i("VimsottariDasa2", "fg" + args1.getMahaDasa(1));
+           /* Log.i("VimsottariDasa3", args1.getVimsottariDasaThreeLevelString());
+            Log.i("VimsottariDasa4", args1.getVimsottariDasaFourLevelString());*/
             jsonArray.put(jsonObject);
 
         } catch (Exception var1) {

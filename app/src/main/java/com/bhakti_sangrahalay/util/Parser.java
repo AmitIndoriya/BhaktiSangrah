@@ -349,7 +349,7 @@ public class Parser {
             }.getType());
 
         } catch (Exception ex) {
-            //
+            Log.i("Exception",ex.getMessage());
         }
         return arrayList;
     }

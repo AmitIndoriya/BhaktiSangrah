@@ -7,6 +7,7 @@ import com.bhakti_sangrahalay.kundli.model.BasicKundliPanchangBean
 import com.bhakti_sangrahalay.kundli.model.BasicKundliPlanetData
 import com.bhakti_sangrahalay.kundli.model.BasicKundliPlanetSubData
 import com.bhakti_sangrahalay.kundli.model.PrastharashtakvargaBean
+import com.bhakti_sangrahalay.kundli.model.BasicAvkahadaChakraBean
 import com.bhakti_sangrahalay.model.KundliBean
 
 object BasicKundliCalculation {
@@ -459,5 +460,30 @@ object BasicKundliCalculation {
 
     fun getPrastharashtakvargaData(): ArrayList<PrastharashtakvargaBean> {
         return arrayList[0].prastharashtakvarga
+    }
+
+    fun getAvkahadaChakraData(): BasicAvkahadaChakraBean {
+        return BasicAvkahadaChakraBean(
+            paya = arrayList[0].paya,
+            varna = arrayList[0].varna,
+            yoni = arrayList[0].yoni,
+            gana = arrayList[0].gana,
+            vasya = arrayList[0].vasya,
+            nadi = arrayList[0].nadi,
+            balanceOfdasha = arrayList[0].balanceOfDasha,
+            lagna = arrayList[0].lagnaA,
+            lagnaLord = arrayList[0].lagnaLord,
+            rasi = arrayList[0].rasi,
+            rasiLord = arrayList[0].rasiLord,
+            NakshatraPada = arrayList[0].nakshatraPada,
+            nakshatraLord = arrayList[0].nakshatraLord,
+            julianDay = arrayList[0].julianDay,
+            sunSignIndian = arrayList[0].sunSignIndian,
+            sunSign = arrayList[0].sunSignWestern,
+            ayanamsa = arrayList[0].ayanamsa,
+            ayanamsaName = arrayList[0].ayanamsaName,
+            obliquity = arrayList[0].obliquity,
+            sideralTime = arrayList[0].sideralTime
+        )
     }
 }

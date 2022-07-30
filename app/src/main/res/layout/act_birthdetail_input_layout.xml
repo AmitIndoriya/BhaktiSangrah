@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -21,6 +19,7 @@
                 android:id="@+id/male_rb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checked="true"
                 android:text="@string/male"
                 android:textSize="16sp" />
 
@@ -50,6 +49,7 @@
             android:layout_below="@+id/name_label_tv"
             android:layout_marginTop="5dp"
             android:autofillHints="name"
+            android:inputType="text"
             android:background="@drawable/rect_gray_border"
             android:hint="@string/enter_name"
             android:padding="10dp" />
@@ -59,12 +59,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/name_et"
+            android:layout_marginTop="15dp"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
@@ -72,25 +72,25 @@
                     android:id="@+id/date_label_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/first_name"
+                    android:text="@string/birth_day"
                     android:textSize="16sp" />
 
-                <EditText
-                    android:id="@+id/date_et"
+                <TextView
+                    android:id="@+id/date_val_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:autofillHints="name"
                     android:background="@drawable/rect_gray_border"
-                    android:hint="@string/enter_name"
-                    android:padding="10dp" />
+                    android:gravity="center_horizontal"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
@@ -98,18 +98,19 @@
                     android:id="@+id/time_label_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/first_name"
+                    android:text="@string/birth_time"
                     android:textSize="16sp" />
 
-                <EditText
-                    android:id="@+id/time_et"
+                <TextView
+                    android:id="@+id/time_val_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:autofillHints="name"
                     android:background="@drawable/rect_gray_border"
-                    android:hint="@string/enter_name"
-                    android:padding="10dp" />
+                    android:gravity="center_horizontal"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -119,28 +120,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/date_time_container"
-            android:layout_marginTop="10dp"
-            android:text="@string/first_name"
+            android:layout_marginTop="15dp"
+            android:text="@string/place"
             android:textSize="16sp" />
 
-        <EditText
-            android:id="@+id/place_et"
+        <TextView
+            android:id="@+id/place_val_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/place_label_tv"
             android:layout_marginTop="5dp"
-            android:autofillHints="name"
             android:background="@drawable/rect_gray_border"
-            android:hint="@string/enter_name"
-            android:padding="10dp" />
+            android:gravity="center_horizontal"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/setting_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/place_et"
+            android:layout_below="@+id/place_val_tv"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/rect_gray_border"
             android:paddingStart="10dp"
             android:paddingTop="6dp"
@@ -167,15 +169,15 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:background="@color/dark_gray" />
 
             <TextView
                 android:id="@+id/kp_horary_no_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/first_name"
+                android:layout_marginTop="15dp"
+                android:text="@string/kp_horary_no"
                 android:textSize="16sp" />
 
             <EditText
@@ -191,6 +193,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -203,8 +206,7 @@
                         android:id="@+id/ayanmasha_label_tv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/first_name"
+                        android:text="@string/ayanamsa"
                         android:textSize="16sp" />
 
                     <LinearLayout
@@ -232,8 +234,7 @@
                         android:id="@+id/dst_label_tv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/first_name"
+                        android:text="@string/dst"
                         android:textSize="16sp" />
 
                     <LinearLayout
@@ -261,8 +262,12 @@
             android:layout_marginTop="30dp"
             android:backgroundTint="@color/colorPrimary"
             android:padding="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
             android:text="@string/calculate_kundli"
-            android:textSize="16sp" />
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
 
     </RelativeLayout>

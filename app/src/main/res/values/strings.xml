@@ -498,5 +498,31 @@
     <string name="english_day">English Day</string>
     <string name="rn">RN</string>
     <string name="to">To</string>
+    <string name="paya">Paya</string>
+    <string name="varna">Varna</string>
+    <string name="yoni">Yoni</string>
+    <string name="gana">Gana</string>
+    <string name="vasya">Vasya</string>
+    <string name="nadi">Nadi</string>
+    <string name="balance_of_dasha">Balance Of Dasha</string>
+    <string name="lagna">Lagna</string>
+    <string name="lagnaLord">Lagna Lord</string>
+    <string name="rasi">Rasi</string>
+    <string name="rasi_lord">Rasi Lord</string>
+    <string name="nakshatra_pada">Nakshatra Pada</string>
+    <string name="nakshatra_lord">Nakshatra Lord</string>
+    <string name="julian_day">Julian Day</string>
+    <string name="sun_sign_indian">Sun Sign(Indian)</string>
+    <string name="sun_sign">Sun Sign(Western)</string>
+    <string name="ayanamsa">Ayanamsha</string>
+    <string name="ayanamsa_name">Ayanamsha Name</string>
+    <string name="obliquity">Obliquity</string>
+    <string name="sideral_time">Sideral Time</string>
+    <string name="birth_day">Birth Day</string>
+    <string name="birth_time">Birth Time</string>
+    <string name="place">Place</string>
+    <string name="kp_horary_no">Kp Horary No.</string>
+    <string name="dst">D.S.T.</string>
+
 
 </resources>

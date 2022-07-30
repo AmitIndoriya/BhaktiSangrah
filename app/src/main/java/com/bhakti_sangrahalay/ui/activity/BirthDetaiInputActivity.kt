@@ -8,7 +8,11 @@ import android.widget.ArrayAdapter
 import androidx.lifecycle.ViewModelProvider
 import com.bhakti_sangrahalay.R
 import com.bhakti_sangrahalay.databinding.ActBirthdetailInputLayoutBinding
+import com.bhakti_sangrahalay.ui.dialogs.DatePickerDialog
+import com.bhakti_sangrahalay.ui.dialogs.TimePickerDialog
+import com.bhakti_sangrahalay.util.Utility
 import com.bhakti_sangrahalay.viewmodel.BirthDetaiInputActivityViewModel
+import java.util.*
 
 
 class BirthDetaiInputActivity : BaseActivity(), AdapterView.OnItemSelectedListener,
@@ -32,11 +36,27 @@ class BirthDetaiInputActivity : BaseActivity(), AdapterView.OnItemSelectedListen
         setListener()
         setAyanamsaSpinner()
         setDstSpinner()
+        popuateData()
 
+    }
+
+    private fun popuateData() {
+        val monthShortName = resources.getStringArray(R.array.month_short_name_en)
+        val calendar = Calendar.getInstance()
+        binding.dateValTv.text =
+            calendar[Calendar.DATE].toString() + " - " + monthShortName[calendar[Calendar.MONTH]] + " - " + calendar[Calendar.YEAR]
+        binding.timeValTv.text = Utility.getFormattedTime(
+            calendar[Calendar.HOUR],
+            calendar[Calendar.MINUTE],
+            calendar[Calendar.AM_PM]
+        )
+        binding.placeValTv.text = "Jaipur, Rajasthan, India"
     }
 
     private fun setListener() {
         binding.calculateBtn.setOnClickListener(this)
+        binding.dateValTv.setOnClickListener(this)
+        binding.timeValTv.setOnClickListener(this)
         binding.ayanmashaSpinner.onItemSelectedListener = this
         binding.dstSpinner.onItemSelectedListener = this
     }
@@ -55,10 +75,27 @@ class BirthDetaiInputActivity : BaseActivity(), AdapterView.OnItemSelectedListen
         binding.dstSpinner.adapter = adapter
     }
 
-    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+    fun setDate(day: Int, month: Int, year: Int) {
+        val monthShortName = resources.getStringArray(R.array.month_short_name_en)
+        binding.dateValTv.text = day.toString() + " - " + monthShortName[month] + " - " + year
     }
 
-    override fun onNothingSelected(p0: AdapterView<*>?) {
+    fun setTime(hour: Int, minute: Int, am_pm: Int) {
+        binding.timeValTv.text = Utility.getFormattedTime(
+            hour,
+            minute,
+            am_pm
+        )
+    }
+
+    fun setPlace() {
+
+    }
+
+    override fun onItemSelected(p0: AdapterView<*>, p1: View, p2: Int, p3: Long) {
+    }
+
+    override fun onNothingSelected(p0: AdapterView<*>) {
     }
 
     override fun onClick(v: View) {
@@ -66,6 +103,14 @@ class BirthDetaiInputActivity : BaseActivity(), AdapterView.OnItemSelectedListen
             R.id.calculate_btn -> {
                 startActivity(Intent(this, KundliOutputActivity::class.java))
             }
+            R.id.date_val_tv -> {
+                DatePickerDialog.showDatePicker(this)
+            }
+            R.id.time_val_tv -> {
+                TimePickerDialog.showTimePicker(this, supportFragmentManager)
+            }
+
+
         }
     }
 

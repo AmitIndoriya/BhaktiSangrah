@@ -109,6 +109,7 @@ class KundliOutputActivity : BaseActivity() {
             )
         )
         fragList.add(KundliPrastharashtakvargaFragment.getInstance(viewModel.getPrastharashtakvargaData()))
+        fragList.add(KundliAvkahadaChakraFragment.getInstance(viewModel.getAvkahadaChakraData()))
 
         return fragList
     }
