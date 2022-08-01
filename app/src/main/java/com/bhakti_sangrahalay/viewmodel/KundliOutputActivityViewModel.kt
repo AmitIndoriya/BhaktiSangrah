@@ -3,6 +3,7 @@ package com.bhakti_sangrahalay.viewmodel
 import android.content.Context
 import android.content.res.AssetManager
 import com.bhakti_sangrahalay.kundli.calculation.BasicKundliCalculation
+import com.bhakti_sangrahalay.kundli.calculation.KpKundliCalculation
 import com.bhakti_sangrahalay.kundli.model.*
 import com.bhakti_sangrahalay.panchang.generator.GenerateKundliData
 import com.bhakti_sangrahalay.util.Parser
@@ -15,13 +16,13 @@ class KundliOutputActivityViewModel : BaseViewModel() {
 
     fun getKundliDataList(assetManager: AssetManager, birthDetailBean: BirthDetailBean) {
         val parser = Parser()
-        BasicKundliCalculation.setData(
-            parser.parseKundliData(
-                GenerateKundliData.getPlanets(
-                    assetManager, birthDetailBean
-                )
+        val arrayList = parser.parseKundliData(
+            GenerateKundliData.getPlanets(
+                assetManager, birthDetailBean
             )
         )
+        BasicKundliCalculation.setData(arrayList)
+        KpKundliCalculation.setData(arrayList)
     }
 
     fun getLagnaKundliPlanetRashiArray(): IntArray {
@@ -122,5 +123,18 @@ class KundliOutputActivityViewModel : BaseViewModel() {
 
     fun getAkshvedamshaArray(): IntArray {
         return BasicKundliCalculation.getAkshvedamshaArray()
+    }
+
+    //Kp system
+    fun getKPDegreeArray(): DoubleArray {
+        return KpKundliCalculation.getKpDegreeArray()
+    }
+
+    fun getKPKundliPlanetRashiArray(): IntArray {
+        return KpKundliCalculation.getKpChartArray()
+    }
+
+    fun getKPLagnaRashiKundliPlanetsRashiArray(): IntArray {
+        return KpKundliCalculation.getKPLagnaRashiKundliPlanetsRashiArray()
     }
 }

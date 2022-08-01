@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimaryDark"
+            android:minHeight="?attr/actionBarSize" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/panchanag_bg_color" />
+
+        <me.ertugrul.lib.SuperBottomBar
+            android:id="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:paddingTop="10dp"
+            app:sbb_activeColor="@color/light_pink"
+            app:sbb_animationDuration="10"
+            app:sbb_backgroundColor="@color/white"
+            app:sbb_iconMargin="10dp"
+            app:sbb_initialActiveItem="0"
+            app:sbb_menu="@menu/kundli_bottom_nav_item"
+            app:sbb_passiveColor="@color/black"
+            app:sbb_pressedColor="@color/light_pink"
+            app:sbb_textColor="@color/black"
+            app:sbb_textSize="12sp" />
+    </LinearLayout>
+</layout>

@@ -135,6 +135,24 @@ public class KundliBean {
     String obliquity;
     @SerializedName("sideralTime")
     String sideralTime;
+    @SerializedName("planetsignification1")
+    String planetSignification1;
+    @SerializedName("planetsignification2")
+    String planetSignification2;
+    @SerializedName("planetsignification3")
+    String planetSignification3;
+    @SerializedName("planetsignification4")
+    String planetSignification4;
+    @SerializedName("planetsignification5")
+    String planetSignification5;
+    @SerializedName("planetsignification6")
+    String planetSignification6;
+    @SerializedName("planetsignification7")
+    String planetSignification7;
+    @SerializedName("planetsignification8")
+    String planetSignification8;
+    @SerializedName("planetsignification9")
+    String planetSignification9;
 
     public String getLagna() {
         return lagna;
@@ -661,4 +679,75 @@ public class KundliBean {
         this.sideralTime = sideralTime;
     }
 
+    public String getPlanetSignification1() {
+        return planetSignification1;
+    }
+
+    public void setPlanetSignification1(String planetSignification1) {
+        this.planetSignification1 = planetSignification1;
+    }
+
+    public String getPlanetSignification2() {
+        return planetSignification2;
+    }
+
+    public void setPlanetSignification2(String planetSignification2) {
+        this.planetSignification2 = planetSignification2;
+    }
+
+    public String getPlanetSignification3() {
+        return planetSignification3;
+    }
+
+    public void setPlanetSignification3(String planetSignification3) {
+        this.planetSignification3 = planetSignification3;
+    }
+
+    public String getPlanetSignification4() {
+        return planetSignification4;
+    }
+
+    public void setPlanetSignification4(String planetSignification4) {
+        this.planetSignification4 = planetSignification4;
+    }
+
+    public String getPlanetSignification5() {
+        return planetSignification5;
+    }
+
+    public void setPlanetSignification5(String planetSignification5) {
+        this.planetSignification5 = planetSignification5;
+    }
+
+    public String getPlanetSignification6() {
+        return planetSignification6;
+    }
+
+    public void setPlanetSignification6(String planetSignification6) {
+        this.planetSignification6 = planetSignification6;
+    }
+
+    public String getPlanetSignification7() {
+        return planetSignification7;
+    }
+
+    public void setPlanetSignification7(String planetSignification7) {
+        this.planetSignification7 = planetSignification7;
+    }
+
+    public String getPlanetSignification8() {
+        return planetSignification8;
+    }
+
+    public void setPlanetSignification8(String planetSignification8) {
+        this.planetSignification8 = planetSignification8;
+    }
+
+    public String getPlanetSignification9() {
+        return planetSignification9;
+    }
+
+    public void setPlanetSignification9(String planetSignification9) {
+        this.planetSignification9 = planetSignification9;
+    }
 }

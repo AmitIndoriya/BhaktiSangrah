@@ -104,6 +104,7 @@ public class GenerateKundliData {
             int[] kpPlanetSignificationArray6 = args1.getKPPlanetSignification(6);
             int[] kpPlanetSignificationArray7 = args1.getKPPlanetSignification(7);
             int[] kpPlanetSignificationArray8 = args1.getKPPlanetSignification(8);
+            int[] kpPlanetSignificationArray9 = args1.getKPPlanetSignification(9);
             args1.getTotalAshtakVargaValue();
             StringBuilder lagnaPlanetArray = new StringBuilder();
             StringBuilder navmanshPlanetArray = new StringBuilder();
@@ -130,6 +131,7 @@ public class GenerateKundliData {
             StringBuilder kpPlanetSignificationStr6 = new StringBuilder();
             StringBuilder kpPlanetSignificationStr7 = new StringBuilder();
             StringBuilder kpPlanetSignificationStr8 = new StringBuilder();
+            StringBuilder kpPlanetSignificationStr9 = new StringBuilder();
             String[] ashtakvargaRashi = new String[12];
 
             for (int i = 0; i < planetArray.length; i++) {
@@ -188,6 +190,7 @@ public class GenerateKundliData {
                     kpPlanetSignificationStr6.append(kpPlanetSignificationArray6[i]);
                     kpPlanetSignificationStr7.append(kpPlanetSignificationArray7[i]);
                     kpPlanetSignificationStr8.append(kpPlanetSignificationArray8[i]);
+                    kpPlanetSignificationStr9.append(kpPlanetSignificationArray9[i]);
                 } else {
                     kpPlanetSignificationStr1.append(kpPlanetSignificationArray1[i]).append(",");
                     kpPlanetSignificationStr2.append(kpPlanetSignificationArray2[i]).append(",");
@@ -197,6 +200,7 @@ public class GenerateKundliData {
                     kpPlanetSignificationStr6.append(kpPlanetSignificationArray6[i]).append(",");
                     kpPlanetSignificationStr7.append(kpPlanetSignificationArray7[i]).append(",");
                     kpPlanetSignificationStr8.append(kpPlanetSignificationArray8[i]).append(",");
+                    kpPlanetSignificationStr9.append(kpPlanetSignificationArray9[i]).append(",");
 
                 }
             }
@@ -237,6 +241,7 @@ public class GenerateKundliData {
             jsonObject.put("planetsignification6", kpPlanetSignificationStr6.toString());
             jsonObject.put("planetsignification7", kpPlanetSignificationStr7.toString());
             jsonObject.put("planetsignification8", kpPlanetSignificationStr8.toString());
+            jsonObject.put("planetsignification9", kpPlanetSignificationStr9.toString());
             jsonObject.put("ashtakvargar1", ashtakvargaRashi[0]);
             jsonObject.put("ashtakvargar2", ashtakvargaRashi[1]);
             jsonObject.put("ashtakvargar3", ashtakvargaRashi[2]);

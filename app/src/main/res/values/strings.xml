@@ -523,6 +523,12 @@
     <string name="place">Place</string>
     <string name="kp_horary_no">Kp Horary No.</string>
     <string name="dst">D.S.T.</string>
+    <string name="dasha">Dasha</string>
+    <string name="predictions">Predictions</string>
+    <string name="kp_system">KP System</string>
+    <string name="more">More</string>
+    <string name="varshphal">Varshphal</string>
+    <string name="lal_kitab">LalKitab</string>
 
 
 </resources>

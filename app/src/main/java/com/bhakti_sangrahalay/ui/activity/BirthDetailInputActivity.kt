@@ -51,12 +51,12 @@ class BirthDetailInputActivity : BaseActivity(), AdapterView.OnItemSelectedListe
             name = "Amit",
             sex = "M",
             dateTimeBean = DateTimeBean(
-                day = calendar[Calendar.DATE].toString(),
-                month = calendar[Calendar.MONTH].toString(),
-                year = calendar[Calendar.YEAR].toString(),
-                hrs = calendar[Calendar.HOUR].toString(),
-                min = calendar[Calendar.MINUTE].toString(),
-                sec = calendar[Calendar.SECOND].toString(),
+                day ="23", //calendar[Calendar.DATE].toString(),
+                month = "11",//calendar[Calendar.MONTH].toString(),
+                year = "2020",//calendar[Calendar.YEAR].toString(),
+                hrs = "18",//calendar[Calendar.HOUR].toString(),
+                min = "30",//calendar[Calendar.MINUTE].toString(),
+                sec = "00",//calendar[Calendar.SECOND].toString(),
             ),
             placeBean = PlaceBean(
                 place = "Agra",

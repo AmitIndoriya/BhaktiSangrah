@@ -500,13 +500,13 @@
     </string-array>
     <string-array name="shosahvarga_module_list">
         <item>@string/Lagna</item>
-      <!--  <item>@string/hora </item>-->
+        <!--  <item>@string/hora </item>-->
         <item>@string/drekkana </item>
         <item>@string/Chaturthamsha</item>
         <item>@string/Saptamamsha</item>
         <item>@string/Navamsha</item>
         <item>@string/Dashamamsha</item>
-        <item>@string/Dwadashamamsha</item>
+        <!-- <item>@string/Dwadashamamsha</item>-->
         <item>@string/Shodashamsha</item>
         <item>@string/Vimshamsha</item>
         <item>@string/Saptavimshamsha</item>
@@ -516,6 +516,24 @@
         <item>@string/Akshvedamsha</item>
         <item>@string/Shashtiamsha</item>
         <item>@string/Shodashvarga</item>
+    </string-array>
+    <string-array name="kp_module_list">
+        <item>@string/kp_chart</item>
+        <!--  <item>@string/hora </item>-->
+        <item>@string/rashi_chart </item>
+        <item>@string/Planets</item>
+        <item>@string/cusps</item>
+        <item>@string/planet_significations</item>
+        <item>@string/house_significators</item>
+        <!-- <item>@string/Dwadashamamsha</item>-->
+        <item>@string/planet_signification_view2</item>
+        <item>@string/nakshatra_nadi</item>
+        <item>@string/cil_sub_sub</item>
+        <item>@string/four_step</item>
+        <item>@string/cil_sub</item>
+        <item>@string/ruling_planets</item>
+        <item>@string/misc</item>
+        <item>@string/kp_cusp</item>
     </string-array>
     <string-array name="planet_and_lagna_name_list">
         <item>Lag</item>
@@ -648,4 +666,17 @@
         <item>Nov</item>
         <item>Dec</item>
     </string-array>
+    <string name="kp_chart">KP Chart</string>
+    <string name="rashi_chart">Rashi Chart</string>
+    <string name="cusps">Cusps</string>
+    <string name="planet_significations">Planet Signification</string>
+    <string name="house_significators">House Significators</string>
+    <string name="planet_signification_view2">Planet Signification(view2)</string>
+    <string name="nakshatra_nadi">Nakshatra Nadi</string>
+    <string name="cil_sub_sub">CIL (Sub Sub)</string>
+    <string name="ruling_planets">Ruling Planets</string>
+    <string name="misc">Misc</string>
+    <string name="cil_sub">CIL(Sub)</string>
+    <string name="four_step">4-Step</string>
+    <string name="kp_cusp">KP Cusp</string>
 </resources>
