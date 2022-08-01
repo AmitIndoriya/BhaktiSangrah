@@ -1,107 +1,21 @@
 package com.bhakti_sangrahalay.kundli.calculation
 
 import android.content.Context
+import android.util.Log
 import com.bhakti_sangrahalay.R
+import com.bhakti_sangrahalay.inteface.CalculationInterface
+import com.bhakti_sangrahalay.kundli.model.BasicKundliPlanetSubData
 import com.bhakti_sangrahalay.model.HouseSignificatorsBean
 import com.bhakti_sangrahalay.model.KundliBean
 import com.bhakti_sangrahalay.model.PlanetSignificationBean
 
-object KpKundliCalculation {
+object KpKundliCalculation : CalculationInterface by KundliCalculationBaseObject {
     lateinit var arrayList: ArrayList<KundliBean>
 
     fun setData(arrayList: ArrayList<KundliBean>) {
         this.arrayList = arrayList
     }
 
-    /* fun getPlanetDegreeArray(): DoubleArray {
-         val planetDegree: Array<String> = arrayList[0].getPlanetDegree().split(",").toTypedArray()
-         val degree = DoubleArray(13)
-         var str = ""
-         for (i in planetDegree.indices) {
-             degree[i] = planetDegree[i].toDouble()
-             str = str + degree[i] + ", "
-         }
-         // Log.i("KpDegreeArray", str)
-         return degree
-     }
-
-     fun getKpCuspDegreeArray(): DoubleArray {
-         val planetDegree = arrayList[0].kpCusp.split(",".toRegex()).toTypedArray()
-         val degree = DoubleArray(13)
-         for (i in planetDegree.indices) {
-             degree[i] = planetDegree[i].toDouble()
-         }
-         return degree
-     }
-
-     fun getKPPlanetDegreeArray(): DoubleArray {
-         val planetDegree = getPlanetDegreeArray()
-         val degree = DoubleArray(13)
-         var tempCalculation = 0.0
-         val ayanDiff = arrayList[0].ayan.toDouble() - arrayList[0].kpayan.toDouble()
-         var str = ""
-         for (i in 1..planetDegree.size - 1) {
-             tempCalculation = planetDegree[i] + ayanDiff
-             if (tempCalculation < 0) {
-                 tempCalculation += 360.00
-             } else if (tempCalculation >= 360) {
-                 tempCalculation -= 360.00
-             }
-             degree[i] = tempCalculation
-             str = str + degree[i] + ", "
-         }
-         degree[12] = planetDegree[0]
-         Log.i("KpDegreeArray1", str + "," + degree[12])
-         return degree
-     }
-
-     fun getKpChartArray(): IntArray {
-         var lagna = 0
-         val planetInRashi = IntArray(13)
-         val cuspsDegreeArray: DoubleArray = getKpCuspDegreeArray()
-         val planetDegreeArray = getKPPlanetDegreeArray()
-         val lagnaDegree = planetDegreeArray[0]
-         var lagnaVal = cuspsDegreeArray[0] + 1.00
-         if (lagnaVal > 360.00) lagnaVal -= 360.00
-         var count = 0
-         while (count < planetDegreeArray.size - 1) {
-             planetDegreeArray[count] = planetDegreeArray[count + 1]
-             count++
-         }
-         planetDegreeArray[count] = lagnaDegree
-         var isLagnaAdded = false
-         var bhav1: Double
-         var bhav2: Double
-         for (i in 0..11) {
-             bhav1 = cuspsDegreeArray[i]
-             bhav2 = if (i < 11) {
-                 cuspsDegreeArray[i + 1]
-             } else {
-                 cuspsDegreeArray[0]
-             }
-             for (j in 0..11) {
-                 if (hasInHouse(bhav2, bhav1, planetDegreeArray[j])) {
-                     planetInRashi[j] = i
-                 }
-                 if (!isLagnaAdded && hasInHouse(bhav2, bhav1, lagnaVal)) {
-                     lagna = i
-                     isLagnaAdded = true
-                 }
-             }
-         }
-         planetInRashi[12] = lagna
-         return planetInRashi
-     }
-
-     private fun hasInHouse(cusp2: Double, cusp1: Double, plntDegree: Double): Boolean {
-         var temp2 = cusp2
-         if (temp2 - cusp1 < 0) temp2 += 360.00
-         if (cusp1 < plntDegree + 360.0 && plntDegree + 360.0 < temp2) {
-             return true
-         }
-         return cusp1 < plntDegree && plntDegree < temp2
-     }*/
-    //Kp system
     private fun getPlanetDegreeArray(): DoubleArray {
         val planetDegree = arrayList[0].planetDegree.split(",").toTypedArray()
         val degree = DoubleArray(13)
@@ -111,15 +25,6 @@ object KpKundliCalculation {
         return degree
     }
 
-
-    private fun hasInHouse(cusp2: Double, cusp1: Double, plntDegree: Double): Boolean {
-        var temp2 = cusp2
-        if (temp2 - cusp1 < 0) temp2 += 360.00
-        if (cusp1 < plntDegree + 360.0 && plntDegree + 360.0 < temp2) {
-            return true
-        }
-        return cusp1 < plntDegree && plntDegree < temp2
-    }
 
     private fun getKPPlanetDegreeArray(): DoubleArray {
         val planetDegree: DoubleArray = getPlanetDegreeArray()
@@ -306,5 +211,99 @@ object KpKundliCalculation {
             houseSignificatorList.add(HouseSignificatorsBean(i, bhavArr[i]))
         }
         return houseSignificatorList
+    }
+
+    fun getKPPlanetsData(context: Context): ArrayList<BasicKundliPlanetSubData> {
+        val plaDeg = getKPPlanetDegreeArray()
+        val degSign = context.resources.getString(R.string.degree_sign)
+        val minSign = context.resources.getString(R.string.minute_sign)
+        val secSign = context.resources.getString(R.string.second_sign)
+        val plaName = context.resources.getStringArray(R.array.planet_and_lagna_name_list)
+        val rashiLord = context.resources.getStringArray(R.array.rasi_lord_short_name_list)
+        val nakshLord = context.resources.getStringArray(R.array.nak_lord_short_name_list)
+
+        val arrayList = ArrayList<BasicKundliPlanetSubData>()
+        for (i in 0..12) {
+            val rasiNakSubSub =
+                getRashiNakSubSub(plaDeg[i], rashiLord, nakshLord)
+            val arr = rasiNakSubSub.split("-")
+            val rashi = arr[0]
+            val naks = arr[1]
+            val sub = arr[2]
+            val subsub = arr[3]
+            arrayList.add(
+                BasicKundliPlanetSubData(
+                    plaName = plaName[i],
+                    plaDeg = formatDMSInStringWithSign(
+                        plaDeg[i],
+                        degSign,
+                        minSign,
+                        secSign
+                    ),
+                    signLord = rashi,
+                    nakshLord = naks,
+                    subLord = sub,
+                    subSubLord = subsub
+                )
+            )
+
+            Log.i(
+                "Planet Data",
+                plaName[i] + "-" + formatDMSInStringWithSign(
+                    plaDeg[i],
+                    degSign,
+                    minSign,
+                    secSign
+                ) + "-" + getRashiNakSubSub(plaDeg[i], rashiLord, nakshLord)
+            )
+        }
+        return arrayList
+    }
+
+    fun getKPCuspData(context: Context): ArrayList<BasicKundliPlanetSubData> {
+        val plaDeg = getKpDegreeArray()
+        val degSign = context.resources.getString(R.string.degree_sign)
+        val minSign = context.resources.getString(R.string.minute_sign)
+        val secSign = context.resources.getString(R.string.second_sign)
+        val plaName = context.resources.getStringArray(R.array.planet_and_lagna_name_list)
+        val rashiLord = context.resources.getStringArray(R.array.rasi_lord_short_name_list)
+        val nakshLord = context.resources.getStringArray(R.array.nak_lord_short_name_list)
+
+        val arrayList = ArrayList<BasicKundliPlanetSubData>()
+        for (i in 0..11) {
+            val rasiNakSubSub =
+                getRashiNakSubSub(plaDeg[i], rashiLord, nakshLord)
+            val arr = rasiNakSubSub.split("-")
+            val rashi = arr[0]
+            val naks = arr[1]
+            val sub = arr[2]
+            val subsub = arr[3]
+            arrayList.add(
+                BasicKundliPlanetSubData(
+                    plaName = (i + 1).toString(),
+                    plaDeg = formatDMSInStringWithSign(
+                        plaDeg[i],
+                        degSign,
+                        minSign,
+                        secSign
+                    ),
+                    signLord = rashi,
+                    nakshLord = naks,
+                    subLord = sub,
+                    subSubLord = subsub
+                )
+            )
+
+            Log.i(
+                "Planet Data",
+                plaName[i] + "-" + formatDMSInStringWithSign(
+                    plaDeg[i],
+                    degSign,
+                    minSign,
+                    secSign
+                ) + "-" + getRashiNakSubSub(plaDeg[i], rashiLord, nakshLord)
+            )
+        }
+        return arrayList
     }
 }

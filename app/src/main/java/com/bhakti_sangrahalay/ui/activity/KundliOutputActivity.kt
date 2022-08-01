@@ -248,17 +248,8 @@ class KundliOutputActivity : BaseActivity() {
         )
         val kpRashiArr: IntArray = viewModel.getKPLagnaRashiKundliPlanetsRashiArray()
         fragList.add(ChartFragment.getInstance(kpRashiArr, kpRashiArr[12], null))
-        /*  val kpRahiArr = viewModel.getKPKundliPlanetRashiArray()
-        fragList.add(
-            ChartFragment.getInstance(
-                kpRahiArr,
-                kpRahiArr[12],
-                viewModel.getKpDegreeArray()
-            )
-        )
-        fragList.add(ChartFragment.getInstance(viewModel.getDrekkanaArray(), 0, null))//2*/
-
-
+        fragList.add(KundliPlanetSubFragment.getInstance(viewModel.getKPPlanetsData(this)))
+        fragList.add(KundliPlanetSubFragment.getInstance(viewModel.getKPCuspData(this)))
         return fragList
     }
 }

@@ -137,4 +137,11 @@ class KundliOutputActivityViewModel : BaseViewModel() {
     fun getKPLagnaRashiKundliPlanetsRashiArray(): IntArray {
         return KpKundliCalculation.getKPLagnaRashiKundliPlanetsRashiArray()
     }
+
+    fun getKPPlanetsData(context: Context): ArrayList<BasicKundliPlanetSubData> {
+        return KpKundliCalculation.getKPPlanetsData(context)
+    }
+    fun getKPCuspData(context: Context): ArrayList<BasicKundliPlanetSubData> {
+        return KpKundliCalculation.getKPCuspData(context)
+    }
 }
