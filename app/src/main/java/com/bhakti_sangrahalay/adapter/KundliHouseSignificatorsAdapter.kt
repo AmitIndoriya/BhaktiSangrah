@@ -15,6 +15,7 @@ class KundliHouseSignificatorsAdapter(
     private val arrayList: ArrayList<HouseSignificatorsBean>
 ) : RecyclerView.Adapter<KundliHouseSignificatorsAdapter.MyView>() {
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyView {
         val itemView = LayoutInflater.from(parent.context)
             .inflate(R.layout.house_significators_item_layout, parent, false)
