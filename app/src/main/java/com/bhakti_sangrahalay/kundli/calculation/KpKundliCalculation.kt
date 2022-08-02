@@ -109,7 +109,7 @@ object KpKundliCalculation : CalculationInterface by KundliCalculationBaseObject
         return planetInRashi
     }
 
-    fun getKPPlanetSignificationData(context: Context): java.util.ArrayList<PlanetSignificationBean> {
+    fun getKPPlanetSignificationData(context: Context): ArrayList<PlanetSignificationBean> {
         val plaSigList: java.util.ArrayList<PlanetSignificationBean> =
             java.util.ArrayList<PlanetSignificationBean>()
         val planetName = context.resources.getStringArray(R.array.planet_name)

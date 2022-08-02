@@ -5,6 +5,8 @@ import android.content.res.AssetManager
 import com.bhakti_sangrahalay.kundli.calculation.BasicKundliCalculation
 import com.bhakti_sangrahalay.kundli.calculation.KpKundliCalculation
 import com.bhakti_sangrahalay.kundli.model.*
+import com.bhakti_sangrahalay.model.HouseSignificatorsBean
+import com.bhakti_sangrahalay.model.PlanetSignificationBean
 import com.bhakti_sangrahalay.panchang.generator.GenerateKundliData
 import com.bhakti_sangrahalay.util.Parser
 
@@ -141,7 +143,16 @@ class KundliOutputActivityViewModel : BaseViewModel() {
     fun getKPPlanetsData(context: Context): ArrayList<BasicKundliPlanetSubData> {
         return KpKundliCalculation.getKPPlanetsData(context)
     }
+
     fun getKPCuspData(context: Context): ArrayList<BasicKundliPlanetSubData> {
         return KpKundliCalculation.getKPCuspData(context)
+    }
+
+    fun getKPPlanetSignificationData(context: Context): ArrayList<PlanetSignificationBean> {
+        return KpKundliCalculation.getKPPlanetSignificationData(context)
+    }
+
+    fun getKPHouseSignificatorsData(context: Context): ArrayList<HouseSignificatorsBean> {
+        return KpKundliCalculation.getKPHouseSignificatorsData(context)
     }
 }

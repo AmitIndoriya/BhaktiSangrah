@@ -250,6 +250,20 @@ class KundliOutputActivity : BaseActivity() {
         fragList.add(ChartFragment.getInstance(kpRashiArr, kpRashiArr[12], null))
         fragList.add(KundliPlanetSubFragment.getInstance(viewModel.getKPPlanetsData(this)))
         fragList.add(KundliPlanetSubFragment.getInstance(viewModel.getKPCuspData(this)))
+        fragList.add(
+            KundliPlanetSignificationFrament.getInstance(
+                viewModel.getKPPlanetSignificationData(
+                    this
+                )
+            )
+        )
+        fragList.add(
+            KundliHouseSignificatorFragment.getInstance(
+                viewModel.getKPHouseSignificatorsData(
+                    this
+                )
+            )
+        )
         return fragList
     }
 }

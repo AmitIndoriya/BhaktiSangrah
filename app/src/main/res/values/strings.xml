@@ -529,6 +529,9 @@
     <string name="more">More</string>
     <string name="varshphal">Varshphal</string>
     <string name="lal_kitab">LalKitab</string>
-
+    <string name="planet">Planet</string>
+    <string name="houses_signified">Houses Signified</string>
+    <string name="house">House</string>
+    <string name="significators">Significators</string>
 
 </resources>
