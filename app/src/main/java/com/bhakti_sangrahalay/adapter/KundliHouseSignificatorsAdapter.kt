@@ -19,7 +19,6 @@ class KundliHouseSignificatorsAdapter(
         val itemView = LayoutInflater.from(parent.context)
             .inflate(R.layout.house_significators_item_layout, parent, false)
         return MyView(itemView)
-
     }
 
     @SuppressLint("SetTextI18n")
