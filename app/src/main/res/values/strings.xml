@@ -533,5 +533,12 @@
     <string name="houses_signified">Houses Signified</string>
     <string name="house">House</string>
     <string name="significators">Significators</string>
+    <string name="pl">PL.</string>
+    <string name="l1">L1</string>
+    <string name="l2">L2</string>
+    <string name="l3">L3</string>
+    <string name="l4">L4</string>
+    <string name="stl">ST.L.</string>
+    <string name="sbl">SB.L.</string>
 
 </resources>

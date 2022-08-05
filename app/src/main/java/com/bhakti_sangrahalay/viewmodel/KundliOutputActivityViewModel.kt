@@ -2,8 +2,7 @@ package com.bhakti_sangrahalay.viewmodel
 
 import android.content.Context
 import android.content.res.AssetManager
-import com.bhakti_sangrahalay.kundli.calculation.BasicKundliCalculation
-import com.bhakti_sangrahalay.kundli.calculation.KpKundliCalculation
+import com.bhakti_sangrahalay.kundli.calculation.*
 import com.bhakti_sangrahalay.kundli.model.*
 import com.bhakti_sangrahalay.model.HouseSignificatorsBean
 import com.bhakti_sangrahalay.model.PlanetSignificationBean
@@ -25,6 +24,7 @@ class KundliOutputActivityViewModel : BaseViewModel() {
         )
         BasicKundliCalculation.setData(arrayList)
         KpKundliCalculation.setData(arrayList)
+        BaseCalculation.setData(arrayList)
     }
 
     fun getLagnaKundliPlanetRashiArray(): IntArray {
@@ -154,5 +154,13 @@ class KundliOutputActivityViewModel : BaseViewModel() {
 
     fun getKPHouseSignificatorsData(context: Context): ArrayList<HouseSignificatorsBean> {
         return KpKundliCalculation.getKPHouseSignificatorsData(context)
+    }
+
+    fun getPlanetSignifiactionView2Data(): ArrayList<PlanetSignificationView2Bean> {
+        return KPPlanetSignificationView2Calculation.getPlanetSignifiactionView2()
+    }
+
+    fun getNakshtraNadiData(context: Context): ArrayList<KPNakshatraNadiBean> {
+        return KpNakshtraNadiCalculation.getNakshtraNadi(context)
     }
 }

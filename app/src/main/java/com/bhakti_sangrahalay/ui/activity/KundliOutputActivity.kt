@@ -23,7 +23,7 @@ import me.ertugrul.lib.OnItemSelectedListener
 
 class KundliOutputActivity : BaseActivity() {
     lateinit var viewModel: KundliOutputActivityViewModel
-    lateinit var birthDetailBean: BirthDetailBean
+    private lateinit var birthDetailBean: BirthDetailBean
     private lateinit var binding: ActivityKundliOutputLayoutBinding
     override fun attachViewModel() {
         val viewModelProvider =
@@ -47,7 +47,7 @@ class KundliOutputActivity : BaseActivity() {
     }
 
     fun setListener() {
-        val view = findViewById<View>(R.id.more_super_bottom_bar)
+        findViewById<View>(R.id.more_super_bottom_bar)
         binding.bottomBar.setOnItemSelectListener(object : OnItemSelectedListener {
             override fun onItemSelect(pos: Int) {
                 when (pos) {
@@ -252,16 +252,22 @@ class KundliOutputActivity : BaseActivity() {
         fragList.add(KundliPlanetSubFragment.getInstance(viewModel.getKPCuspData(this)))
         fragList.add(
             KundliPlanetSignificationFrament.getInstance(
-                viewModel.getKPPlanetSignificationData(
-                    this
-                )
+                viewModel.getKPPlanetSignificationData(this)
             )
         )
         fragList.add(
             KundliHouseSignificatorFragment.getInstance(
-                viewModel.getKPHouseSignificatorsData(
-                    this
-                )
+                viewModel.getKPHouseSignificatorsData(this)
+            )
+        )
+        fragList.add(
+            KundliPlanetSignificationView2Fragment.getInstance(
+                viewModel.getPlanetSignifiactionView2Data()
+            )
+        )
+        fragList.add(
+            KundliNakshtraNadiFragment.getInstance(
+                viewModel.getNakshtraNadiData(this)
             )
         )
         return fragList
