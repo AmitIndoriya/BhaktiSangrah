@@ -26,13 +26,21 @@ object KpNakshtraNadiCalculation : CalculationIntefaceNew by BaseCalculation {
             val subLord = getPlanetSubLordNadi(KpConstants.PLANET_INDEX[i])
             nakshtraNadiList.add(
                 KPNakshatraNadiBean(
-                    planet = getFormattedStringForNakshNadi(
+                    planet = BaseCalculation.getFormattedStringForNakshNadi(
                         context,
                         KpConstants.PLANET_INDEX[i],
                         hashMap[i]
                     ),
-                    starLord = getFormattedStringForNakshNadi(context, starLord, hashMap[starLord]),
-                    subLord = getFormattedStringForNakshNadi(context, subLord, hashMap[subLord])
+                    starLord = BaseCalculation.getFormattedStringForNakshNadi(
+                        context,
+                        starLord,
+                        hashMap[starLord]
+                    ),
+                    subLord = BaseCalculation.getFormattedStringForNakshNadi(
+                        context,
+                        subLord,
+                        hashMap[subLord]
+                    )
                 )
             )
         }
@@ -235,18 +243,18 @@ object KpNakshtraNadiCalculation : CalculationIntefaceNew by BaseCalculation {
         return BaseCalculation.getSubLord(BaseCalculation.kpPlanetDegreeForNN[plntNumber])
     }
 
-    private fun getFormattedStringForNakshNadi(
-        context: Context,
-        planet: Int,
-        plaNadi: IntArray?
-    ): String {
-        var planetName =
-            context.resources.getStringArray(R.array.planet_and_lagna_name_list)[planet + 1]
-        if (plaNadi != null) {
-            for (i in plaNadi.indices) {
-                planetName = planetName + plaNadi[i] + ","
-            }
-        }
-        return planetName
-    }
+    /* private fun getFormattedStringForNakshNadi(
+           context: Context,
+           planet: Int,
+           plaNadi: IntArray?
+       ): String {
+           var planetName =
+               context.resources.getStringArray(R.array.planet_and_lagna_name_list)[planet + 1]
+           if (plaNadi != null) {
+               for (i in plaNadi.indices) {
+                   planetName = planetName + plaNadi[i] + ","
+               }
+           }
+           return planetName
+       }*/
 }

@@ -1,5 +1,7 @@
 package com.bhakti_sangrahalay.kundli.calculation
 
+import android.content.Context
+import com.bhakti_sangrahalay.R
 import com.bhakti_sangrahalay.contansts.KpConstants
 import com.bhakti_sangrahalay.inteface.CalculationIntefaceNew
 import com.bhakti_sangrahalay.model.KundliBean
@@ -200,5 +202,15 @@ object BaseCalculation : CalculationIntefaceNew {
         return arrayAfterRemoveDuplicate
     }
 
+    fun getFormattedStringForNakshNadi(context: Context, planet: Int, plaNadi: IntArray?): String {
+        var planetName =
+            context.resources.getStringArray(R.array.planet_and_lagna_name_list)[planet + 1]
+        if (plaNadi != null) {
+            for (i in plaNadi.indices) {
+                planetName = planetName + plaNadi[i] + ","
+            }
+        }
+        return planetName
+    }
 
 }

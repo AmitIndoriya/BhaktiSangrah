@@ -361,4 +361,28 @@ public class Utility {
         }
         return j;
     }
+
+    public static int[] removeValueFromIntArray(int valueToRemove, int[] array) {
+        int[] returnVal = null;
+        int arrayLength = 0, index = -1;
+
+        if (array == null)
+            return null;
+
+        if (array.length == 0)
+            return array;
+
+        for (int i = 0; i < array.length; i++)
+            if (array[i] != valueToRemove)
+                ++arrayLength;
+
+        returnVal = new int[arrayLength];
+
+        for (int i = 0; i < array.length; i++)
+            if (array[i] != valueToRemove)
+                returnVal[++index] = array[i];
+
+
+        return returnVal;
+    }
 }
