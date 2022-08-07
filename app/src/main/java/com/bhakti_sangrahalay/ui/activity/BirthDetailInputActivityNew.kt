@@ -70,7 +70,6 @@ class BirthDetailInputActivityNew : BaseActivity() {
             binding.tabLayout.getTabAt(i)?.customView = getTabView(tabTextArr[i])
         }
     }
-
     private fun getTabView(text: String?): View? {
         @SuppressLint("InflateParams") val view =
             LayoutInflater.from(this).inflate(R.layout.custom_tab_layout, null)
