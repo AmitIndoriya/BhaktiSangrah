@@ -2,21 +2,26 @@ package com.bhakti_sangrahalay.ui.dialogs
 
 import android.annotation.SuppressLint
 import android.content.Context
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.bhakti_sangrahalay.ui.activity.BirthDetailInputActivity
+import com.bhakti_sangrahalay.ui.fragment.BirthDetailInputFragment
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 
 object TimePickerDialog {
     @SuppressLint("StaticFieldLeak")
     lateinit var context: Context
+    lateinit var fragment: Fragment
     fun showTimePicker(
         context: Context,
+        fragment: Fragment,
         fragmentManager: FragmentManager,
         hour: Int,
         minute: Int
     ) {
         this.context = context
+        this.fragment = fragment
         val materialTimePicker: MaterialTimePicker = MaterialTimePicker.Builder()
             .setTitleText("SELECT YOUR TIMING")
             .setHour(hour)
@@ -43,7 +48,7 @@ object TimePickerDialog {
                     0
                 }
             }
-            (context as BirthDetailInputActivity).setTime(pickedHour, pickedMinute, pickedAmPm)
+            (fragment as BirthDetailInputFragment).setTime(pickedHour, pickedMinute, pickedAmPm)
         }
     }
 }

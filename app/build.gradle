@@ -71,6 +71,10 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    //room dependencies
+    implementation "androidx.room:room-runtime:2.4.3"
+    kapt "androidx.room:room-compiler:2.4.3"
+    implementation "androidx.room:room-ktx:2.4.3"
     //others
     implementation 'com.github.AmitIndoriya:PanchangLib:0.2'
     implementation 'com.google.code.gson:gson:2.8.9'

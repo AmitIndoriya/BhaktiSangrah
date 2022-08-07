@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/hou_tv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".4"
+        android:text="@string/hou"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/t1_tv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="@string/t1"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/t2_tv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="@string/t2"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/t3_tv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="@string/t3"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/t4_tv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="@string/t4"
+        android:textSize="18sp" />
+</LinearLayout>

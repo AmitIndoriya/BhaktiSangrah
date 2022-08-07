@@ -1,49 +1,58 @@
-package com.bhakti_sangrahalay.ui.activity
+package com.bhakti_sangrahalay.ui.fragment
+
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.lifecycle.ViewModelProvider
-import com.bhakti_sangrahalay.R
-import com.bhakti_sangrahalay.databinding.ActBirthdetailInputLayoutBinding
+import com.bhakti_sangrahalay.databinding.FragBirthDetailInputLayoutBinding
 import com.bhakti_sangrahalay.kundli.model.BirthDetailBean
 import com.bhakti_sangrahalay.kundli.model.DateTimeBean
 import com.bhakti_sangrahalay.kundli.model.PlaceBean
+import com.bhakti_sangrahalay.ui.activity.BaseActivity
+import com.bhakti_sangrahalay.ui.activity.BirthDetailInputActivityNew
+import com.bhakti_sangrahalay.ui.activity.KundliOutputActivity
 import com.bhakti_sangrahalay.ui.dialogs.DatePickerDialog
 import com.bhakti_sangrahalay.ui.dialogs.TimePickerDialog
 import com.bhakti_sangrahalay.util.Utility
-import com.bhakti_sangrahalay.viewmodel.BirthDetaiInputActivityViewModel
 import java.util.*
 
+class BirthDetailInputFragment : BaseFragment(), View.OnClickListener,
+    AdapterView.OnItemSelectedListener {
 
-class BirthDetailInputActivity : BaseActivity(), AdapterView.OnItemSelectedListener,
-    View.OnClickListener {
-    var isExpanded = false
+    lateinit var binding: FragBirthDetailInputLayoutBinding
+    private var isExpanded = false
     private lateinit var birthDetailBean: BirthDetailBean
-    lateinit var viewModel: BirthDetaiInputActivityViewModel
-    private lateinit var binding: ActBirthdetailInputLayoutBinding
-    override fun attachViewModel() {
-        val viewModelProvider =
-            ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application))
-        viewModel = viewModelProvider[BirthDetaiInputActivityViewModel::class.java]
+
+    companion object {
+        fun getInstance(): BirthDetailInputFragment {
+            return BirthDetailInputFragment()
+        }
     }
 
     override fun setTypeface() {
+        binding.maleRb.typeface = (requireActivity() as BaseActivity).mediumTypeface
+        binding.femaleRb.typeface = (requireActivity() as BaseActivity).mediumTypeface
+        binding.nameLabelTv.typeface = (requireActivity() as BaseActivity).mediumTypeface
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
-        binding = ActBirthdetailInputLayoutBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        setTitle(resources.getString(R.string.birth_detail))
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragBirthDetailInputLayoutBinding.inflate(inflater, container, false)
         setListener()
         setAyanamsaSpinner()
         setDstSpinner()
         populateData()
-        collapse(binding.otherCalOptionLay)
+        (activity as BirthDetailInputActivityNew).collapse(binding.otherCalOptionLay)
+        setTypeface()
+        return binding.root
     }
 
     private fun populateData() {
@@ -76,7 +85,8 @@ class BirthDetailInputActivity : BaseActivity(), AdapterView.OnItemSelectedListe
             button1 = "Get+Kundali",
             languageCode = "0",
         )
-        val monthShortName = resources.getStringArray(R.array.month_short_name_en)
+        val monthShortName =
+            resources.getStringArray(com.bhakti_sangrahalay.R.array.month_short_name_en)
 
         binding.dateValTv.text =
             calendar[Calendar.DATE].toString() + " - " + monthShortName[calendar[Calendar.MONTH]] + " - " + calendar[Calendar.YEAR]
@@ -100,14 +110,16 @@ class BirthDetailInputActivity : BaseActivity(), AdapterView.OnItemSelectedListe
 
     private fun setAyanamsaSpinner() {
         val ayanmasha = arrayOf("N.C. Lahiri", "KP New", "KP Old", "Raman", "KP Khullar", "Syan")
-        val adapter = ArrayAdapter<Any?>(this, android.R.layout.simple_spinner_item, ayanmasha)
+        val adapter =
+            ArrayAdapter<Any?>(requireActivity(), android.R.layout.simple_spinner_item, ayanmasha)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.ayanmashaSpinner.adapter = adapter
     }
 
     private fun setDstSpinner() {
         val dst = arrayOf("0", "1", "2")
-        val adapter = ArrayAdapter<Any?>(this, android.R.layout.simple_spinner_item, dst)
+        val adapter =
+            ArrayAdapter<Any?>(requireActivity(), android.R.layout.simple_spinner_item, dst)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.dstSpinner.adapter = adapter
     }
@@ -118,7 +130,8 @@ class BirthDetailInputActivity : BaseActivity(), AdapterView.OnItemSelectedListe
         dateTimeBean.month = (month + 1).toString()
         dateTimeBean.year = year.toString()
         birthDetailBean.dateTimeBean = dateTimeBean
-        val monthShortName = resources.getStringArray(R.array.month_short_name_en)
+        val monthShortName =
+            resources.getStringArray(com.bhakti_sangrahalay.R.array.month_short_name_en)
         binding.dateValTv.text = day.toString() + " - " + monthShortName[month] + " - " + year
     }
 
@@ -147,43 +160,46 @@ class BirthDetailInputActivity : BaseActivity(), AdapterView.OnItemSelectedListe
 
     override fun onClick(v: View) {
         when (v.id) {
-            R.id.calculate_btn -> {
-                val intent = Intent(this, KundliOutputActivity::class.java)
+            com.bhakti_sangrahalay.R.id.calculate_btn -> {
+                val intent = Intent(requireActivity(), KundliOutputActivity::class.java)
                 val bundle = Bundle()
                 bundle.putSerializable("BirthDetail", birthDetailBean)
                 intent.putExtras(bundle)
                 startActivity(intent)
             }
-            R.id.date_val_tv -> {
+            com.bhakti_sangrahalay.R.id.date_val_tv -> {
                 val dateTimeBean = birthDetailBean.dateTimeBean
-               /* DatePickerDialog.showDatePicker(
+                DatePickerDialog.showDatePicker(
+                    requireActivity(),
                     this,
                     dateTimeBean.day.toInt(),
                     dateTimeBean.month.toInt(),
                     dateTimeBean.year.toInt()
-                )*/
+                )
             }
-            R.id.time_val_tv -> {
+            com.bhakti_sangrahalay.R.id.time_val_tv -> {
                 val dateTimeBean = birthDetailBean.dateTimeBean
-               /* TimePickerDialog.showTimePicker(
+                TimePickerDialog.showTimePicker(
+                    requireActivity(),
                     this,
-                    supportFragmentManager,
+                    requireActivity().supportFragmentManager,
                     dateTimeBean.hrs.toInt(),
                     dateTimeBean.min.toInt()
-                )*/
+                )
             }
-            R.id.setting_tv -> {
+            com.bhakti_sangrahalay.R.id.setting_tv -> {
                 if (isExpanded) {
                     isExpanded = false
-                    collapse(binding.otherCalOptionLay)
+                    (activity as BirthDetailInputActivityNew).collapse(binding.otherCalOptionLay)
                 } else {
                     isExpanded = true
-                    expand(binding.otherCalOptionLay)
+                    (activity as BirthDetailInputActivityNew).expand(binding.otherCalOptionLay)
                 }
 
             }
 
         }
     }
+
 
 }

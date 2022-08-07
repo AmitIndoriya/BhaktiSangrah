@@ -1,7 +1,6 @@
 package com.bhakti_sangrahalay.kundli.calculation
 
 import android.content.Context
-import android.util.Log
 import com.bhakti_sangrahalay.R
 import com.bhakti_sangrahalay.contansts.KpConstants
 import com.bhakti_sangrahalay.kundli.model.KPCilSubSubBean
@@ -413,15 +412,11 @@ object KpCilSubSubcalculation {
         }
     }
 
-    fun getCilSubSubData(context: Context) {
-        val nakshtraNadiList = ArrayList<KPCilSubSubBean>()
-        val hashMap = HashMap<Int, IntArray>()
+    fun getCilSubSubData(context: Context): ArrayList<KPCilSubSubBean> {
+        val arrayList = ArrayList<KPCilSubSubBean>()
+
         for (i in 0..8) {
-            val starLord = getKCILType2(KpConstants.PLANET_INDEX[i])
-            hashMap[i] = starLord
-        }
-        for (i in 0 until hashMap.size) {
-            nakshtraNadiList.add(
+            arrayList.add(
                 KPCilSubSubBean(
                     planetName = i,
                     star = getFormattedStringForNakshNadi(
@@ -447,6 +442,7 @@ object KpCilSubSubcalculation {
                 )
             )
         }
+        return arrayList
     }
 
 

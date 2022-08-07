@@ -8,8 +8,9 @@ import com.bhakti_sangrahalay.model.HouseSignificatorsBean
 import com.bhakti_sangrahalay.model.PlanetSignificationBean
 import com.bhakti_sangrahalay.panchang.generator.GenerateKundliData
 import com.bhakti_sangrahalay.util.Parser
+import javax.inject.Inject
 
-class KundliOutputActivityViewModel : BaseViewModel() {
+class KundliOutputActivityViewModel @Inject constructor() : BaseViewModel() {
 
 
     // arrayList = parser.parseKundliData(GenerateKundliData.getPlanets(this));
@@ -25,6 +26,9 @@ class KundliOutputActivityViewModel : BaseViewModel() {
         BasicKundliCalculation.setData(arrayList)
         KpKundliCalculation.setData(arrayList)
         BaseCalculation.setData(arrayList)
+        KpCilSubSubcalculation.setData(arrayList)
+        KpCilSubCalculation.setData(arrayList)
+
     }
 
     fun getLagnaKundliPlanetRashiArray(): IntArray {
@@ -163,4 +167,13 @@ class KundliOutputActivityViewModel : BaseViewModel() {
     fun getNakshtraNadiData(context: Context): ArrayList<KPNakshatraNadiBean> {
         return KpNakshtraNadiCalculation.getNakshtraNadi(context)
     }
+
+    fun getCilSubSubData(context: Context): ArrayList<KPCilSubSubBean> {
+        return KpCilSubSubcalculation.getCilSubSubData(context)
+    }
+
+    fun getCilSubData(context: Context): ArrayList<KPCilSubBean> {
+        return KpCilSubCalculation.getCilSubData()
+    }
+
 }

@@ -5,6 +5,7 @@ import android.util.Log
 import android.widget.Toast
 import com.astrologerchat.di.component.DaggerAppComponent
 import com.astrologerchat.di.module.NetworkModule
+import com.bhakti_sangrahalay.dagger.module.DatabaseModule
 import com.bhakti_sangrahalay.firebase.ForceUpdateChecker
 import com.bhakti_sangrahalay.repository.DataHoler
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
@@ -34,11 +35,12 @@ class MyApp : Application(), HasAndroidInjector {
         DaggerAppComponent.builder()
             .application(this)
             .networkModule(NetworkModule(""))
+            .databaseModule(DatabaseModule(this))
             .build()
             .inject(this)
         instance = this
         dataHoler=DataHoler()
-        val firebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
+       /* val firebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
         val remoteConfigDefaults: MutableMap<String, Any> = HashMap()
         remoteConfigDefaults[ForceUpdateChecker.KEY_UPDATE_REQUIRED] = false
         remoteConfigDefaults[ForceUpdateChecker.KEY_CURRENT_VERSION] = "1.0.0"
@@ -64,7 +66,7 @@ class MyApp : Application(), HasAndroidInjector {
                     ).show()
                 }
 
-            }
+            }*/
     }
 
     override fun androidInjector(): AndroidInjector<Any> {

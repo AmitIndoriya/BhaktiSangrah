@@ -666,6 +666,11 @@
         <item>Nov</item>
         <item>Dec</item>
     </string-array>
+    <string-array name="birth_detail_module_list">
+        <item>@string/open_kundli</item>
+        <item>@string/create_kundli</item>
+    </string-array>
+
     <string name="kp_chart">KP Chart</string>
     <string name="rashi_chart">Rashi Chart</string>
     <string name="cusps">Cusps</string>
@@ -679,4 +684,6 @@
     <string name="cil_sub">CIL(Sub)</string>
     <string name="four_step">4-Step</string>
     <string name="kp_cusp">KP Cusp</string>
+    <string name="open_kundli">Open Kundli</string>
+    <string name="create_kundli">Create Kundli</string>
 </resources>

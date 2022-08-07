@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <application
+        android:name=".app.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -37,7 +38,9 @@
         <activity android:name=".activity.PlaceActivity" />
         <activity android:name=".ui.activity.KundliHomeActivity" />
         <activity android:name=".ui.activity.BirthDetailInputActivity" />
+        <activity android:name=".ui.activity.BirthDetailInputActivityNew" />
         <activity android:name=".ui.activity.KundliOutputActivity" />
+
         <service android:name=".service.DownLoadFileServiceNew" />
     </application>
 

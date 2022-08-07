@@ -1,4 +1,6 @@
 package com.bhakti_sangrahalay.viewmodel
 
-class DashBoardViewModel:BaseViewModel() {
+import javax.inject.Inject
+
+class DashBoardViewModel @Inject constructor():BaseViewModel() {
 }

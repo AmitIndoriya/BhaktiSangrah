@@ -540,5 +540,15 @@
     <string name="l4">L4</string>
     <string name="stl">ST.L.</string>
     <string name="sbl">SB.L.</string>
+    <string name="star">Star</string>
+    <string name="sub">Sub</string>
+    <string name="sub_sub">Sub Sub</string>
+    <string name="pos_status">Pos. Status</string>
+    <string name="hou">Hou</string>
+    <string name="t1">T1</string>
+    <string name="t2">T2</string>
+    <string name="t3">T3</string>
+    <string name="t4">T4</string>
+    <string name="search_kundli">Search Kundli</string>
 
 </resources>

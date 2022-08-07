@@ -1,5 +1,7 @@
 package com.bhakti_sangrahalay.model;
 
+import androidx.room.Entity;
+
 import com.bhakti_sangrahalay.kundli.model.PrastharashtakvargaBean;
 import com.google.gson.annotations.SerializedName;
 

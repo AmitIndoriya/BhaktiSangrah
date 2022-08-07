@@ -83,6 +83,7 @@ class KundliOutputActivity : BaseActivity() {
             }
 
         })
+
     }
 
     private fun getDataFromIntent() {
@@ -270,6 +271,17 @@ class KundliOutputActivity : BaseActivity() {
                 viewModel.getNakshtraNadiData(this)
             )
         )
+        fragList.add(
+            KundliCilSubSubFragment.getInstance(
+                viewModel.getCilSubSubData(this)
+            )
+        )
+        fragList.add(
+            KPCilSubFragment.getInstance(
+                viewModel.getCilSubData(this)
+            )
+        )
+
         return fragList
     }
 }

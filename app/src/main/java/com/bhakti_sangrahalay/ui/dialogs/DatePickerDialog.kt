@@ -6,14 +6,19 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.widget.DatePicker
+import androidx.fragment.app.Fragment
 import com.bhakti_sangrahalay.R
 import com.bhakti_sangrahalay.ui.activity.BirthDetailInputActivity
+import com.bhakti_sangrahalay.ui.activity.BirthDetailInputActivityNew
+import com.bhakti_sangrahalay.ui.fragment.BirthDetailInputFragment
 
 object DatePickerDialog {
     @SuppressLint("StaticFieldLeak")
     lateinit var context: Context
-    fun showDatePicker(context: Context, day: Int, month: Int, year: Int) {
+    lateinit var fragment: Fragment
+    fun showDatePicker(context: Context, fragment: Fragment, day: Int, month: Int, year: Int) {
         this.context = context
+        this.fragment = fragment
         val datePicker = DatePickerDialog(
             context,
             R.style.date_picker_style,
@@ -31,7 +36,7 @@ object DatePickerDialog {
 
     class DateSetListener : DatePickerDialog.OnDateSetListener {
         override fun onDateSet(p0: DatePicker?, year: Int, month: Int, date: Int) {
-            (context as BirthDetailInputActivity).setDate(date, month, year)
+            (fragment as BirthDetailInputFragment).setDate(date, month, year)
 
         }
 

@@ -6,9 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -16,16 +14,11 @@ import com.bhakti_sangrahalay.R;
 import com.bhakti_sangrahalay.adapter.FragmentViewPagerAdapter;
 import com.bhakti_sangrahalay.model.KundliBean;
 import com.bhakti_sangrahalay.panchang.calculations.KundliCalculation;
-import com.bhakti_sangrahalay.panchang.generator.GenerateKundliData;
 import com.bhakti_sangrahalay.ui.fragment.ChartFragment;
 import com.bhakti_sangrahalay.util.Parser;
-import com.bhakti_sangrahalay.util.Utility;
 import com.google.android.material.tabs.TabLayout;
 
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class KundliHomeActivity extends BaseActivity {
