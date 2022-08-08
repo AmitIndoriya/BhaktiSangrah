@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/kundli_super_bottom_bar"
+        android:icon="@mipmap/basic"
+        android:title="@string/kundli"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/shodashvarga_super_bottom_bar"
+        android:icon="@mipmap/shodashvarga"
+        android:title="@string/Shodashvarga"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/radio_super_bottom_bar"
+        android:icon="@mipmap/dasa"
+        android:title="@string/dasha"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/search_super_bottom_bar"
+        android:icon="@mipmap/prediction"
+        android:title="@string/predictions"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/library_super_bottom_bar"
+        android:icon="@mipmap/kp_system"
+        android:title="@string/kp_system"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/more_super_bottom_bar"
+        android:icon="@mipmap/more"
+        android:title="@string/more"
+        app:showAsAction="always" />
+</menu>
