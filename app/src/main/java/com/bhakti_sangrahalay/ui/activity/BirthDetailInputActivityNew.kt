@@ -24,7 +24,6 @@ class BirthDetailInputActivityNew : BaseActivity() {
     private lateinit var binding: ActivityBirthDetailInputLayoutBinding
     lateinit var viewModel: BirthDetaiInputActivityViewModel
     override fun attachViewModel() {
-
         val viewModel = ViewModelProviders.of(
             this,
             viewModelFactory
