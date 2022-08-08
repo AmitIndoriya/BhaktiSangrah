@@ -8,7 +8,6 @@ import com.bhakti_sangrahalay.kundli.model.PlaceBean
 
 @Entity
 data class BirthDetailInfo(
-    @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") var name: String,
     @ColumnInfo(name = "sex") var sex: String,
     @ColumnInfo(name = "day") var day: String,
@@ -31,4 +30,7 @@ data class BirthDetailInfo(
     @ColumnInfo(name = "kphn") var kphn: String,
     @ColumnInfo(name = "button1") var button1: String,
     @ColumnInfo(name = "languageCode") var languageCode: String
-)
+) {
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0
+}

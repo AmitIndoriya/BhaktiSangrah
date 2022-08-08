@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bhakti_sangrahalay.adapter.KundliListAdapter
 import com.bhakti_sangrahalay.databinding.FragKundliListLayoutBinding
+import com.bhakti_sangrahalay.kundli.model.BirthDetailBean
+import com.bhakti_sangrahalay.ui.activity.BirthDetailInputActivityNew
 
 class KundliListFragment : Fragment() {
     lateinit var binding: FragKundliListLayoutBinding
@@ -21,6 +23,16 @@ class KundliListFragment : Fragment() {
         }
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        (requireActivity() as BirthDetailInputActivityNew).viewModel.getBirthDetailInfoList()
+        (requireActivity() as BirthDetailInputActivityNew).viewModel.birthDetailBeanListLiveData.observe(
+            this
+        ) { setListData(it) }
+        (requireActivity() as BirthDetailInputActivityNew).viewModel.isNewBirthDetailInfoAdded.observe(
+            this
+        ) { if (it) (requireActivity() as BirthDetailInputActivityNew).viewModel.getBirthDetailInfoList() }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,20 +41,18 @@ class KundliListFragment : Fragment() {
     ): View {
 
         binding = FragKundliListLayoutBinding.inflate(inflater, container, false)
-        setListData()
+
         return binding.root
     }
 
-    private fun setListData() {
+    private fun setListData(birthDetailBeanList: ArrayList<BirthDetailBean>) {
         binding.recyclerView.isNestedScrollingEnabled = false
         val kundliListAdapter =
-            KundliListAdapter(requireActivity())
+            KundliListAdapter(requireActivity(), birthDetailBeanList)
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(requireActivity())
         binding.recyclerView.layoutManager = mLayoutManager
         binding.recyclerView.itemAnimator = DefaultItemAnimator()
         binding.recyclerView.adapter = kundliListAdapter
-
-
     }
 
 }

@@ -8,9 +8,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bhakti_sangrahalay.R
+import com.bhakti_sangrahalay.kundli.model.BirthDetailBean
 import com.bhakti_sangrahalay.ui.activity.BaseActivity
 
-class KundliListAdapter(val context: Context) : RecyclerView.Adapter<KundliListAdapter.MyView>() {
+class KundliListAdapter(val context: Context, val birthDetailBeanList: ArrayList<BirthDetailBean>) :
+    RecyclerView.Adapter<KundliListAdapter.MyView>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyView {
         val itemView = LayoutInflater.from(parent.context)
@@ -20,10 +22,14 @@ class KundliListAdapter(val context: Context) : RecyclerView.Adapter<KundliListA
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: MyView, position: Int) {
-        holder.nameTV.text = "Amit"
-        holder.dobTV.text = "23 June 1990, "
-        holder.tobTV.text = "10:30 PM"
-        holder.pobTV.text = "Jaipur"
+        val birthDetailBean = birthDetailBeanList[position]
+        val dateTimeBean = birthDetailBeanList[position].dateTimeBean
+        val placeBean = birthDetailBeanList[position].placeBean
+        holder.nameTV.text = birthDetailBean.name
+        holder.dobTV.text =
+            dateTimeBean.day + " " + dateTimeBean.month + " " + dateTimeBean.year + " | "
+        holder.tobTV.text = dateTimeBean.hrs + " " + dateTimeBean.min + " " + dateTimeBean.sec
+        holder.pobTV.text = placeBean.place
 
         holder.nameTV.typeface = (context as BaseActivity).semiBoldTypeface
         holder.dobTV.typeface = context.mediumTypeface
@@ -32,7 +38,7 @@ class KundliListAdapter(val context: Context) : RecyclerView.Adapter<KundliListA
     }
 
     override fun getItemCount(): Int {
-        return 10
+        return birthDetailBeanList.size
     }
 
     class MyView(itemView: View) : RecyclerView.ViewHolder(itemView) {

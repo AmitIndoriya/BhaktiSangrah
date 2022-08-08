@@ -518,9 +518,9 @@
     <string name="ayanamsa_name">Ayanamsha Name</string>
     <string name="obliquity">Obliquity</string>
     <string name="sideral_time">Sideral Time</string>
-    <string name="birth_day">Birth Day</string>
-    <string name="birth_time">Birth Time</string>
-    <string name="place">Place</string>
+    <string name="birth_day">जन्म दिन</string>
+    <string name="birth_time">जन्म समय</string>
+    <string name="place">स्थान</string>
     <string name="kp_horary_no">Kp Horary No.</string>
     <string name="dst">D.S.T.</string>
     <string name="dasha">Dasha</string>

@@ -67,6 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/name_et"
                 android:layout_marginTop="15dp"
+                android:baselineAligned="false"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -82,15 +83,16 @@
                         android:drawablePadding="8dp"
                         android:gravity="center_vertical"
                         android:text="@string/birth_day"
-                        android:textSize="16sp"
+                        android:textSize="18sp"
                         app:drawableStartCompat="@mipmap/icon_calendar_36" />
 
                     <TextView
                         android:id="@+id/date_val_tv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="8dp"
                         android:background="@drawable/rect_gray_border"
+
                         android:gravity="center_horizontal"
                         android:padding="10dp"
                         android:textColor="@color/black"
@@ -108,14 +110,16 @@
                         android:id="@+id/time_label_tv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:drawablePadding="8dp"
                         android:text="@string/birth_time"
-                        android:textSize="16sp" />
+                        android:textSize="18sp"
+                        app:drawableStartCompat="@mipmap/icon_clock_32" />
 
                     <TextView
                         android:id="@+id/time_val_tv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="8dp"
                         android:background="@drawable/rect_gray_border"
                         android:gravity="center_horizontal"
                         android:padding="10dp"
@@ -131,15 +135,17 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/date_time_container"
                 android:layout_marginTop="15dp"
+                android:drawablePadding="8dp"
                 android:text="@string/place"
-                android:textSize="16sp" />
+                android:textSize="18sp"
+                app:drawableStartCompat="@mipmap/icon_location_32" />
 
             <TextView
                 android:id="@+id/place_val_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/place_label_tv"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/rect_gray_border"
                 android:gravity="center_horizontal"
                 android:padding="10dp"
@@ -198,12 +204,14 @@
                     android:autofillHints="name"
                     android:background="@drawable/rect_gray_border"
                     android:hint="@string/enter_name"
+                    android:inputType="text"
                     android:padding="10dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
+                    android:baselineAligned="false"
                     android:orientation="horizontal">
 
                     <LinearLayout

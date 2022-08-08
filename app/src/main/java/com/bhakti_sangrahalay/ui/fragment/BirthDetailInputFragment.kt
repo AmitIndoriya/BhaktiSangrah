@@ -37,6 +37,9 @@ class BirthDetailInputFragment : BaseFragment(), View.OnClickListener,
         binding.maleRb.typeface = (requireActivity() as BaseActivity).mediumTypeface
         binding.femaleRb.typeface = (requireActivity() as BaseActivity).mediumTypeface
         binding.nameLabelTv.typeface = (requireActivity() as BaseActivity).mediumTypeface
+        binding.dateLabelTv.typeface = (requireActivity() as BaseActivity).mediumTypeface
+        binding.timeLabelTv.typeface = (requireActivity() as BaseActivity).mediumTypeface
+        binding.placeLabelTv.typeface = (requireActivity() as BaseActivity).mediumTypeface
     }
 
 
@@ -158,14 +161,22 @@ class BirthDetailInputFragment : BaseFragment(), View.OnClickListener,
     override fun onNothingSelected(p0: AdapterView<*>) {
     }
 
+    fun saveBirthDetailInDB() {
+        (requireActivity() as BirthDetailInputActivityNew).viewModel.insertBirthDetailInfo(
+            birthDetailBean
+        )
+
+    }
+
     override fun onClick(v: View) {
         when (v.id) {
             com.bhakti_sangrahalay.R.id.calculate_btn -> {
-                val intent = Intent(requireActivity(), KundliOutputActivity::class.java)
-                val bundle = Bundle()
-                bundle.putSerializable("BirthDetail", birthDetailBean)
-                intent.putExtras(bundle)
-                startActivity(intent)
+                saveBirthDetailInDB()
+                /* val intent = Intent(requireActivity(), KundliOutputActivity::class.java)
+                 val bundle = Bundle()
+                 bundle.putSerializable("BirthDetail", birthDetailBean)
+                 intent.putExtras(bundle)
+                 startActivity(intent)*/
             }
             com.bhakti_sangrahalay.R.id.date_val_tv -> {
                 val dateTimeBean = birthDetailBean.dateTimeBean

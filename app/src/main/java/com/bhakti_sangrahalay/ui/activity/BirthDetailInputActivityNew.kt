@@ -25,7 +25,7 @@ class BirthDetailInputActivityNew : BaseActivity() {
     lateinit var viewModel: BirthDetaiInputActivityViewModel
 
     override fun attachViewModel() {
-        val viewModel = ViewModelProviders.of(
+        viewModel = ViewModelProviders.of(
             this,
             viewModelFactory
         )[BirthDetaiInputActivityViewModel::class.java]
@@ -70,6 +70,7 @@ class BirthDetailInputActivityNew : BaseActivity() {
             binding.tabLayout.getTabAt(i)?.customView = getTabView(tabTextArr[i])
         }
     }
+
     private fun getTabView(text: String?): View? {
         @SuppressLint("InflateParams") val view =
             LayoutInflater.from(this).inflate(R.layout.custom_tab_layout, null)
