@@ -59,7 +59,7 @@ public class Utility {
         return jsonStr;
     }
 
-    public int[] getIntArray(Resources resources, int id) {
+    public static int[] getIntArray(Resources resources, int id) {
         final TypedArray sounds = resources.obtainTypedArray(id);
         int[] resIds = new int[sounds.length()];
         for (int i = 0; i < sounds.length(); i++) {

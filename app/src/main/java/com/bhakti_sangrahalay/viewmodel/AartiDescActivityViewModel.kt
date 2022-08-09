@@ -25,7 +25,7 @@ class AartiDescActivityViewModel : ViewModel() {
     }
 
     public fun getImages(): ArrayList<Int> {
-        val intArr = utility.getIntArray(resources, R.array.god_icon_list)
+        val intArr = Utility.getIntArray(resources, R.array.god_icon_list)
         val intList = ArrayList<Int>(intArr.size)
         for (i in intArr) {
             intList.add(i)

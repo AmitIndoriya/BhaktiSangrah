@@ -10,11 +10,12 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class ActivityModule {
 
-  /*  @ContributesAndroidInjector()
-    abstract fun contributeDashboardActivity(): DashBoardActivity
 
-    @ContributesAndroidInjector()
+
+    /*@ContributesAndroidInjector()
     abstract fun contributeBirthDetaiInputActivity(): BirthDetailInputActivity*/
+    @ContributesAndroidInjector()
+    abstract fun contributeDashboardActivity(): DashBoardActivity
     @ContributesAndroidInjector()
     abstract fun contributeBirthDetailInputActivityNew(): BirthDetailInputActivityNew
 

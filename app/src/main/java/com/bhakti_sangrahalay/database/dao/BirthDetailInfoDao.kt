@@ -12,12 +12,12 @@ interface BirthDetailInfoDao {
     /* @Query("SELECT * FROM BirthDetailInfo")
      suspend fun getAll(): List<BirthDetailInfo>*/
     @Query("SELECT * FROM BirthDetailInfo")
-    fun getAll(): List<BirthDetailInfo>
+    suspend fun getAll(): List<BirthDetailInfo>
 
     /*  @Insert
       suspend fun insertAll(users: List<BirthDetailInfo>)*/
     @Insert
-    fun insertAll(users: List<BirthDetailInfo>)
+    suspend fun insertAll(users: List<BirthDetailInfo>)
 
     @Delete
     suspend fun delete(user: BirthDetailInfo)

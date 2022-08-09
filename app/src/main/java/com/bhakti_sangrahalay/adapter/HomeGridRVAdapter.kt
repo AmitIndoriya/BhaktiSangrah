@@ -10,15 +10,16 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bhakti_sangrahalay.MainActivity
 import com.bhakti_sangrahalay.R
+import com.bhakti_sangrahalay.ui.activity.BaseActivity
 import com.bhakti_sangrahalay.ui.activity.BirthDetailInputActivity
 import com.bhakti_sangrahalay.ui.activity.BirthDetailInputActivityNew
 import com.bhakti_sangrahalay.ui.activity.PanchangActivity
 
 class HomeGridRVAdapter(
     private val context: Context,
-    private val nameList: List<String>,
-    private val drawableBgList: List<Int>,
-    private val drawableList: List<Int>
+    private val nameList: Array<String>,
+    private val drawableBgList: IntArray,
+    private val drawableList: IntArray
 ) : RecyclerView.Adapter<HomeGridRVAdapter.MyView>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyView {
         val itemView =
@@ -31,6 +32,7 @@ class HomeGridRVAdapter(
         holder.textView.text = nameList[position]
         holder.imageView.setBackgroundResource(drawableBgList[position])
         holder.imageView.setImageResource(drawableList[position])
+        holder.textView.typeface = (context as BaseActivity).mediumTypeface
         holder.rootView.setOnClickListener {
             when (position) {
                 0 -> {
