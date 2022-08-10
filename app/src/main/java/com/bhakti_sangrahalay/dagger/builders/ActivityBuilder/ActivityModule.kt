@@ -22,6 +22,10 @@ abstract class ActivityModule {
     @ContributesAndroidInjector()
     abstract fun contributeChalishaDescActivityNew(): ChalishaDescActivityNew
 
+    @ContributesAndroidInjector()
+    abstract fun contributePanchangActivity(): PanchangActivity
+
+
     /*  @ContributesAndroidInjector()
       abstract fun contributeKundliOutputActivity(): KundliOutputActivity*/
 }

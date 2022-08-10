@@ -1,7 +1,6 @@
 package com.bhakti_sangrahalay.ui.activity
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -10,37 +9,35 @@ import android.os.StrictMode.VmPolicy
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.viewpager.widget.ViewPager
+import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.bhakti_sangrahalay.R
 import com.bhakti_sangrahalay.activity.PlaceActivity
 import com.bhakti_sangrahalay.adapter.FragmentViewPagerAdapter
+import com.bhakti_sangrahalay.databinding.ActivityPanchangHomeBinding
 import com.bhakti_sangrahalay.fragment.*
-import com.bhakti_sangrahalay.model.PlaceModel
 import com.bhakti_sangrahalay.viewmodel.PanchangViewModel
 
 import com.google.android.material.tabs.TabLayout
+import dagger.android.AndroidInjection
 import java.util.*
+import javax.inject.Inject
 
 
 class PanchangActivity : BaseActivity() {
-    lateinit var viewModel: PanchangViewModel
-    private lateinit var viewPager: ViewPager
-    private lateinit var tabLayout: TabLayout
-    private lateinit var fragList: ArrayList<Fragment>
-    lateinit var calendar: Calendar
-
-    // private lateinit var placeModel: PlaceModel
+    @Inject
     lateinit var preferences: SharedPreferences
-
-    //var resources: Resources? = null
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+    lateinit var binding: ActivityPanchangHomeBinding
+    lateinit var viewModel: PanchangViewModel
     var selectedFragment = 0
-    override fun onCreate(savedInstanceState: Bundle?) {
+    var calendar: Calendar = Calendar.getInstance()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         StrictMode.setThreadPolicy(
             StrictMode.ThreadPolicy.Builder()
                 .detectDiskReads()
@@ -57,42 +54,46 @@ class PanchangActivity : BaseActivity() {
                 .penaltyDeath()
                 .build()
         )
-        //setStatusBarColor(R.color.light_blue_color)
+
         super.onCreate(savedInstanceState)
-        preferences = getSharedPreferences("Application", MODE_PRIVATE)
+        initFont()
         attachViewModel()
-        fragList = getFragmentList()
-        calendar = Calendar.getInstance()
-        //placeModel = PlaceModel()
-        setContentView(R.layout.activity_panchang_home)
+        binding = ActivityPanchangHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         setTitle(resources.getString(R.string.panchag_aur_muhurat))
-        initView()
+
         setUpViewPagerAdapter()
-        tabLayout.setupWithViewPager(viewPager)
-        tabLayout.setSelectedTabIndicatorColor(resources.getColor(R.color.aqua_marine))
-        val tabTexts = resources.getStringArray(R.array.panchang_tab)
-        for (i in 0 until tabLayout.tabCount) {
-            val tab = tabLayout.getTabAt(i)
-            if (tab != null) {
-                tab.customView = getTabView(tabTexts[i])
-            }
-        }
+        setUpTabLayoutWithViewPager()
+
     }
 
     override fun attachViewModel() {
-        val viewModelProvider =
-            ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application))
-        viewModel = viewModelProvider[PanchangViewModel::class.java]
+        viewModel = ViewModelProviders.of(
+            this,
+            viewModelFactory
+        )[PanchangViewModel::class.java]
     }
 
     override fun setTypeface() {
     }
 
-    private fun initView() {
-        tabLayout = findViewById(R.id.tabLayout)
-        tabLayout.tabMode = TabLayout.MODE_SCROLLABLE
-        viewPager = findViewById(R.id.view_pager)
+    private fun setUpTabLayoutWithViewPager() {
+        binding.tabLayout.tabMode = TabLayout.MODE_SCROLLABLE
         supportActionBar?.elevation = 0F
+        binding.tabLayout.setupWithViewPager(binding.viewPager)
+        binding.tabLayout.setSelectedTabIndicatorColor(
+            resources.getColor(
+                R.color.aqua_marine,
+                null
+            )
+        )
+        val tabTexts = resources.getStringArray(R.array.panchang_tab)
+        for (i in 0 until binding.tabLayout.tabCount) {
+            val tab = binding.tabLayout.getTabAt(i)
+            if (tab != null) {
+                tab.customView = getTabView(tabTexts[i])
+            }
+        }
     }
 
     private fun getFragmentList(): ArrayList<Fragment> {
@@ -109,10 +110,11 @@ class PanchangActivity : BaseActivity() {
     }
 
     private fun setUpViewPagerAdapter() {
+        val fragList = getFragmentList()
         val adapter = FragmentViewPagerAdapter(supportFragmentManager, fragList)
-        viewPager.adapter = adapter
-        viewPager.currentItem = intent.getIntExtra("index", 0)
-        viewPager.setOnPageChangeListener(object : OnPageChangeListener {
+        binding.viewPager.adapter = adapter
+        binding.viewPager.currentItem = intent.getIntExtra("index", 0)
+        binding.viewPager.addOnPageChangeListener(object : OnPageChangeListener {
             override fun onPageScrolled(
                 position: Int,
                 positionOffset: Float,
@@ -132,7 +134,7 @@ class PanchangActivity : BaseActivity() {
     private fun getTabView(text: String): View {
         val view = LayoutInflater.from(this).inflate(R.layout.custom_tab_layout, null)
         val tv = view.findViewById<TextView>(R.id.tabtext)
-        tv.setTextColor(resources.getColor(R.color.white))
+        tv.setTextColor(resources.getColor(R.color.white, null))
         tv.text = text
         tv.textSize = 18f
         return view
@@ -141,6 +143,7 @@ class PanchangActivity : BaseActivity() {
 
     @SuppressLint("SimpleDateFormat")
     fun setDateFromDatePicker(date: Long) {
+       
         calendar.timeInMillis = date
         viewModel.setDateFromDatePicker(calendar)
     }

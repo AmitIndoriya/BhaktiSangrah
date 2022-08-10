@@ -9,14 +9,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bhakti_sangrahalay.MainActivity
 import com.bhakti_sangrahalay.R
 import com.bhakti_sangrahalay.contansts.GlobalVariables
 import com.bhakti_sangrahalay.ui.activity.BaseActivity
-import com.bhakti_sangrahalay.ui.activitynew.MantraActivity
-import com.bhakti_sangrahalay.ui.activitynew.MoreItemActivity
-import com.bhakti_sangrahalay.ui.activitynew.PauranikKathaHomeActivity
-import com.bhakti_sangrahalay.ui.activitynew.VartKathaHomeActivity
+import com.bhakti_sangrahalay.ui.activity.BirthDetailInputActivity
+import com.bhakti_sangrahalay.ui.activity.PanchangActivity
+import com.bhakti_sangrahalay.ui.activitynew.*
 
 class HomeGridRVAdapter(
     private val context: Context,
@@ -63,9 +61,16 @@ class HomeGridRVAdapter(
                 }
                 4 -> {
                     context.startActivity(Intent(context, MantraActivity::class.java))
-                } 5 -> {
-                context.startActivity(Intent(context, MantraActivity::class.java))
-            }
+                }
+                5 -> {
+                    context.startActivity(Intent(context, SunderKandActivity::class.java))
+                }
+                6 -> {
+                    context.startActivity(Intent(context, PanchangActivity::class.java))
+                }
+                7 -> {
+                    context.startActivity(Intent(context, BirthDetailInputActivity::class.java))
+                }
             }
         }
     }

@@ -49,4 +49,9 @@ internal abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(ChalishaDescActivityModel::class)
     protected abstract fun chalishaDescActivityModel(chalishaDescActivityModel: ChalishaDescActivityModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(PanchangViewModel::class)
+    protected abstract fun panchangViewModel(panchangViewModel: PanchangViewModel): ViewModel
 }

@@ -34,7 +34,7 @@ import java.util.Objects;
 public class Parser {
 
 
-    public SunderKaandBean sunderKandParser(Context context, Resources resources, String response) {
+    public static SunderKaandBean sunderKandParser(Context context, Resources resources, String response) {
         SunderKaandBean sunderKaandBean = new SunderKaandBean();
         try {
             JSONObject mainJsonObject = new JSONObject(response);

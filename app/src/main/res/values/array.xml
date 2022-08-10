@@ -677,12 +677,18 @@
         <item>@string/kundli</item>
         <item>@string/panchang</item>
         <item>@string/panchang</item>
+        <item>@string/panchang</item>
+        <item>@string/panchang</item>
+        <item>@string/panchang</item>
     </string-array>
     <string-array name="dashboard_module_icon_list">
         <item>@drawable/panchang</item>
         <item>@drawable/kundli</item>
         <item>@drawable/muhurat</item>
         <item>@drawable/horoscope</item>
+        <item>@drawable/muhurat</item>
+        <item>@drawable/muhurat</item>
+        <item>@drawable/muhurat</item>
         <item>@drawable/muhurat</item>
     </string-array>
     <string-array name="dashboard_module_bg_list">
@@ -691,6 +697,9 @@
         <item>@drawable/rect_light_pink</item>
         <item>@drawable/rect_light_yellow</item>
         <item>@drawable/rect_light_green</item>
+        <item>@drawable/rect_light_blue</item>
+        <item>@drawable/rect_light_pink</item>
+        <item>@drawable/rect_light_yellow</item>
     </string-array>
 
     <string name="kp_chart">KP Chart</string>

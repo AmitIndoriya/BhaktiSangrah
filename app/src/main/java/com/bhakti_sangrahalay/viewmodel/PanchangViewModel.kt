@@ -9,9 +9,10 @@ import com.bhakti_sangrahalay.util.Parser
 import com.bhakti_sangrahalay.util.Utility
 import com.indoriya.panchang.Place
 import java.util.*
+import javax.inject.Inject
 import kotlin.collections.ArrayList
 
-class PanchangViewModel : BaseViewModel() {
+class PanchangViewModel @Inject constructor() : BaseViewModel() {
     val isPlaceChangedLiveData = MutableLiveData<Boolean>()
     val calendarLiveData = MutableLiveData<Calendar>()
     var parser: Parser = Parser()
