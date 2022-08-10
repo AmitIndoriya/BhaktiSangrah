@@ -14,6 +14,7 @@ import com.bhakti_sangrahalay.R
 import com.bhakti_sangrahalay.contansts.GlobalVariables
 import com.bhakti_sangrahalay.ui.activity.BaseActivity
 import com.bhakti_sangrahalay.ui.activitynew.MoreItemActivity
+import com.bhakti_sangrahalay.ui.activitynew.PauranikKathaHomeActivity
 import com.bhakti_sangrahalay.ui.activitynew.VartKathaHomeActivity
 
 class HomeGridRVAdapter(
@@ -57,7 +58,7 @@ class HomeGridRVAdapter(
                     context.startActivity(intent)
                 }
                 3 -> {
-                    context.startActivity(Intent(context, MainActivity::class.java))
+                    context.startActivity(Intent(context, PauranikKathaHomeActivity::class.java))
                 }
             }
         }
