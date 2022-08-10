@@ -11,14 +11,13 @@ import android.widget.*
 import android.widget.SeekBar.OnSeekBarChangeListener
 import androidx.fragment.app.Fragment
 import com.bhakti_sangrahalay.R
-import com.bhakti_sangrahalay.activity.AartiDescActivityNew
+import com.bhakti_sangrahalay.ui.activity.AartiDescActivityNew
 import com.bhakti_sangrahalay.app.MyApp
 import com.bhakti_sangrahalay.model.AartiBean3
 import com.bhakti_sangrahalay.model.DownLoadStatus
 import com.bhakti_sangrahalay.model.MusicPlayStausModel
 import com.bhakti_sangrahalay.model.MusicSeekBarProgress
 import com.bhakti_sangrahalay.service.DownLoadFileServiceNew
-import com.bhakti_sangrahalay.ui.activity.BaseActivity
 import com.bhakti_sangrahalay.util.MediaPlayerSingleton
 import com.bhakti_sangrahalay.util.Utility
 import com.bumptech.glide.Glide

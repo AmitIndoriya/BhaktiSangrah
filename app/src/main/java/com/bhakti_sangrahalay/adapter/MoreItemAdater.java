@@ -14,18 +14,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.bhakti_sangrahalay.R;
-import com.bhakti_sangrahalay.activity.AartiDescActivityNew;
-import com.bhakti_sangrahalay.activity.ChalishaDescActivityNew;
+import com.bhakti_sangrahalay.ui.activity.AartiDescActivityNew;
+import com.bhakti_sangrahalay.ui.activity.ChalishaDescActivityNew;
 import com.bhakti_sangrahalay.contansts.GlobalVariables;
 import com.bhakti_sangrahalay.ui.activity.MoreItemActivity;
 
-import java.util.List;
-
 public class MoreItemAdater extends RecyclerView.Adapter<MoreItemAdater.MyView> {
 
-    private List<String> nameList;
-    private List<Integer> imageList;
-    private List<Integer> rowFileList;
+    private String[] nameList;
+    private int[] imageList;
+    private int[] rowFileList;
     private int type;
 
     Context context;
@@ -45,7 +43,7 @@ public class MoreItemAdater extends RecyclerView.Adapter<MoreItemAdater.MyView> 
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (rowFileList.get(getLayoutPosition()) == GlobalVariables.OTHERS) {
+                    if (rowFileList[getLayoutPosition()] == GlobalVariables.OTHERS) {
                         Bundle bundle = new Bundle();
                         Intent intent = new Intent(context, MoreItemActivity.class);
                         bundle.putInt("type", type);
@@ -61,8 +59,8 @@ public class MoreItemAdater extends RecyclerView.Adapter<MoreItemAdater.MyView> 
                         context.startActivity(intent);*/
 
                         Bundle bundle = new Bundle();
-                        bundle.putInt("imageId", imageList.get(getLayoutPosition()));
-                        bundle.putInt("fileId", rowFileList.get(getLayoutPosition()));
+                        bundle.putInt("imageId", imageList[getLayoutPosition()]);
+                        bundle.putInt("fileId", rowFileList[getLayoutPosition()]);
                         bundle.putString("title", resources.getString(R.string.aarti));
                         bundle.putInt("fragNum", getLayoutPosition());
                         Intent intent;
@@ -81,7 +79,7 @@ public class MoreItemAdater extends RecyclerView.Adapter<MoreItemAdater.MyView> 
         }
     }
 
-    public MoreItemAdater(Context context, List<String> nameList, List<Integer> imageList, List<Integer> rowFileList, int type) {
+    public MoreItemAdater(Context context, String[] nameList, int[] imageList, int[] rowFileList, int type) {
         this.context = context;
         resources = context.getResources();
         this.nameList = nameList;
@@ -101,12 +99,12 @@ public class MoreItemAdater extends RecyclerView.Adapter<MoreItemAdater.MyView> 
     @Override
     public void onBindViewHolder(final MyView holder, final int position) {
 
-        holder.textView.setText(nameList.get(position).replace("\n"," "));
-        holder.imageView.setImageDrawable(resources.getDrawable(imageList.get(position)));
+        holder.textView.setText(nameList[position].replace("\n"," "));
+        holder.imageView.setImageDrawable(resources.getDrawable(imageList[position]));
     }
 
     @Override
     public int getItemCount() {
-        return nameList.size();
+        return nameList.length;
     }
 }

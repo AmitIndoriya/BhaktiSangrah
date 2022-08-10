@@ -4,9 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.astrologerchat.di.factory.ViewModelFactory
 import com.astrologerchat.di.keys.ViewModelKey
-import com.bhakti_sangrahalay.viewmodel.BirthDetaiInputActivityViewModel
-import com.bhakti_sangrahalay.viewmodel.DashBoardViewModel
-import com.bhakti_sangrahalay.viewmodel.KundliOutputActivityViewModel
+import com.bhakti_sangrahalay.viewmodel.*
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -41,4 +39,14 @@ internal abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(KundliOutputActivityViewModel::class)
     protected abstract fun kundliOutputActivityViewModel(kundliOutputActivityViewModel: KundliOutputActivityViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(AartiDescActivityViewModel::class)
+    protected abstract fun aartiDescActivityViewModel(aartiDescActivityViewModel: AartiDescActivityViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ChalishaDescActivityModel::class)
+    protected abstract fun chalishaDescActivityModel(chalishaDescActivityModel: ChalishaDescActivityModel): ViewModel
 }

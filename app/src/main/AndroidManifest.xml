@@ -23,10 +23,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.MoreItemActivity" />
+       <!-- <activity android:name=".ui.activity.MoreItemActivity" />-->
+        <activity android:name=".ui.activitynew.MoreItemActivity" />
         <activity android:name=".ui.activity.SunderKandActivity" />
-        <activity android:name=".activity.AartiDescActivityNew" />
-        <activity android:name=".activity.ChalishaDescActivityNew" />
+        <activity android:name=".ui.activity.AartiDescActivityNew" />
+        <activity android:name=".ui.activity.ChalishaDescActivityNew" />
         <activity android:name=".ui.activity.KathaActivity" />
         <activity android:name=".ui.activity.KathaDescActivity" />
         <activity android:name=".ui.activity.VartKathaHomeActivity" />

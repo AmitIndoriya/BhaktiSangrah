@@ -8,8 +8,9 @@ import com.bhakti_sangrahalay.contansts.Constants
 import com.bhakti_sangrahalay.util.Parser
 import com.bhakti_sangrahalay.util.Utility
 import java.util.*
+import javax.inject.Inject
 
-class AartiDescActivityViewModel : ViewModel() {
+class AartiDescActivityViewModel  @Inject constructor(): ViewModel() {
     public var resources: Resources? = null
     var utility: Utility = Utility()
     var parser: Parser = Parser()

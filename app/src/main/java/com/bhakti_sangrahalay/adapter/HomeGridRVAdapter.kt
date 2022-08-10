@@ -2,6 +2,7 @@ package com.bhakti_sangrahalay.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,10 +11,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bhakti_sangrahalay.MainActivity
 import com.bhakti_sangrahalay.R
+import com.bhakti_sangrahalay.contansts.GlobalVariables
 import com.bhakti_sangrahalay.ui.activity.BaseActivity
-import com.bhakti_sangrahalay.ui.activity.BirthDetailInputActivity
 import com.bhakti_sangrahalay.ui.activity.BirthDetailInputActivityNew
-import com.bhakti_sangrahalay.ui.activity.PanchangActivity
+import com.bhakti_sangrahalay.ui.activitynew.MoreItemActivity
 
 class HomeGridRVAdapter(
     private val context: Context,
@@ -36,7 +37,12 @@ class HomeGridRVAdapter(
         holder.rootView.setOnClickListener {
             when (position) {
                 0 -> {
-                    context.startActivity(Intent(context, PanchangActivity::class.java))
+                    val bundle = Bundle()
+                    bundle.putInt("type", GlobalVariables.aarti)
+                    bundle.putString("title", context.resources.getString(R.string.aartiyan))
+                    val intent = Intent(context, MoreItemActivity::class.java)
+                    intent.putExtras(bundle)
+                    context.startActivity(intent)
                 }
                 1 -> {
                     context.startActivity(Intent(context, BirthDetailInputActivityNew::class.java))

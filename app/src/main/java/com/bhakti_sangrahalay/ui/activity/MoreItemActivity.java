@@ -47,19 +47,18 @@ public class MoreItemActivity extends BaseActivity {
             imagesSource = getIconForChalisha();
             rowFile = getRowFileForChalisha();
         }
-        MoreItemAdater adapter1 = new MoreItemAdater(this, source, imagesSource, rowFile, type);
+        /*MoreItemAdater adapter1 = new MoreItemAdater(this, source, imagesSource, rowFile, type);
         recyclerView.setAdapter(adapter1);
-        setTitle(title);
+        setTitle(title);*/
     }
 
     public List<String> getName() {
         String[] strArr = resources.getStringArray(R.array.god_name_list);
-        List<String> source = Arrays.asList(strArr);
-        return source;
+        return Arrays.asList(strArr);
     }
 
     public ArrayList<Integer> getImages() {
-        int[] intArr = utility.getIntArray(resources, R.array.god_icon_list);
+        int[] intArr = Utility.getIntArray(resources, R.array.god_icon_list);
         ArrayList<Integer> intList = new ArrayList<Integer>(intArr.length);
         for (int i : intArr) {
             intList.add(i);
@@ -68,7 +67,7 @@ public class MoreItemActivity extends BaseActivity {
     }
 
     public ArrayList<Integer> getRowFile() {
-        int[] intArr = utility.getIntArray(resources, R.array.aarti_row_file_list);
+        int[] intArr = Utility.getIntArray(resources, R.array.aarti_row_file_list);
         ArrayList<Integer> intList = new ArrayList<Integer>(intArr.length);
         for (int i : intArr) {
             intList.add(i);
@@ -83,7 +82,7 @@ public class MoreItemActivity extends BaseActivity {
     }
 
     public ArrayList<Integer> getIconForChalisha() {
-        int[] intArr = utility.getIntArray(resources, R.array.chalish_icon_list);
+        int[] intArr = Utility.getIntArray(resources, R.array.chalish_icon_list);
         ArrayList<Integer> intList = new ArrayList<Integer>(intArr.length);
         for (int i : intArr) {
             intList.add(i);
@@ -92,7 +91,7 @@ public class MoreItemActivity extends BaseActivity {
     }
 
     public ArrayList<Integer> getRowFileForChalisha() {
-        int[] intArr = utility.getIntArray(resources, R.array.chalish_raw_file_list);
+        int[] intArr = Utility.getIntArray(resources, R.array.chalish_raw_file_list);
         ArrayList<Integer> intList = new ArrayList<Integer>(intArr.length);
         for (int i : intArr) {
             intList.add(i);

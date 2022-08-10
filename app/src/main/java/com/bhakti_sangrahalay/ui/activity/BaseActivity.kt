@@ -47,7 +47,7 @@ abstract class BaseActivity : AppCompatActivity() {
         mediumTypeface = Utility.getMediumTypeface(this)
     }
 
-    open fun setTitle(title: String) {
+     fun setTitle(title: String) {
         val tv = TextView(applicationContext)
         val lp = RelativeLayout.LayoutParams(
             ActionBar.LayoutParams.WRAP_CONTENT,

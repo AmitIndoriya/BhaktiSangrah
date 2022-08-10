@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.bhakti_sangrahalay.R;
-import com.bhakti_sangrahalay.activity.ChalishaDescActivityNew;
+import com.bhakti_sangrahalay.ui.activity.ChalishaDescActivityNew;
 import com.bhakti_sangrahalay.contansts.GlobalVariables;
 import com.bhakti_sangrahalay.ui.activity.MoreItemActivity;
 
