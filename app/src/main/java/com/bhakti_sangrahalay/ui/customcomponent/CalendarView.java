@@ -20,7 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bhakti_sangrahalay.R;
-import com.bhakti_sangrahalay.activity.DainikCalendarActivity;
+import com.bhakti_sangrahalay.ui.activity.DainikCalendarActivity;
 import com.bhakti_sangrahalay.model.MonthDetailData;
 import com.bhakti_sangrahalay.panchang.calculations.PanchangCalculation;
 import com.bhakti_sangrahalay.util.Utility;

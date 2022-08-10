@@ -1,4 +1,4 @@
-package com.bhakti_sangrahalay.fragment
+package com.bhakti_sangrahalay.ui.fragment
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -7,7 +7,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CalendarView
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -15,13 +14,13 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bhakti_sangrahalay.R
-import com.bhakti_sangrahalay.activity.DainikCalendarActivity
+import com.bhakti_sangrahalay.ui.activity.DainikCalendarActivity
 import com.bhakti_sangrahalay.adapter.MonthFestivalAdapter
 import com.bhakti_sangrahalay.model.DainikCalendarModel
 import com.bhakti_sangrahalay.model.MonthFestivalModel
 import com.bhakti_sangrahalay.model.TodayPanchangModelNew
 import com.bhakti_sangrahalay.panchang.calculations.PanchangCalculation
-import com.bhakti_sangrahalay.ui.activity.BaseActivity
+import com.bhakti_sangrahalay.ui.customcomponent.CalendarView
 import com.bhakti_sangrahalay.util.Utility
 import com.google.android.material.card.MaterialCardView
 import java.util.*
@@ -74,7 +73,11 @@ class DainikCalendarFragment : Fragment(), View.OnClickListener {
             calendar = dainikCalendarModel.calendar
         }
         // (activity as DainikCalendarActivity).viewModel.getTodayPanchang(calendar, Utility.getPlaceForPanchang())
-        (activity as DainikCalendarActivity).viewModel.todayPanchangModelLiveData.observe(this, { setTodayPanchangData(it) })
+        (activity as DainikCalendarActivity).viewModel.todayPanchangModelLiveData.observe(this) {
+            setTodayPanchangData(
+                it
+            )
+        }
 
 
     }
@@ -87,7 +90,8 @@ class DainikCalendarFragment : Fragment(), View.OnClickListener {
         setTypeFace()
         setTodayPanchangData(dainikCalendarModel.todayPanchangModel)
         val month = dainikCalendarModel.calendar[Calendar.MONTH]
-        festTableHeading.setText(resources.getString(R.string.fest_table_heading).replace("#", Utility.getMonthList()[month]))
+        festTableHeading.text =
+            resources.getString(R.string.fest_table_heading).replace("#", Utility.getMonthList()[month])
         setFestData(dainikCalendarModel.monthFestivalModel)
 
         return view
@@ -129,9 +133,9 @@ class DainikCalendarFragment : Fragment(), View.OnClickListener {
     }
 
     private fun initCalendar() {
-    /*    val cv = CalendarView(activity)
+        val cv = CalendarView(activity)
         calendarContainer.addView(cv)
-        cv.updateCalendar(calendar.time)*/
+        cv.updateCalendar(calendar.time)
     }
 
     @SuppressLint("SetTextI18n")

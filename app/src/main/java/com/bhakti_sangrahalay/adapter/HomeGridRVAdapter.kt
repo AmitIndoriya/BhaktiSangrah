@@ -10,9 +10,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bhakti_sangrahalay.R
+import com.bhakti_sangrahalay.ui.activity.DainikCalendarActivity
 import com.bhakti_sangrahalay.contansts.GlobalVariables
 import com.bhakti_sangrahalay.ui.activity.BaseActivity
-import com.bhakti_sangrahalay.ui.activity.BirthDetailInputActivity
+import com.bhakti_sangrahalay.ui.activity.BirthDetailInputActivityNew
 import com.bhakti_sangrahalay.ui.activity.PanchangActivity
 import com.bhakti_sangrahalay.ui.activitynew.*
 
@@ -69,7 +70,10 @@ class HomeGridRVAdapter(
                     context.startActivity(Intent(context, PanchangActivity::class.java))
                 }
                 7 -> {
-                    context.startActivity(Intent(context, BirthDetailInputActivity::class.java))
+                    context.startActivity(Intent(context, BirthDetailInputActivityNew::class.java))
+                }
+                8 -> {
+                    context.startActivity(Intent(context, DainikCalendarActivity::class.java))
                 }
             }
         }

@@ -172,11 +172,11 @@ class BirthDetailInputFragment : BaseFragment(), View.OnClickListener,
         when (v.id) {
             com.bhakti_sangrahalay.R.id.calculate_btn -> {
                 saveBirthDetailInDB()
-                /* val intent = Intent(requireActivity(), KundliOutputActivity::class.java)
-                 val bundle = Bundle()
-                 bundle.putSerializable("BirthDetail", birthDetailBean)
-                 intent.putExtras(bundle)
-                 startActivity(intent)*/
+                val intent = Intent(requireActivity(), KundliOutputActivity::class.java)
+                val bundle = Bundle()
+                bundle.putSerializable("BirthDetail", birthDetailBean)
+                intent.putExtras(bundle)
+                startActivity(intent)
             }
             com.bhakti_sangrahalay.R.id.date_val_tv -> {
                 val dateTimeBean = birthDetailBean.dateTimeBean

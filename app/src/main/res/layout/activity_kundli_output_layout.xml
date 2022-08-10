@@ -2,39 +2,78 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabLayout"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorPrimaryDark"
-            android:minHeight="?attr/actionBarSize" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/view_pager"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@color/panchanag_bg_color" />
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appBarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
 
-        <me.ertugrul.lib.SuperBottomBar
-            android:id="@+id/bottomBar"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:paddingTop="10dp"
-            app:sbb_activeColor="@color/light_pink"
-            app:sbb_animationDuration="10"
-            app:sbb_backgroundColor="@color/white"
-            app:sbb_iconMargin="10dp"
-            app:sbb_initialActiveItem="0"
-            app:sbb_menu="@menu/kundli_bottom_nav_item"
-            app:sbb_passiveColor="@color/black"
-            app:sbb_pressedColor="@color/light_pink"
-            app:sbb_textColor="@color/black"
-            app:sbb_textSize="12sp" />
-    </LinearLayout>
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="?attr/colorPrimary"
+                    android:theme="@style/ToolbarTheme"
+                    app:layout_scrollFlags="scroll|snap"
+                    app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/colorPrimaryDark"
+                    android:minHeight="?attr/actionBarSize"
+                    android:paddingBottom="2dp"
+                    app:tabIndicator="@drawable/tab_indicator"
+                    app:tabIndicatorColor="@color/aqua_marine"
+                    app:tabIndicatorHeight="4dp" />
+            </com.google.android.material.appbar.AppBarLayout>
+
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/panchanag_bg_color" />
+
+            <me.ertugrul.lib.SuperBottomBar
+                android:id="@+id/bottomBar"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:paddingTop="10dp"
+                android:visibility="gone"
+                app:sbb_activeColor="@color/light_pink"
+                app:sbb_animationDuration="10"
+                app:sbb_backgroundColor="@color/white"
+                app:sbb_iconMargin="10dp"
+                app:sbb_initialActiveItem="0"
+                app:sbb_menu="@menu/kundli_bottom_nav_item"
+                app:sbb_passiveColor="@color/black"
+                app:sbb_pressedColor="@color/light_pink"
+                app:sbb_textColor="@color/black"
+                app:sbb_textSize="12sp" />
+        </LinearLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:headerLayout="@layout/nav_header_main"
+            app:itemIconTint="@color/black"
+            app:itemTextAppearance="@style/DrawerTextViewStyle"
+            app:menu="@menu/kunldli_output_drawer_item" />
+    </androidx.drawerlayout.widget.DrawerLayout>
 </layout>

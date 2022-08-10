@@ -1,4 +1,4 @@
-package com.bhakti_sangrahalay.activity
+package com.bhakti_sangrahalay.ui.activity
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,9 +6,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager.widget.ViewPager
 import com.bhakti_sangrahalay.R
 import com.bhakti_sangrahalay.adapter.FragmentViewPagerAdapter
-import com.bhakti_sangrahalay.fragment.DainikCalendarFragment
+import com.bhakti_sangrahalay.ui.fragment.DainikCalendarFragment
 import com.bhakti_sangrahalay.model.DainikCalendarModel
-import com.bhakti_sangrahalay.ui.activity.BaseActivity
 import com.bhakti_sangrahalay.util.Utility
 import com.bhakti_sangrahalay.viewmodel.DainikCalendarViewModel
 import kotlinx.coroutines.DelicateCoroutinesApi
@@ -25,6 +24,7 @@ class DainikCalendarActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        initFont()
         attachViewModel()
         fragIds = getIdList()
         setContentView(R.layout.activity_dainik_calendar_layout)
@@ -36,6 +36,7 @@ class DainikCalendarActivity : BaseActivity() {
         viewPager = findViewById(R.id.view_pager)
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     override fun attachViewModel() {
         val viewModelProvider =
             ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application))
@@ -44,7 +45,7 @@ class DainikCalendarActivity : BaseActivity() {
         GlobalScope.launch {
             getDailyCalendarData()
         }
-        viewModel.dailyCalendarModelLiveData.observe(this, { setUpViewPagerAdapter(it) })
+        viewModel.dailyCalendarModelLiveData.observe(this) { setUpViewPagerAdapter(it) }
     }
 
     override fun setTypeface() {
@@ -62,7 +63,7 @@ class DainikCalendarActivity : BaseActivity() {
         viewPager.adapter = adapter
         viewPager.currentItem = intent.getIntExtra("index", 0)
         //viewPager.offscreenPageLimit=12
-        viewPager.setOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(
                 position: Int,
                 positionOffset: Float,

@@ -36,12 +36,14 @@
         <activity android:name=".activity.AboutUsActivity" />
         <activity android:name=".activity.SuggestionActivity" />
         <activity android:name=".ui.activity.PanchangActivity" />
-        <activity android:name=".activity.DainikCalendarActivity" />
+        <activity android:name=".ui.activity.DainikCalendarActivity" />
         <activity android:name=".activity.PlaceActivity" />
         <activity android:name=".ui.activity.KundliHomeActivity" />
         <activity android:name=".ui.activity.BirthDetailInputActivity" />
         <activity android:name=".ui.activity.BirthDetailInputActivityNew" />
-        <activity android:name=".ui.activity.KundliOutputActivity" />
+        <activity
+            android:name=".ui.activity.KundliOutputActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <service android:name=".service.DownLoadFileServiceNew" />
     </application>

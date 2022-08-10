@@ -54,4 +54,6 @@ internal abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(PanchangViewModel::class)
     protected abstract fun panchangViewModel(panchangViewModel: PanchangViewModel): ViewModel
+
+
 }

@@ -5,11 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
-import android.widget.PopupMenu
 import android.widget.TextView
-import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import com.bhakti_sangrahalay.R
 import com.bhakti_sangrahalay.adapter.FragmentViewPagerAdapter
 import com.bhakti_sangrahalay.databinding.ActivityKundliOutputLayoutBinding
@@ -17,18 +18,23 @@ import com.bhakti_sangrahalay.kundli.model.BirthDetailBean
 import com.bhakti_sangrahalay.ui.fragment.*
 import com.bhakti_sangrahalay.viewmodel.KundliOutputActivityViewModel
 import com.google.android.material.tabs.TabLayout
+import dagger.android.AndroidInjection
 import me.ertugrul.lib.OnItemReselectedListener
 import me.ertugrul.lib.OnItemSelectedListener
+import javax.inject.Inject
 
 
 class KundliOutputActivity : BaseActivity() {
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
     lateinit var viewModel: KundliOutputActivityViewModel
     private lateinit var birthDetailBean: BirthDetailBean
     private lateinit var binding: ActivityKundliOutputLayoutBinding
     override fun attachViewModel() {
-        val viewModelProvider =
-            ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application))
-        viewModel = viewModelProvider[KundliOutputActivityViewModel::class.java]
+        viewModel = ViewModelProviders.of(
+            this,
+            viewModelFactory
+        )[KundliOutputActivityViewModel::class.java]
     }
 
     override fun setTypeface() {
@@ -36,17 +42,27 @@ class KundliOutputActivity : BaseActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
+        initFont()
         super.onCreate(savedInstanceState)
         attachViewModel()
         binding = ActivityKundliOutputLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setTitle(resources.getString(R.string.kundli))
+        toolbarSetUp()
+        //setTitle(resources.getString(R.string.kundli))
         getDataFromIntent()
         setUpViewPager(2)
         setListener()
     }
 
-    fun setListener() {
+    private fun toolbarSetUp() {
+        setSupportActionBar(binding.toolbar)
+        binding.toolbar.setTitleTextColor(resources.getColor(R.color.white, null))
+        setUpNavigationView()
+        supportActionBar?.title = resources.getString(R.string.Dash_board)
+    }
+
+    private fun setListener() {
         findViewById<View>(R.id.more_super_bottom_bar)
         binding.bottomBar.setOnItemSelectListener(object : OnItemSelectedListener {
             override fun onItemSelect(pos: Int) {
@@ -62,15 +78,7 @@ class KundliOutputActivity : BaseActivity() {
                     }
                     4 -> {
 
-                        /* val popup = PopupMenu(
-                             this@KundliOutputActivity,
-                             binding.bottomBar.rootView.findViewById(R.id.more_super_bottom_bar)
-                             //findViewById(R.id.more_super_bottom_bar)
-                         )
-                         val inflater = popup.menuInflater
-                         inflater.inflate(R.menu.kundli_overflow_bottm_nav_item, popup.menu)
-                         popup.show()
-                         //openPopMenu()*/
+
                     }
                 }
             }
@@ -91,26 +99,7 @@ class KundliOutputActivity : BaseActivity() {
         viewModel.getKundliDataList(assets, birthDetailBean)
     }
 
-    fun openPopMenu() {
-        val popupMenu = PopupMenu(this, findViewById(R.id.more_super_bottom_bar))
 
-        popupMenu.getMenuInflater()
-            .inflate(R.menu.kundli_overflow_bottm_nav_item, popupMenu.getMenu())
-        popupMenu.setOnMenuItemClickListener(object : PopupMenu.OnMenuItemClickListener {
-            override fun onMenuItemClick(menuItem: MenuItem): Boolean {
-                Toast.makeText(
-                    this@KundliOutputActivity,
-                    "You Clicked " + menuItem.getTitle(),
-                    Toast.LENGTH_SHORT
-                ).show()
-                return true
-            }
-
-        })
-        // Showing the popup menu
-        // Showing the popup menu
-        popupMenu.show()
-    }
 
     private fun setUpViewPager(pos: Int) {
         supportActionBar?.elevation = 0F
@@ -136,8 +125,6 @@ class KundliOutputActivity : BaseActivity() {
         binding.viewPager.adapter = adapter
         binding.tabLayout.tabMode = TabLayout.MODE_SCROLLABLE
         binding.tabLayout.setupWithViewPager(binding.viewPager)
-        binding.tabLayout.setSelectedTabIndicatorColor(resources.getColor(R.color.aqua_marine))
-
         for (i in 0..binding.tabLayout.tabCount) {
             binding.tabLayout.getTabAt(i)?.customView = getTabView(tabTextArr[i])
         }
@@ -147,7 +134,7 @@ class KundliOutputActivity : BaseActivity() {
         @SuppressLint("InflateParams") val view =
             LayoutInflater.from(this).inflate(R.layout.custom_tab_layout, null)
         val tv = view.findViewById<TextView>(R.id.tabtext)
-        tv.setTextColor(resources.getColor(R.color.white))
+        tv.setTextColor(resources.getColor(R.color.white, null))
         tv.text = text
         return view
     }
@@ -283,5 +270,60 @@ class KundliOutputActivity : BaseActivity() {
         )
 
         return fragList
+    }
+
+    private fun setUpNavigationView() {
+        binding.navView.setNavigationItemSelectedListener { menuItem: MenuItem ->
+            when (menuItem.itemId) {
+                R.id.basic -> {
+                    binding.drawerLayout.closeDrawer(GravityCompat.START, true)
+                    setUpViewPager(0)
+
+                }
+                R.id.dasha -> {
+                    binding.drawerLayout.closeDrawer(GravityCompat.START, true)
+                }
+                R.id.shodasvarga -> {
+                    setUpViewPager(1)
+                    binding.drawerLayout.closeDrawer(GravityCompat.START, true)
+
+
+                }
+                R.id.kp_system -> {
+                    binding.drawerLayout.closeDrawer(GravityCompat.START, true)
+                    setUpViewPager(2)
+                }
+                R.id.lal_kitab -> {
+                    binding.drawerLayout.closeDrawer(GravityCompat.START, true)
+                }
+                R.id.varshfal -> {
+                    binding.drawerLayout.closeDrawer(GravityCompat.START, true)
+                }
+            }
+            menuItem.isChecked = !menuItem.isChecked
+            menuItem.isChecked = true
+            true
+        }
+        val actionBarDrawerToggle: ActionBarDrawerToggle = object : ActionBarDrawerToggle(
+            this,
+            binding.drawerLayout,
+            binding.toolbar,
+            R.string.openDrawer,
+            R.string.closeDrawer
+        ) {
+            override fun onDrawerClosed(drawerView: View) {
+                // Code here will be triggered once the drawer closes as we dont want anything to happen so we leave this blank
+                super.onDrawerClosed(drawerView)
+            }
+
+            override fun onDrawerOpened(drawerView: View) {
+                // Code here will be triggered once the drawer open as we dont want anything to happen so we leave this blank
+                super.onDrawerOpened(drawerView)
+            }
+        }
+
+        binding.drawerLayout.addDrawerListener(actionBarDrawerToggle)
+        actionBarDrawerToggle.drawerArrowDrawable.color = resources.getColor(R.color.white, null)
+        actionBarDrawerToggle.syncState()
     }
 }

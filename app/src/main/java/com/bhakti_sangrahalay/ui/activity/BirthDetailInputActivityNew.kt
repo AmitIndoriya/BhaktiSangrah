@@ -31,11 +31,9 @@ class BirthDetailInputActivityNew : BaseActivity() {
         )[BirthDetaiInputActivityViewModel::class.java]
 
     }
-
     override fun setTypeface() {
 
     }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         initFont()
         super.onCreate(savedInstanceState)

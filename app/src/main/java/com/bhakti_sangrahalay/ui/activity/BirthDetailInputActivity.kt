@@ -11,8 +11,6 @@ import com.bhakti_sangrahalay.databinding.ActBirthdetailInputLayoutBinding
 import com.bhakti_sangrahalay.kundli.model.BirthDetailBean
 import com.bhakti_sangrahalay.kundli.model.DateTimeBean
 import com.bhakti_sangrahalay.kundli.model.PlaceBean
-import com.bhakti_sangrahalay.ui.dialogs.DatePickerDialog
-import com.bhakti_sangrahalay.ui.dialogs.TimePickerDialog
 import com.bhakti_sangrahalay.util.Utility
 import com.bhakti_sangrahalay.viewmodel.BirthDetaiInputActivityViewModel
 import java.util.*
@@ -35,7 +33,7 @@ class BirthDetailInputActivity : BaseActivity(), AdapterView.OnItemSelectedListe
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        initFont()
         binding = ActBirthdetailInputLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setTitle(resources.getString(R.string.birth_detail))
@@ -156,21 +154,21 @@ class BirthDetailInputActivity : BaseActivity(), AdapterView.OnItemSelectedListe
             }
             R.id.date_val_tv -> {
                 val dateTimeBean = birthDetailBean.dateTimeBean
-               /* DatePickerDialog.showDatePicker(
-                    this,
-                    dateTimeBean.day.toInt(),
-                    dateTimeBean.month.toInt(),
-                    dateTimeBean.year.toInt()
-                )*/
+                /* DatePickerDialog.showDatePicker(
+                     this,
+                     dateTimeBean.day.toInt(),
+                     dateTimeBean.month.toInt(),
+                     dateTimeBean.year.toInt()
+                 )*/
             }
             R.id.time_val_tv -> {
                 val dateTimeBean = birthDetailBean.dateTimeBean
-               /* TimePickerDialog.showTimePicker(
-                    this,
-                    supportFragmentManager,
-                    dateTimeBean.hrs.toInt(),
-                    dateTimeBean.min.toInt()
-                )*/
+                /* TimePickerDialog.showTimePicker(
+                     this,
+                     supportFragmentManager,
+                     dateTimeBean.hrs.toInt(),
+                     dateTimeBean.min.toInt()
+                 )*/
             }
             R.id.setting_tv -> {
                 if (isExpanded) {
