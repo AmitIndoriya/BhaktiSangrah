@@ -20,7 +20,6 @@ import com.bhakti_sangrahalay.databinding.ActDashboardLayoutBinding
 import com.bhakti_sangrahalay.util.Utility
 import com.bhakti_sangrahalay.viewmodel.DashBoardViewModel
 import dagger.android.AndroidInjection
-import java.util.*
 import javax.inject.Inject
 
 class DashBoardActivity : BaseActivity() {
@@ -43,7 +42,7 @@ class DashBoardActivity : BaseActivity() {
         setSupportActionBar(binding.toolbar)
         binding.toolbar.setTitleTextColor(resources.getColor(R.color.white, null))
         setUpNavigationView()
-        Objects.requireNonNull(supportActionBar)?.title = resources.getString(R.string.Dash_board)
+        supportActionBar?.title = resources.getString(R.string.Dash_board)
     }
 
     override fun attachViewModel() {

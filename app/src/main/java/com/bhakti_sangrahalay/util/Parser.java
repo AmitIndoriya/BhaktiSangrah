@@ -176,7 +176,7 @@ public class Parser {
         return arrayList;
     }
 
-    public ArrayList<MantraBean> mantraListParser(String response) {
+    public static ArrayList<MantraBean> mantraListParser(String response) {
         ArrayList<MantraBean> arrayList = new ArrayList<>();
         try {
             JSONArray jsonArray = new JSONArray(response);

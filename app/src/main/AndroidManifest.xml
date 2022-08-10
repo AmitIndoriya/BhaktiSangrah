@@ -32,7 +32,7 @@
         <activity android:name=".ui.activitynew.KathaDescActivity" />
         <activity android:name=".ui.activitynew.VartKathaHomeActivity" />
         <activity android:name=".ui.activitynew.PauranikKathaHomeActivity" />
-        <activity android:name=".ui.activity.MantraActivity" />
+        <activity android:name=".ui.activitynew.MantraActivity" />
         <activity android:name=".activity.AboutUsActivity" />
         <activity android:name=".activity.SuggestionActivity" />
         <activity android:name=".ui.activity.PanchangActivity" />
