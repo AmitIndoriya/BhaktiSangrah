@@ -27,6 +27,7 @@ class ChalishaDescActivityNew : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
+        initFont()
         binding = AartiDescActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setTitle(resources.getString(R.string.chalisha))
