@@ -251,7 +251,7 @@ class PanchangViewModel : BaseViewModel() {
     }
 
     fun getPanchakData(resources: Resources): ArrayList<PanchakBean> {
-        return parser.getPanchakList(Utility().readFromFile(resources, R.raw.panchak))
+        return parser.getPanchakList(Utility.readFromFile(resources, R.raw.panchak))
     }
 
     fun getBhadraData(calendar: Calendar, place: Place): ArrayList<BhadraBean> {

@@ -18,7 +18,7 @@ class ChalishaDescActivityModel @Inject constructor() : ViewModel() {
 
     fun readResourceFile() {
         val aartiBeanArrayList =
-            parser.aartiListParserNew(utility.readFromFile(resources, R.raw.chalisa_list))
+            parser.aartiListParserNew(Utility.readFromFile(resources, R.raw.chalisa_list))
         MyApp.applicationContext().dataHoler.setAartiArrayList(
             aartiBeanArrayList,
             Constants.CHALISHA_TYPE

@@ -22,17 +22,28 @@ class DainikCalendarViewModel : ViewModel() {
 
 
     fun getTodayPanchang(calendar: Calendar, place: Place): TodayPanchangModelNew {
-        return TodayPanchangModelNew(tithi = PanchangCalculation.getTithi(calendar, place)[0], tithiInt = PanchangCalculation.getTithiInt(calendar, place),
-                paksh = PanchangCalculation.getPaksh(calendar, place), samvat = PanchangCalculation.getVikramSamvatYear(calendar, place),
-                hindiMonth = PanchangCalculation.getAmantaMonth(calendar, place), vara = PanchangCalculation.getVar(calendar, place),
-                calendar = calendar)
+        return TodayPanchangModelNew(
+            tithi = PanchangCalculation.getTithi(calendar, place)[0],
+            tithiInt = PanchangCalculation.getTithiInt(calendar, place),
+            paksh = PanchangCalculation.getPaksh(calendar, place),
+            samvat = PanchangCalculation.getVikramSamvatYear(calendar, place),
+            hindiMonth = PanchangCalculation.getAmantaMonth(calendar, place),
+            vara = PanchangCalculation.getVar(calendar, place),
+            calendar = calendar
+        )
     }
 
     private fun getTodayPanchangAsyc(calendar: Calendar, place: Place): TodayPanchangModelNew {
 
-        return TodayPanchangModelNew(tithi = PanchangCalculation.getTithi(calendar, place)[0], tithiInt = PanchangCalculation.getTithiInt(calendar, place),
-                paksh = PanchangCalculation.getPaksh(calendar, place), samvat = PanchangCalculation.getVikramSamvatYear(calendar, place),
-                hindiMonth = PanchangCalculation.getAmantaMonth(calendar, place), vara = PanchangCalculation.getVar(calendar, place), calendar = calendar)
+        return TodayPanchangModelNew(
+            tithi = PanchangCalculation.getTithi(calendar, place)[0],
+            tithiInt = PanchangCalculation.getTithiInt(calendar, place),
+            paksh = PanchangCalculation.getPaksh(calendar, place),
+            samvat = PanchangCalculation.getVikramSamvatYear(calendar, place),
+            hindiMonth = PanchangCalculation.getAmantaMonth(calendar, place),
+            vara = PanchangCalculation.getVar(calendar, place),
+            calendar = calendar
+        )
     }
 
     private fun getFestivalData(index: Int): MonthFestivalModel {
@@ -40,7 +51,8 @@ class DainikCalendarViewModel : ViewModel() {
     }
 
     fun getDailyCalendarData(place: Place) {
-        yearFestivalModel = parser.getFestivalList(utility.readFromFile(resources, R.raw.festivals_list))
+        yearFestivalModel =
+            parser.getFestivalList(Utility.readFromFile(resources, R.raw.festivals_list))
         val dailyCalendarData = ArrayList<DainikCalendarModel>()
         val currentMonth = Calendar.getInstance().get(Calendar.MONTH)
         for (i in 0..11) {
@@ -49,7 +61,14 @@ class DainikCalendarViewModel : ViewModel() {
             val todayPanchangModel = getTodayPanchangAsyc(calendar, place)
             val festivalModel = getFestivalData(i)
             /*val daysData = getMonthDayData(fragID, calendar, place, resources)*/
-            dailyCalendarData.add(DainikCalendarModel(calendar, todayPanchangModel, festivalModel, null))
+            dailyCalendarData.add(
+                DainikCalendarModel(
+                    calendar,
+                    todayPanchangModel,
+                    festivalModel,
+                    null
+                )
+            )
         }
         dailyCalendarModelLiveData.postValue(dailyCalendarData)
     }

@@ -1,6 +1,5 @@
 package com.bhakti_sangrahalay.ui.activity
 
-import android.R
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.Typeface

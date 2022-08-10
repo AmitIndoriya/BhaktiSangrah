@@ -13,8 +13,8 @@ import com.bhakti_sangrahalay.MainActivity
 import com.bhakti_sangrahalay.R
 import com.bhakti_sangrahalay.contansts.GlobalVariables
 import com.bhakti_sangrahalay.ui.activity.BaseActivity
-import com.bhakti_sangrahalay.ui.activity.BirthDetailInputActivityNew
 import com.bhakti_sangrahalay.ui.activitynew.MoreItemActivity
+import com.bhakti_sangrahalay.ui.activitynew.VartKathaHomeActivity
 
 class HomeGridRVAdapter(
     private val context: Context,
@@ -45,10 +45,16 @@ class HomeGridRVAdapter(
                     context.startActivity(intent)
                 }
                 1 -> {
-                    context.startActivity(Intent(context, BirthDetailInputActivityNew::class.java))
+                    val bundle = Bundle()
+                    bundle.putInt("type", GlobalVariables.chalisha)
+                    bundle.putString("title", context.resources.getString(R.string.chalisha))
+                    val intent = Intent(context, MoreItemActivity::class.java)
+                    intent.putExtras(bundle)
+                    context.startActivity(intent)
                 }
                 2 -> {
-                    context.startActivity(Intent(context, MainActivity::class.java))
+                    val intent = Intent(context, VartKathaHomeActivity::class.java)
+                    context.startActivity(intent)
                 }
                 3 -> {
                     context.startActivity(Intent(context, MainActivity::class.java))

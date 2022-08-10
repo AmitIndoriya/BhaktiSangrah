@@ -156,7 +156,7 @@ public class Parser {
     }
 
 
-    public ArrayList<KathaBean> kathaListParser(String response) {
+    public static ArrayList<KathaBean> kathaListParser(String response) {
         ArrayList<KathaBean> arrayList = new ArrayList<>();
         try {
             JSONArray jsonArray = new JSONArray(response);
@@ -349,7 +349,7 @@ public class Parser {
             }.getType());
 
         } catch (Exception ex) {
-            Log.i("Exception",ex.getMessage());
+            Log.i("Exception", ex.getMessage());
         }
         return arrayList;
     }

@@ -11,7 +11,7 @@ class PlaceViewModel : ViewModel() {
     var parser: Parser = Parser()
 
     fun getPlaceList(resources: Resources): ArrayList<PlaceModel> {
-        return parser.getPlaceList(Utility().readFromFile(resources, R.raw.place_list))
+        return parser.getPlaceList(Utility.readFromFile(resources, R.raw.place_list))
     }
 
 }

@@ -38,7 +38,7 @@ import java.util.Date;
 
 public class Utility {
 
-    public String readFromFile(Resources resources, int file) {
+    public static String readFromFile(Resources resources, int file) {
         String jsonStr = "";
         try {
             InputStream inputStream = resources.openRawResource(file);

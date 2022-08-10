@@ -21,7 +21,7 @@ class AartiDescActivityViewModel  @Inject constructor(): ViewModel() {
     }
 
     fun readResourceFile() {
-        var aartiBeanArrayList = parser.aartiListParserNew(utility.readFromFile(resources, R.raw.aarti_list))
+        var aartiBeanArrayList = parser.aartiListParserNew(Utility.readFromFile(resources, R.raw.aarti_list))
         MyApp.applicationContext().dataHoler.setAartiArrayList(aartiBeanArrayList, Constants.AARTI_TYPE)
     }
 

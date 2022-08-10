@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bhakti_sangrahalay.R;
 import com.bhakti_sangrahalay.model.KathaBean;
-import com.bhakti_sangrahalay.ui.activity.KathaDescActivity;
+import com.bhakti_sangrahalay.ui.activitynew.KathaDescActivity;
 
 import java.util.ArrayList;
 
