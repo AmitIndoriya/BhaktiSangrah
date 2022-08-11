@@ -53,7 +53,6 @@ class CharAntarDashaAdapter(val context: Context, val charDashaList: ArrayList<C
         val planetNameTV: TextView = itemView.findViewById(R.id.pla_name_tv)
         val durationTV: TextView = itemView.findViewById(R.id.duration_tv)
         val recyclerView: RecyclerView = itemView.findViewById(R.id.recycler_view)
-
     }
 
 }
