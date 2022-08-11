@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.bhakti_sangrahalay.R
 import com.bhakti_sangrahalay.adapter.FragmentViewPagerAdapter
+import com.bhakti_sangrahalay.contansts.Constants
 import com.bhakti_sangrahalay.databinding.ActivityKundliOutputLayoutBinding
 import com.bhakti_sangrahalay.kundli.model.BirthDetailBean
 import com.bhakti_sangrahalay.ui.fragment.*
@@ -29,7 +30,7 @@ class KundliOutputActivity : BaseActivity() {
     lateinit var viewModelFactory: ViewModelProvider.Factory
     lateinit var viewModel: KundliOutputActivityViewModel
     private lateinit var birthDetailBean: BirthDetailBean
-    private lateinit var binding: ActivityKundliOutputLayoutBinding
+    lateinit var binding: ActivityKundliOutputLayoutBinding
     override fun attachViewModel() {
         viewModel = ViewModelProviders.of(
             this,
@@ -51,15 +52,16 @@ class KundliOutputActivity : BaseActivity() {
         toolbarSetUp()
         //setTitle(resources.getString(R.string.kundli))
         getDataFromIntent()
-        setUpViewPager(2)
-        setListener()
+        addFragment(KundliOutputFragment.getInstance(Constants.DASHA_TYPE))
+        /*  setUpViewPager(2)
+          setListener()*/
     }
 
     private fun toolbarSetUp() {
         setSupportActionBar(binding.toolbar)
         binding.toolbar.setTitleTextColor(resources.getColor(R.color.white, null))
         setUpNavigationView()
-        supportActionBar?.title = resources.getString(R.string.Dash_board)
+        supportActionBar?.title = resources.getString(R.string.kundli)
     }
 
     private fun setListener() {
@@ -99,22 +101,38 @@ class KundliOutputActivity : BaseActivity() {
         viewModel.getKundliDataList(assets, birthDetailBean)
     }
 
+    private fun addFragment(fragment: Fragment) {
+        val fm = supportFragmentManager
+        val tr = fm.beginTransaction()
+        tr.add(R.id.fragment_container_view, fragment)
+        tr.commitAllowingStateLoss()
+    }
 
+    private fun replaceFragment(fragment: Fragment) {
+        val fm = supportFragmentManager
+        val tr = fm.beginTransaction()
+        tr.setCustomAnimations(R.anim.fade_out, R.anim.fade_in);
+        tr.replace(R.id.fragment_container_view, fragment)
+        tr.commitAllowingStateLoss()
+    }
 
     private fun setUpViewPager(pos: Int) {
         supportActionBar?.elevation = 0F
         when (pos) {
             0 -> {
-                val kundliModuleList = resources.getStringArray(R.array.kundli_module_list)
-                setViewPagerAdapter(kundliModuleList, getKundliFragmentList())
+                /*  val kundliModuleList = resources.getStringArray(R.array.kundli_module_list)
+                  setViewPagerAdapter(kundliModuleList, getKundliFragmentList())*/
+                replaceFragment(KundliOutputFragment.getInstance(Constants.BASIC_TYPE))
             }
             1 -> {
-                val shodavargaModuleList = resources.getStringArray(R.array.shosahvarga_module_list)
-                setViewPagerAdapter(shodavargaModuleList, getShodashvargaFragmentList())
+                /*   val shodavargaModuleList = resources.getStringArray(R.array.shosahvarga_module_list)
+                   setViewPagerAdapter(shodavargaModuleList, getShodashvargaFragmentList())*/
+                replaceFragment(KundliOutputFragment.getInstance(Constants.SHODASHVARGA_TYPE))
             }
             2 -> {
-                val kpModuleList = resources.getStringArray(R.array.kp_module_list)
-                setViewPagerAdapter(kpModuleList, getKpSystemFragmentList())
+                /*val kpModuleList = resources.getStringArray(R.array.kp_module_list)
+                setViewPagerAdapter(kpModuleList, getKpSystemFragmentList())*/
+                replaceFragment(KundliOutputFragment.getInstance(Constants.KP_SYSTEM_TYPE))
             }
         }
 
@@ -130,7 +148,7 @@ class KundliOutputActivity : BaseActivity() {
         }
     }
 
-    private fun getTabView(text: String?): View? {
+    fun getTabView(text: String?): View? {
         @SuppressLint("InflateParams") val view =
             LayoutInflater.from(this).inflate(R.layout.custom_tab_layout, null)
         val tv = view.findViewById<TextView>(R.id.tabtext)
@@ -139,138 +157,6 @@ class KundliOutputActivity : BaseActivity() {
         return view
     }
 
-    private fun getKundliFragmentList(): ArrayList<Fragment> {
-
-        val fragList = ArrayList<Fragment>()
-        fragList.add(
-            ChartFragment.getInstance(
-                viewModel.getLagnaKundliPlanetRashiArray(),
-                viewModel.getLagnaKundliPlanetRashiArray()[12],
-                null
-            )
-        )
-        fragList.add(
-            ChartFragment.getInstance(
-                viewModel.getNavmanshKundliPlanetRashiArray(),
-                viewModel.getNavmanshKundliPlanetRashiArray()[12],
-                null
-            )
-        )
-        fragList.add(
-            ChartFragment.getInstance(
-                viewModel.getChandraKundliPlanetRashiArray(),
-                viewModel.getChandraKundliPlanetRashiArray()[12],
-                null
-            )
-        )
-        val chalitArr = viewModel.getChalitKundliPlanetRashiArray()
-        fragList.add(
-            ChartFragment.getInstance(
-                chalitArr,
-                chalitArr[12],
-                viewModel.getKpDegreeArray()
-            )
-        )
-        fragList.add(KundliPlanetFragment.getInstance(viewModel.getPlanetsData(this)))
-        fragList.add(KundliPlanetSubFragment.getInstance(viewModel.getPlanetsSubData(this)))
-        fragList.add(KundliPanchangFragment.getInstance(viewModel.getPanchangData()))
-        fragList.add(KundliAshtakvargaFragment.getInstance(viewModel.getAshtakvargaData()))
-        fragList.add(
-            ChartFragment.getInstance(
-                viewModel.getLagnaKundliPlanetRashiArray(),
-                viewModel.getKarakanshLagna(),
-                null
-            )
-        )
-        fragList.add(
-            ChartFragment.getInstance(
-                viewModel.getNavmanshKundliPlanetRashiArray(),
-                viewModel.getKarakanshLagna(),
-                null
-            )
-        )
-        fragList.add(KundliPrastharashtakvargaFragment.getInstance(viewModel.getPrastharashtakvargaData()))
-        fragList.add(KundliAvkahadaChakraFragment.getInstance(viewModel.getAvkahadaChakraData()))
-
-        return fragList
-    }
-
-    private fun getShodashvargaFragmentList(): ArrayList<Fragment> {
-        val fragList = ArrayList<Fragment>()
-        fragList.add(
-            ChartFragment.getInstance(
-                viewModel.getLagnaKundliPlanetRashiArray(),
-                viewModel.getLagnaKundliPlanetRashiArray()[12],
-                null
-            )
-        )//1
-        fragList.add(ChartFragment.getInstance(viewModel.getDrekkanaArray(), 0, null))//2
-        fragList.add(ChartFragment.getInstance(viewModel.getChaturthamanshArray(), 0, null))//3
-        fragList.add(ChartFragment.getInstance(viewModel.getChaturthamanshArray(), 0, null))//4
-        fragList.add(ChartFragment.getInstance(viewModel.getSaptamamshaArray(), 0, null))//5
-        fragList.add(ChartFragment.getInstance(viewModel.getNavmanshArray(), 0, null))//6
-        fragList.add(ChartFragment.getInstance(viewModel.getDashamamshaArray(), 0, null))//7
-        //fragList.add(ChartFragment.getInstance(viewModel.getD(),0,null))//8
-        fragList.add(ChartFragment.getInstance(viewModel.getShodashamshaArray(), 0, null))//9
-        fragList.add(ChartFragment.getInstance(viewModel.getVimshamshaArray(), 0, null))//10
-        fragList.add(ChartFragment.getInstance(viewModel.getSaptavimshamshaArray(), 0, null))//11
-        fragList.add(ChartFragment.getInstance(viewModel.getChaturvimshamshaArray(), 0, null))//12
-        fragList.add(ChartFragment.getInstance(viewModel.getTrimshamshaArray(), 0, null))//13
-        fragList.add(ChartFragment.getInstance(viewModel.getKhavedamshaArray(), 0, null))//14
-        fragList.add(ChartFragment.getInstance(viewModel.getAkshvedamshaArray(), 0, null))//15
-        fragList.add(ChartFragment.getInstance(viewModel.getShashtiamshaArray(), 0, null))//16
-
-
-        return fragList
-    }
-
-    private fun getKpSystemFragmentList(): ArrayList<Fragment> {
-        val fragList = ArrayList<Fragment>()
-        val chalitArr: IntArray = viewModel.getKPKundliPlanetRashiArray()
-        fragList.add(
-            ChartFragment.getInstance(
-                chalitArr,
-                chalitArr[12],
-                viewModel.getKpDegreeArray()
-            )
-        )
-        val kpRashiArr: IntArray = viewModel.getKPLagnaRashiKundliPlanetsRashiArray()
-        fragList.add(ChartFragment.getInstance(kpRashiArr, kpRashiArr[12], null))
-        fragList.add(KundliPlanetSubFragment.getInstance(viewModel.getKPPlanetsData(this)))
-        fragList.add(KundliPlanetSubFragment.getInstance(viewModel.getKPCuspData(this)))
-        fragList.add(
-            KundliPlanetSignificationFrament.getInstance(
-                viewModel.getKPPlanetSignificationData(this)
-            )
-        )
-        fragList.add(
-            KundliHouseSignificatorFragment.getInstance(
-                viewModel.getKPHouseSignificatorsData(this)
-            )
-        )
-        fragList.add(
-            KundliPlanetSignificationView2Fragment.getInstance(
-                viewModel.getPlanetSignifiactionView2Data()
-            )
-        )
-        fragList.add(
-            KundliNakshtraNadiFragment.getInstance(
-                viewModel.getNakshtraNadiData(this)
-            )
-        )
-        fragList.add(
-            KundliCilSubSubFragment.getInstance(
-                viewModel.getCilSubSubData(this)
-            )
-        )
-        fragList.add(
-            KPCilSubFragment.getInstance(
-                viewModel.getCilSubData(this)
-            )
-        )
-
-        return fragList
-    }
 
     private fun setUpNavigationView() {
         binding.navView.setNavigationItemSelectedListener { menuItem: MenuItem ->
@@ -326,4 +212,5 @@ class KundliOutputActivity : BaseActivity() {
         actionBarDrawerToggle.drawerArrowDrawable.color = resources.getColor(R.color.white, null)
         actionBarDrawerToggle.syncState()
     }
+
 }

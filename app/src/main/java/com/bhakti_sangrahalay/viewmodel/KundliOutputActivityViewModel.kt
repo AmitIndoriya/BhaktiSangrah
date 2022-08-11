@@ -28,6 +28,7 @@ class KundliOutputActivityViewModel @Inject constructor() : BaseViewModel() {
         BaseCalculation.setData(arrayList)
         KpCilSubSubcalculation.setData(arrayList)
         KpCilSubCalculation.setData(arrayList)
+        DashaCalculation.setData(arrayList)
 
     }
 

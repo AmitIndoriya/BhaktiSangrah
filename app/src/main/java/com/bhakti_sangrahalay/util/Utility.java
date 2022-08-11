@@ -385,4 +385,80 @@ public class Utility {
 
         return returnVal;
     }
+
+    public static String doubleToStringDateDDMMYY(double doubleDate,
+                                                  String forwardSlash) {
+        StringBuffer sb = new StringBuffer();
+        String sMM, sDD;
+
+        double bod = doubleDate;
+
+        int yy, mm, dd;
+
+        yy = (int) (bod);
+
+        mm = (int) (fract(bod) * 12) + 1;
+
+        dd = (int) ((fract(fract(bod) * 12)) * 31);
+
+        if (dd == 0)
+            dd = 1;
+
+        // PROBLE RESOLVED
+        // IT WAS SHOWING 30 DAY IN FEB
+        // ADDED BY BIJENDRA ON 26-02-15
+        if ((dd > 28) && mm == 2) {
+            mm += 1;
+            if (isLeapYear(yy))
+                dd -= 29;
+            else
+                dd -= 28;
+        }
+
+        // END
+
+        sDD = String.valueOf(dd);
+        sMM = String.valueOf(mm);
+        // FOR DAY
+        if (sDD.trim().length() > 1)
+            sb.append(sDD);
+        else
+
+            sb.append('0' + sDD);
+
+        // sb.append('/');// for day
+        // sb.append(CUtils.getForwardSlash());// for day
+        sb.append(forwardSlash);// for day
+
+        // FOR MONTH
+        if (sMM.trim().length() > 1)
+            sb.append(sMM);
+        else
+            sb.append('0' + sMM);
+
+        // sb.append('/');// for day
+        // sb.append(CUtils.getForwardSlash());
+        sb.append(forwardSlash);
+
+        // FOR YEAR
+        // sb.append('/');
+        sb.append(yy);
+
+        // return (dd + '/' + mm + '/' + yy);
+        return sb.toString();
+
+    }
+
+    private static double fract(double x) {
+        long i;
+        double y;
+
+        i = (long) x;
+        y = x - i;
+        return y;
+    }
+
+    private static boolean isLeapYear(int year) {
+        return ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0));
+    }
 }

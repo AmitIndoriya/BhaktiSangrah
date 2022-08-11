@@ -550,5 +550,6 @@
     <string name="t3">T3</string>
     <string name="t4">T4</string>
     <string name="search_kundli">Search Kundli</string>
+    <string name="dasha_note"><b>Note:-</b> Dates shown are dasha ending dates.\nPlease tap any row to show AntarDasha</string>
 
 </resources>

@@ -40,13 +40,19 @@
                     app:tabIndicatorHeight="4dp" />
             </com.google.android.material.appbar.AppBarLayout>
 
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/fragment_container_view"
+                android:layout_width="match_parent"
+                android:background="@color/dark_gray"
+                android:layout_height="match_parent" />
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/view_pager"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="@color/panchanag_bg_color" />
+                android:background="@color/panchanag_bg_color"
+                android:visibility="gone" />
 
             <me.ertugrul.lib.SuperBottomBar
                 android:id="@+id/bottomBar"

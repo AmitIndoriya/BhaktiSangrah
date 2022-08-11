@@ -39,9 +39,7 @@ class KundliListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         binding = FragKundliListLayoutBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
