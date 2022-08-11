@@ -221,11 +221,14 @@ class KundliOutputFragment : BaseFragment() {
         return fragList
     }
 
-    fun getDashFragmentList(): ArrayList<Fragment> {
+    private fun getDashFragmentList(): ArrayList<Fragment> {
         val fragList = ArrayList<Fragment>()
 
         fragList.add(
             DasaFragment.getInstance()
+        )
+        fragList.add(
+            CharDashaFragment.getInstance()
         )
         return fragList
     }

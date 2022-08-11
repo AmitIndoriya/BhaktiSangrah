@@ -551,5 +551,19 @@
     <string name="t4">T4</string>
     <string name="search_kundli">Search Kundli</string>
     <string name="dasha_note"><b>Note:-</b> Dates shown are dasha ending dates.\nPlease tap any row to show AntarDasha</string>
+    <string name="Taurus">Taurus</string>
+    <string name="Aries">Aries</string>
+    <string name="Pisces">Pisces</string>
+    <string name="Aquarius">Aquarius</string>
+    <string name="Capricorn">Capricorn</string>
+    <string name="Sagittarius">Sagittarius</string>
+    <string name="Scorpio">Scorpio</string>
+    <string name="Gemini">Gemini</string>
+    <string name="Cancer">Cancer</string>
+    <string name="Libra">Libra</string>
+    <string name="Virgo">Virgo</string>
+    <string name="char_maha_dasha">Char Maha Dasha</string>
+    <string name="char_antar_dasha">Char Antar Dasha</string>
+    <string name="char_antara_dasha">Char Antara D asha</string>
 
 </resources>

@@ -16,7 +16,10 @@ class KundliOutputActivityViewModel @Inject constructor() : BaseViewModel() {
     // arrayList = parser.parseKundliData(GenerateKundliData.getPlanets(this));
 
 
-    fun getKundliDataList(assetManager: AssetManager, birthDetailBean: BirthDetailBean) {
+    fun getKundliDataList(
+        assetManager: AssetManager,
+        birthDetailBean: BirthDetailBean
+    ) {
         val parser = Parser()
         val arrayList = parser.parseKundliData(
             GenerateKundliData.getPlanets(
@@ -29,6 +32,7 @@ class KundliOutputActivityViewModel @Inject constructor() : BaseViewModel() {
         KpCilSubSubcalculation.setData(arrayList)
         KpCilSubCalculation.setData(arrayList)
         DashaCalculation.setData(arrayList)
+        CharDashaCalculation.setData(arrayList)
 
     }
 
@@ -175,6 +179,10 @@ class KundliOutputActivityViewModel @Inject constructor() : BaseViewModel() {
 
     fun getCilSubData(context: Context): ArrayList<KPCilSubBean> {
         return KpCilSubCalculation.getCilSubData()
+    }
+
+    fun getCharDashaData(dob: String): ArrayList<CharDashaBean> {
+        return CharDashaCalculation.getCharDashaData(dob)
     }
 
 }

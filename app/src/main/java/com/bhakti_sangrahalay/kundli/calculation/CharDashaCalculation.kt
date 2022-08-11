@@ -1,20 +1,58 @@
 package com.bhakti_sangrahalay.kundli.calculation
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.util.Log
+import com.bhakti_sangrahalay.R
+import com.bhakti_sangrahalay.app.MyApp
+import com.bhakti_sangrahalay.kundli.model.CharAntaraDashaBean
+import com.bhakti_sangrahalay.kundli.model.CharDashaBean
 import com.bhakti_sangrahalay.model.KundliBean
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 object CharDashaCalculation {
-
+    @SuppressLint("StaticFieldLeak")
+    var context: Context = MyApp.applicationContext()
     lateinit var arrayList: ArrayList<KundliBean>
     private val charDasaSeqMap = HashMap<Int, Array<Int>>()
     private val planetRashiArray = ArrayList<Int>()
     private var rashiLordMap = HashMap<Int, String>()
     private val planetRashiMap = HashMap<String, Int>()
     private var orderOfCalculationMap = HashMap<Int, Int>()
-    private val planetNameArray = arrayOf("Sun", "Moon", "Mars", "Mercury", "Jupiter", "Venus", "Saturn", "Rahu", "Ketu", "Uranus", "Neptune", "Pluto")
+    private val planetNameArray = arrayOf(
+        "Sun",
+        "Moon",
+        "Mars",
+        "Mercury",
+        "Jupiter",
+        "Venus",
+        "Saturn",
+        "Rahu",
+        "Ketu",
+        "Uranus",
+        "Neptune",
+        "Pluto"
+    )
 
-    //private val charDasaSeqForTaurus = arrayOf("Taurus", "Aries", "Pisces", "Aquarius", "Capricorn", "Sagittarius", "Scorpio", "Libra", "Virgo", "Leo", "Cancer", "Gemini")
-    //private val charDasaSeqForAries = arrayOf("Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces")
+    //
+    private val horoscopeName = arrayOf(
+        getString(R.string.Aries),
+        getString(R.string.Taurus),
+        getString(R.string.Gemini),
+        getString(R.string.Cancer),
+        getString(R.string.Leo),
+        getString(R.string.Virgo),
+        getString(R.string.Libra),
+        getString(R.string.Scorpio),
+        getString(R.string.Sagittarius),
+        getString(R.string.Capricorn),
+        getString(R.string.Aquarius),
+        getString(R.string.Pisces)
+    )
+
+
     //private val charDasaSeqForGemini = arrayOf("Gemini", "Taurus", "Aries", "Pisces", "Aquarius", "Capricorn", "Sagittarius", "Scorpio", "Libra", "Virgo", "Leo", "Cancer")
     //private val charDasaSeqForCancer = arrayOf("Cancer", "Gemini", "Taurus", "Aries", "Pisces", "Aquarius", "Capricorn", "Sagittarius", "Scorpio", "Libra", "Virgo", "Leo")
     //private val charDasaSeqForLeo = arrayOf("Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces", "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo")
@@ -28,6 +66,8 @@ object CharDashaCalculation {
 
 
     //private val charDasaSeqForAquarius = arrayOf("Aquarius", "Pisces", "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn")
+
+
     private val charDasaSeqForAries = arrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
     private val charDasaSeqForTaurus = arrayOf(2, 1, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3)
     private val charDasaSeqForGemini = arrayOf(3, 2, 1, 12, 11, 10, 9, 8, 7, 6, 5, 4)
@@ -107,8 +147,11 @@ object CharDashaCalculation {
 
     fun setData(arrayList: ArrayList<KundliBean>) {
         this.arrayList = arrayList
+    }
+
+    fun getCharDashaData(dob: String): ArrayList<CharDashaBean> {
         calculatePlanetRashi()
-        calculateCharDashaDuration()
+        return calculateCharDashaDuration(dob)
     }
 
     private fun calculatePlanetRashi() {
@@ -120,33 +163,56 @@ object CharDashaCalculation {
         }
     }
 
-    private fun calculateCharDashaDuration() {
-        val charDasaSeqArray = charDasaSeqMap[6]
+    private fun calculateCharDashaDuration(dob: String): ArrayList<CharDashaBean> {
+        var startDate = dob
+        var endDate: String
+        val arrayList = ArrayList<CharDashaBean>()
+        val charDasaSeqArray = charDasaSeqMap[2]
         for (i in 0..11) {
-        val rashi = charDasaSeqArray?.get(i)
-        val calcOrder = orderOfCalculationMap[rashi]
-        val rashiLord = rashiLordMap[rashi]
-        var rashiOfLord = planetRashiMap[rashiLord]
-        if (rashi == 8) {
-            rashiOfLord = calculateRashiForScorpioLord()
-        } else if (rashi == 11) {
-            rashiOfLord = calculateRashiForAquariusLord()
-        }
-        var duration = 0
-        Log.i("calc-Detail", "- Rashi-$rashi- calcOrder-$calcOrder- rashiLord-$rashiLord- rashiOfLord-$rashiOfLord")
-        if (rashi == rashiOfLord) {
-            duration = 12
-        } else if (calcOrder == 0) {
-            if (rashiOfLord != null) {
-                duration = rashi?.let { clockwiseMove(it, rashiOfLord) }!!
+            val rashi = charDasaSeqArray?.get(i)
+            val calcOrder = orderOfCalculationMap[rashi]
+            val rashiLord = rashiLordMap[rashi]
+            var rashiOfLord = planetRashiMap[rashiLord]
+            if (rashi == 8) {
+                rashiOfLord = calculateRashiForScorpioLord()
+            } else if (rashi == 11) {
+                rashiOfLord = calculateRashiForAquariusLord()
             }
-        } else {
-            if (rashiOfLord != null) {
-                duration = rashi?.let { antiClockwiseMove(it, rashiOfLord) }!!
+            var duration = 0
+            Log.i(
+                "calc-Detail",
+                "- Rashi-$rashi- calcOrder-$calcOrder- rashiLord-$rashiLord- rashiOfLord-$rashiOfLord"
+            )
+            if (rashi == rashiOfLord) {
+                duration = 12
+            } else if (calcOrder == 0) {
+                if (rashiOfLord != null) {
+                    duration = rashi?.let { clockwiseMove(it, rashiOfLord) }!!
+                }
+            } else {
+                if (rashiOfLord != null) {
+                    duration = rashi?.let { antiClockwiseMove(it, rashiOfLord) }!!
+                }
             }
+            endDate = getEndDate(startDate, duration)
+            val planet = charDasaSeqArray?.get(i)
+            val planetName = horoscopeName[planet!! - 1]
+            val charAntaraDashaList = getCharAntaraDasha(charDasaSeqArray[i], startDate, duration)
+            arrayList.add(
+                CharDashaBean(
+                    planetName = planetName,
+                    duration = duration,
+                    startYear = startDate,
+                    endYear = endDate,
+                    charAntaraDashaList = charAntaraDashaList
+                )
+            )
+
+            //Log.i("calc-Duration", "=$planetName,$duration, $startDate-$endDate")
+            startDate = endDate
+
         }
-        Log.i("calc-Duration", "=$duration")
-        }
+        return arrayList
     }
 
     private fun calculateRashiForScorpioLord(): Int {
@@ -287,5 +353,64 @@ object CharDashaCalculation {
             count++
         }
         return count
+    }
+
+    fun getString(id: Int): String {
+        return context.resources.getString(id)
+    }
+
+    private fun getEndDate(startDate: String, duration: Int): String {
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy")
+        val date = dateFormat.parse(startDate)
+        val calendar = Calendar.getInstance()
+        calendar.time = date
+        calendar.add(Calendar.YEAR, duration)
+        return dateFormat.format(calendar.time)
+    }
+
+
+    fun getCharAntaraDasha(pla: Int, sDate: String, duration: Int): ArrayList<CharAntaraDashaBean> {
+        val arrayList = ArrayList<CharAntaraDashaBean>()
+        val charDasaSeqArray = charDasaSeqMap[pla]
+        var startDate = sDate
+        var endDate = ""
+        if (charDasaSeqArray != null) {
+            for (i in 1 until charDasaSeqArray.size) {
+                val planet = charDasaSeqArray[i]
+                val planetName = horoscopeName[planet - 1]
+                endDate = getEndDateForCharAntaraDasha(startDate, duration)
+                arrayList.add(
+                    CharAntaraDashaBean(
+                        planetName = planetName,
+                        startDate = startDate,
+                        endDate = endDate,
+                    )
+                )
+                Log.i("calc-Duration", "=$planetName,$duration, $startDate-$endDate")
+                startDate = endDate
+            }
+        }
+        val planet = charDasaSeqArray?.get(0)
+        val planetName = horoscopeName[planet?.minus(1)!!]
+        endDate = getEndDateForCharAntaraDasha(startDate, duration)
+        arrayList.add(
+            CharAntaraDashaBean(
+                planetName = planetName,
+                startDate = startDate,
+                endDate = endDate,
+            )
+        )
+        Log.i("calc-Duration", "=$planetName,$duration, $startDate-$endDate")
+        return arrayList
+
+    }
+
+    fun getEndDateForCharAntaraDasha(startDate: String, duration: Int): String {
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy")
+        val date = dateFormat.parse(startDate)
+        val calendar = Calendar.getInstance()
+        calendar.time = date
+        calendar.add(Calendar.MONTH, duration)
+        return dateFormat.format(calendar.time)
     }
 }

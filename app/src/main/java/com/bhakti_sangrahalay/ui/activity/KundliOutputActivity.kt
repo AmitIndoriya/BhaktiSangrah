@@ -29,7 +29,7 @@ class KundliOutputActivity : BaseActivity() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
     lateinit var viewModel: KundliOutputActivityViewModel
-    private lateinit var birthDetailBean: BirthDetailBean
+    lateinit var birthDetailBean: BirthDetailBean
     lateinit var binding: ActivityKundliOutputLayoutBinding
     override fun attachViewModel() {
         viewModel = ViewModelProviders.of(
@@ -89,7 +89,6 @@ class KundliOutputActivity : BaseActivity() {
 
         binding.bottomBar.setOnItemReselectListener(object : OnItemReselectedListener {
             override fun onItemReselect(pos: Int) {
-                TODO("Not yet implemented")
             }
 
         })
