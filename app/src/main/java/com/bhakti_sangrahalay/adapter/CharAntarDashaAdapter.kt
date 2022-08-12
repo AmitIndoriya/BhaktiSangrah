@@ -44,6 +44,7 @@ class CharAntarDashaAdapter(val context: Context, val charDashaList: ArrayList<C
         recyclerView.itemAnimator = DefaultItemAnimator()
         recyclerView.adapter = charAntarDashaListItemAdapter
     }
+
     override fun getItemCount(): Int {
         return charDashaList.size
     }
