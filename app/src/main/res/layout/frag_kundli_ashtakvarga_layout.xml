@@ -3,104 +3,113 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.cardview.widget.CardView
+    <!-- <androidx.cardview.widget.CardView
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:layout_margin="8dp">-->
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="8dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/light_pink"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/rn_tv"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/hora_table_header"
-                android:orientation="horizontal"
-                android:padding="8dp">
+                android:layout_weight="1"
+                android:text="@string/rn"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/rn_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/rn"
-                    android:textSize="18sp" />
+            <TextView
+                android:id="@+id/su_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/Su"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/su_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/Su"
-                    android:textSize="18sp" />
+            <TextView
+                android:id="@+id/mo_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/Mo"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/mo_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/Mo"
-                    android:textSize="18sp" />
+            <TextView
+                android:id="@+id/ma_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/Ma"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/ma_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/Ma"
-                    android:textSize="18sp" />
+            <TextView
+                android:id="@+id/me_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/Me"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/me_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/Me"
-                    android:textSize="18sp" />
+            <TextView
+                android:id="@+id/ju_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/Ju"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/ju_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/Ju"
-                    android:textSize="18sp" />
+            <TextView
+                android:id="@+id/ve_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/Ve"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/ve_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/Ve"
-                    android:textSize="18sp" />
+            <TextView
+                android:id="@+id/sa_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/Sa"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/sa_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/Sa"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/tot_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/Sa"
-                    android:textSize="18sp" />
-
-            </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tot_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/Sa"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never" />
+
+    </LinearLayout>
+
+    <!-- </androidx.cardview.widget.CardView>-->
 </LinearLayout>
