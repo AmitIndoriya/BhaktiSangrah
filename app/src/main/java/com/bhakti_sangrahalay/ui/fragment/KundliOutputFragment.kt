@@ -123,6 +123,14 @@ class KundliOutputFragment : BaseFragment() {
         )
         fragList.add(KundliPlanetFragment.getInstance(viewModel.getPlanetsData(requireActivity())))
         fragList.add(KundliPlanetSubFragment.getInstance(viewModel.getPlanetsSubData(requireActivity())))
+        fragList.add(
+            KundliChalitTableFragment.getInstance(
+                viewModel.getChalitTableData(
+                    requireActivity()
+                )
+            )
+        )
+
         fragList.add(KundliPanchangFragment.getInstance(viewModel.getPanchangData()))
         fragList.add(KundliAshtakvargaFragment.getInstance(viewModel.getAshtakvargaData()))
         fragList.add(

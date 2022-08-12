@@ -1,7 +1,6 @@
 package com.bhakti_sangrahalay.ui.fragment
 
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +13,6 @@ import com.bhakti_sangrahalay.kundli.model.DateTimeBean
 import com.bhakti_sangrahalay.kundli.model.PlaceBean
 import com.bhakti_sangrahalay.ui.activity.BaseActivity
 import com.bhakti_sangrahalay.ui.activity.BirthDetailInputActivityNew
-import com.bhakti_sangrahalay.ui.activity.KundliOutputActivity
 import com.bhakti_sangrahalay.ui.dialogs.DatePickerDialog
 import com.bhakti_sangrahalay.ui.dialogs.TimePickerDialog
 import com.bhakti_sangrahalay.util.Utility
@@ -161,7 +159,7 @@ class BirthDetailInputFragment : BaseFragment(), View.OnClickListener,
     override fun onNothingSelected(p0: AdapterView<*>) {
     }
 
-    fun saveBirthDetailInDB() {
+    private fun saveBirthDetailInDB() {
         (requireActivity() as BirthDetailInputActivityNew).viewModel.insertBirthDetailInfo(
             birthDetailBean
         )
@@ -172,11 +170,9 @@ class BirthDetailInputFragment : BaseFragment(), View.OnClickListener,
         when (v.id) {
             com.bhakti_sangrahalay.R.id.calculate_btn -> {
                 saveBirthDetailInDB()
-                val intent = Intent(requireActivity(), KundliOutputActivity::class.java)
-                val bundle = Bundle()
-                bundle.putSerializable("BirthDetail", birthDetailBean)
-                intent.putExtras(bundle)
-                startActivity(intent)
+                (requireActivity() as BirthDetailInputActivityNew).startKundliOutputActivity(
+                    birthDetailBean
+                )
             }
             com.bhakti_sangrahalay.R.id.date_val_tv -> {
                 val dateTimeBean = birthDetailBean.dateTimeBean
@@ -211,6 +207,4 @@ class BirthDetailInputFragment : BaseFragment(), View.OnClickListener,
 
         }
     }
-
-
 }

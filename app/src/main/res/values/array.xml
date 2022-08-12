@@ -483,8 +483,8 @@
         <item>@string/chalit</item>
         <item>@string/Planets</item>
         <item>@string/Planets_sub</item>
-        <!-- <item>@string/chalit_table</item>
-         <item>@string/birth_detail</item>-->
+        <item>@string/chalit_table</item>
+        <!--  <item>@string/birth_detail</item>-->
         <item>@string/panchang</item>
         <item>@string/ashtakvarga</item>
         <item>@string/Karakamsha</item>

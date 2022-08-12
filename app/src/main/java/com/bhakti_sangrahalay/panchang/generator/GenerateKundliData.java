@@ -283,7 +283,7 @@ public class GenerateKundliData {
             jsonObject.put("prastharashtakvarga", prastharashtakvargaJsonArray);
 
             jsonObject.put("paya", args1.getPayaName());
-            jsonObject.put("varna", args1.getVarnaName());
+            jsonObject.put("varna", args1.getVarnaName()+args1.getVarna());
             jsonObject.put("yoni", args1.getYoniName());
             jsonObject.put("gana", args1.getGanaName() + args1.getGana());
             jsonObject.put("vasya", args1.getVasyaName());

@@ -1,6 +1,7 @@
 package com.bhakti_sangrahalay.ui.activity
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.bhakti_sangrahalay.R
 import com.bhakti_sangrahalay.adapter.FragmentViewPagerAdapter
 import com.bhakti_sangrahalay.databinding.ActivityBirthDetailInputLayoutBinding
+import com.bhakti_sangrahalay.kundli.model.BirthDetailBean
 import com.bhakti_sangrahalay.ui.fragment.BirthDetailInputFragment
 import com.bhakti_sangrahalay.ui.fragment.KundliListFragment
 import com.bhakti_sangrahalay.viewmodel.BirthDetaiInputActivityViewModel
@@ -31,9 +33,11 @@ class BirthDetailInputActivityNew : BaseActivity() {
         )[BirthDetaiInputActivityViewModel::class.java]
 
     }
+
     override fun setTypeface() {
 
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         initFont()
         super.onCreate(savedInstanceState)
@@ -86,5 +90,13 @@ class BirthDetailInputActivityNew : BaseActivity() {
         fragList.add(KundliListFragment.getInstance())
         fragList.add(BirthDetailInputFragment.getInstance())
         return fragList
+    }
+
+    fun startKundliOutputActivity(birthDetailBean: BirthDetailBean) {
+        val intent = Intent(this, KundliOutputActivity::class.java)
+        val bundle = Bundle()
+        bundle.putSerializable("BirthDetail", birthDetailBean)
+        intent.putExtras(bundle)
+        startActivity(intent)
     }
 }

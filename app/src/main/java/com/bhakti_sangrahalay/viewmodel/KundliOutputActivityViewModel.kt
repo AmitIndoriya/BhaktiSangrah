@@ -33,6 +33,7 @@ class KundliOutputActivityViewModel @Inject constructor() : BaseViewModel() {
         KpCilSubCalculation.setData(arrayList)
         DashaCalculation.setData(arrayList)
         CharDashaCalculation.setData(arrayList)
+        BasicChalitTableCalculation.setData(arrayList)
 
     }
 
@@ -187,6 +188,10 @@ class KundliOutputActivityViewModel @Inject constructor() : BaseViewModel() {
 
     fun getCharDashaData(dob: String): ArrayList<CharDashaBean> {
         return CharDashaCalculation.getCharDashaData(dob)
+    }
+
+    fun getChalitTableData(context: Context): ArrayList<KundliChalitTableBean> {
+        return BasicChalitTableCalculation.getChalitTableData(context)
     }
 
 }

@@ -565,5 +565,8 @@
     <string name="char_maha_dasha">Char Maha Dasha</string>
     <string name="char_antar_dasha">Char Antar Dasha</string>
     <string name="char_antara_dasha">Char Antara D asha</string>
+    <string name="bh">Bh</string>
+    <string name="bh_begin">Bh.Begin</string>
+    <string name="mid_bh">Mid Bh</string>
 
 </resources>

@@ -5,13 +5,19 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bhakti_sangrahalay.R
 import com.bhakti_sangrahalay.kundli.model.BirthDetailBean
 import com.bhakti_sangrahalay.ui.activity.BaseActivity
+import com.bhakti_sangrahalay.ui.activity.BirthDetailInputActivity
+import com.bhakti_sangrahalay.ui.activity.BirthDetailInputActivityNew
 
-class KundliListAdapter(val context: Context, val birthDetailBeanList: ArrayList<BirthDetailBean>) :
+class KundliListAdapter(
+    val context: Context,
+    private val birthDetailBeanList: ArrayList<BirthDetailBean>
+) :
     RecyclerView.Adapter<KundliListAdapter.MyView>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyView {
@@ -35,6 +41,11 @@ class KundliListAdapter(val context: Context, val birthDetailBeanList: ArrayList
         holder.dobTV.typeface = context.mediumTypeface
         holder.tobTV.typeface = context.mediumTypeface
         holder.pobTV.typeface = context.mediumTypeface
+        holder.rootLayout.setOnClickListener {
+            (context as BirthDetailInputActivityNew).startKundliOutputActivity(
+                birthDetailBeanList[position]
+            )
+        }
     }
 
     override fun getItemCount(): Int {
@@ -42,6 +53,7 @@ class KundliListAdapter(val context: Context, val birthDetailBeanList: ArrayList
     }
 
     class MyView(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val rootLayout: RelativeLayout = itemView.findViewById(R.id.root_layout)
         val nameTV: TextView = itemView.findViewById(R.id.name_tv)
         val dobTV: TextView = itemView.findViewById(R.id.dob_tv)
         val tobTV: TextView = itemView.findViewById(R.id.tob_tv)
