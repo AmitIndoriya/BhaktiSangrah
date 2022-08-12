@@ -1,3 +1,6 @@
 package com.bhakti_sangrahalay.model
 
-data class SuggestionModel(val name: String, val phoneNumber: String, val emailAddress: String, val suggestion: String)
+import java.io.Serializable
+
+data class SuggestionModel(val name: String, val phoneNumber: String, val emailAddress: String, val suggestion: String):
+    Serializable

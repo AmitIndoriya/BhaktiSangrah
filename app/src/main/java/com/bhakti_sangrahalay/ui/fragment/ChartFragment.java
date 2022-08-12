@@ -11,20 +11,28 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bhakti_sangrahalay.R;
+import com.bhakti_sangrahalay.adapter.LagnaKundliListAdapter;
 import com.bhakti_sangrahalay.ui.activity.KundliOutputActivity;
 import com.bhakti_sangrahalay.ui.customcomponent.ChartView;
 import com.bhakti_sangrahalay.util.Constants;
 import com.bhakti_sangrahalay.util.Utility;
 
+import java.util.ArrayList;
+
 public class ChartFragment extends Fragment {
     private KundliOutputActivity activity;
-   // private Utility Utility;
+
     private Resources resources;
     int lagna;
     int[] planetInRashi;
     double[] midDegreeArray;
+    ArrayList<String> planetDegList;
 
     private ChartFragment(int[] planetInRashi, int lagna, double[] midDegreeArray) {
         this.planetInRashi = planetInRashi;
@@ -32,18 +40,26 @@ public class ChartFragment extends Fragment {
         this.midDegreeArray = midDegreeArray;
     }
 
+    private ChartFragment(int[] planetInRashi, int lagna, double[] midDegreeArray, ArrayList<String> planetDegList) {
+        this.planetInRashi = planetInRashi;
+        this.lagna = lagna;
+        this.midDegreeArray = midDegreeArray;
+        this.planetDegList = planetDegList;
+    }
+
     public static ChartFragment getInstance(int[] planetInRashi, int lagna, double[] midDegreeArray) {
         return new ChartFragment(planetInRashi, lagna, midDegreeArray);
     }
 
+    public static ChartFragment getInstance(int[] planetInRashi, int lagna, double[] midDegreeArray, ArrayList<String> planetDegList) {
+        return new ChartFragment(planetInRashi, lagna, midDegreeArray, planetDegList);
+    }
+
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         activity = (KundliOutputActivity) context;
         resources = getResources();
-       /* if (Utility == null) {
-            Utility = new Utility(activity);
-        }*/
     }
 
     @Override
@@ -72,11 +88,23 @@ public class ChartFragment extends Fragment {
         linearLayout.addView(drawView);
         linearLayout.setLayoutParams(params);
 
-        initView(view);
+        if (planetDegList != null && planetDegList.size() > 0) {
+            setRVAdapter(view);
+        }
         return view;
     }
 
-    private void initView(View view) {
+
+    void setRVAdapter(View view) {
+        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
+        recyclerView.setVisibility(View.VISIBLE);
+        String[] planetNameLis = requireContext().getResources().getStringArray(R.array.planet_short_name_list);
+        recyclerView.setNestedScrollingEnabled(false);
+        LagnaKundliListAdapter horaListAdapter = new LagnaKundliListAdapter(requireContext(), planetNameLis,planetDegList);
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(requireActivity(), 3);
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(horaListAdapter);
 
     }
 

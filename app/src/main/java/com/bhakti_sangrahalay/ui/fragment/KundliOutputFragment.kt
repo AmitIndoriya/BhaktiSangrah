@@ -95,7 +95,8 @@ class KundliOutputFragment : BaseFragment() {
             ChartFragment.getInstance(
                 viewModel.getLagnaKundliPlanetRashiArray(),
                 viewModel.getLagnaKundliPlanetRashiArray()[12],
-                null
+                null,
+                viewModel.getFormattedPlanetDegStr(requireActivity())
             )
         )
         fragList.add(

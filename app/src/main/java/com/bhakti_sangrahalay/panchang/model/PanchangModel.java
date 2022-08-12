@@ -1,6 +1,8 @@
 package com.bhakti_sangrahalay.panchang.model;
 
-public class PanchangModel {
+import java.io.Serializable;
+
+public class PanchangModel implements Serializable {
     private boolean isPlaceValid;
     //
     private double sunRiseDouble;

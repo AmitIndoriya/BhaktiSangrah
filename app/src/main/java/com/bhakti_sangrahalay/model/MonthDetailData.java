@@ -2,9 +2,10 @@ package com.bhakti_sangrahalay.model;
 
 import android.graphics.drawable.Drawable;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class MonthDetailData {
+public class MonthDetailData  implements Serializable {
     Date date;
     int thithi;
     Drawable moonPhaseImg;

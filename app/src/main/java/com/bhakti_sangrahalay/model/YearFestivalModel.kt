@@ -1,3 +1,5 @@
 package com.bhakti_sangrahalay.model
 
-data class YearFestivalModel(val monthFestivalLis: ArrayList<MonthFestivalModel>)
+import java.io.Serializable
+
+data class YearFestivalModel(val monthFestivalLis: ArrayList<MonthFestivalModel>):Serializable

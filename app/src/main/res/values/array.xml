@@ -551,6 +551,21 @@
         <item>Plu</item>
         <item>Asc</item>
     </string-array>
+    <string-array name="planet_short_name_list">
+        <item>La</item>
+        <item>Su</item>
+        <item>Mo</item>
+        <item>Ma</item>
+        <item>Me</item>
+        <item>Ju</item>
+        <item>Ve</item>
+        <item>Sa</item>
+        <item>Ra</item>
+        <item>Ke</item>
+        <item>Ur</item>
+        <item>Ne</item>
+        <item>Pl</item>
+    </string-array>
     <string-array name="rasi_short_name_list">
         <item>Ari</item>
         <item>Tau</item>

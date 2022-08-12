@@ -1,5 +1,7 @@
 package com.bhakti_sangrahalay.panchang.model
 
+import java.io.Serializable
+
 data class DoGhatiBean(
         var planetName: String,
         var enterTime: String,
@@ -10,4 +12,4 @@ data class DoGhatiBean(
         var doGhatiSecondMeaningWikipedia: String,
         var doGhatiMuhurat: String,
         var duration: String
-)
+): Serializable

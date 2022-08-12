@@ -36,6 +36,10 @@ class KundliOutputActivityViewModel @Inject constructor() : BaseViewModel() {
 
     }
 
+    fun getFormattedPlanetDegStr(context: Context): ArrayList<String> {
+        return BasicKundliCalculation.getFormattedPlanetDegStr(context)
+    }
+
     fun getLagnaKundliPlanetRashiArray(): IntArray {
         return BasicKundliCalculation.getLaganKundliArray()
     }

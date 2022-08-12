@@ -1,3 +1,5 @@
 package com.bhakti_sangrahalay.model
 
-data class HouseSignificatorsBean(val houseNo: Int, val significator: String)
+import java.io.Serializable
+
+data class HouseSignificatorsBean(val houseNo: Int, val significator: String): Serializable

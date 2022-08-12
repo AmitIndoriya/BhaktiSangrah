@@ -1,3 +1,5 @@
 package com.bhakti_sangrahalay.model
 
-data class MusicSeekBarProgress(val id: Int, val progress: Int)
+import java.io.Serializable
+
+data class MusicSeekBarProgress(val id: Int, val progress: Int): Serializable

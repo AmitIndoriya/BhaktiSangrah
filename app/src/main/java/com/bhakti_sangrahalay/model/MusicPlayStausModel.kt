@@ -1,3 +1,5 @@
 package com.bhakti_sangrahalay.model
 
-data class MusicPlayStausModel(val id: Int, val preId: Int, val playStatus: Int)
+import java.io.Serializable
+
+data class MusicPlayStausModel(val id: Int, val preId: Int, val playStatus: Int):Serializable

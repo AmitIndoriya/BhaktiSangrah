@@ -1,3 +1,5 @@
 package com.bhakti_sangrahalay.model
 
-data class PlanetSignificationBean(val planetName: String, val houseSignified: String)
+import java.io.Serializable
+
+data class PlanetSignificationBean(val planetName: String, val houseSignified: String): Serializable

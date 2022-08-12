@@ -1,6 +1,8 @@
 package com.bhakti_sangrahalay.panchang.model;
 
-public class PanchangBean {
+import java.io.Serializable;
+
+public class PanchangBean implements Serializable {
     private String title, genre, year;
 
     public PanchangBean() {

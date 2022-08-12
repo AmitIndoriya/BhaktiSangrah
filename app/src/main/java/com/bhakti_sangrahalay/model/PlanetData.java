@@ -2,7 +2,9 @@ package com.bhakti_sangrahalay.model;
 
 import android.graphics.Paint;
 
-public class PlanetData {
+import java.io.Serializable;
+
+public class PlanetData implements Serializable {
     String planetName;
     Paint paint;
 

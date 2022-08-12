@@ -2,7 +2,9 @@ package com.bhakti_sangrahalay.kundli.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class PrastharashtakvargaBean {
+import java.io.Serializable;
+
+public class PrastharashtakvargaBean implements Serializable {
     @SerializedName("SU")
     String su;
     @SerializedName("MO")
@@ -19,9 +21,10 @@ public class PrastharashtakvargaBean {
     String sa;
     @SerializedName("AS")
     String asc;
-   /* @SerializedName("TO")
-    String tot;
-*/
+
+    /* @SerializedName("TO")
+     String tot;
+ */
     public String getSu() {
         return su;
     }

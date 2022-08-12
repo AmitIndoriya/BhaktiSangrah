@@ -1,3 +1,5 @@
 package com.bhakti_sangrahalay.model
 
-data class DownLoadStatus(var id:Int,var progressStatus:Int?)
+import java.io.Serializable
+
+data class DownLoadStatus(var id:Int,var progressStatus:Int?): Serializable

@@ -133,7 +133,7 @@ object BasicKundliCalculation {
         return (plaDeg / 30.00).toInt() + 1
     }
 
-    private fun FormatDMSInStringWithSign(
+    private fun formatDMSInStringWithSign(
         _fDeg: Double,
         DegSign: String,
         MinSign: String,
@@ -143,8 +143,8 @@ object BasicKundliCalculation {
         val sDeg: String?
         val sMin: String?
         val sSec: String?
-        val _min: Int
-        val _sec: Int
+        val min: Int
+        val sec: Int
         // fDeg =(float) (fDeg%30.00);
         sDeg = _fDeg.toInt().toString()
         strFormattedDeg = when (sDeg.trim { it <= ' ' }.length) {
@@ -157,8 +157,8 @@ object BasicKundliCalculation {
         // strFormattedDeg=strFormattedDeg+getDegreeSign();
         strFormattedDeg += DegSign
         var temp: Double = _fDeg - _fDeg.toInt().toDouble()
-        _min = (temp * 60).toInt()
-        sMin = _min.toString()
+        min = (temp * 60).toInt()
+        sMin = min.toString()
 
         // fDeg=fDeg-(int)fDeg;
         // fDeg *=60.00;
@@ -171,10 +171,10 @@ object BasicKundliCalculation {
         strFormattedDeg += MinSign
         temp *= 60
         temp -= temp.toInt().toDouble()
-        _sec = (temp * 60).toInt()
+        sec = (temp * 60).toInt()
         // fDeg=fDeg-(int)fDeg;
         // fDeg *=60.00;
-        sSec = _sec.toString()
+        sSec = sec.toString()
         strFormattedDeg =
             if (sSec.trim { it <= ' ' }.length < 2) strFormattedDeg + "0" + sSec else strFormattedDeg + sSec
 
@@ -316,6 +316,18 @@ object BasicKundliCalculation {
         return getIntArrayFromString(arrayList[0].lagna, 2)
     }
 
+    fun getFormattedPlanetDegStr(context: Context): ArrayList<String> {
+        val plaDeg = getPlanetDegreeArray()
+        val degSign = context.resources.getString(R.string.degree_sign)
+        val minSign = context.resources.getString(R.string.minute_sign)
+        val secSign = context.resources.getString(R.string.second_sign)
+        val arrayList = ArrayList<String>()
+        for (i in 0..12) {
+            arrayList.add(formatDMSInStringWithSign(plaDeg[i] % 30, degSign, minSign, secSign))
+        }
+        return arrayList
+    }
+
     fun getChalitChartArray(): IntArray {
         var lagna = 0
         val planetInRashi = IntArray(13)
@@ -368,14 +380,14 @@ object BasicKundliCalculation {
                 BasicKundliPlanetData(
                     plaName = plaName[i],
                     sign = sign[getRasiNumber(plaDeg[i])],
-                    degree = FormatDMSInStringWithSign(plaDeg[i] % 30, degSign, minSign, secSign),
+                    degree = formatDMSInStringWithSign(plaDeg[i] % 30, degSign, minSign, secSign),
                     naks = naksh[getNakshatraNumber(plaDeg[i])],
                     plaCharan = "(" + getPlntCharan(plaDeg[i]) + ")"
                 )
             )
             Log.i(
                 "Planet Data",
-                plaName[i] + "-" + sign[getRasiNumber(plaDeg[i])] + "-" + FormatDMSInStringWithSign(
+                plaName[i] + "-" + sign[getRasiNumber(plaDeg[i])] + "-" + formatDMSInStringWithSign(
                     plaDeg[i] % 30,
                     degSign,
                     minSign,
@@ -406,7 +418,7 @@ object BasicKundliCalculation {
             arrayList.add(
                 BasicKundliPlanetSubData(
                     plaName = plaName[i],
-                    plaDeg = FormatDMSInStringWithSign(plaDeg[i], degSign, minSign, secSign),
+                    plaDeg = formatDMSInStringWithSign(plaDeg[i], degSign, minSign, secSign),
                     signLord = rashi,
                     nakshLord = naks,
                     subLord = sub,
@@ -416,7 +428,7 @@ object BasicKundliCalculation {
 
             Log.i(
                 "Planet Data",
-                plaName[i] + "-" + FormatDMSInStringWithSign(
+                plaName[i] + "-" + formatDMSInStringWithSign(
                     plaDeg[i],
                     degSign,
                     minSign,
@@ -493,50 +505,50 @@ object BasicKundliCalculation {
     }
 
     fun getChaturthamanshArray(): IntArray {
-        return getIntArrayFromString(arrayList.get(0).getChaturthamansh(), 0)
+        return getIntArrayFromString(arrayList[0].chaturthamansh, 0)
     }
 
     fun getSaptamamshaArray(): IntArray {
-        return getIntArrayFromString(arrayList.get(0).getSaptamamsha(), 0)
+        return getIntArrayFromString(arrayList[0].saptamamsha, 0)
     }
 
     fun getShashtiamshaArray(): IntArray {
-        return getIntArrayFromString(arrayList.get(0).getShashtiamsha(), 0)
+        return getIntArrayFromString(arrayList[0].shashtiamsha, 0)
     }
 
     fun getNavmanshArray(): IntArray {
-        return getIntArrayFromString(arrayList.get(0).getNavmansh(), 0)
+        return getIntArrayFromString(arrayList[0].navmansh, 0)
     }
 
     fun getDashamamshaArray(): IntArray {
-        return getIntArrayFromString(arrayList.get(0).getDashamamsha(), 0)
+        return getIntArrayFromString(arrayList[0].dashamamsha, 0)
     }
 
     fun getShodashamshaArray(): IntArray {
-        return getIntArrayFromString(arrayList.get(0).getShodashamsha(), 0)
+        return getIntArrayFromString(arrayList[0].shodashamsha, 0)
     }
 
     fun getVimshamshaArray(): IntArray {
-        return getIntArrayFromString(arrayList.get(0).getVimshamsha(), 0)
+        return getIntArrayFromString(arrayList[0].vimshamsha, 0)
     }
 
     fun getSaptavimshamshaArray(): IntArray {
-        return getIntArrayFromString(arrayList.get(0).getSaptavimshamsha(), 0)
+        return getIntArrayFromString(arrayList[0].saptavimshamsha, 0)
     }
 
     fun getChaturvimshamshaArray(): IntArray {
-        return getIntArrayFromString(arrayList.get(0).getChaturvimshamsha(), 0)
+        return getIntArrayFromString(arrayList[0].chaturvimshamsha, 0)
     }
 
     fun getTrimshamshaArray(): IntArray {
-        return getIntArrayFromString(arrayList.get(0).getTrimshamsha(), 0)
+        return getIntArrayFromString(arrayList[0].trimshamsha, 0)
     }
 
     fun getKhavedamshaArray(): IntArray {
-        return getIntArrayFromString(arrayList.get(0).getKhavedamsha(), 0)
+        return getIntArrayFromString(arrayList[0].khavedamsha, 0)
     }
 
     fun getAkshvedamshaArray(): IntArray {
-        return getIntArrayFromString(arrayList.get(0).getAkshvedamsha(), 0)
+        return getIntArrayFromString(arrayList[0].akshvedamsha, 0)
     }
 }

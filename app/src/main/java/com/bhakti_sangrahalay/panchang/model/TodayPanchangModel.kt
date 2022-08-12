@@ -1,5 +1,7 @@
 package com.bhakti_sangrahalay.panchang.model
 
+import java.io.Serializable
+
 class TodayPanchangModel(
         val tithiInt: Int,
         val tithi: String,
@@ -7,4 +9,4 @@ class TodayPanchangModel(
         val samvat: String,
         val vara: String,
         val paksh: String
-)
+): Serializable

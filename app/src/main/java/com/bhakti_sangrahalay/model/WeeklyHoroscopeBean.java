@@ -2,7 +2,9 @@ package com.bhakti_sangrahalay.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class WeeklyHoroscopeBean {
+import java.io.Serializable;
+
+public class WeeklyHoroscopeBean implements Serializable {
     @SerializedName("rashi")
     String rashi;
     @SerializedName("title")

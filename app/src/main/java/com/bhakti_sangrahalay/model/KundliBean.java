@@ -5,9 +5,10 @@ import androidx.room.Entity;
 import com.bhakti_sangrahalay.kundli.model.PrastharashtakvargaBean;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class KundliBean {
+public class KundliBean implements Serializable {
     @SerializedName("lagna")
     String lagna;
     @SerializedName("navmansh")

@@ -1,6 +1,8 @@
 package com.bhakti_sangrahalay.model;
 
-public class MantraBean {
+import java.io.Serializable;
+
+public class MantraBean implements Serializable {
     String title;
     String content;
 

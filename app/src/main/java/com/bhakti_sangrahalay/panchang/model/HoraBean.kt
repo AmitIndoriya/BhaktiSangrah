@@ -1,5 +1,7 @@
 package com.bhakti_sangrahalay.panchang.model
 
+import java.io.Serializable
+
 data class HoraBean(
         var planetName: String,
         var enterTime: String,
@@ -11,4 +13,4 @@ data class HoraBean(
          var doghatiSecondMeaningwikipedia: String,
          var doghatimuhurat: String*/
 
-)
+): Serializable
