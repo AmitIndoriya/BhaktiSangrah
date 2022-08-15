@@ -12,6 +12,7 @@ import com.bhakti_sangrahalay.adapter.KundliListAdapter
 import com.bhakti_sangrahalay.databinding.FragKundliListLayoutBinding
 import com.bhakti_sangrahalay.kundli.model.BirthDetailBean
 import com.bhakti_sangrahalay.ui.activity.BirthDetailInputActivityNew
+import com.bhakti_sangrahalay.ui.activity.MatchMakingInputActivity
 
 class KundliListFragment : Fragment() {
     lateinit var binding: FragKundliListLayoutBinding
@@ -25,6 +26,7 @@ class KundliListFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         if (requireActivity() is BirthDetailInputActivityNew) {
             (requireActivity() as BirthDetailInputActivityNew).viewModel.getBirthDetailInfoList()
             (requireActivity() as BirthDetailInputActivityNew).viewModel.birthDetailBeanListLiveData.observe(
@@ -33,7 +35,17 @@ class KundliListFragment : Fragment() {
             (requireActivity() as BirthDetailInputActivityNew).viewModel.isNewBirthDetailInfoAdded.observe(
                 this
             ) { if (it) (requireActivity() as BirthDetailInputActivityNew).viewModel.getBirthDetailInfoList() }
+        } else {
+            (requireActivity() as MatchMakingInputActivity).viewModel.getBirthDetailInfoList()
+            (requireActivity() as MatchMakingInputActivity).viewModel.birthDetailBeanListLiveData.observe(
+                this
+            ) { setListData(it) }
+            (requireActivity() as MatchMakingInputActivity).viewModel.isNewBirthDetailInfoAdded.observe(
+                this
+            ) { if (it) (requireActivity() as MatchMakingInputActivity).viewModel.getBirthDetailInfoList() }
         }
+
+
     }
 
     override fun onCreateView(

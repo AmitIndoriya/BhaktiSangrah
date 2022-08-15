@@ -11,10 +11,12 @@ import com.bhakti_sangrahalay.kundli.model.BirthDetailBean
 import com.bhakti_sangrahalay.kundli.model.DateTimeBean
 import com.bhakti_sangrahalay.kundli.model.PlaceBean
 import com.bhakti_sangrahalay.ui.activity.BaseActivity
+import com.bhakti_sangrahalay.ui.activity.MatchMakingInputActivity
 import com.bhakti_sangrahalay.ui.activity.MatchMakingResultActivity
 import com.bhakti_sangrahalay.ui.dialogs.DatePickerDialog
 import com.bhakti_sangrahalay.ui.dialogs.TimePickerDialog
 import com.bhakti_sangrahalay.util.Utility
+import com.bhakti_sangrahalay.viewmodel.MatchMakingInputActivityViewModel
 import java.util.*
 
 class MMBirthDetailInputFragment : BirthDetailInputBaseFragment(), View.OnClickListener,
@@ -230,9 +232,10 @@ class MMBirthDetailInputFragment : BirthDetailInputBaseFragment(), View.OnClickL
     }
 
     private fun saveBirthDetailInDB() {
-        /* (requireActivity() as BirthDetailInputActivityNew).viewModel.insertBirthDetailInfo(
-             birthDetailBean
-         )*/
+        (requireActivity() as MatchMakingInputActivity).viewModel.insertBirthDetailInfo(
+            boyBirthDetailBean,
+            girlBirthDetailBean
+        )
     }
 
     override fun onClick(v: View) {

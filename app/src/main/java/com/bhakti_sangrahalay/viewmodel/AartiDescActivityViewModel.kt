@@ -10,8 +10,8 @@ import com.bhakti_sangrahalay.util.Utility
 import java.util.*
 import javax.inject.Inject
 
-class AartiDescActivityViewModel  @Inject constructor(): ViewModel() {
-    public var resources: Resources? = null
+class AartiDescActivityViewModel @Inject constructor() : BaseViewModel() {
+     var resources: Resources? = null
     var utility: Utility = Utility()
     var parser: Parser = Parser()
     var url: String = Utility.getStoragePath()
@@ -21,8 +21,12 @@ class AartiDescActivityViewModel  @Inject constructor(): ViewModel() {
     }
 
     fun readResourceFile() {
-        var aartiBeanArrayList = parser.aartiListParserNew(Utility.readFromFile(resources, R.raw.aarti_list))
-        MyApp.applicationContext().dataHoler.setAartiArrayList(aartiBeanArrayList, Constants.AARTI_TYPE)
+        var aartiBeanArrayList =
+            parser.aartiListParserNew(Utility.readFromFile(resources, R.raw.aarti_list))
+        MyApp.applicationContext().dataHoler.setAartiArrayList(
+            aartiBeanArrayList,
+            Constants.AARTI_TYPE
+        )
     }
 
     public fun getImages(): ArrayList<Int> {

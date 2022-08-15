@@ -19,4 +19,5 @@ class MatchMakingResultActivityViewModel @Inject constructor() : BaseViewModel()
         )
     }
 
+
 }
