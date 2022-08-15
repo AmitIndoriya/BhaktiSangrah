@@ -233,7 +233,6 @@ class MMBirthDetailInputFragment : BirthDetailInputBaseFragment(), View.OnClickL
         /* (requireActivity() as BirthDetailInputActivityNew).viewModel.insertBirthDetailInfo(
              birthDetailBean
          )*/
-
     }
 
     override fun onClick(v: View) {
