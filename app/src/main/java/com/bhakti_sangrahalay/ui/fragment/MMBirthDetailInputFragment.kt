@@ -16,7 +16,6 @@ import com.bhakti_sangrahalay.ui.activity.MatchMakingResultActivity
 import com.bhakti_sangrahalay.ui.dialogs.DatePickerDialog
 import com.bhakti_sangrahalay.ui.dialogs.TimePickerDialog
 import com.bhakti_sangrahalay.util.Utility
-import com.bhakti_sangrahalay.viewmodel.MatchMakingInputActivityViewModel
 import java.util.*
 
 class MMBirthDetailInputFragment : BirthDetailInputBaseFragment(), View.OnClickListener,
