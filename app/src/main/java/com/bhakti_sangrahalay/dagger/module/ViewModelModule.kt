@@ -55,5 +55,15 @@ internal abstract class ViewModelModule {
     @ViewModelKey(PanchangViewModel::class)
     protected abstract fun panchangViewModel(panchangViewModel: PanchangViewModel): ViewModel
 
+    @Binds
+    @IntoMap
+    @ViewModelKey(MatchMakingResultActivityViewModel::class)
+    protected abstract fun matchMakingResultActivityViewModel(matchMakingResultActivityViewModel: MatchMakingResultActivityViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MatchMakingInputActivityViewModel::class)
+    protected abstract fun matchMakingInputActivityViewModel(matchMakingInputActivityViewModel: MatchMakingInputActivityViewModel): ViewModel
+
 
 }

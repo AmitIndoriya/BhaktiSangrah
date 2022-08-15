@@ -10,12 +10,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bhakti_sangrahalay.R
-import com.bhakti_sangrahalay.ui.activity.DainikCalendarActivity
 import com.bhakti_sangrahalay.contansts.GlobalVariables
-import com.bhakti_sangrahalay.ui.activity.BaseActivity
-import com.bhakti_sangrahalay.ui.activity.BirthDetailInputActivityNew
-import com.bhakti_sangrahalay.ui.activity.PanchangActivity
+import com.bhakti_sangrahalay.matchmaking.calculation.MatchMakingCalculation
+import com.bhakti_sangrahalay.ui.activity.*
 import com.bhakti_sangrahalay.ui.activitynew.*
+import com.bhakti_sangrahalay.ui.activitynew.MantraActivity
+import com.bhakti_sangrahalay.ui.activitynew.MoreItemActivity
+import com.bhakti_sangrahalay.ui.activitynew.PauranikKathaHomeActivity
+import com.bhakti_sangrahalay.ui.activitynew.SunderKandActivity
+import com.bhakti_sangrahalay.ui.activitynew.VartKathaHomeActivity
 
 class HomeGridRVAdapter(
     private val context: Context,
@@ -74,6 +77,10 @@ class HomeGridRVAdapter(
                 }
                 8 -> {
                     context.startActivity(Intent(context, DainikCalendarActivity::class.java))
+                }
+                9 -> {
+                    // MatchMakingCalculation.calculateMatch(context.assets)
+                    context.startActivity(Intent(context, MatchMakingInputActivity::class.java))
                 }
             }
         }

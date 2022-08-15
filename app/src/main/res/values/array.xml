@@ -696,12 +696,14 @@
         <item>@string/panchang</item>
         <item>@string/panchang</item>
         <item>@string/panchang</item>
+        <item>@string/panchang</item>
     </string-array>
     <string-array name="dashboard_module_icon_list">
         <item>@drawable/panchang</item>
         <item>@drawable/kundli</item>
         <item>@drawable/muhurat</item>
         <item>@drawable/horoscope</item>
+        <item>@drawable/muhurat</item>
         <item>@drawable/muhurat</item>
         <item>@drawable/muhurat</item>
         <item>@drawable/muhurat</item>
@@ -718,6 +720,7 @@
         <item>@drawable/rect_light_pink</item>
         <item>@drawable/rect_light_yellow</item>
         <item>@drawable/rect_light_pink</item>
+        <item>@drawable/rect_light_green</item>
     </string-array>
     <string-array name="Vimshottari_dasa_planets_list">
         <item>Ke</item>
@@ -736,8 +739,28 @@
         <item>@string/vimshottari_pratyantara_dasha</item>
         <item>@string/vimshottari_sookshma_dasha</item>
         <item>@string/vimshottari_prana_dasha</item>
-
     </string-array>
+    <string-array name="match_making_guna_list">
+        <item>@string/varna</item>
+        <item>@string/vasya</item>
+        <item>@string/tara</item>
+        <item>@string/yoni</item>
+        <item>@string/maitri</item>
+        <item>@string/gana</item>
+        <item>@string/bhakoot</item>
+        <item>@string/nadi</item>
+    </string-array>
+    <string-array name="area_of_life">
+        <item>@string/work</item>
+        <item>@string/dominance</item>
+        <item>@string/destiny</item>
+        <item>@string/mentality</item>
+        <item>@string/compatibility</item>
+        <item>@string/guna_level</item>
+        <item>@string/love</item>
+        <item>@string/health</item>
+    </string-array>
+
     <string name="kp_chart">KP Chart</string>
     <string name="rashi_chart">Rashi Chart</string>
     <string name="cusps">Cusps</string>
@@ -758,4 +781,13 @@
     <string name="vimshottari_pratyantara_dasha">Vimshottari Pratyantara Dasha</string>
     <string name="vimshottari_sookshma_dasha">Vimshottari Sookshma Dasha</string>
     <string name="vimshottari_prana_dasha">Vimshottari Prana Dasha</string>
+    <string name="tara">Tara</string>
+    <string name="maitri">Maitri</string>
+    <string name="bhakoot">Bhakoot</string>
+    <string name="work">Work</string>
+    <string name="dominance">Dominance</string>
+    <string name="destiny">Destiny</string>
+    <string name="mentality">Mantality</string>
+    <string name="compatibility">Compatibility</string>
+    <string name="guna_level">Guna Level</string>
 </resources>

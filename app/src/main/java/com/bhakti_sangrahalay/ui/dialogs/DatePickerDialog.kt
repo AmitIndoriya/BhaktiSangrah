@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.bhakti_sangrahalay.R
 import com.bhakti_sangrahalay.ui.activity.BirthDetailInputActivity
 import com.bhakti_sangrahalay.ui.activity.BirthDetailInputActivityNew
+import com.bhakti_sangrahalay.ui.fragment.BirthDetailInputBaseFragment
 import com.bhakti_sangrahalay.ui.fragment.BirthDetailInputFragment
 
 object DatePickerDialog {
@@ -36,8 +37,7 @@ object DatePickerDialog {
 
     class DateSetListener : DatePickerDialog.OnDateSetListener {
         override fun onDateSet(p0: DatePicker?, year: Int, month: Int, date: Int) {
-            (fragment as BirthDetailInputFragment).setDate(date, month, year)
-
+            (fragment as BirthDetailInputBaseFragment).setDate(date, month, year)
         }
 
     }

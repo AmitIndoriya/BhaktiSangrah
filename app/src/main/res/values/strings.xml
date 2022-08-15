@@ -568,5 +568,13 @@
     <string name="bh">Bh</string>
     <string name="bh_begin">Bh.Begin</string>
     <string name="mid_bh">Mid Bh</string>
+    <string name="ashtakoot_matching_points">Ashtakoot Matching Points</string>
+    <string name="has_mangal_dosh">"# has Mangal Dosh  "</string>
+    <string name="guna">Guna</string>
+    <string name="maximum">Maximum</string>
+    <string name="obtained">Obtained</string>
+    <string name="area_of_life">Area Of Life</string>
+    <string name="boy_detail">Boy\'s Detail</string>
+    <string name="girl_detail">Girl\'s Detail</string>
 
 </resources>

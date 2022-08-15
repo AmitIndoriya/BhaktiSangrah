@@ -27,4 +27,12 @@ abstract class ActivityModule {
 
     @ContributesAndroidInjector()
     abstract fun contributeKundliOutputActivity(): KundliOutputActivity
+
+    @ContributesAndroidInjector()
+    abstract fun contributeMatchMakingResultActivity(): MatchMakingResultActivity
+
+    @ContributesAndroidInjector()
+    abstract fun contributeMatchMakingInputActivity(): MatchMakingInputActivity
+
+
 }

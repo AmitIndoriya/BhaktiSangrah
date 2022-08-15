@@ -3,16 +3,20 @@ package com.bhakti_sangrahalay.adapter
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import com.bhakti_sangrahalay.R
 import com.bhakti_sangrahalay.kundli.model.BirthDetailBean
 import com.bhakti_sangrahalay.ui.activity.BaseActivity
-import com.bhakti_sangrahalay.ui.activity.BirthDetailInputActivity
 import com.bhakti_sangrahalay.ui.activity.BirthDetailInputActivityNew
+
 
 class KundliListAdapter(
     val context: Context,
@@ -46,6 +50,7 @@ class KundliListAdapter(
                 birthDetailBeanList[position]
             )
         }
+        holder.moreIV.setOnClickListener({ showPopupMenu(holder.moreIV) })
     }
 
     override fun getItemCount(): Int {
@@ -58,5 +63,22 @@ class KundliListAdapter(
         val dobTV: TextView = itemView.findViewById(R.id.dob_tv)
         val tobTV: TextView = itemView.findViewById(R.id.tob_tv)
         val pobTV: TextView = itemView.findViewById(R.id.pob_tv)
+        val moreIV: ImageView = itemView.findViewById(R.id.more_iv)
+
+    }
+
+    fun showPopupMenu(view: View) {
+        val popupMenu = PopupMenu(context, view)
+        popupMenu.getMenuInflater()
+            .inflate(com.bhakti_sangrahalay.R.menu.kundli_bottom_nav_item, popupMenu.getMenu())
+        popupMenu.setOnMenuItemClickListener { menuItem ->
+            Toast.makeText(
+                context,
+                "You Clicked " + menuItem.getTitle(),
+                Toast.LENGTH_SHORT
+            ).show()
+            true
+        }
+        popupMenu.show()
     }
 }

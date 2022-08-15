@@ -25,13 +25,15 @@ class KundliListFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (requireActivity() as BirthDetailInputActivityNew).viewModel.getBirthDetailInfoList()
-        (requireActivity() as BirthDetailInputActivityNew).viewModel.birthDetailBeanListLiveData.observe(
-            this
-        ) { setListData(it) }
-        (requireActivity() as BirthDetailInputActivityNew).viewModel.isNewBirthDetailInfoAdded.observe(
-            this
-        ) { if (it) (requireActivity() as BirthDetailInputActivityNew).viewModel.getBirthDetailInfoList() }
+        if (requireActivity() is BirthDetailInputActivityNew) {
+            (requireActivity() as BirthDetailInputActivityNew).viewModel.getBirthDetailInfoList()
+            (requireActivity() as BirthDetailInputActivityNew).viewModel.birthDetailBeanListLiveData.observe(
+                this
+            ) { setListData(it) }
+            (requireActivity() as BirthDetailInputActivityNew).viewModel.isNewBirthDetailInfoAdded.observe(
+                this
+            ) { if (it) (requireActivity() as BirthDetailInputActivityNew).viewModel.getBirthDetailInfoList() }
+        }
     }
 
     override fun onCreateView(

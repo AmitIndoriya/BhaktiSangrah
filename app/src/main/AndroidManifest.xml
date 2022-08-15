@@ -41,6 +41,9 @@
         <activity android:name=".ui.activity.KundliHomeActivity" />
         <activity android:name=".ui.activity.BirthDetailInputActivity" />
         <activity android:name=".ui.activity.BirthDetailInputActivityNew" />
+        <activity android:name=".ui.activity.MatchMakingResultActivity" />
+        <activity android:name=".ui.activity.MatchMakingInputActivity" />
+
         <activity
             android:name=".ui.activity.KundliOutputActivity"
             android:theme="@style/AppTheme.NoActionBar" />
