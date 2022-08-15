@@ -3,19 +3,18 @@ package com.bhakti_sangrahalay.adapter
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import com.bhakti_sangrahalay.R
 import com.bhakti_sangrahalay.kundli.model.BirthDetailBean
 import com.bhakti_sangrahalay.ui.activity.BaseActivity
 import com.bhakti_sangrahalay.ui.activity.BirthDetailInputActivityNew
+import com.bhakti_sangrahalay.ui.activity.MatchMakingInputActivity
 
 
 class KundliListAdapter(
@@ -46,11 +45,18 @@ class KundliListAdapter(
         holder.tobTV.typeface = context.mediumTypeface
         holder.pobTV.typeface = context.mediumTypeface
         holder.rootLayout.setOnClickListener {
-            (context as BirthDetailInputActivityNew).startKundliOutputActivity(
-                birthDetailBeanList[position]
-            )
+            if (context is BirthDetailInputActivityNew) {
+                context.startKundliOutputActivity(
+                    birthDetailBeanList[position]
+                )
+            } else if (context is MatchMakingInputActivity) {
+                /*  context .startKundliOutputActivity(
+                      birthDetailBeanList[position]
+                  )*/
+            }
+
         }
-        holder.moreIV.setOnClickListener({ showPopupMenu(holder.moreIV) })
+        holder.moreIV.setOnClickListener { showPopupMenu(holder.moreIV, birthDetailBean) }
     }
 
     override fun getItemCount(): Int {
@@ -67,16 +73,27 @@ class KundliListAdapter(
 
     }
 
-    fun showPopupMenu(view: View) {
+    private fun showPopupMenu(view: View, birthDetailBean: BirthDetailBean) {
         val popupMenu = PopupMenu(context, view)
-        popupMenu.getMenuInflater()
-            .inflate(com.bhakti_sangrahalay.R.menu.kundli_bottom_nav_item, popupMenu.getMenu())
+        popupMenu.menuInflater
+            .inflate(R.menu.kundli_list_menu, popupMenu.menu)
         popupMenu.setOnMenuItemClickListener { menuItem ->
-            Toast.makeText(
-                context,
-                "You Clicked " + menuItem.getTitle(),
-                Toast.LENGTH_SHORT
-            ).show()
+            when (menuItem.itemId) {
+                R.id.edit -> {
+
+                }
+                R.id.delete -> {
+                    if (context is MatchMakingInputActivity) {
+                        context.viewModel.deleteBirthDetailInfo(
+                            birthDetailBean
+                        )
+                    } else if (context is BirthDetailInputActivityNew) {
+                        context.viewModel.deleteBirthDetailInfo(
+                            birthDetailBean
+                        )
+                    }
+                }
+            }
             true
         }
         popupMenu.show()

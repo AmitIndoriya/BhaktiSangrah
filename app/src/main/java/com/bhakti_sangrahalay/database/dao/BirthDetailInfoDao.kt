@@ -22,4 +22,7 @@ interface BirthDetailInfoDao {
     @Delete
     suspend fun delete(user: BirthDetailInfo)
 
+    @Query("DELETE FROM BirthDetailInfo WHERE id = :id")
+    fun deleteId(id: Int)
+
 }

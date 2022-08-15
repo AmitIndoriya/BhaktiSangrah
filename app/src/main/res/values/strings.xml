@@ -576,5 +576,7 @@
     <string name="area_of_life">Area Of Life</string>
     <string name="boy_detail">Boy\'s Detail</string>
     <string name="girl_detail">Girl\'s Detail</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
 
 </resources>

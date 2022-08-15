@@ -29,18 +29,30 @@ class KundliListFragment : Fragment() {
 
         if (requireActivity() is BirthDetailInputActivityNew) {
             (requireActivity() as BirthDetailInputActivityNew).viewModel.getBirthDetailInfoList()
+
             (requireActivity() as BirthDetailInputActivityNew).viewModel.birthDetailBeanListLiveData.observe(
                 this
             ) { setListData(it) }
+
             (requireActivity() as BirthDetailInputActivityNew).viewModel.isNewBirthDetailInfoAdded.observe(
+                this
+            ) { if (it) (requireActivity() as BirthDetailInputActivityNew).viewModel.getBirthDetailInfoList() }
+
+            (requireActivity() as BirthDetailInputActivityNew).viewModel.isBirthDetailInfoDeleted.observe(
                 this
             ) { if (it) (requireActivity() as BirthDetailInputActivityNew).viewModel.getBirthDetailInfoList() }
         } else {
             (requireActivity() as MatchMakingInputActivity).viewModel.getBirthDetailInfoList()
+
             (requireActivity() as MatchMakingInputActivity).viewModel.birthDetailBeanListLiveData.observe(
                 this
             ) { setListData(it) }
+
             (requireActivity() as MatchMakingInputActivity).viewModel.isNewBirthDetailInfoAdded.observe(
+                this
+            ) { if (it) (requireActivity() as MatchMakingInputActivity).viewModel.getBirthDetailInfoList() }
+
+            (requireActivity() as MatchMakingInputActivity).viewModel.isBirthDetailInfoDeleted.observe(
                 this
             ) { if (it) (requireActivity() as MatchMakingInputActivity).viewModel.getBirthDetailInfoList() }
         }

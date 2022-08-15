@@ -16,6 +16,7 @@ import com.bhakti_sangrahalay.kundli.model.BirthDetailBean
 import com.bhakti_sangrahalay.ui.fragment.BirthDetailInputFragment
 import com.bhakti_sangrahalay.ui.fragment.KundliListFragment
 import com.bhakti_sangrahalay.viewmodel.BirthDetaiInputActivityViewModel
+import com.bhakti_sangrahalay.viewmodel.BirthDetailInputBaseViewModel
 import com.google.android.material.tabs.TabLayout
 import dagger.android.AndroidInjection
 import javax.inject.Inject
@@ -24,7 +25,7 @@ class BirthDetailInputActivityNew : BaseActivity() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
     private lateinit var binding: ActivityBirthDetailInputLayoutBinding
-    lateinit var viewModel: BirthDetaiInputActivityViewModel
+    lateinit var viewModel: BirthDetailInputBaseViewModel
 
     override fun attachViewModel() {
         viewModel = ViewModelProviders.of(

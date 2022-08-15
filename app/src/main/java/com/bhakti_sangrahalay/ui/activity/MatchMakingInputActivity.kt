@@ -14,6 +14,7 @@ import com.bhakti_sangrahalay.databinding.ActivityBirthDetailInputLayoutBinding
 import com.bhakti_sangrahalay.ui.fragment.BirthDetailInputFragment
 import com.bhakti_sangrahalay.ui.fragment.KundliListFragment
 import com.bhakti_sangrahalay.ui.fragment.MMBirthDetailInputFragment
+import com.bhakti_sangrahalay.viewmodel.BirthDetailInputBaseViewModel
 import com.bhakti_sangrahalay.viewmodel.MatchMakingInputActivityViewModel
 import com.google.android.material.tabs.TabLayout
 import dagger.android.AndroidInjection
@@ -23,7 +24,7 @@ class MatchMakingInputActivity : BaseActivity() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
     lateinit var binding: ActivityBirthDetailInputLayoutBinding
-    lateinit var viewModel: MatchMakingInputActivityViewModel
+    lateinit var viewModel: BirthDetailInputBaseViewModel
     override fun attachViewModel() {
         viewModel = ViewModelProviders.of(
             this,

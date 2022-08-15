@@ -15,31 +15,4 @@ import javax.inject.Inject
 
 class BirthDetaiInputActivityViewModel @Inject constructor() : BirthDetailInputBaseViewModel() {
 
-
-
-    @OptIn(DelicateCoroutinesApi::class)
-    fun insertBirthDetailInfo(birthDetailBean: BirthDetailBean) {
-        GlobalScope.launch(Dispatchers.IO) {
-            val list = ArrayList<BirthDetailInfo>()
-            list.add(
-                getBirthDetailInfoFromBirthDetailBean(birthDetailBean)
-            )
-            database.BirthDetailInfoDao().insertAll(list)
-            isNewBirthDetailInfoAdded.postValue(true)
-        }
-    }
-
-    @OptIn(DelicateCoroutinesApi::class)
-    fun getBirthDetailInfoList() {
-        GlobalScope.launch(Dispatchers.IO) {
-            val list = database.BirthDetailInfoDao().getAll()
-            val birthDetailBeanList = ArrayList<BirthDetailBean>()
-            for (element in list) {
-                birthDetailBeanList.add(getBirthDetailBeanFromBirthDetailInfo(element))
-            }
-            birthDetailBeanListLiveData.postValue(birthDetailBeanList)
-            Log.i("list>>", "" + list.size)
-        }
-    }
-
 }
