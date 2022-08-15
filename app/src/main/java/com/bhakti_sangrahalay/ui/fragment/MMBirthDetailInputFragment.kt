@@ -2,10 +2,12 @@ package com.bhakti_sangrahalay.ui.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.Toast
 import com.bhakti_sangrahalay.databinding.FragMmBirthDetailInputLayoutBinding
 import com.bhakti_sangrahalay.kundli.model.BirthDetailBean
 import com.bhakti_sangrahalay.kundli.model.DateTimeBean
@@ -16,7 +18,6 @@ import com.bhakti_sangrahalay.ui.activity.MatchMakingResultActivity
 import com.bhakti_sangrahalay.ui.dialogs.DatePickerDialog
 import com.bhakti_sangrahalay.ui.dialogs.TimePickerDialog
 import com.bhakti_sangrahalay.util.Utility
-import java.util.*
 
 class MMBirthDetailInputFragment : BirthDetailInputBaseFragment(), View.OnClickListener,
     AdapterView.OnItemSelectedListener {
@@ -54,6 +55,12 @@ class MMBirthDetailInputFragment : BirthDetailInputBaseFragment(), View.OnClickL
         binding.girlPlaceValTv.typeface = (requireActivity() as BaseActivity).mediumTypeface
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        (requireActivity() as MatchMakingInputActivity).viewModel.insertedRowId.observe(this) {
+            updateId(it)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -62,88 +69,53 @@ class MMBirthDetailInputFragment : BirthDetailInputBaseFragment(), View.OnClickL
     ): View {
         binding = FragMmBirthDetailInputLayoutBinding.inflate(inflater, container, false)
         setListener()
-
-        populateData()
+        populateBoyData(getBoyDefaultBirthDetailBean())
+        populateGirlData(getGirlDefaultBirthDetailBean())
         setTypeface()
         return binding.root
     }
 
-    private fun populateData() {
-        val calendar = Calendar.getInstance()
-        boyBirthDetailBean = BirthDetailBean(
-            name = "Amit",
-            sex = "M",
-            dateTimeBean = DateTimeBean(
-                day = "23", //calendar[Calendar.DATE].toString(),
-                month = "11",//calendar[Calendar.MONTH].toString(),
-                year = "2020",//calendar[Calendar.YEAR].toString(),
-                hrs = "18",//calendar[Calendar.HOUR].toString(),
-                min = "30",//calendar[Calendar.MINUTE].toString(),
-                sec = "00",//calendar[Calendar.SECOND].toString(),
-            ),
-            placeBean = PlaceBean(
-                place = "Agra",
-                longDeg = "078",
-                longMin = "00",
-                longEW = "E",
-                latDeg = "027",
-                latMin = "09",
-                latNS = "N",
-                timeZone = "5.5"
-            ),
-            dst = "0",
-            ayanamsa = "0",
-            charting = "0",
-            kphn = "0",
-            button1 = "Get+Kundali",
-            languageCode = "0",
-        )
-        girlBirthDetailBean = BirthDetailBean(
-            name = "Amit",
-            sex = "M",
-            dateTimeBean = DateTimeBean(
-                day = "23", //calendar[Calendar.DATE].toString(),
-                month = "11",//calendar[Calendar.MONTH].toString(),
-                year = "2020",//calendar[Calendar.YEAR].toString(),
-                hrs = "18",//calendar[Calendar.HOUR].toString(),
-                min = "30",//calendar[Calendar.MINUTE].toString(),
-                sec = "00",//calendar[Calendar.SECOND].toString(),
-            ),
-            placeBean = PlaceBean(
-                place = "Agra",
-                longDeg = "078",
-                longMin = "00",
-                longEW = "E",
-                latDeg = "027",
-                latMin = "09",
-                latNS = "N",
-                timeZone = "5.5"
-            ),
-            dst = "0",
-            ayanamsa = "0",
-            charting = "0",
-            kphn = "0",
-            button1 = "Get+Kundali",
-            languageCode = "0",
-        )
+
+    fun populateBoyData(birthDetailBean: BirthDetailBean) {
+        boyBirthDetailBean = birthDetailBean
+        val dateTimeBean = boyBirthDetailBean.dateTimeBean
+        val placeBean = boyBirthDetailBean.placeBean
+
         val monthShortName =
             resources.getStringArray(com.bhakti_sangrahalay.R.array.month_short_name_en)
-
+        binding.boyNameEt.setText(birthDetailBean.name)
         binding.boyDateValTv.text =
-            calendar[Calendar.DATE].toString() + " - " + monthShortName[calendar[Calendar.MONTH]] + " - " + calendar[Calendar.YEAR]
+            dateTimeBean.day + " - " + monthShortName[dateTimeBean.month.toInt()-1] + " - " + dateTimeBean.year
+        var amPm = 0
+        if (dateTimeBean.hrs.toInt() > 12) {
+            amPm = 1
+        }
         binding.boyTimeValTv.text = Utility.getFormattedTime(
-            calendar[Calendar.HOUR],
-            calendar[Calendar.MINUTE],
-            calendar[Calendar.AM_PM]
+            dateTimeBean.hrs.toInt(),
+            dateTimeBean.min.toInt(),
+            amPm
         )
         binding.boyPlaceValTv.text = "Jaipur, Rajasthan, India"
 
+    }
+
+    fun populateGirlData(birthDetailBean: BirthDetailBean) {
+        girlBirthDetailBean = birthDetailBean
+        val dateTimeBean = girlBirthDetailBean.dateTimeBean
+        val placeBean = girlBirthDetailBean.placeBean
+        val monthShortName =
+            resources.getStringArray(com.bhakti_sangrahalay.R.array.month_short_name_en)
+        binding.girlNameEt.setText(birthDetailBean.name)
         binding.girlDateValTv.text =
-            calendar[Calendar.DATE].toString() + " - " + monthShortName[calendar[Calendar.MONTH]] + " - " + calendar[Calendar.YEAR]
+            dateTimeBean.day + " - " + monthShortName[dateTimeBean.month.toInt()-1] + " - " + dateTimeBean.year
+        var amPm = 0
+        if (dateTimeBean.hrs.toInt() > 12) {
+            amPm = 1
+        }
         binding.girlTimeValTv.text = Utility.getFormattedTime(
-            calendar[Calendar.HOUR],
-            calendar[Calendar.MINUTE],
-            calendar[Calendar.AM_PM]
+            dateTimeBean.hrs.toInt(),
+            dateTimeBean.min.toInt(),
+            amPm
         )
         binding.girlPlaceValTv.text = "Jaipur, Rajasthan, India"
     }
@@ -230,23 +202,74 @@ class MMBirthDetailInputFragment : BirthDetailInputBaseFragment(), View.OnClickL
     override fun onNothingSelected(p0: AdapterView<*>) {
     }
 
-    private fun saveBirthDetailInDB() {
+    private fun saveBirthDetail() {
         (requireActivity() as MatchMakingInputActivity).viewModel.insertBirthDetailInfo(
             boyBirthDetailBean,
             girlBirthDetailBean
         )
     }
 
+    private fun saveBoyBirthDetail() {
+        (requireActivity() as MatchMakingInputActivity).viewModel.insertBirthDetailInfo(
+            boyBirthDetailBean
+        )
+    }
+
+    private fun saveGirlBirthDetail() {
+        (requireActivity() as MatchMakingInputActivity).viewModel.insertBirthDetailInfo(
+            girlBirthDetailBean
+        )
+    }
+
+    private fun updateBoyBirthDetail() {
+        (requireActivity() as MatchMakingInputActivity).viewModel.updateBirthDetailInfo(
+            boyBirthDetailBean
+        )
+    }
+
+    private fun updateGirlBirthDetail() {
+        (requireActivity() as MatchMakingInputActivity).viewModel.updateBirthDetailInfo(
+            girlBirthDetailBean
+        )
+    }
+
+    private fun updateId(ids: List<Long>) {
+        if (boyBirthDetailBean.id == -1L && girlBirthDetailBean.id == -1L) {
+            boyBirthDetailBean.id = ids[0]
+            girlBirthDetailBean.id = ids[1]
+        } else if (boyBirthDetailBean.id == -1L && girlBirthDetailBean.id != -1L) {
+            boyBirthDetailBean.id = ids[0]
+        } else if (boyBirthDetailBean.id != -1L && girlBirthDetailBean.id == -1L) {
+            girlBirthDetailBean.id = ids[0]
+        }
+    }
+
     override fun onClick(v: View) {
         when (v.id) {
             com.bhakti_sangrahalay.R.id.calculate_btn -> {
-                saveBirthDetailInDB()
-                val bundle = Bundle()
-                bundle.putSerializable("boy_detail", boyBirthDetailBean)
-                bundle.putSerializable("girl_detail", girlBirthDetailBean)
-                val intent = Intent(requireActivity(), MatchMakingResultActivity::class.java)
-                intent.putExtras(bundle)
-                startActivity(intent)
+                if (validate()) {
+                    boyBirthDetailBean.name = binding.boyNameEt.text.toString()
+                    girlBirthDetailBean.name = binding.girlNameEt.text.toString()
+                    if (boyBirthDetailBean.id == -1L && girlBirthDetailBean.id == -1L) {
+                        saveBirthDetail()
+                    } else if (boyBirthDetailBean.id == -1L && girlBirthDetailBean.id != -1L) {
+                        saveBoyBirthDetail()
+                        updateGirlBirthDetail()
+                    } else if (boyBirthDetailBean.id != -1L && girlBirthDetailBean.id == -1L) {
+                        saveGirlBirthDetail()
+                        updateBoyBirthDetail()
+                    } else {
+                        updateGirlBirthDetail()
+                        updateBoyBirthDetail()
+                    }
+
+                    val bundle = Bundle()
+                    bundle.putSerializable("boy_detail", boyBirthDetailBean)
+                    bundle.putSerializable("girl_detail", girlBirthDetailBean)
+                    val intent = Intent(requireActivity(), MatchMakingResultActivity::class.java)
+                    intent.putExtras(bundle)
+                    startActivity(intent)
+                }
             }
             com.bhakti_sangrahalay.R.id.boy_date_val_tv -> {
                 isBoySelected = true
@@ -293,5 +316,79 @@ class MMBirthDetailInputFragment : BirthDetailInputBaseFragment(), View.OnClickL
                 )
             }
         }
+    }
+
+    private fun getBoyDefaultBirthDetailBean(): BirthDetailBean {
+        return BirthDetailBean(
+            name = "Amit",
+            sex = "M",
+            dateTimeBean = DateTimeBean(
+                day = "23", //calendar[Calendar.DATE].toString(),
+                month = "11",//calendar[Calendar.MONTH].toString(),
+                year = "2020",//calendar[Calendar.YEAR].toString(),
+                hrs = "18",//calendar[Calendar.HOUR].toString(),
+                min = "30",//calendar[Calendar.MINUTE].toString(),
+                sec = "00",//calendar[Calendar.SECOND].toString(),
+            ),
+            placeBean = PlaceBean(
+                place = "Agra",
+                longDeg = "078",
+                longMin = "00",
+                longEW = "E",
+                latDeg = "027",
+                latMin = "09",
+                latNS = "N",
+                timeZone = "5.5"
+            ),
+            dst = "0",
+            ayanamsa = "0",
+            charting = "0",
+            kphn = "0",
+            button1 = "Get+Kundali",
+            languageCode = "0",
+        )
+    }
+
+    private fun getGirlDefaultBirthDetailBean(): BirthDetailBean {
+        return BirthDetailBean(
+            name = "Amit",
+            sex = "F",
+            dateTimeBean = DateTimeBean(
+                day = "23", //calendar[Calendar.DATE].toString(),
+                month = "11",//calendar[Calendar.MONTH].toString(),
+                year = "2020",//calendar[Calendar.YEAR].toString(),
+                hrs = "18",//calendar[Calendar.HOUR].toString(),
+                min = "30",//calendar[Calendar.MINUTE].toString(),
+                sec = "00",//calendar[Calendar.SECOND].toString(),
+            ),
+            placeBean = PlaceBean(
+                place = "Agra",
+                longDeg = "078",
+                longMin = "00",
+                longEW = "E",
+                latDeg = "027",
+                latMin = "09",
+                latNS = "N",
+                timeZone = "5.5"
+            ),
+            dst = "0",
+            ayanamsa = "0",
+            charting = "0",
+            kphn = "0",
+            button1 = "Get+Kundali",
+            languageCode = "0",
+        )
+    }
+
+    fun validate(): Boolean {
+        if (TextUtils.isEmpty(binding.boyNameEt.text)) {
+            Toast.makeText(requireActivity(), "Enter Boy Name", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        if (TextUtils.isEmpty(binding.boyNameEt.text)) {
+            Toast.makeText(requireActivity(), "Enter Girl Name", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        return true
     }
 }

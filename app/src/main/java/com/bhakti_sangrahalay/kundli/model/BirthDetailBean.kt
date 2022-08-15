@@ -3,7 +3,7 @@ package com.bhakti_sangrahalay.kundli.model
 import java.io.Serializable
 
 data class BirthDetailBean(
-    val id: Int=-1,
+    var id: Long = -1L,
     var name: String,
     var sex: String,
     var dateTimeBean: DateTimeBean,

@@ -40,6 +40,12 @@ class BirthDetailInputFragment : BaseFragment(), View.OnClickListener,
         binding.placeLabelTv.typeface = (requireActivity() as BaseActivity).mediumTypeface
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        (requireActivity() as BirthDetailInputActivityNew).viewModel.openDetailForUpdate.observe(
+            this,
+            { populateData(it) })
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,42 +56,15 @@ class BirthDetailInputFragment : BaseFragment(), View.OnClickListener,
         setListener()
         setAyanamsaSpinner()
         setDstSpinner()
-        populateData()
+        populateData(getBirthDetailWithDefaultBirthDetail())
         (activity as BirthDetailInputActivityNew).collapse(binding.otherCalOptionLay)
         setTypeface()
         return binding.root
     }
 
-    private fun populateData() {
+    private fun populateData(birthDetailBean: BirthDetailBean) {
         val calendar = Calendar.getInstance()
-        birthDetailBean = BirthDetailBean(
-            name = "Amit",
-            sex = "M",
-            dateTimeBean = DateTimeBean(
-                day = "23", //calendar[Calendar.DATE].toString(),
-                month = "11",//calendar[Calendar.MONTH].toString(),
-                year = "2020",//calendar[Calendar.YEAR].toString(),
-                hrs = "18",//calendar[Calendar.HOUR].toString(),
-                min = "30",//calendar[Calendar.MINUTE].toString(),
-                sec = "00",//calendar[Calendar.SECOND].toString(),
-            ),
-            placeBean = PlaceBean(
-                place = "Agra",
-                longDeg = "078",
-                longMin = "00",
-                longEW = "E",
-                latDeg = "027",
-                latMin = "09",
-                latNS = "N",
-                timeZone = "5.5"
-            ),
-            dst = "0",
-            ayanamsa = "0",
-            charting = "0",
-            kphn = "0",
-            button1 = "Get+Kundali",
-            languageCode = "0",
-        )
+        this.birthDetailBean = birthDetailBean
         val monthShortName =
             resources.getStringArray(com.bhakti_sangrahalay.R.array.month_short_name_en)
 
@@ -206,5 +185,36 @@ class BirthDetailInputFragment : BaseFragment(), View.OnClickListener,
             }
 
         }
+    }
+
+    private fun getBirthDetailWithDefaultBirthDetail(): BirthDetailBean {
+        return BirthDetailBean(
+            name = "Amit",
+            sex = "M",
+            dateTimeBean = DateTimeBean(
+                day = "23", //calendar[Calendar.DATE].toString(),
+                month = "11",//calendar[Calendar.MONTH].toString(),
+                year = "2020",//calendar[Calendar.YEAR].toString(),
+                hrs = "18",//calendar[Calendar.HOUR].toString(),
+                min = "30",//calendar[Calendar.MINUTE].toString(),
+                sec = "00",//calendar[Calendar.SECOND].toString(),
+            ),
+            placeBean = PlaceBean(
+                place = "Agra",
+                longDeg = "078",
+                longMin = "00",
+                longEW = "E",
+                latDeg = "027",
+                latMin = "09",
+                latNS = "N",
+                timeZone = "5.5"
+            ),
+            dst = "0",
+            ayanamsa = "0",
+            charting = "0",
+            kphn = "0",
+            button1 = "Get+Kundali",
+            languageCode = "0",
+        )
     }
 }

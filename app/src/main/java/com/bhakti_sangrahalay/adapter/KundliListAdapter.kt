@@ -50,11 +50,12 @@ class KundliListAdapter(
                     birthDetailBeanList[position]
                 )
             } else if (context is MatchMakingInputActivity) {
-                /*  context .startKundliOutputActivity(
-                      birthDetailBeanList[position]
-                  )*/
+                if (birthDetailBean.sex.equals("M")) {
+                    context.viewModel.openBoyDetailForUpdate.value = birthDetailBean
+                } else {
+                    context.viewModel.openGirlDetailForUpdate.value = birthDetailBean
+                }
             }
-
         }
         holder.moreIV.setOnClickListener { showPopupMenu(holder.moreIV, birthDetailBean) }
     }
@@ -80,7 +81,16 @@ class KundliListAdapter(
         popupMenu.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.edit -> {
+                    if (context is MatchMakingInputActivity) {
+                        if (birthDetailBean.sex.equals("M")) {
+                            context.viewModel.openBoyDetailForUpdate.value = birthDetailBean
+                        } else {
+                            context.viewModel.openGirlDetailForUpdate.value = birthDetailBean
+                        }
 
+                    } else if (context is BirthDetailInputActivityNew) {
+                        context.viewModel.openDetailForUpdate.value = birthDetailBean
+                    }
                 }
                 R.id.delete -> {
                     if (context is MatchMakingInputActivity) {

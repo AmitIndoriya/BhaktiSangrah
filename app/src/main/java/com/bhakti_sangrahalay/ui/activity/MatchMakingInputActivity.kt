@@ -11,11 +11,10 @@ import androidx.lifecycle.ViewModelProviders
 import com.bhakti_sangrahalay.R
 import com.bhakti_sangrahalay.adapter.FragmentViewPagerAdapter
 import com.bhakti_sangrahalay.databinding.ActivityBirthDetailInputLayoutBinding
-import com.bhakti_sangrahalay.ui.fragment.BirthDetailInputFragment
+import com.bhakti_sangrahalay.kundli.model.BirthDetailBean
 import com.bhakti_sangrahalay.ui.fragment.KundliListFragment
 import com.bhakti_sangrahalay.ui.fragment.MMBirthDetailInputFragment
 import com.bhakti_sangrahalay.viewmodel.BirthDetailInputBaseViewModel
-import com.bhakti_sangrahalay.viewmodel.MatchMakingInputActivityViewModel
 import com.google.android.material.tabs.TabLayout
 import dagger.android.AndroidInjection
 import javax.inject.Inject
@@ -29,8 +28,13 @@ class MatchMakingInputActivity : BaseActivity() {
         viewModel = ViewModelProviders.of(
             this,
             viewModelFactory
-        )[MatchMakingInputActivityViewModel::class.java]
-
+        )[BirthDetailInputBaseViewModel::class.java]
+        viewModel.openBoyDetailForUpdate.observe(this) {
+            updateBoyBirthDetail(it)
+        }
+        viewModel.openGirlDetailForUpdate.observe(this) {
+            updateGirlBirthDetail(it)
+        }
     }
 
 
@@ -88,5 +92,19 @@ class MatchMakingInputActivity : BaseActivity() {
         fragList.add(KundliListFragment.getInstance())
         fragList.add(MMBirthDetailInputFragment.getInstance())
         return fragList
+    }
+
+    private fun updateBoyBirthDetail(birthDetailBean: BirthDetailBean) {
+        binding.viewPager.setCurrentItem(1, true)
+        ((binding.viewPager.adapter as FragmentViewPagerAdapter).getItem(1) as MMBirthDetailInputFragment).populateBoyData(
+            birthDetailBean
+        )
+    }
+
+    private fun updateGirlBirthDetail(birthDetailBean: BirthDetailBean) {
+        binding.viewPager.setCurrentItem(1, true)
+        ((binding.viewPager.adapter as FragmentViewPagerAdapter).getItem(1) as MMBirthDetailInputFragment).populateGirlData(
+            birthDetailBean
+        )
     }
 }

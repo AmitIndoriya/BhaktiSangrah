@@ -14,6 +14,11 @@ import kotlinx.coroutines.launch
 open class BirthDetailInputBaseViewModel : BaseViewModel() {
     val isNewBirthDetailInfoAdded = MutableLiveData<Boolean>()
     val isBirthDetailInfoDeleted = MutableLiveData<Boolean>()
+    val isBirthDetailInfoUpdated = MutableLiveData<Boolean>()
+    val openDetailForUpdate = MutableLiveData<BirthDetailBean>()
+    val openBoyDetailForUpdate = MutableLiveData<BirthDetailBean>()
+    val openGirlDetailForUpdate = MutableLiveData<BirthDetailBean>()
+    val insertedRowId = MutableLiveData<List<Long>>()
 
     val birthDetailBeanListLiveData = MutableLiveData<ArrayList<BirthDetailBean>>()
 
@@ -27,7 +32,6 @@ open class BirthDetailInputBaseViewModel : BaseViewModel() {
                 birthDetailBeanList.add(getBirthDetailBeanFromBirthDetailInfo(element))
             }
             birthDetailBeanListLiveData.postValue(birthDetailBeanList)
-            Log.i("list>>", "" + list.size)
         }
     }
 
@@ -40,7 +44,8 @@ open class BirthDetailInputBaseViewModel : BaseViewModel() {
             list.add(
                 getBirthDetailInfoFromBirthDetailBean(birthDetailBean)
             )
-            database.BirthDetailInfoDao().insertAll(list)
+            val ids = database.BirthDetailInfoDao().insertAll(list)
+            insertedRowId.postValue(ids)
             isNewBirthDetailInfoAdded.postValue(true)
         }
     }
@@ -58,7 +63,8 @@ open class BirthDetailInputBaseViewModel : BaseViewModel() {
             list.add(
                 getBirthDetailInfoFromBirthDetailBean(girlBirthDetailBean)
             )
-            database.BirthDetailInfoDao().insertAll(list)
+            val ids = database.BirthDetailInfoDao().insertAll(list)
+            insertedRowId.postValue(ids)
             isNewBirthDetailInfoAdded.postValue(true)
         }
     }
@@ -72,8 +78,18 @@ open class BirthDetailInputBaseViewModel : BaseViewModel() {
         }
     }
 
-    fun getBirthDetailInfoFromBirthDetailBean(birthDetailBean: BirthDetailBean): BirthDetailInfo {
-        return BirthDetailInfo(
+    @OptIn(DelicateCoroutinesApi::class)
+    fun updateBirthDetailInfo(birthDetailBean: BirthDetailBean) {
+        GlobalScope.launch(Dispatchers.IO) {
+            database.BirthDetailInfoDao()
+                .update(getBirthDetailInfoFromBirthDetailBean(birthDetailBean))
+            isBirthDetailInfoUpdated.postValue(true)
+        }
+    }
+
+    private fun getBirthDetailInfoFromBirthDetailBean(birthDetailBean: BirthDetailBean): BirthDetailInfo {
+
+        val birthDetailInfo = BirthDetailInfo(
             name = birthDetailBean.name,
             sex = birthDetailBean.sex,
             day = birthDetailBean.dateTimeBean.day,
@@ -97,9 +113,14 @@ open class BirthDetailInputBaseViewModel : BaseViewModel() {
             button1 = birthDetailBean.button1,
             languageCode = birthDetailBean.languageCode
         )
+        if (birthDetailBean.id != -1L) {
+            birthDetailInfo.id = birthDetailBean.id
+        }
+
+        return birthDetailInfo
     }
 
-    fun getBirthDetailBeanFromBirthDetailInfo(birthDetailInfo: BirthDetailInfo): BirthDetailBean {
+    private fun getBirthDetailBeanFromBirthDetailInfo(birthDetailInfo: BirthDetailInfo): BirthDetailBean {
         val dateTimeBean = DateTimeBean(
             day = birthDetailInfo.day,
             month = birthDetailInfo.month,

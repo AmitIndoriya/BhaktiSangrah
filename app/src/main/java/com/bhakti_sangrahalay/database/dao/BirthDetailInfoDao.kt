@@ -1,9 +1,6 @@
 package com.bhakti_sangrahalay.database.dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.bhakti_sangrahalay.database.entity.BirthDetailInfo
 
 @Dao
@@ -17,12 +14,15 @@ interface BirthDetailInfoDao {
     /*  @Insert
       suspend fun insertAll(users: List<BirthDetailInfo>)*/
     @Insert
-    suspend fun insertAll(users: List<BirthDetailInfo>)
+    suspend fun insertAll(list: List<BirthDetailInfo>): List<Long>
 
     @Delete
-    suspend fun delete(user: BirthDetailInfo)
+    suspend fun delete(birthDetailInfo: BirthDetailInfo)
 
     @Query("DELETE FROM BirthDetailInfo WHERE id = :id")
-    fun deleteId(id: Int)
+    fun deleteId(id: Long)
+
+    @Update
+    suspend fun update(birthDetailInfo: BirthDetailInfo)
 
 }

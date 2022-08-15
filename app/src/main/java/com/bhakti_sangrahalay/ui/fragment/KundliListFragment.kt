@@ -41,6 +41,10 @@ class KundliListFragment : Fragment() {
             (requireActivity() as BirthDetailInputActivityNew).viewModel.isBirthDetailInfoDeleted.observe(
                 this
             ) { if (it) (requireActivity() as BirthDetailInputActivityNew).viewModel.getBirthDetailInfoList() }
+
+            (requireActivity() as BirthDetailInputActivityNew).viewModel.isBirthDetailInfoUpdated.observe(
+                this
+            ) { if (it) (requireActivity() as BirthDetailInputActivityNew).viewModel.getBirthDetailInfoList() }
         } else {
             (requireActivity() as MatchMakingInputActivity).viewModel.getBirthDetailInfoList()
 
@@ -53,6 +57,10 @@ class KundliListFragment : Fragment() {
             ) { if (it) (requireActivity() as MatchMakingInputActivity).viewModel.getBirthDetailInfoList() }
 
             (requireActivity() as MatchMakingInputActivity).viewModel.isBirthDetailInfoDeleted.observe(
+                this
+            ) { if (it) (requireActivity() as MatchMakingInputActivity).viewModel.getBirthDetailInfoList() }
+
+            (requireActivity() as MatchMakingInputActivity).viewModel.isBirthDetailInfoUpdated.observe(
                 this
             ) { if (it) (requireActivity() as MatchMakingInputActivity).viewModel.getBirthDetailInfoList() }
         }
