@@ -17,8 +17,8 @@ class MatchMakingResultActivity : BaseActivity() {
     lateinit var viewModelFactory: ViewModelProvider.Factory
     lateinit var viewModel: MatchMakingResultActivityViewModel
     lateinit var binding: ActMatchMakingResultLayBinding
-    private lateinit var boyDetail: BirthDetailBean
-    private lateinit var girlDetail: BirthDetailBean
+    lateinit var boyDetail: BirthDetailBean
+    lateinit var girlDetail: BirthDetailBean
 
     override fun attachViewModel() {
         viewModel = ViewModelProviders.of(

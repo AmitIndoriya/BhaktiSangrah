@@ -569,7 +569,10 @@
     <string name="bh_begin">Bh.Begin</string>
     <string name="mid_bh">Mid Bh</string>
     <string name="ashtakoot_matching_points">Ashtakoot Matching Points</string>
-    <string name="has_mangal_dosh">"# has Mangal Dosh  "</string>
+    <string name="has_mangal_dosh"># has Mangal Dosh</string>
+    <string name="has_no_mangal_dosh"># has no Mangal Dosh</string>
+    <string name="marriage_conclusion1"><b>Conclusion:- </b> this marriage is preferable</string>
+    <string name="marriage_conclusion2"><b>Conclusion:- </b> this marriage is not preferable</string>
     <string name="guna">Guna</string>
     <string name="maximum">Maximum</string>
     <string name="obtained">Obtained</string>

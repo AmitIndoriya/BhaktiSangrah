@@ -38,18 +38,18 @@
                 android:paddingEnd="10dp"
                 android:text="@string/has_mangal_dosh"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/girl_mangal_dosh_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="10dp"
-                android:paddingTop="10dp"
+                android:paddingTop="5dp"
                 android:paddingEnd="10dp"
                 android:text="@string/has_mangal_dosh"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
 
             <TextView
@@ -57,7 +57,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:text="sdfjsj sdfsdn sfsjfnk sfnf sfjf skfsdfn  sdfsfn dgdfnk sdfbs sdfuewht gae errw  rwytwrhw ksrgwr grhrjyro rwkwrgrwfkh ererkgew gerkgnkerk werkrjg  irweg kserht erkktjowte herteorwto "
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
