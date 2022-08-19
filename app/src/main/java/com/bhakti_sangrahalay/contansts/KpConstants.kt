@@ -28,6 +28,7 @@ object KpConstants {
         intArrayOf(0, 0)
     )
     var PLANET_INDEX = intArrayOf(SUN, MOON, MARS, MERCURY, JUPITER, VENUS, SAT, RAHU, KETU)
+
     var RASHI_TO_PLANET = intArrayOf(
         -1, MARS, VENUS, MERCURY, MOON, SUN, MERCURY, VENUS, MARS, JUPITER, SAT, SAT, JUPITER
     )

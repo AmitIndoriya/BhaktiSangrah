@@ -93,24 +93,22 @@ object BaseCalculation : CalculationIntefaceNew {
 
     fun getSubLord(d: Double): Int {
         var d = d
-        var a: Int
-        var b: Int
         var i = 0
-        a = (d / 120.0).toInt()
+        var a: Int = (d / 120.0).toInt()
         d -= a * 120.0
         a = (d * 3.0 / 40.0).toInt()
         d -= a * 40.0 / 3.0
         d *= 9.0
-        b = 0
+        var b: Int = 0
         while (b < 9) {
             i = a + b
             if (i >= 9) i -= 9
-            d -= if (KpConstants.y1.get(i) <= d) KpConstants.y1.get(i) else break
+            d -= if (KpConstants.y1[i] <= d) KpConstants.y1[i] else break
             b++
         }
         b = i
 
-        return KpConstants.PLANET_NAKSHTRA_LORD.get(b)
+        return KpConstants.PLANET_NAKSHTRA_LORD[b]
     }
 
     fun getBhavOfPlanet(
@@ -133,7 +131,7 @@ object BaseCalculation : CalculationIntefaceNew {
 
     fun getHousesInPlanetRashi(plntNumber: Int): IntArray? {
         // val kpCuspDegree = getKpCuspArrayForNakshtraNadi()
-        var cuspRashi = -1
+        var cuspRashi: Int
         var plntNakLordInBhava = -1
         var returnHouseArray: IntArray? = null
         val cuspOwnedByPlanetItself = IntArray(4)
@@ -184,10 +182,13 @@ object BaseCalculation : CalculationIntefaceNew {
     fun convertIntArrayIntoString(intArray: IntArray?): String {
         var str = ""
         if (intArray != null) {
-            for (i in 0..intArray.size - 1) {
-                str = str + intArray[i] + ", "
+            for (element in intArray) {
+                str = "$str$element, "
             }
             //str = str.substring(0, str.length -2)
+        }
+        if (str.length > 1) {
+            str = str.substring(0, str.length - 2)
         }
         return str
     }
