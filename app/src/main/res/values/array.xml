@@ -529,7 +529,7 @@
         <item>@string/planet_signification_view2</item>
         <item>@string/nakshatra_nadi</item>
         <item>@string/cil_sub_sub</item>
-        <item>@string/four_step</item>
+       <!-- <item>@string/four_step</item>-->
         <item>@string/cil_sub</item>
         <item>@string/ruling_planets</item>
         <item>@string/misc</item>

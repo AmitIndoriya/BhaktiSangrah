@@ -10,39 +10,42 @@
         android:id="@+id/hou_tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight=".4"
+        android:layout_weight=".5"
         android:text="@string/hou"
-        android:textSize="18sp" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/t1_tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_marginEnd="4dp"
         android:layout_weight="1"
         android:text="@string/t1"
-        android:textSize="18sp" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/t2_tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_marginEnd="4dp"
         android:layout_weight="1"
         android:text="@string/t2"
-        android:textSize="18sp" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/t3_tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_marginEnd="4dp"
         android:layout_weight="1"
         android:text="@string/t3"
-        android:textSize="18sp" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/t4_tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight=".3"
         android:text="@string/t4"
-        android:textSize="18sp" />
+        android:textSize="16sp" />
 </LinearLayout>

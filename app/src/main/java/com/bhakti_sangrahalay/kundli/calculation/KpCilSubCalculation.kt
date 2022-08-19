@@ -341,11 +341,13 @@ object KpCilSubCalculation {
 
     private fun getFormattedStringForNakshNadi(plaNadi: IntArray?): String {
         var planetName = ""
-
         if (plaNadi != null) {
             for (i in plaNadi.indices) {
                 planetName = planetName + plaNadi[i] + ","
             }
+        }
+        if (planetName.length > 1) {
+            planetName = planetName.substring(0, planetName.length - 1)
         }
         return planetName
     }
