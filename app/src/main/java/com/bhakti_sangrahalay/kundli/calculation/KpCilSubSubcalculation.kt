@@ -414,29 +414,21 @@ object KpCilSubSubcalculation {
 
     fun getCilSubSubData(context: Context): ArrayList<KPCilSubSubBean> {
         val arrayList = ArrayList<KPCilSubSubBean>()
-
+        val planetName = context.resources.getStringArray(R.array.planet_and_lagna_name_list)
         for (i in 0..8) {
             arrayList.add(
                 KPCilSubSubBean(
-                    planetName = i,
+                    planetName = planetName[i + 1],
                     star = getFormattedStringForNakshNadi(
-                        context,
-                        i,
                         getKCILType1(KpConstants.PLANET_INDEX[i])
                     ),
                     sub = getFormattedStringForNakshNadi(
-                        context,
-                        i,
                         getKCILType2(KpConstants.PLANET_INDEX[i])
                     ),
                     subSub = getFormattedStringForNakshNadi(
-                        context,
-                        i,
                         getKCILType3(KpConstants.PLANET_INDEX[i])
                     ),
                     posStatus = getFormattedStringForNakshNadi(
-                        context,
-                        i,
                         getKCILType4(KpConstants.PLANET_INDEX[i])
                     )
                 )
@@ -447,16 +439,16 @@ object KpCilSubSubcalculation {
 
 
     private fun getFormattedStringForNakshNadi(
-        context: Context,
-        planet: Int,
         plaNadi: IntArray?
     ): String {
-        var planetName =
-            context.resources.getStringArray(R.array.planet_and_lagna_name_list)[planet + 1]
+        var planetName = ""
         if (plaNadi != null) {
             for (i in plaNadi.indices) {
                 planetName = planetName + plaNadi[i] + ","
             }
+        }
+        if (planetName.length > 1) {
+            planetName = planetName.substring(0, planetName.length - 1)
         }
         return planetName
     }

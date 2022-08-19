@@ -7,16 +7,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/hora_table_header"
+        android:background="@color/light_pink"
         android:orientation="horizontal"
         android:padding="8dp">
 
         <TextView
+            android:textColor="@color/black"
             android:id="@+id/pla_name_tv"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/pl"
+            android:text="@string/cuspal_inter_links"
             android:textSize="18sp" />
 
     </LinearLayout>

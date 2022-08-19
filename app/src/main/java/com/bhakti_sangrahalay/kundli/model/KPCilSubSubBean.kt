@@ -3,7 +3,7 @@ package com.bhakti_sangrahalay.kundli.model
 import java.io.Serializable
 
 data class KPCilSubSubBean(
-    val planetName: Int,
+    val planetName: String,
     val star: String,
     val sub: String,
     val subSub: String,
