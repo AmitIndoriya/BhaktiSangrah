@@ -299,9 +299,9 @@ object KpNakshtraNadiCalculation : CalculationIntefaceNew by BaseCalculation {
         return BaseCalculation.getSubLord(kpPlanetDegree[plntNumber])
     }
 
-    fun getFormattedStringForNakshNadi(context: Context, planet: Int, plaNadi: IntArray?): String {
+    private fun getFormattedStringForNakshNadi(context: Context, planet: Int, plaNadi: IntArray?): String {
         var planetName =
-            context.resources.getStringArray(R.array.planet_short_name_list)[planet + 1]+"-"
+            context.resources.getStringArray(R.array.planet_short_name_list)[planet + 1] + "-"
         if (plaNadi != null) {
             for (i in plaNadi.indices) {
                 planetName = planetName + plaNadi[i] + ","
