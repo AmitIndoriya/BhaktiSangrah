@@ -76,8 +76,6 @@ object KpRulingPlanetCalculation : CalculationInterface by KundliCalculationBase
     private fun getSubLordNumber(deg: Double): Int {
         var d = deg
         var i = 0
-
-        // f = (int) (d / 30.0);
         var a: Int = (d / 120.0).toInt()
         d -= a * 120.0
         a = (d * 3.0 / 40.0).toInt()
