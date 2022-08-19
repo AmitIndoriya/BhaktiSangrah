@@ -8,6 +8,62 @@ import com.bhakti_sangrahalay.kundli.model.KPNakshatraNadiBean
 import com.bhakti_sangrahalay.util.Utility
 
 object KpNakshtraNadiCalculation : CalculationIntefaceNew by BaseCalculation {
+    private var kpPlanetDegree: DoubleArray
+    private var kpCuspDegree: DoubleArray
+
+    init {
+        kpPlanetDegree = getKpPlanetDegreeForSigniVIew()
+        kpCuspDegree = getKpCuspDegreeForSigniVIew()
+    }
+
+    private fun getKpPlanetDegreeForSigniVIew(): DoubleArray {
+        val degree = DoubleArray(9)
+        for (i in 1..9) {
+            degree[i - 1] = BaseCalculation.kpPlanetDegree[i]
+        }
+        return degree
+    }
+
+    private fun getKpCuspDegreeForSigniVIew(): DoubleArray {
+        val degree = DoubleArray(12)
+        for (i in 0..11) {
+            degree[i] = BaseCalculation.kpCuspDegree[i]
+        }
+        return degree
+    }
+
+    private fun getHousesInPlanetRashi(plntNumber: Int): IntArray? {
+        var cuspRashi: Int
+        var plntNakLordInBhava = -1
+        var returnHouseArray: IntArray? = null
+        val cuspOwnedByPlanetItself = IntArray(4)
+        try {
+            for (k in cuspOwnedByPlanetItself.indices) cuspOwnedByPlanetItself[k] = 0
+            val plntNakLordRashi = IntArray(2)
+            plntNakLordRashi[0] = KpConstants.PLANET_RASHI[plntNumber][0]
+            plntNakLordRashi[1] = KpConstants.PLANET_RASHI[plntNumber][1]
+
+            for (ral in plntNakLordRashi.indices) {
+                if (plntNakLordRashi[ral] > 0) {
+                    for (cuspIndex in kpCuspDegree.indices) {
+                        cuspRashi = (kpCuspDegree[cuspIndex] / 30 + 1).toInt()
+                        if (plntNakLordRashi[ral] == cuspRashi) cuspOwnedByPlanetItself[++plntNakLordInBhava] =
+                            cuspIndex + 1
+                    }
+                }
+            }
+            returnHouseArray = IntArray(plntNakLordInBhava + 1)
+            var index = -1
+            for (len in cuspOwnedByPlanetItself.indices) {
+                if (cuspOwnedByPlanetItself[len] > 0) returnHouseArray[++index] =
+                    cuspOwnedByPlanetItself[len]
+            }
+            // end
+        } catch (e: Exception) {
+        }
+        return returnHouseArray
+    }
+
     fun getNakshtraNadi(context: Context): ArrayList<KPNakshatraNadiBean> {
         val nakshtraNadiList = ArrayList<KPNakshatraNadiBean>()
         val hashMap = HashMap<Int, IntArray>()
@@ -26,17 +82,17 @@ object KpNakshtraNadiCalculation : CalculationIntefaceNew by BaseCalculation {
             val subLord = getPlanetSubLordNadi(KpConstants.PLANET_INDEX[i])
             nakshtraNadiList.add(
                 KPNakshatraNadiBean(
-                    planet = BaseCalculation.getFormattedStringForNakshNadi(
+                    planet = getFormattedStringForNakshNadi(
                         context,
                         KpConstants.PLANET_INDEX[i],
                         hashMap[i]
                     ),
-                    starLord = BaseCalculation.getFormattedStringForNakshNadi(
+                    starLord = getFormattedStringForNakshNadi(
                         context,
                         starLord,
                         hashMap[starLord]
                     ),
-                    subLord = BaseCalculation.getFormattedStringForNakshNadi(
+                    subLord = getFormattedStringForNakshNadi(
                         context,
                         subLord,
                         hashMap[subLord]
@@ -54,13 +110,13 @@ object KpNakshtraNadiCalculation : CalculationIntefaceNew by BaseCalculation {
         var index = 0
         /*in which house planet is*/
         val houseOccupiedByPlanet: Int =
-            getHouseOccupied(BaseCalculation.kpPlanetDegreeForNN[plntNumber])
+            getHouseOccupied(kpPlanetDegree[plntNumber])
         /* in which house,the planet rashi are*/
         val planetRashioccupiedHouse: IntArray? =
             if (plntNumber == KpConstants.RAHU || plntNumber == KpConstants.KETU) {
                 return getRahuOrKetuNadi(plntNumber)
             } else {
-                BaseCalculation.getHousesInPlanetRashi(plntNumber)
+                getHousesInPlanetRashi(plntNumber)
             }
 
         //GET THE LENGTH OF ARRAY
@@ -81,8 +137,8 @@ object KpNakshtraNadiCalculation : CalculationIntefaceNew by BaseCalculation {
                 j = i + 1
                 if (j > 11) j = 0
                 plntNakLordInBhava = BaseCalculation.getBhavOfPlanet(
-                    BaseCalculation.kpCuspDegreeForNN[j],
-                    BaseCalculation.kpCuspDegreeForNN[i], i, planetDegree
+                    kpCuspDegree[j],
+                    kpCuspDegree[i], i, planetDegree
                 )
                 if (plntNakLordInBhava > 0) break
             }
@@ -98,7 +154,7 @@ object KpNakshtraNadiCalculation : CalculationIntefaceNew by BaseCalculation {
         val retVal: IntArray?
         for (i in collection.indices) collection[i] = -1
         val plntInWhichRashi: Int =
-            getRashiLordOfThePlanetWhereItPlaced(BaseCalculation.kpPlanetDegreeForNN[plntNumber])
+            getRashiLordOfThePlanetWhereItPlaced(kpPlanetDegree[plntNumber])
         val nadi1 = getPlanetNadi(plntInWhichRashi)
         for (i in nadi1.indices) if (nadi1[i] > 0) collection[++index] = nadi1[i]
 
@@ -115,7 +171,7 @@ object KpNakshtraNadiCalculation : CalculationIntefaceNew by BaseCalculation {
         //STEP:3 -ASPECT
         var arrayTempAspect: IntArray?
         val plntAspect =
-            getPlanetsHaveAspectOnRahuKetu(BaseCalculation.kpPlanetDegreeForNN[plntNumber])
+            getPlanetsHaveAspectOnRahuKetu(kpPlanetDegree[plntNumber])
         if (plntAspect != null) {
             for (i in plntAspect.indices) {
                 arrayTempAspect = getPlanetNadi(plntAspect[i])
@@ -123,7 +179,7 @@ object KpNakshtraNadiCalculation : CalculationIntefaceNew by BaseCalculation {
                     arrayTempAspect[j]
             }
         }
-        val houseOccupied = getHouseOccupied(BaseCalculation.kpPlanetDegreeForNN[plntNumber])
+        val houseOccupied = getHouseOccupied(kpPlanetDegree[plntNumber])
         retVal = IntArray(index + 2)
         var indexTemp = -1
         for (i in collection.indices) {
@@ -143,7 +199,7 @@ object KpNakshtraNadiCalculation : CalculationIntefaceNew by BaseCalculation {
         for (i in tempArray.indices) tempArray[i] = -1
         for (pn in 0..6) {
             houseNumber = distanceOfHousePlanet2PositedFromPlanet1(
-                BaseCalculation.kpPlanetDegreeForNN[pn] /*PLANET -1*/,
+                kpPlanetDegree[pn] /*PLANET -1*/,
                 degRahuKetu /*PLANET -2*/
             )
             when (pn) {
@@ -207,10 +263,10 @@ object KpNakshtraNadiCalculation : CalculationIntefaceNew by BaseCalculation {
         var index = -1
         for (j in con.indices) con[j] = -1
 
-        val plntRashi = (BaseCalculation.kpPlanetDegreeForNN[plntNu] / 30 + 1).toInt()
-        for (i in BaseCalculation.kpPlanetDegreeForNN.indices) {
+        val plntRashi = (kpPlanetDegree[plntNu] / 30 + 1).toInt()
+        for (i in kpPlanetDegree.indices) {
             if (plntNu != i) {
-                tempRashi = (BaseCalculation.kpPlanetDegreeForNN[i] / 30 + 1).toInt()
+                tempRashi = (kpPlanetDegree[i] / 30 + 1).toInt()
                 if (plntRashi == tempRashi) {
                     ++index
                     con[index] = i
@@ -236,25 +292,24 @@ object KpNakshtraNadiCalculation : CalculationIntefaceNew by BaseCalculation {
     }
 
     private fun getPlanetStarLordNadi(plntNumber: Int): Int {
-        return getStarLord(BaseCalculation.kpPlanetDegreeForNN[plntNumber])
+        return getStarLord(kpPlanetDegree[plntNumber])
     }
 
     private fun getPlanetSubLordNadi(plntNumber: Int): Int {
-        return BaseCalculation.getSubLord(BaseCalculation.kpPlanetDegreeForNN[plntNumber])
+        return BaseCalculation.getSubLord(kpPlanetDegree[plntNumber])
     }
 
-    /* private fun getFormattedStringForNakshNadi(
-           context: Context,
-           planet: Int,
-           plaNadi: IntArray?
-       ): String {
-           var planetName =
-               context.resources.getStringArray(R.array.planet_and_lagna_name_list)[planet + 1]
-           if (plaNadi != null) {
-               for (i in plaNadi.indices) {
-                   planetName = planetName + plaNadi[i] + ","
-               }
-           }
-           return planetName
-       }*/
+    fun getFormattedStringForNakshNadi(context: Context, planet: Int, plaNadi: IntArray?): String {
+        var planetName =
+            context.resources.getStringArray(R.array.planet_short_name_list)[planet + 1]+"-"
+        if (plaNadi != null) {
+            for (i in plaNadi.indices) {
+                planetName = planetName + plaNadi[i] + ","
+            }
+        }
+        if (planetName.length > 1) {
+            planetName = planetName.substring(0, planetName.length - 1)
+        }
+        return planetName
+    }
 }
