@@ -529,7 +529,7 @@
         <item>@string/planet_signification_view2</item>
         <item>@string/nakshatra_nadi</item>
         <item>@string/cil_sub_sub</item>
-       <!-- <item>@string/four_step</item>-->
+        <!-- <item>@string/four_step</item>-->
         <item>@string/cil_sub</item>
         <item>@string/ruling_planets</item>
         <item>@string/misc</item>
@@ -760,7 +760,64 @@
         <item>@string/love</item>
         <item>@string/health</item>
     </string-array>
-
+    <string-array name="rasi_lord_full_name_list">
+        <item>Mars</item>
+        <item>Venus</item>
+        <item>Mercury</item>
+        <item>Moon</item>
+        <item>Sun</item>
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Saturn</item>
+        <item>Jupiter</item>
+    </string-array>
+    <string-array name="nakshatra_lord_full_name_list">
+        <item>Ketu</item>
+        <item>Venus</item>
+        <item>Sun</item>
+        <item>Moon</item>
+        <item>Mars</item>
+        <item>Rahu</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Mercury</item>
+        <item>Ketu</item>
+        <item>Venus</item>
+        <item>Sun</item>
+        <item>Moon</item>
+        <item>Mars</item>
+        <item>Rahu</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Mercury</item>
+        <item>Ketu</item>
+        <item>Venus</item>
+        <item>Sun</item>
+        <item>Moon</item>
+        <item>Mars</item>
+        <item>Rahu</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Merucry</item>
+    </string-array>
+    <string-array name="kp_ruling_planets_label_list">
+        <item>@string/day_lord</item>
+        <item>@string/asc_sign_lord</item>
+        <item>@string/asc_naks_lord</item>
+        <item>@string/asc_sub_lord</item>
+        <item>@string/moon_sign_lord</item>
+        <item>@string/moon_naks_lord</item>
+        <item>@string/moon_sub_lord</item>
+    </string-array>
+    <string-array name="kp_misc_label_list">
+        <item>@string/fortuna</item>
+        <item>@string/fortuna_sign</item>
+        <item>@string/fortuna_sub_sub</item>
+        <item>@string/kp_ayanamsa</item>
+    </string-array>
     <string name="kp_chart">KP Chart</string>
     <string name="rashi_chart">Rashi Chart</string>
     <string name="cusps">Cusps</string>
@@ -790,4 +847,15 @@
     <string name="mentality">Mantality</string>
     <string name="compatibility">Compatibility</string>
     <string name="guna_level">Guna Level</string>
+    <string name="day_lord">Day Lord</string>
+    <string name="asc_sign_lord">Asc Sign Lord</string>
+    <string name="asc_naks_lord">Asc Nakshatra Lord</string>
+    <string name="asc_sub_lord">Asc Sub Lord</string>
+    <string name="moon_sign_lord">Moon Sign Lord</string>
+    <string name="moon_naks_lord">Moon Naks Lord</string>
+    <string name="moon_sub_lord">Moon Sub Lord</string>
+    <string name="kp_ayanamsa">KP Ayanamasa</string>
+    <string name="fortuna_sub_sub">Fortuna Sub Sub</string>
+    <string name="fortuna_sign">Fortuna Sign</string>
+    <string name="fortuna">Fortuna</string>
 </resources>

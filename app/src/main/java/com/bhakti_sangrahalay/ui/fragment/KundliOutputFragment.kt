@@ -226,6 +226,16 @@ class KundliOutputFragment : BaseFragment() {
                 viewModel.getCilSubData(requireActivity())
             )
         )
+        fragList.add(
+            KpRulingPlanetFragment.getInstance(
+                viewModel.getRulingPlanetData(requireActivity())
+            )
+        )
+        fragList.add(
+            KpRulingPlanetFragment.getInstance(
+                viewModel.getMiscData(requireActivity())
+            )
+        )
 
         return fragList
     }

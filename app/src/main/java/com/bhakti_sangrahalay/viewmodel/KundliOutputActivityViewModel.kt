@@ -34,6 +34,7 @@ class KundliOutputActivityViewModel @Inject constructor() : BaseViewModel() {
         DashaCalculation.setData(arrayList)
         CharDashaCalculation.setData(arrayList)
         BasicChalitTableCalculation.setData(arrayList)
+        KpRulingPlanetCalculation.setData(arrayList)
 
     }
 
@@ -194,4 +195,11 @@ class KundliOutputActivityViewModel @Inject constructor() : BaseViewModel() {
         return BasicChalitTableCalculation.getChalitTableData(context)
     }
 
+    fun getRulingPlanetData(context: Context): ArrayList<KpRulingPlanetBean> {
+        return KpRulingPlanetCalculation.getRulingPlanetData(context)
+    }
+
+    fun getMiscData(context: Context): ArrayList<KpRulingPlanetBean> {
+        return KpRulingPlanetCalculation.getMiscData(context)
+    }
 }

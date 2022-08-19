@@ -80,7 +80,6 @@ class KundliOutputActivity : BaseActivity() {
                     }
                     4 -> {
 
-
                     }
                 }
             }
