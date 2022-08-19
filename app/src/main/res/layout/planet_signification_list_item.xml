@@ -9,7 +9,7 @@
         android:id="@+id/pla_name_tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight=".7"
+        android:layout_weight=".5"
         android:text="@string/planet"
         android:textSize="18sp" />
 
@@ -17,7 +17,7 @@
         android:id="@+id/house_signififed_tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight=".7"
+        android:layout_weight="1"
         android:text="@string/houses_signified"
         android:textSize="18sp" />
 </LinearLayout>

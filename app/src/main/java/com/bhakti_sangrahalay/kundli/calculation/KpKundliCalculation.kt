@@ -116,55 +116,55 @@ object KpKundliCalculation : CalculationInterface by KundliCalculationBaseObject
         plaSigList.add(
             PlanetSignificationBean(
                 planetName[0],
-                arrayList[0].planetSignification1
+                removeZeroFromPlanetSingnificationStr(arrayList[0].planetSignification1)
             )
         )
         plaSigList.add(
             PlanetSignificationBean(
                 planetName[1],
-                arrayList[0].planetSignification2
+                removeZeroFromPlanetSingnificationStr(arrayList[0].planetSignification2)
             )
         )
         plaSigList.add(
             PlanetSignificationBean(
                 planetName[2],
-                arrayList[0].planetSignification3
+                removeZeroFromPlanetSingnificationStr(arrayList[0].planetSignification3)
             )
         )
         plaSigList.add(
             PlanetSignificationBean(
                 planetName[3],
-                arrayList[0].planetSignification4
+                removeZeroFromPlanetSingnificationStr(arrayList[0].planetSignification4)
             )
         )
         plaSigList.add(
             PlanetSignificationBean(
                 planetName[4],
-                arrayList[0].planetSignification5
+                removeZeroFromPlanetSingnificationStr(arrayList[0].planetSignification5)
             )
         )
         plaSigList.add(
             PlanetSignificationBean(
                 planetName[5],
-                arrayList[0].planetSignification6
+                removeZeroFromPlanetSingnificationStr(arrayList[0].planetSignification6)
             )
         )
         plaSigList.add(
             PlanetSignificationBean(
                 planetName[6],
-                arrayList[0].planetSignification7
+                removeZeroFromPlanetSingnificationStr(arrayList[0].planetSignification7)
             )
         )
         plaSigList.add(
             PlanetSignificationBean(
                 planetName[7],
-                arrayList[0].planetSignification8
+                removeZeroFromPlanetSingnificationStr(arrayList[0].planetSignification8)
             )
         )
         plaSigList.add(
             PlanetSignificationBean(
                 planetName[8],
-                arrayList[0].planetSignification9
+                removeZeroFromPlanetSingnificationStr(arrayList[0].planetSignification9)
             )
         )
         return plaSigList
@@ -305,5 +305,17 @@ object KpKundliCalculation : CalculationInterface by KundliCalculationBaseObject
             )
         }
         return arrayList
+    }
+
+    private fun removeZeroFromPlanetSingnificationStr(str: String): String {
+        val arr = str.split(",")
+        val result = StringBuilder()
+        for (i in arr.indices) {
+            if (!arr[i].equals("0")) {
+                result.append(arr[i] + ", ")
+            }
+
+        }
+        return result.toString().substring(0, result.toString().length - 2)
     }
 }

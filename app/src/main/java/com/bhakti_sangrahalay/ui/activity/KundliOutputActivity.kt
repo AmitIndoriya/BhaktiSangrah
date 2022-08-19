@@ -52,7 +52,7 @@ class KundliOutputActivity : BaseActivity() {
         toolbarSetUp()
         //setTitle(resources.getString(R.string.kundli))
         getDataFromIntent()
-        addFragment(KundliOutputFragment.getInstance(Constants.BASIC_TYPE))
+        addFragment(KundliOutputFragment.getInstance(Constants.KP_SYSTEM_TYPE))
         /*  setUpViewPager(2)
           setListener()*/
     }
