@@ -47,7 +47,7 @@ object KpRulingPlanetCalculation : CalculationInterface by KundliCalculationBase
     private fun getKPPlanetDegreeArray(): DoubleArray {
         val planetDegree = getPlanetDegreeArray()
         val degree = DoubleArray(13)
-        var tempCalculation = 0.0
+        var tempCalculation: Double
         val ayanDiff = arrayList[0].ayan.toDouble() - arrayList[0].kpayan.toDouble()
         var str = ""
         for (i in 1 until planetDegree.size) {
@@ -73,8 +73,8 @@ object KpRulingPlanetCalculation : CalculationInterface by KundliCalculationBase
         return (_deg * 0.075).toInt()
     }
 
-    private fun getSubLordNumber(d: Double): Int {
-        var d = d
+    private fun getSubLordNumber(deg: Double): Int {
+        var d = deg
         var i = 0
 
         // f = (int) (d / 30.0);
@@ -83,7 +83,7 @@ object KpRulingPlanetCalculation : CalculationInterface by KundliCalculationBase
         a = (d * 3.0 / 40.0).toInt()
         d -= a * 40.0 / 3.0
         d *= 9.0
-        var b: Int = 0
+        var b = 0
         while (b < 9) {
             i = a + b
             if (i >= 9) i -= 9
@@ -180,7 +180,6 @@ object KpRulingPlanetCalculation : CalculationInterface by KundliCalculationBase
                 )
             )
         )
-
         return rulingPlanetList
     }
 }
