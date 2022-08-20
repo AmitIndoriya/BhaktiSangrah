@@ -519,13 +519,11 @@
     </string-array>
     <string-array name="kp_module_list">
         <item>@string/kp_chart</item>
-        <!--  <item>@string/hora </item>-->
         <item>@string/rashi_chart </item>
         <item>@string/Planets</item>
         <item>@string/cusps</item>
         <item>@string/planet_significations</item>
         <item>@string/house_significators</item>
-        <!-- <item>@string/Dwadashamamsha</item>-->
         <item>@string/planet_signification_view2</item>
         <item>@string/nakshatra_nadi</item>
         <item>@string/cil_sub_sub</item>
@@ -533,7 +531,7 @@
         <item>@string/cil_sub</item>
         <item>@string/ruling_planets</item>
         <item>@string/misc</item>
-        <item>@string/kp_cusp</item>
+       <!-- <item>@string/kp_cusp</item>-->
     </string-array>
     <string-array name="planet_and_lagna_name_list">
         <item>Lag</item>
