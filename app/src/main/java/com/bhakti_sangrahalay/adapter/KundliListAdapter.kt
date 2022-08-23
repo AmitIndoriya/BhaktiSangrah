@@ -19,6 +19,7 @@ import com.bhakti_sangrahalay.ui.activity.MatchMakingInputActivity
 
 class KundliListAdapter(
     val context: Context,
+    val monthName: Array<String>,
     private val birthDetailBeanList: ArrayList<BirthDetailBean>
 ) :
     RecyclerView.Adapter<KundliListAdapter.MyView>() {
@@ -36,7 +37,7 @@ class KundliListAdapter(
         val placeBean = birthDetailBeanList[position].placeBean
         holder.nameTV.text = birthDetailBean.name
         holder.dobTV.text =
-            dateTimeBean.day + " " + dateTimeBean.month + " " + dateTimeBean.year + " | "
+            dateTimeBean.day + " " + monthName[dateTimeBean.month.toInt()] + " " + dateTimeBean.year + " | "
         holder.tobTV.text = dateTimeBean.hrs + " " + dateTimeBean.min + " " + dateTimeBean.sec
         holder.pobTV.text = placeBean.place
 

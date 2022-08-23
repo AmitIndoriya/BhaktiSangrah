@@ -1,5 +1,6 @@
 package com.bhakti_sangrahalay.matchmaking.calculation
 
+import android.util.Log
 import com.bhakti_sangrahalay.R
 import com.bhakti_sangrahalay.app.MyApp
 import com.bhakti_sangrahalay.kundli.model.BirthDetailBean
@@ -65,7 +66,6 @@ object MatchMakingCalculation {
         maxList.add(matchMaking.maximumBhakoot)
         maxList.add(matchMaking.maximumNadi)
 
-
         val total = matchMaking.total
         val gunaList = ArrayList<GunaListBean>()
 
@@ -82,8 +82,8 @@ object MatchMakingCalculation {
 
         return MatchMakingResultBean(
             total = total,
-            isBoyHasMangalDosh = boyDesktopHoro.isMangalDosh,
-            isGirlHasMangalDosh = girlDesktopHoro.isMangalDosh,
+            boyHasMangalDosh = boyDesktopHoro.CalcMangalDosh(),
+            girlHasMangalDosh = girlDesktopHoro.CalcMangalDosh(),
             gunaList = gunaList
         )
 

@@ -6,18 +6,24 @@ import com.bhakti_sangrahalay.R
 import com.bhakti_sangrahalay.inteface.CalculationInterface
 import com.bhakti_sangrahalay.kundli.model.KpRulingPlanetBean
 import com.bhakti_sangrahalay.model.KundliBean
+import kotlin.properties.Delegates
 
 object KpRulingPlanetCalculation : CalculationInterface by KundliCalculationBaseObject {
-    var y1 = intArrayOf(7, 20, 6, 10, 7, 18, 16, 19, 17)
+    private var y1 = intArrayOf(7, 20, 6, 10, 7, 18, 16, 19, 17)
     lateinit var arrayList: ArrayList<KundliBean>
     private lateinit var planetDegree: DoubleArray
     private lateinit var kpCuspDegree: DoubleArray
+    private var fortuna by Delegates.notNull<Double>()
 
 
     fun setData(arrayList: ArrayList<KundliBean>) {
-        KpRulingPlanetCalculation.arrayList = arrayList
+        this.arrayList = arrayList
         planetDegree = getKPPlanetDegreeArray()
         kpCuspDegree = getKpDegreeArray()
+        fortuna= arrayList[0].fortuna.toDouble()
+        if(fortuna<0){
+            fortuna+=360
+        }
     }
 
     private fun getPlanetDegreeArray(): DoubleArray {
@@ -149,13 +155,13 @@ object KpRulingPlanetCalculation : CalculationInterface by KundliCalculationBase
         val labelList = context.resources.getStringArray(R.array.kp_misc_label_list)
         rulingPlanetList.add(
             KpRulingPlanetBean(
-                labelList[0], rashiNameList.get(getRasiNumber(arrayList[0].fortuna.toDouble()))
+                labelList[0], rashiNameList[getRasiNumber(fortuna)]
             )
         )
         rulingPlanetList.add(
             KpRulingPlanetBean(
                 labelList[1], formatDMSInStringWithSign(
-                    fDeg = arrayList[0].fortuna.toDouble(),
+                    fDeg = fortuna,
                     DegSign = degSign,
                     MinSign = minSign,
                     SecSign = secSign
@@ -165,7 +171,7 @@ object KpRulingPlanetCalculation : CalculationInterface by KundliCalculationBase
         rulingPlanetList.add(
             KpRulingPlanetBean(
                 labelList[2],
-                naksLordNameList.get(getSubLordNumber(arrayList[0].fortuna.toDouble()))
+                naksLordNameList[getSubLordNumber(fortuna)]
             )
         )
         rulingPlanetList.add(

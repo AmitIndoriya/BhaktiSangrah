@@ -50,6 +50,7 @@ open class BirthDetailInputBaseViewModel : BaseViewModel() {
         }
     }
 
+
     @OptIn(DelicateCoroutinesApi::class)
     fun insertBirthDetailInfo(
         boyBirthDetailBean: BirthDetailBean,

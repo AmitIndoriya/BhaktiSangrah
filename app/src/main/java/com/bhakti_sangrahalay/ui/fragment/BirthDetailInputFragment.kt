@@ -2,11 +2,13 @@ package com.bhakti_sangrahalay.ui.fragment
 
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.bhakti_sangrahalay.databinding.FragBirthDetailInputLayoutBinding
 import com.bhakti_sangrahalay.kundli.model.BirthDetailBean
 import com.bhakti_sangrahalay.kundli.model.DateTimeBean
@@ -18,7 +20,7 @@ import com.bhakti_sangrahalay.ui.dialogs.TimePickerDialog
 import com.bhakti_sangrahalay.util.Utility
 import java.util.*
 
-class BirthDetailInputFragment : BaseFragment(), View.OnClickListener,
+class BirthDetailInputFragment : BirthDetailInputBaseFragment(), View.OnClickListener,
     AdapterView.OnItemSelectedListener {
 
     lateinit var binding: FragBirthDetailInputLayoutBinding
@@ -43,8 +45,8 @@ class BirthDetailInputFragment : BaseFragment(), View.OnClickListener,
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         (requireActivity() as BirthDetailInputActivityNew).viewModel.openDetailForUpdate.observe(
-            this,
-            { populateData(it) })
+            this
+        ) { populateData(it) }
     }
 
     override fun onCreateView(
@@ -104,10 +106,10 @@ class BirthDetailInputFragment : BaseFragment(), View.OnClickListener,
         binding.dstSpinner.adapter = adapter
     }
 
-    fun setDate(day: Int, month: Int, year: Int) {
+    override fun setDate(day: Int, month: Int, year: Int) {
         val dateTimeBean = birthDetailBean.dateTimeBean
         dateTimeBean.day = day.toString()
-        dateTimeBean.month = (month + 1).toString()
+        dateTimeBean.month = month.toString()
         dateTimeBean.year = year.toString()
         birthDetailBean.dateTimeBean = dateTimeBean
         val monthShortName =
@@ -115,9 +117,12 @@ class BirthDetailInputFragment : BaseFragment(), View.OnClickListener,
         binding.dateValTv.text = day.toString() + " - " + monthShortName[month] + " - " + year
     }
 
-    fun setTime(hour: Int, minute: Int, am_pm: Int) {
+    override fun setTime(hour: Int, minute: Int, am_pm: Int) {
         val dateTimeBean = birthDetailBean.dateTimeBean
         dateTimeBean.hrs = hour.toString()
+        if (am_pm == 1) {
+            dateTimeBean.hrs = (12 + hour).toString()
+        }
         dateTimeBean.min = minute.toString()
         dateTimeBean.sec = "00"
         birthDetailBean.dateTimeBean = dateTimeBean
@@ -128,7 +133,7 @@ class BirthDetailInputFragment : BaseFragment(), View.OnClickListener,
         )
     }
 
-    fun setPlace() {
+    override fun setPlace() {
 
     }
 
@@ -142,16 +147,28 @@ class BirthDetailInputFragment : BaseFragment(), View.OnClickListener,
         (requireActivity() as BirthDetailInputActivityNew).viewModel.insertBirthDetailInfo(
             birthDetailBean
         )
+    }
 
+    private fun updateBirthDetail() {
+        (requireActivity() as BirthDetailInputActivityNew).viewModel.updateBirthDetailInfo(
+            birthDetailBean
+        )
     }
 
     override fun onClick(v: View) {
         when (v.id) {
             com.bhakti_sangrahalay.R.id.calculate_btn -> {
-                saveBirthDetailInDB()
-                (requireActivity() as BirthDetailInputActivityNew).startKundliOutputActivity(
-                    birthDetailBean
-                )
+                if (validate()) {
+                    birthDetailBean.name = binding.nameEt.text.toString()
+                    if (birthDetailBean.id == -1L) {
+                        saveBirthDetailInDB()
+                    } else {
+                        updateBirthDetail()
+                    }
+                    (requireActivity() as BirthDetailInputActivityNew).startKundliOutputActivity(
+                        birthDetailBean
+                    )
+                }
             }
             com.bhakti_sangrahalay.R.id.date_val_tv -> {
                 val dateTimeBean = birthDetailBean.dateTimeBean
@@ -188,16 +205,22 @@ class BirthDetailInputFragment : BaseFragment(), View.OnClickListener,
     }
 
     private fun getBirthDetailWithDefaultBirthDetail(): BirthDetailBean {
+        val calendar = Calendar.getInstance()
+        var hrs = calendar[Calendar.HOUR]
+        if (calendar[Calendar.AM_PM] == 1) {
+            hrs += 12
+        }
+
         return BirthDetailBean(
-            name = "Amit",
+            name = "",
             sex = "M",
             dateTimeBean = DateTimeBean(
-                day = "23", //calendar[Calendar.DATE].toString(),
-                month = "11",//calendar[Calendar.MONTH].toString(),
-                year = "2020",//calendar[Calendar.YEAR].toString(),
-                hrs = "18",//calendar[Calendar.HOUR].toString(),
-                min = "30",//calendar[Calendar.MINUTE].toString(),
-                sec = "00",//calendar[Calendar.SECOND].toString(),
+                day = calendar[Calendar.DATE].toString(),
+                month = calendar[Calendar.MONTH].toString(),
+                year = calendar[Calendar.YEAR].toString(),
+                hrs = hrs.toString(),
+                min = calendar[Calendar.MINUTE].toString(),
+                sec = calendar[Calendar.SECOND].toString(),
             ),
             placeBean = PlaceBean(
                 place = "Agra",
@@ -216,5 +239,13 @@ class BirthDetailInputFragment : BaseFragment(), View.OnClickListener,
             button1 = "Get+Kundali",
             languageCode = "0",
         )
+    }
+
+    fun validate(): Boolean {
+        if (TextUtils.isEmpty(binding.nameEt.text)) {
+            Toast.makeText(requireActivity(), "Enter Boy Name", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        return true
     }
 }

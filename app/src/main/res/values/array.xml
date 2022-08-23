@@ -531,7 +531,7 @@
         <item>@string/cil_sub</item>
         <item>@string/ruling_planets</item>
         <item>@string/misc</item>
-       <!-- <item>@string/kp_cusp</item>-->
+        <!-- <item>@string/kp_cusp</item>-->
     </string-array>
     <string-array name="planet_and_lagna_name_list">
         <item>Lag</item>
@@ -687,14 +687,14 @@
     <string-array name="dashboard_module_list">
         <item>@string/aarti</item>
         <item>@string/chalisha</item>
+        <item>@string/vart_kathayen</item>
+        <item>@string/pauranik_katha</item>
+        <item>@string/mantra</item>
+        <item>@string/sunder_kaand</item>
+        <item>@string/panchang</item>
         <item>@string/kundli</item>
-        <item>@string/panchang</item>
-        <item>@string/panchang</item>
-        <item>@string/panchang</item>
-        <item>@string/panchang</item>
-        <item>@string/panchang</item>
-        <item>@string/panchang</item>
-        <item>@string/panchang</item>
+        <item>@string/mashik_panchang</item>
+        <item>@string/match_making</item>
     </string-array>
     <string-array name="dashboard_module_icon_list">
         <item>@drawable/panchang</item>
@@ -816,6 +816,12 @@
         <item>@string/fortuna_sub_sub</item>
         <item>@string/kp_ayanamsa</item>
     </string-array>
+    <string-array name="mangal_dosh_list">
+        <item>@string/has_no_mangal_dosh</item>
+        <item>@string/has_low_mangal_dosh</item>
+        <item>@string/has_medium_mangal_dosh</item>
+        <item>@string/has_high_mangal_dosh</item>
+    </string-array>
     <string name="kp_chart">KP Chart</string>
     <string name="rashi_chart">Rashi Chart</string>
     <string name="cusps">Cusps</string>
@@ -856,4 +862,6 @@
     <string name="fortuna_sub_sub">Fortuna Sub Sub</string>
     <string name="fortuna_sign">Fortuna Sign</string>
     <string name="fortuna">Fortuna</string>
+    <string name="mashik_panchang">Mashik Panchang</string>
+    <string name="match_making">Match Making</string>
 </resources>

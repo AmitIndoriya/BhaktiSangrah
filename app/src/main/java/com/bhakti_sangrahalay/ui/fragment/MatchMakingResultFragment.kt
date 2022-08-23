@@ -1,6 +1,7 @@
 package com.bhakti_sangrahalay.ui.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -49,22 +50,26 @@ class MatchMakingResultFragment : Fragment() {
         binding.totalTv.text = matchMakingResultBean.total.toString()
         val boyName = (requireActivity() as MatchMakingResultActivity).boyDetail.name
         val girlName = (requireActivity() as MatchMakingResultActivity).girlDetail.name
-        if (matchMakingResultBean.isBoyHasMangalDosh) {
-            binding.boyMangalDoshTv.text =
-                resources.getString(R.string.has_mangal_dosh).replace("#", boyName)
-        } else {
-            binding.boyMangalDoshTv.text =
-                resources.getString(R.string.has_no_mangal_dosh).replace("#", boyName)
-        }
-        if (matchMakingResultBean.isGirlHasMangalDosh) {
-            binding.girlMangalDoshTv.text =
-                resources.getString(R.string.has_mangal_dosh).replace("#", girlName)
-        } else {
-            binding.girlMangalDoshTv.text =
-                resources.getString(R.string.has_no_mangal_dosh).replace("#", girlName)
-        }
-        if (matchMakingResultBean.total > 15) {
-            binding.resultTv.text = resources.getString(R.string.marriage_conclusion1)
+        val boyMangalDosh = matchMakingResultBean.boyHasMangalDosh
+        val girlMangalDosh = matchMakingResultBean.girlHasMangalDosh
+        Log.i("CalcMangalDoshString", "" + boyMangalDosh + "," + girlMangalDosh)
+        binding.boyMangalDoshTv.text =
+            resources.getStringArray(R.array.mangal_dosh_list)[boyMangalDosh - 1].replace(
+                "#",
+                boyName
+            )
+        binding.girlMangalDoshTv.text =
+            resources.getStringArray(R.array.mangal_dosh_list)[girlMangalDosh - 1].replace(
+                "#",
+                girlName
+            )
+
+        if (matchMakingResultBean.total > 18) {
+            if (boyMangalDosh == girlMangalDosh) {
+                binding.resultTv.text = resources.getString(R.string.marriage_conclusion1)
+            } else {
+                binding.resultTv.text = resources.getString(R.string.marriage_conclusion3)
+            }
         } else {
             binding.resultTv.text = resources.getString(R.string.marriage_conclusion2)
         }

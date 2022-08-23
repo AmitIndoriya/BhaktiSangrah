@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bhakti_sangrahalay.R
 import com.bhakti_sangrahalay.adapter.KundliListAdapter
 import com.bhakti_sangrahalay.databinding.FragKundliListLayoutBinding
 import com.bhakti_sangrahalay.kundli.model.BirthDetailBean
@@ -78,9 +79,10 @@ class KundliListFragment : Fragment() {
     }
 
     private fun setListData(birthDetailBeanList: ArrayList<BirthDetailBean>) {
+        val monthName = resources.getStringArray(R.array.month_short_name_en)
         binding.recyclerView.isNestedScrollingEnabled = false
         val kundliListAdapter =
-            KundliListAdapter(requireActivity(), birthDetailBeanList)
+            KundliListAdapter(requireActivity(), monthName, birthDetailBeanList)
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(requireActivity())
         binding.recyclerView.layoutManager = mLayoutManager
         binding.recyclerView.itemAnimator = DefaultItemAnimator()

@@ -25,7 +25,7 @@ public class GenerateKundliData {
             String name = birthDetailBean.getName();
             String sex = birthDetailBean.getSex();
             String day = birthDetailBean.getDateTimeBean().getDay();
-            String month = birthDetailBean.getDateTimeBean().getMonth();
+            String month = String.valueOf(Integer.parseInt(birthDetailBean.getDateTimeBean().getMonth())+1);
             String year = birthDetailBean.getDateTimeBean().getYear();
             String hrs = birthDetailBean.getDateTimeBean().getHrs();
             String min = birthDetailBean.getDateTimeBean().getMin();

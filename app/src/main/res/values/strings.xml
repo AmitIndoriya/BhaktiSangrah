@@ -569,10 +569,15 @@
     <string name="bh_begin">Bh.Begin</string>
     <string name="mid_bh">Mid Bh</string>
     <string name="ashtakoot_matching_points">Ashtakoot Matching Points</string>
-    <string name="has_mangal_dosh"># has Mangal Dosh</string>
+
     <string name="has_no_mangal_dosh"># has no Mangal Dosh</string>
+    <string name="has_low_mangal_dosh"># has low Mangal Dosh</string>
+    <string name="has_medium_mangal_dosh"># has medium Mangal Dosh</string>
+    <string name="has_high_mangal_dosh"># has high Mangal Dosh</string>
     <string name="marriage_conclusion1"><b>Conclusion:- </b> this marriage is preferable</string>
     <string name="marriage_conclusion2"><b>Conclusion:- </b> this marriage is not preferable</string>
+    <string name="marriage_conclusion3"><b>Conclusion:- </b> There is substantial difference in the level of Mangal Dosh compatibility of both the horoscope.It is advisable to consult a learned asrologer before proceeding to marriage.</string>
+    No ÿ Low ÿ Medium ÿ High
     <string name="guna">Guna</string>
     <string name="maximum">Maximum</string>
     <string name="obtained">Obtained</string>
