@@ -64,18 +64,22 @@ class BirthDetailInputFragment : BirthDetailInputBaseFragment(), View.OnClickLis
         return binding.root
     }
 
-    private fun populateData(birthDetailBean: BirthDetailBean) {
-        val calendar = Calendar.getInstance()
+    fun populateData(birthDetailBean: BirthDetailBean) {
         this.birthDetailBean = birthDetailBean
+        val dateTimeBean = birthDetailBean.dateTimeBean
+        var amPm = 0
+        if (dateTimeBean.hrs.toInt() > 12) {
+            amPm = 1
+        }
         val monthShortName =
             resources.getStringArray(com.bhakti_sangrahalay.R.array.month_short_name_en)
-
+        binding.nameEt.setText(birthDetailBean.name)
         binding.dateValTv.text =
-            calendar[Calendar.DATE].toString() + " - " + monthShortName[calendar[Calendar.MONTH]] + " - " + calendar[Calendar.YEAR]
+            dateTimeBean.hrs + " - " + monthShortName[dateTimeBean.month.toInt()] + " - " + dateTimeBean.year
         binding.timeValTv.text = Utility.getFormattedTime(
-            calendar[Calendar.HOUR],
-            calendar[Calendar.MINUTE],
-            calendar[Calendar.AM_PM]
+            dateTimeBean.hrs.toInt(),
+            dateTimeBean.min.toInt(),
+            amPm
         )
         binding.placeValTv.text = "Jaipur, Rajasthan, India"
     }

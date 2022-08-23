@@ -52,7 +52,7 @@ class KundliOutputActivity : BaseActivity() {
         toolbarSetUp()
         //setTitle(resources.getString(R.string.kundli))
         getDataFromIntent()
-        addFragment(KundliOutputFragment.getInstance(Constants.KP_SYSTEM_TYPE))
+        addFragment(KundliOutputFragment.getInstance(Constants.BASIC_TYPE))
         /*  setUpViewPager(2)
           setListener()*/
     }
@@ -109,7 +109,7 @@ class KundliOutputActivity : BaseActivity() {
     private fun replaceFragment(fragment: Fragment) {
         val fm = supportFragmentManager
         val tr = fm.beginTransaction()
-        tr.setCustomAnimations(R.anim.fade_out, R.anim.fade_in);
+        tr.setCustomAnimations(R.anim.fade_out, R.anim.fade_in)
         tr.replace(R.id.fragment_container_view, fragment)
         tr.commitAllowingStateLoss()
     }
@@ -131,6 +131,9 @@ class KundliOutputActivity : BaseActivity() {
                 /*val kpModuleList = resources.getStringArray(R.array.kp_module_list)
                 setViewPagerAdapter(kpModuleList, getKpSystemFragmentList())*/
                 replaceFragment(KundliOutputFragment.getInstance(Constants.KP_SYSTEM_TYPE))
+            }
+            3 -> {
+                replaceFragment(KundliOutputFragment.getInstance(Constants.DASHA_TYPE))
             }
         }
 
@@ -162,16 +165,14 @@ class KundliOutputActivity : BaseActivity() {
                 R.id.basic -> {
                     binding.drawerLayout.closeDrawer(GravityCompat.START, true)
                     setUpViewPager(0)
-
                 }
                 R.id.dasha -> {
                     binding.drawerLayout.closeDrawer(GravityCompat.START, true)
+                    setUpViewPager(3)
                 }
                 R.id.shodasvarga -> {
                     setUpViewPager(1)
                     binding.drawerLayout.closeDrawer(GravityCompat.START, true)
-
-
                 }
                 R.id.kp_system -> {
                     binding.drawerLayout.closeDrawer(GravityCompat.START, true)
@@ -181,6 +182,9 @@ class KundliOutputActivity : BaseActivity() {
                     binding.drawerLayout.closeDrawer(GravityCompat.START, true)
                 }
                 R.id.varshfal -> {
+                    binding.drawerLayout.closeDrawer(GravityCompat.START, true)
+                }
+                R.id.prediction -> {
                     binding.drawerLayout.closeDrawer(GravityCompat.START, true)
                 }
             }

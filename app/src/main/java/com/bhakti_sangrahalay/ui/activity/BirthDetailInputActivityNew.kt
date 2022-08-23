@@ -15,6 +15,7 @@ import com.bhakti_sangrahalay.databinding.ActivityBirthDetailInputLayoutBinding
 import com.bhakti_sangrahalay.kundli.model.BirthDetailBean
 import com.bhakti_sangrahalay.ui.fragment.BirthDetailInputFragment
 import com.bhakti_sangrahalay.ui.fragment.KundliListFragment
+import com.bhakti_sangrahalay.ui.fragment.MMBirthDetailInputFragment
 import com.bhakti_sangrahalay.viewmodel.BirthDetaiInputActivityViewModel
 import com.bhakti_sangrahalay.viewmodel.BirthDetailInputBaseViewModel
 import com.google.android.material.tabs.TabLayout
@@ -32,7 +33,9 @@ class BirthDetailInputActivityNew : BaseActivity() {
             this,
             viewModelFactory
         )[BirthDetaiInputActivityViewModel::class.java]
-
+        viewModel.openDetailForUpdate.observe(this) {
+            updateBirthDetail(it)
+        }
     }
 
     override fun setTypeface() {
@@ -99,5 +102,12 @@ class BirthDetailInputActivityNew : BaseActivity() {
         bundle.putSerializable("BirthDetail", birthDetailBean)
         intent.putExtras(bundle)
         startActivity(intent)
+    }
+
+    private fun updateBirthDetail(birthDetailBean: BirthDetailBean) {
+        binding.viewPager.setCurrentItem(1, true)
+        ((binding.viewPager.adapter as FragmentViewPagerAdapter).getItem(1) as BirthDetailInputFragment).populateData(
+            birthDetailBean
+        )
     }
 }
