@@ -18,6 +18,7 @@ import com.bhakti_sangrahalay.ui.activity.MatchMakingResultActivity
 import com.bhakti_sangrahalay.ui.dialogs.DatePickerDialog
 import com.bhakti_sangrahalay.ui.dialogs.TimePickerDialog
 import com.bhakti_sangrahalay.util.Utility
+import java.util.*
 
 class MMBirthDetailInputFragment : BirthDetailInputBaseFragment(), View.OnClickListener,
     AdapterView.OnItemSelectedListener {
@@ -85,7 +86,7 @@ class MMBirthDetailInputFragment : BirthDetailInputBaseFragment(), View.OnClickL
             resources.getStringArray(com.bhakti_sangrahalay.R.array.month_short_name_en)
         binding.boyNameEt.setText(birthDetailBean.name)
         binding.boyDateValTv.text =
-            dateTimeBean.day + " - " + monthShortName[dateTimeBean.month.toInt()-1] + " - " + dateTimeBean.year
+            dateTimeBean.day + " - " + monthShortName[dateTimeBean.month.toInt() ] + " - " + dateTimeBean.year
         var amPm = 0
         if (dateTimeBean.hrs.toInt() > 12) {
             amPm = 1
@@ -107,7 +108,7 @@ class MMBirthDetailInputFragment : BirthDetailInputBaseFragment(), View.OnClickL
             resources.getStringArray(com.bhakti_sangrahalay.R.array.month_short_name_en)
         binding.girlNameEt.setText(birthDetailBean.name)
         binding.girlDateValTv.text =
-            dateTimeBean.day + " - " + monthShortName[dateTimeBean.month.toInt()-1] + " - " + dateTimeBean.year
+            dateTimeBean.day + " - " + monthShortName[dateTimeBean.month.toInt()] + " - " + dateTimeBean.year
         var amPm = 0
         if (dateTimeBean.hrs.toInt() > 12) {
             amPm = 1
@@ -139,7 +140,7 @@ class MMBirthDetailInputFragment : BirthDetailInputBaseFragment(), View.OnClickL
     private fun setBoyDate(day: Int, month: Int, year: Int) {
         val dateTimeBean = boyBirthDetailBean.dateTimeBean
         dateTimeBean.day = day.toString()
-        dateTimeBean.month = (month + 1).toString()
+        dateTimeBean.month = month.toString()
         dateTimeBean.year = year.toString()
         boyBirthDetailBean.dateTimeBean = dateTimeBean
         val monthShortName =
@@ -150,7 +151,7 @@ class MMBirthDetailInputFragment : BirthDetailInputBaseFragment(), View.OnClickL
     private fun setGirlDate(day: Int, month: Int, year: Int) {
         val dateTimeBean = girlBirthDetailBean.dateTimeBean
         dateTimeBean.day = day.toString()
-        dateTimeBean.month = (month + 1).toString()
+        dateTimeBean.month = month.toString()
         dateTimeBean.year = year.toString()
         girlBirthDetailBean.dateTimeBean = dateTimeBean
         val monthShortName =
@@ -319,16 +320,17 @@ class MMBirthDetailInputFragment : BirthDetailInputBaseFragment(), View.OnClickL
     }
 
     private fun getBoyDefaultBirthDetailBean(): BirthDetailBean {
+        val calendar = Calendar.getInstance()
         return BirthDetailBean(
             name = "Amit",
             sex = "M",
             dateTimeBean = DateTimeBean(
-                day = "23", //calendar[Calendar.DATE].toString(),
-                month = "11",//calendar[Calendar.MONTH].toString(),
-                year = "2020",//calendar[Calendar.YEAR].toString(),
-                hrs = "18",//calendar[Calendar.HOUR].toString(),
-                min = "30",//calendar[Calendar.MINUTE].toString(),
-                sec = "00",//calendar[Calendar.SECOND].toString(),
+                day = calendar[Calendar.DATE].toString(),
+                month = calendar[Calendar.MONTH].toString(),
+                year = calendar[Calendar.YEAR].toString(),
+                hrs = calendar[Calendar.HOUR].toString(),
+                min = calendar[Calendar.MINUTE].toString(),
+                sec = calendar[Calendar.SECOND].toString(),
             ),
             placeBean = PlaceBean(
                 place = "Agra",
@@ -350,16 +352,17 @@ class MMBirthDetailInputFragment : BirthDetailInputBaseFragment(), View.OnClickL
     }
 
     private fun getGirlDefaultBirthDetailBean(): BirthDetailBean {
+        val calendar = Calendar.getInstance()
         return BirthDetailBean(
             name = "Amit",
             sex = "F",
             dateTimeBean = DateTimeBean(
-                day = "23", //calendar[Calendar.DATE].toString(),
-                month = "11",//calendar[Calendar.MONTH].toString(),
-                year = "2020",//calendar[Calendar.YEAR].toString(),
-                hrs = "18",//calendar[Calendar.HOUR].toString(),
-                min = "30",//calendar[Calendar.MINUTE].toString(),
-                sec = "00",//calendar[Calendar.SECOND].toString(),
+                day = calendar[Calendar.DATE].toString(),
+                month = calendar[Calendar.MONTH].toString(),
+                year = calendar[Calendar.YEAR].toString(),
+                hrs = calendar[Calendar.HOUR].toString(),
+                min = calendar[Calendar.MINUTE].toString(),
+                sec = calendar[Calendar.SECOND].toString(),
             ),
             placeBean = PlaceBean(
                 place = "Agra",

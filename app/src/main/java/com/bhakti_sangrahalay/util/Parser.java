@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.util.Log;
 
 import com.bhakti_sangrahalay.contansts.GlobalVariables;
+import com.bhakti_sangrahalay.matchmaking.model.MMInterpretationBean;
 import com.bhakti_sangrahalay.model.AartiBean3;
 import com.bhakti_sangrahalay.model.FestivalModel;
 import com.bhakti_sangrahalay.model.HoroscopeBean;
@@ -353,5 +354,18 @@ public class Parser {
         }
         return arrayList;
     }
+
+    public static ArrayList<MMInterpretationBean> parseInterpretation(String response) {
+        ArrayList<MMInterpretationBean> arrayList = new ArrayList<>();
+        try {
+            arrayList = new Gson().fromJson(response, new TypeToken<ArrayList<MMInterpretationBean>>() {
+            }.getType());
+
+        } catch (Exception ex) {
+            Log.i("Exception", ex.getMessage());
+        }
+        return arrayList;
+    }
+
 
 }

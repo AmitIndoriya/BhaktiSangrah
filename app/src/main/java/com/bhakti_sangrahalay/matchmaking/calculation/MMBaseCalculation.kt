@@ -15,7 +15,7 @@ object MMBaseCalculation {
         desktopHoro.minuteOfBirth = dateTimeBean.min
         desktopHoro.hourOfBirth = dateTimeBean.hrs
         desktopHoro.setDayOfBirth(dateTimeBean.day)
-        desktopHoro.setMonthOfBirth(dateTimeBean.month)
+        desktopHoro.setMonthOfBirth((dateTimeBean.month.toInt() + 1).toString())
         desktopHoro.setYearOfBirth(dateTimeBean.year)
 
         desktopHoro.place = placeBean.place

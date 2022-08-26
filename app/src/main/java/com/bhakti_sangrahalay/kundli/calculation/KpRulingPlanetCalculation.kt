@@ -20,9 +20,11 @@ object KpRulingPlanetCalculation : CalculationInterface by KundliCalculationBase
         this.arrayList = arrayList
         planetDegree = getKPPlanetDegreeArray()
         kpCuspDegree = getKpDegreeArray()
-        fortuna= arrayList[0].fortuna.toDouble()
-        if(fortuna<0){
-            fortuna+=360
+        fortuna = arrayList[0].fortuna.toDouble()
+        if (fortuna < 0) {
+            fortuna += 360
+        } else if (fortuna > 360) {
+            fortuna -= 360
         }
     }
 
@@ -153,6 +155,7 @@ object KpRulingPlanetCalculation : CalculationInterface by KundliCalculationBase
         val naksLordNameList =
             context.resources.getStringArray(R.array.nakshatra_lord_full_name_list)
         val labelList = context.resources.getStringArray(R.array.kp_misc_label_list)
+        Log.i("fortuna", "" + getRasiNumber(fortuna))
         rulingPlanetList.add(
             KpRulingPlanetBean(
                 labelList[0], rashiNameList[getRasiNumber(fortuna)]

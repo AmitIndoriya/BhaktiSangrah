@@ -75,7 +75,7 @@ class BirthDetailInputFragment : BirthDetailInputBaseFragment(), View.OnClickLis
             resources.getStringArray(com.bhakti_sangrahalay.R.array.month_short_name_en)
         binding.nameEt.setText(birthDetailBean.name)
         binding.dateValTv.text =
-            dateTimeBean.hrs + " - " + monthShortName[dateTimeBean.month.toInt()] + " - " + dateTimeBean.year
+            dateTimeBean.day + " - " + monthShortName[dateTimeBean.month.toInt()] + " - " + dateTimeBean.year
         binding.timeValTv.text = Utility.getFormattedTime(
             dateTimeBean.hrs.toInt(),
             dateTimeBean.min.toInt(),
@@ -124,9 +124,6 @@ class BirthDetailInputFragment : BirthDetailInputBaseFragment(), View.OnClickLis
     override fun setTime(hour: Int, minute: Int, am_pm: Int) {
         val dateTimeBean = birthDetailBean.dateTimeBean
         dateTimeBean.hrs = hour.toString()
-        if (am_pm == 1) {
-            dateTimeBean.hrs = (12 + hour).toString()
-        }
         dateTimeBean.min = minute.toString()
         dateTimeBean.sec = "00"
         birthDetailBean.dateTimeBean = dateTimeBean

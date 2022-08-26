@@ -29,11 +29,7 @@ class MatchMakingResultFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (requireActivity() as MatchMakingResultActivity).viewModel.matchMakingResultLiveData.observe(
-            requireActivity()
-        ) {
-            setData(it)
-        }
+
     }
 
     override fun onCreateView(
@@ -42,6 +38,11 @@ class MatchMakingResultFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragMatchMakingResultLayBinding.inflate(inflater, container, false)
+        (requireActivity() as MatchMakingResultActivity).viewModel.matchMakingResultLiveData.observe(
+            requireActivity()
+        ) {
+            setData(it)
+        }
         setTypeface()
         return binding.root
     }

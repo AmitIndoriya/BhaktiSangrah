@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.bhakti_sangrahalay.kundli.model.BirthDetailBean;
 import com.indoriya.horolib.dhoro.DesktopHoro;
+import com.indoriya.horolib.matchmilan.MatchMaking;
 import com.indoriya.horolib.util.Constants;
 
 import org.json.JSONArray;
@@ -25,7 +26,7 @@ public class GenerateKundliData {
             String name = birthDetailBean.getName();
             String sex = birthDetailBean.getSex();
             String day = birthDetailBean.getDateTimeBean().getDay();
-            String month = String.valueOf(Integer.parseInt(birthDetailBean.getDateTimeBean().getMonth())+1);
+            String month = String.valueOf(Integer.parseInt(birthDetailBean.getDateTimeBean().getMonth()) + 1);
             String year = birthDetailBean.getDateTimeBean().getYear();
             String hrs = birthDetailBean.getDateTimeBean().getHrs();
             String min = birthDetailBean.getDateTimeBean().getMin();
@@ -63,10 +64,10 @@ public class GenerateKundliData {
             args1.setYearOfBirth(year);
             args1.setDegreeOfLattitude(LatDeg);
             args1.setMinuteOfLattitude(LatMin);
-            args1.setSecondOfLattitude("00");
+            //args1.setSecondOfLattitude("00");
             args1.setDegreeOfLongitude(LongDeg);
             args1.setMinuteOfLongitude(LongMin);
-            args1.setSecondOfLongitude("00");
+            //args1.setSecondOfLongitude("00");
             args1.setEastWest(LongEW);
             args1.setNorthSouth(LatNS);
             args1.setLanguageCode(languageCode);
@@ -231,6 +232,7 @@ public class GenerateKundliData {
             jsonObject.put("planetDegree", planetDegreeStr.toString());
             jsonObject.put("kpCusp", kpCuspDegreeStr.toString());
             jsonObject.put("kpayan", args1.getKPAyanamsaLongitude());
+            Log.i("fortuna", args1.getKPFortunaLongitude() + ", " + args1.getFortuna());
             jsonObject.put("fortuna", args1.getKPFortunaLongitude());
             jsonObject.put("RPDayLord", args1.getKPDayLordName());
             jsonObject.put("planetsignification1", kpPlanetSignificationStr1.toString());
@@ -283,7 +285,7 @@ public class GenerateKundliData {
             jsonObject.put("prastharashtakvarga", prastharashtakvargaJsonArray);
 
             jsonObject.put("paya", args1.getPayaName());
-            jsonObject.put("varna", args1.getVarnaName()+args1.getVarna());
+            jsonObject.put("varna", args1.getVarnaName() + args1.getVarna());
             jsonObject.put("yoni", args1.getYoniName());
             jsonObject.put("gana", args1.getGanaName() + args1.getGana());
             jsonObject.put("vasya", args1.getVasyaName());
@@ -306,6 +308,8 @@ public class GenerateKundliData {
            /* Log.i("VimsottariDasa3", args1.getVimsottariDasaThreeLevelString());
             Log.i("VimsottariDasa4", args1.getVimsottariDasaFourLevelString());*/
             jsonArray.put(jsonObject);
+            MatchMaking matchMaking = new MatchMaking();
+            Log.i("Vasya", args1.getVasya() + "," + args1.getVasyaName() + "," + matchMaking.calculateVashya(args1.getMoon()));
 
         } catch (Exception var1) {
             var1.printStackTrace();
